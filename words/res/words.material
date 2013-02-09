@@ -1,0 +1,39 @@
+material letter
+{
+    technique
+    {
+        pass 0
+        {
+            // shaders
+            vertexShader = res/shaders/textured-unlit.vert
+            fragmentShader = res/shaders/textured-unlit.frag
+            defines = SPECULAR
+
+            // uniforms
+            u_worldViewProjectionMatrix = WORLD_VIEW_PROJECTION_MATRIX
+            u_inverseTransposeWorldViewMatrix = INVERSE_TRANSPOSE_WORLD_VIEW_MATRIX
+            u_cameraPosition = CAMERA_WORLD_POSITION
+            u_ambientColor = 0.5, 0.5, 0.5
+            u_lightColor = .75, .75, .75
+            u_specularExponent = 50
+            
+            // samplers
+            sampler u_diffuseTexture
+            {
+                path = res/png/a_texture.png
+                mipmap = true
+                wrapS = CLAMP
+                wrapT = CLAMP
+                minFilter = NEAREST_MIPMAP_LINEAR
+                magFilter = LINEAR
+            }
+
+            // render state
+            renderState
+            {
+                cullFace = true
+                depthTest = true
+            }
+        }
+    }
+}
