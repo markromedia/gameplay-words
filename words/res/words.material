@@ -20,7 +20,7 @@ material letter
             // samplers
             sampler u_diffuseTexture
             {
-                path = res/png/a_texture.png
+                path = res/png/letter_a_texture.png
                 mipmap = true
                 wrapS = CLAMP
                 wrapT = CLAMP

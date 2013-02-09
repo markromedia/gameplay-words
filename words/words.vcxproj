@@ -312,6 +312,7 @@ xcopy ..\gameplay-1.6\bin\windows $(OutDir) /E /I /Y </Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include=".cproject" />
+    <None Include=".gitignore" />
     <None Include=".project" />
     <None Include="bar-descriptor.xml">
       <SubType>Designer</SubType>
@@ -327,6 +328,7 @@ xcopy ..\gameplay-1.6\bin\windows $(OutDir) /E /I /Y </Command>
     <None Include="res\letter.FBX" />
     <None Include="res\letter.gpb" />
     <None Include="res\png\a_texture.png" />
+    <None Include="res\png\letter_a_texture.png" />
     <None Include="res\shaders\ambient.frag" />
     <None Include="res\shaders\ambient.vert" />
     <None Include="res\shaders\colored-unlit.frag" />
@@ -348,6 +350,8 @@ xcopy ..\gameplay-1.6\bin\windows $(OutDir) /E /I /Y </Command>
     <None Include="res\shaders\textured-unlit.vert" />
     <None Include="res\shaders\textured.frag" />
     <None Include="res\shaders\textured.vert" />
+    <None Include="res\tile.FBX" />
+    <None Include="res\tile.gpb" />
     <None Include="res\words.material" />
     <None Include="words-ios.plist" />
     <None Include="words-macosx.plist" />

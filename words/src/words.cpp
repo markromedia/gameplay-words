@@ -8,13 +8,10 @@ words::words()
 {
 }
 
-
-
-
 void words::initialize()
 {
     // Load game scene from file
-    Bundle* bundle = Bundle::create("res/letter.gpb");
+    Bundle* bundle = Bundle::create("res/tile.gpb");
     scene = bundle->loadScene();
     SAFE_RELEASE(bundle);
 
@@ -31,7 +28,7 @@ void words::initialize()
 	int y_offset = -40;
 	
 	//set up the letter
-	box_node = scene->findNode("Box09");
+	box_node = scene->findNode("Tile");
 	Material *material = box_node->getModel()->setMaterial("res/words.material#letter");
 	box_node->setTranslation(-90, -70 + y_offset, 0);
 

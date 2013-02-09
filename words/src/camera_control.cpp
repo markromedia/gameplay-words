@@ -6,7 +6,7 @@ CameraControl::CameraControl(Node* camera_node) {
 	this->camera_node = camera_node;
 	camera_move_direction = NONE;
 
-	camera_target.x = 0; camera_target.y = 0; camera_target.z = 400; 
+	camera_target.x = 0; camera_target.y = 0; camera_target.z = 325; 
 	camera_node->translate(camera_target);
 }
 
