@@ -4,3 +4,5 @@ words.vcxproj.filters
 words.vcxproj.user
 words.opensdf
 ipch
+words.xcodeproj/project.xcworkspace/
+words.xcodeproj/xcuserdata/

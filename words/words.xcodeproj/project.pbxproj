@@ -28,7 +28,6 @@
 		42049B7916ADBCC3005DD1F9 /* libvorbis.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42049B7516ADBCC3005DD1F9 /* libvorbis.a */; };
 		42049B7A16ADBCC3005DD1F9 /* libvorbisenc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42049B7616ADBCC3005DD1F9 /* libvorbisenc.a */; };
 		42049B7B16ADBCC3005DD1F9 /* libvorbisfile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42049B7716ADBCC3005DD1F9 /* libvorbisfile.a */; };
-		42049B7D16ADBCDB005DD1F9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42049B7C16ADBCDB005DD1F9 /* Default-568h@2x.png */; };
 		421539CA16ADC583001308A3 /* libgameplay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 421539C916ADC583001308A3 /* libgameplay.a */; };
 		421539CD16ADC592001308A3 /* libgameplay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 421539CC16ADC592001308A3 /* libgameplay.a */; };
 		424CC03C161FCBDD00577827 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 424CC03B161FCBDD00577827 /* IOKit.framework */; };
@@ -44,7 +43,26 @@
 		5B61611614CCC24C0073B857 /* words.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 42C932EF1491A5160098216A /* words.cpp */; };
 		5B61612614CCC24C0073B857 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C932ED1491A4CB0098216A /* icon.png */; };
 		5B61612714CCC24C0073B857 /* res in Resources */ = {isa = PBXBuildFile; fileRef = 42C932F21491A53E0098216A /* res */; };
+		9041D25516C6BBB00098C475 /* camera_control.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9041D25316C6BBB00098C475 /* camera_control.cpp */; };
+		9041D25616C6BFCB0098C475 /* camera_control.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9041D25316C6BBB00098C475 /* camera_control.cpp */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9041D24E16C6BAD50098C475 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BC4E77F150F879E00CBE1C0 /* gameplay.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4234D99A14686C52003031B3;
+			remoteInfo = "gameplay-macosx";
+		};
+		9041D25016C6BAD50098C475 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BC4E77F150F879E00CBE1C0 /* gameplay.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5B04C5CA14BFCFE100EB0071;
+			remoteInfo = "gameplay-ios";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		42049B5216ADBB61005DD1F9 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
@@ -68,7 +86,6 @@
 		42049B7516ADBCC3005DD1F9 /* libvorbis.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvorbis.a; path = "../gameplay-1.6/external-deps/oggvorbis/lib/ios/armv7/libvorbis.a"; sourceTree = "<group>"; };
 		42049B7616ADBCC3005DD1F9 /* libvorbisenc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvorbisenc.a; path = "../gameplay-1.6/external-deps/oggvorbis/lib/ios/armv7/libvorbisenc.a"; sourceTree = "<group>"; };
 		42049B7716ADBCC3005DD1F9 /* libvorbisfile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvorbisfile.a; path = "../gameplay-1.6/external-deps/oggvorbis/lib/ios/armv7/libvorbisfile.a"; sourceTree = "<group>"; };
-		42049B7C16ADBCDB005DD1F9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		421539C916ADC583001308A3 /* libgameplay.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgameplay.a; path = "~/Library/Developer/Xcode/DerivedData/gameplay-exiunaubxxjndaapmcqkaoeboiob/Build/Products/Debug/libgameplay.a"; sourceTree = "<group>"; };
 		421539CC16ADC592001308A3 /* libgameplay.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgameplay.a; path = "~/Library/Developer/Xcode/DerivedData/gameplay-exiunaubxxjndaapmcqkaoeboiob/Build/Products/Debug-iphoneos/libgameplay.a"; sourceTree = "<group>"; };
 		424CC03B161FCBDD00577827 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
@@ -86,8 +103,10 @@
 		5B61611214CCC2200073B857 /* words-macosx.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "words-macosx.plist"; sourceTree = "<group>"; };
 		5B61612C14CCC24C0073B857 /* words-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "words-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B61612E14CCC24D0073B857 /* words-ios.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "words-ios.plist"; sourceTree = "<group>"; };
-		5BC4E77F150F879E00CBE1C0 /* gameplay.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = gameplay.xcodeproj; path = ../gameplay-1.6/gameplay/gameplay.xcodeproj; sourceTree = SOURCE_ROOT; };
-		5BC4E849150F911D00CBE1C0 /* shaders */ = {isa = PBXFileReference; lastKnownFileType = text; name = shaders; path = ../gameplay-1.6/gameplay/res/shaders; sourceTree = SOURCE_ROOT; };
+		5BC4E77F150F879E00CBE1C0 /* gameplay.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = gameplay.xcodeproj; path = "../gameplay-1.6/gameplay/gameplay.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		5BC4E849150F911D00CBE1C0 /* shaders */ = {isa = PBXFileReference; lastKnownFileType = text; name = shaders; path = "../gameplay-1.6/gameplay/res/shaders"; sourceTree = SOURCE_ROOT; };
+		9041D25316C6BBB00098C475 /* camera_control.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = camera_control.cpp; sourceTree = "<group>"; };
+		9041D25416C6BBB00098C475 /* camera_control.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = camera_control.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +159,6 @@
 		42C932B11491A0DB0098216A = {
 			isa = PBXGroup;
 			children = (
-				42049B7C16ADBCDB005DD1F9 /* Default-568h@2x.png */,
 				5B61611214CCC2200073B857 /* words-macosx.plist */,
 				5B61612E14CCC24D0073B857 /* words-ios.plist */,
 				42C932ED1491A4CB0098216A /* icon.png */,
@@ -174,6 +192,8 @@
 		42C932C61491A0DB0098216A /* src */ = {
 			isa = PBXGroup;
 			children = (
+				9041D25316C6BBB00098C475 /* camera_control.cpp */,
+				9041D25416C6BBB00098C475 /* camera_control.hpp */,
 				42C932EF1491A5160098216A /* words.cpp */,
 				42C932F01491A5160098216A /* words.h */,
 			);
@@ -222,6 +242,15 @@
 				5BC4E849150F911D00CBE1C0 /* shaders */,
 			);
 			name = GamePlay;
+			sourceTree = "<group>";
+		};
+		9041D24A16C6BAD50098C475 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9041D24F16C6BAD50098C475 /* libgameplay.a */,
+				9041D25116C6BAD50098C475 /* libgameplay.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		F1F49B8516AD8C22008715A2 /* MacOSX */ = {
@@ -303,7 +332,7 @@
 			attributes = {
 				LastUpgradeCheck = 0450;
 			};
-			buildConfigurationList = 42C932B61491A0DB0098216A /* Build configuration list for PBXProject "gameplay-template" */;
+			buildConfigurationList = 42C932B61491A0DB0098216A /* Build configuration list for PBXProject "words" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -313,6 +342,12 @@
 			mainGroup = 42C932B11491A0DB0098216A;
 			productRefGroup = 42C932BD1491A0DB0098216A /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9041D24A16C6BAD50098C475 /* Products */;
+					ProjectRef = 5BC4E77F150F879E00CBE1C0 /* gameplay.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				42C932BB1491A0DB0098216A /* words-macosx */,
@@ -320,6 +355,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9041D24F16C6BAD50098C475 /* libgameplay.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libgameplay.a;
+			remoteRef = 9041D24E16C6BAD50098C475 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9041D25116C6BAD50098C475 /* libgameplay.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libgameplay.a;
+			remoteRef = 9041D25016C6BAD50098C475 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		42C932BA1491A0DB0098216A /* Resources */ = {
@@ -338,7 +390,6 @@
 			files = (
 				5B61612614CCC24C0073B857 /* icon.png in Resources */,
 				5B61612714CCC24C0073B857 /* res in Resources */,
-				42049B7D16ADBCDB005DD1F9 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +430,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42C932F11491A5160098216A /* words.cpp in Sources */,
+				9041D25516C6BBB00098C475 /* camera_control.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +439,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B61611614CCC24C0073B857 /* words.cpp in Sources */,
+				9041D25616C6BFCB0098C475 /* camera_control.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,13 +502,13 @@
 		42C932DB1491A0DB0098216A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = armv7;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				HEADER_SEARCH_PATHS = (
-					../gameplay-1.6/gameplay/src,
+					"../gameplay-1.6/gameplay/src",
 					"../gameplay-1.6/external-deps/bullet/include",
 					"../gameplay-1.6/external-deps/lua/include",
 					"../gameplay-1.6/external-deps/libpng/include",
@@ -480,13 +533,13 @@
 		42C932DC1491A0DB0098216A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = armv7;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				HEADER_SEARCH_PATHS = (
-					../gameplay-1.6/gameplay/src,
+					"../gameplay-1.6/gameplay/src",
 					"../gameplay-1.6/external-deps/bullet/include",
 					"../gameplay-1.6/external-deps/lua/include",
 					"../gameplay-1.6/external-deps/libpng/include",
@@ -517,7 +570,7 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				HEADER_SEARCH_PATHS = (
-					../gameplay-1.6/gameplay/src,
+					"../gameplay-1.6/gameplay/src",
 					"../gameplay-1.6/external-deps/bullet/include",
 					"../gameplay-1.6/external-deps/lua/include",
 					"../gameplay-1.6/external-deps/libpng/include",
@@ -550,7 +603,7 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				HEADER_SEARCH_PATHS = (
-					../gameplay-1.6/gameplay/src,
+					"../gameplay-1.6/gameplay/src",
 					"../gameplay-1.6/external-deps/bullet/include",
 					"../gameplay-1.6/external-deps/lua/include",
 					"../gameplay-1.6/external-deps/libpng/include",
@@ -577,7 +630,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		42C932B61491A0DB0098216A /* Build configuration list for PBXProject "gameplay-template" */ = {
+		42C932B61491A0DB0098216A /* Build configuration list for PBXProject "words" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				42C932D81491A0DB0098216A /* Debug */,
