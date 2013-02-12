@@ -11,7 +11,7 @@ words::words()
 void words::initialize()
 {
     // Load game scene from file
-    Bundle* bundle = Bundle::create("res/tile.gpb");
+    Bundle* bundle = Bundle::create("res/words_scene.gpb");
     scene = bundle->loadScene();
     SAFE_RELEASE(bundle);
 
@@ -23,12 +23,11 @@ void words::initialize()
 
 	//create the camera control
 	camera_control = new CameraControl(camera_node);
-    
 	
-	int y_offset = -40;
+	int y_offset = -30;
 	
 	//set up the letter
-	box_node = scene->findNode("Tile");
+	box_node = scene->findNode("letter_tile");
 	Material *material = box_node->getModel()->setMaterial("res/words.material#letter");
 	box_node->setTranslation(-90, -70 + y_offset, 0);
 
@@ -54,6 +53,34 @@ void words::initialize()
 	initLetter(-30, 110 + y_offset, 0, "Box14");
 	initLetter(30, 110 + y_offset, 0, "Box15");
 	initLetter(90, 110 + y_offset, 0, "Box16");
+
+	//add the powerups
+	float scale = 0.6f;
+	int delta_x = (scale * 80) / 2 + 40;
+
+	//arrows
+	Node* powerup_arrow_node = scene->findNode("powerup");
+	powerup_arrow_node->getModel()->setMaterial("res/words.material#powerup_arrows");
+	powerup_arrow_node->setTranslation(-1 * delta_x, -170, 0);
+	powerup_arrow_node->setScale(scale);
+	scene->addNode(powerup_arrow_node);
+
+	//gear
+	Node* powerup_gear_node = powerup_arrow_node->clone();
+	powerup_gear_node->getModel()->setMaterial("res/words.material#powerup_gear");
+	powerup_gear_node->setId("powerup_gear");
+	powerup_gear_node->setTranslation(0, -170, 0);
+	powerup_gear_node->setScale(scale);
+	scene->addNode(powerup_gear_node);
+
+	//star
+	Node* powerup_star_node = powerup_arrow_node->clone();
+	powerup_star_node->getModel()->setMaterial("res/words.material#powerup_star");
+	powerup_star_node->setId("powerup_star");
+	powerup_star_node->setTranslation(delta_x, -170, 0);
+	powerup_star_node->setScale(scale);
+	scene->addNode(powerup_star_node);
+
 }
 
 void words::initLetter(int x, int y, int z, const char* name) {

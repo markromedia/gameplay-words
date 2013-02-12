@@ -16,24 +16,49 @@ material letter
             u_ambientColor = 0.5, 0.5, 0.5
             u_lightColor = .75, .75, .75
             u_specularExponent = 50
-            
-            // samplers
-            sampler u_diffuseTexture
-            {
-                path = res/png/letter_a_texture.png
-                mipmap = true
-                wrapS = CLAMP
-                wrapT = CLAMP
-                minFilter = NEAREST_MIPMAP_LINEAR
-                magFilter = LINEAR
-            }
-
-            // render state
-            renderState
-            {
-                cullFace = true
-                depthTest = true
-            }
         }
+    }
+
+	            
+    // samplers
+    sampler u_diffuseTexture
+    {
+        path = res/png/letter_a.png
+        mipmap = true
+        wrapS = CLAMP
+        wrapT = CLAMP
+        minFilter = NEAREST_MIPMAP_LINEAR
+        magFilter = LINEAR
+    }
+
+    // render state
+    renderState
+    {
+        cullFace = true
+        depthTest = true
+    }
+}
+
+material powerup_arrows : letter
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/powerup_arrows.png
+    }
+}
+
+material powerup_gear : letter
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/powerup_gear.png
+    }
+}
+
+material powerup_star : letter
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/powerup_star.png
     }
 }
