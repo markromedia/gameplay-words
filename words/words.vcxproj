@@ -384,10 +384,12 @@ xcopy ..\gameplay-1.6\bin\windows $(OutDir) /E /I /Y </Command>
   <ItemGroup>
     <ClCompile Include="src\camera_control.cpp" />
     <ClCompile Include="src\words.cpp" />
+    <ClCompile Include="tile.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\camera_control.hpp" />
     <ClInclude Include="src\words.h" />
+    <ClInclude Include="tile.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

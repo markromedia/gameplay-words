@@ -23,7 +23,7 @@ material letter
     // samplers
     sampler u_diffuseTexture
     {
-        path = res/png/letter_a.png
+        path = res/png/letter_layer_unselected_background.png
         mipmap = true
         wrapS = CLAMP
         wrapT = CLAMP
@@ -36,6 +36,9 @@ material letter
     {
         cullFace = true
         depthTest = true
+		blend = true
+		blendSrc = SRC_ALPHA
+		blendDst = ONE_MINUS_SRC_ALPHA
     }
 }
 
