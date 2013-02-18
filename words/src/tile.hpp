@@ -2,6 +2,7 @@
 #define __TILE__hpp
 
 #include <vector>
+#include <math.h>
 
 #include "gameplay.h"
 
@@ -11,16 +12,14 @@ class TileLayer {
 friend class Tile;
 private:
 	/// @summary	The node for this tile.
-	gameplay::Node* node;
+	gameplay::Node* renderable_node;
 protected:
-
 	/// Default constructor.
 	TileLayer();
-
 public:
-	/// Sets a material.
-	/// @param [in,out]	material	If non-null, the material.
-	void SetMaterial(gameplay::Material* material);
+	/// Sets a renderable node.
+	/// @param [in,out]	renderable_node	If non-null, the renderable node.
+	void SetRenderableNode(gameplay::Node* renderable_node);
 };
 
 ///-----------------------------------------------------------------------------------------------
@@ -30,33 +29,26 @@ private:
 	/// @summary	The layers.
 	std::vector<TileLayer*> layers;
 
-	/// @summary	The base layer.
-	TileLayer* base_layer;
-
-	/// @summary	The letter layer.
-	TileLayer* icon_layer;
-
 	/// @summary	The position.
  	gameplay::Vector3 position;
-
 public:
 	/// Default constructor.
 	Tile();
 
-	/// @summary	The transform.
-	gameplay::Matrix transform;
+	/// Values for the layer types and their order.
+	enum LayerLevel {BASE, ICON};
 
-	/// Creates a base layer.
+	/// Creates a layer of the specified type
 	///
+	/// @param	layer		 	The layer.
 	/// @param [in,out]	scene	If non-null, the scene.
-	/// @param [in,out]	model	If non-null, the model.
-	void CreateBaseLayer(gameplay::Scene* scene, gameplay::Model* model);
+	/// @param [in,out]	renderable_node 	If non-null, the node.
+	void CreateLayer(LayerLevel layer, gameplay::Scene* scene, gameplay::Node* renderable_node = NULL);
 
-	/// Creates an icon layer.
-	///
-	/// @param [in,out]	scene			If non-null, the scene.
-	/// @param [in,out]	letter_model	If non-null, the letter model.
-	void CreateIconLayer(gameplay::Scene* scene, gameplay::Model* letter_model);
+	/// Gets a layer.
+	/// @param	layer	The layer.
+	/// @return	The layer.
+	TileLayer* GetLayer(LayerLevel layer);
 
 	/// Sets a position of this tile
 	/// @param	x	The x coordinate.
@@ -65,12 +57,12 @@ public:
 	void SetPosition(int x, int y, int z);
 
 	/// Updates this object.
-	/// @param [in,out]	scene	If non-null, the scene.
-	/// @param	dt			 	The dt.
-	void Update(gameplay::Scene* scene, float dt);
+	/// @param	dt			  	The dt.
+	void Update(float dt);
 
-	/// Renders this object.
-	void Render();
+	/// Renders the given camera.
+	/// @param [in,out]	camera	If non-null, the camera.
+	void Render(gameplay::Camera* camera);
 };
 
 

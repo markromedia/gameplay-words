@@ -99,6 +99,7 @@
     <CustomBuildBeforeTargets>
     </CustomBuildBeforeTargets>
     <IntDir>..\build\$(Configuration)-intermediate\</IntDir>
+    <CustomBuildAfterTargets>Build</CustomBuildAfterTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -147,16 +148,16 @@
       <AdditionalLibraryDirectories>../gameplay-1.6/external-deps/lua/lib/windows/x86;../gameplay-1.6/external-deps/bullet/lib/windows/x86;../gameplay-1.6/external-deps/openal/lib/windows/x86;../gameplay-1.6/external-deps/oggvorbis/lib/windows/x86;../gameplay-1.6/external-deps/glew/lib/windows/x86;../gameplay-1.6/external-deps/libpng/lib/windows/x86;../gameplay-1.6/external-deps/zlib/lib/windows/x86;../gameplay-1.6/gameplay/windows/x86/$(Configuration)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
-xcopy ..\gameplay-1.6\bin\windows $(OutDir) /E /I /Y </Command>
-    </PostBuildEvent>
-    <CustomBuildStep>
       <Command>
       </Command>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Command>xcopy ..\gameplay-1.6\bin\windows $(OutDir) /E /I /Y 
+xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
+</Command>
       <Message>
       </Message>
-      <Outputs>
-      </Outputs>
+      <Outputs>force_build.file;%(Outputs)</Outputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -339,6 +340,7 @@ xcopy ..\gameplay-1.6\bin\windows $(OutDir) /E /I /Y </Command>
     <None Include="res\png\letter_a.png" />
     <None Include="res\png\letter_a_highlight.png" />
     <None Include="res\png\letter_a_texture.png" />
+    <None Include="res\png\letter_layer_unselected_background.png" />
     <None Include="res\png\powerup_arrows.png" />
     <None Include="res\png\powerup_gear.png" />
     <None Include="res\png\powerup_star.png" />
@@ -389,12 +391,16 @@ xcopy ..\gameplay-1.6\bin\windows $(OutDir) /E /I /Y </Command>
     <None Include="words-macosx.plist" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\letter_manager.cpp" />
     <ClCompile Include="src\camera_control.cpp" />
+    <ClCompile Include="src\renderable_node_repository.cpp" />
     <ClCompile Include="src\tile.cpp" />
     <ClCompile Include="src\words.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\letter_manager.hpp" />
     <ClInclude Include="src\camera_control.hpp" />
+    <ClInclude Include="src\renderable_node_repository.hpp" />
     <ClInclude Include="src\tile.hpp" />
     <ClInclude Include="src\words.h" />
   </ItemGroup>

@@ -3,11 +3,10 @@
 ///-----------------------------------------------------------------------------------------------
 
 TileLayer::TileLayer() {
-	this->node = gameplay::Node::create();
 }
 
-void TileLayer::SetMaterial(gameplay::Material* material) {
-	this->node->getModel()->setMaterial(material);
+void TileLayer::SetRenderableNode(gameplay::Node* renderable_node) {
+	this->renderable_node = renderable_node;
 }
 
 ///-----------------------------------------------------------------------------------------------
@@ -16,35 +15,62 @@ Tile::Tile() {
 	layers.reserve(8);
 }
 
-void Tile::CreateBaseLayer(gameplay::Scene* scene, gameplay::Model* model) {
-	base_layer = new TileLayer();
-	base_layer->node->setModel(model);
-	layers.push_back(base_layer);
-	scene->addNode(base_layer->node);
+void Tile::CreateLayer(LayerLevel layerLevel, gameplay::Scene* scene, gameplay::Node* node) {
+	TileLayer* layer = new TileLayer();
+	layer->renderable_node = node;
+	layers.insert(layers.begin() + layerLevel, layer);
 }
 
-void Tile::CreateIconLayer(gameplay::Scene* scene, gameplay::Model* letter_model) {
-	icon_layer = new TileLayer();
-	icon_layer->node->setModel(letter_model);
-	layers.push_back(icon_layer);
-	scene->addNode(icon_layer->node);
+TileLayer* Tile::GetLayer(LayerLevel layerLevel) {
+	return layers[layerLevel];
 }
 
-void Tile::Update(gameplay::Scene* scene, float dt) {
+void Tile::Update(float dt) {
+}
+
+void Tile::SetPosition(int x, int y, int z) {
+	position.x = x;
+	position.y = y;
+	position.z = z;
+}
+
+void Tile::Render(gameplay::Camera* camera) {
+	//just in case
+	if (layers.size() == 0) {
+		return;
+	}
+
+	//update the first nodes position so we can use it to figure out the billboard transformation
+	//layers[0]->renderable_node->setTranslation(position.x, position.y, position.z);
+
+
+	/************************************************************************/
+	/* NONE OF THIS STUFF IS USED                                           */
+	/************************************************************************/
 	//figure out the billboarded orientation
-	gameplay::Matrix m;
-	gameplay::Matrix::createBillboard(position, scene->getActiveCamera()->getNode()->getTranslationWorld(), scene->getActiveCamera()->getNode()->getUpVectorWorld(), &m);
-	gameplay::Quaternion q;
+	gameplay::Quaternion q, p;
+	gameplay::Matrix m, m2;
+
+	gameplay::Matrix::createBillboard(layers[0]->renderable_node->getTranslationWorld(), camera->getNode()->getTranslationWorld(), camera->getNode()->getUpVectorWorld(), &m);
+
+	//the models from 3ds are coming in with z facing up, so need to retain that original orientation
+	m2.rotateX(90 * (MATH_PI / 180));
+	m2.getRotation(&p);
+
+	//get the billboard quaternion
 	m.getRotation(&q);
 
-	for(std::vector<TileLayer*>::iterator it = layers.begin(); it != layers.end(); ++it) {
-		(*it)->node->setTranslation(position.x, position.y, position.z);
-		(*it)->node->setRotation(q);
-	}
-}
+	//premultiply our 90 degree x-axis rotation
+	gameplay::Quaternion::multiply(q, p, &q);
+	/************************************************************************/
+	/* NONE OF THIS STUFF IS USED                                           */
+	/************************************************************************/
 
-void Tile::Render() {
 	for(std::vector<TileLayer*>::iterator it = layers.begin(); it != layers.end(); ++it) {
-		(*it)->node->getModel()->draw();
+		//update the renderable node and draw it where we need to
+		(*it)->renderable_node->setTranslation(position.x, position.y, position.z);
+		(*it)->renderable_node->setRotation(p);
+		
+		(*it)->renderable_node->getModel()->draw();
 	}
 }

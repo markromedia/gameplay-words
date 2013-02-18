@@ -24,70 +24,9 @@ void words::initialize()
 	//create the camera control
 	camera_control = new CameraControl(camera_node);
 	
-	int y_offset = -30;
-	
-	//set up the letter
-	box_node = scene->findNode("letter_tile");
-	Material *material = box_node->getModel()->setMaterial("res/words.material#letter");
-	box_node->setTranslation(-90, -70 + y_offset, 0);
-
-	//row 1 (from bottom)
-	initLetter(-30, -70 + y_offset, 0, "Box01");
-	initLetter(30, -70 + y_offset, 0, "Box02");
-	initLetter(90, -70 + y_offset, 0, "Box03");
-
-	//row 2 (from bottom)
-	initLetter(-90, -10 + y_offset, 0, "Box04");
-	initLetter(-30, -10 + y_offset, 0, "Box05");
-	initLetter(30, -10 + y_offset, 0, "Box06");
-	initLetter(90, -10 + y_offset, 0, "Box07");
-
-	//row 3 (from bottom)
-	initLetter(-90, 50 + y_offset, 0, "Box08");
-	initLetter(-30, 50 + y_offset, 0, "Box10");
-	initLetter(30, 50 + y_offset, 0, "Box11");
-	initLetter(90, 50 + y_offset, 0, "Box12");
-
-	//row 4 (from bottom)
-	initLetter(-90, 110 + y_offset, 0, "Box13");
-	initLetter(-30, 110 + y_offset, 0, "Box14");
-	initLetter(30, 110 + y_offset, 0, "Box15");
-	initLetter(90, 110 + y_offset, 0, "Box16");
-
-	//add the powerups
-	float scale = 0.6f;
-	int delta_x = (scale * 80) / 2 + 40;
-
-	//arrows
-	Node* powerup_arrow_node = scene->findNode("powerup");
-	powerup_arrow_node->getModel()->setMaterial("res/words.material#powerup_arrows");
-	powerup_arrow_node->setTranslation(-1 * delta_x, -170, 0);
-	powerup_arrow_node->setScale(scale);
-	scene->addNode(powerup_arrow_node);
-
-	//gear
-	Node* powerup_gear_node = powerup_arrow_node->clone();
-	powerup_gear_node->getModel()->setMaterial("res/words.material#powerup_gear");
-	powerup_gear_node->setId("powerup_gear");
-	powerup_gear_node->setTranslation(0, -170, 0);
-	powerup_gear_node->setScale(scale);
-	scene->addNode(powerup_gear_node);
-
-	//star
-	Node* powerup_star_node = powerup_arrow_node->clone();
-	powerup_star_node->getModel()->setMaterial("res/words.material#powerup_star");
-	powerup_star_node->setId("powerup_star");
-	powerup_star_node->setTranslation(delta_x, -170, 0);
-	powerup_star_node->setScale(scale);
-	scene->addNode(powerup_star_node);
-
-}
-
-void words::initLetter(int x, int y, int z, const char* name) {
-	Node* new_node = this->box_node->clone();
-	new_node->setId(name);
-	new_node->setTranslation(x, y, z);
-	scene->addNode(new_node);
+	//tile test
+	RenderableNodeRepository::Init(scene);
+	LetterManager::Init(scene);
 }
 
 void words::finalize()
@@ -99,15 +38,17 @@ void words::update(float elapsedTime)
 {
     // Rotate model
     //scene->findNode("Box01")->rotateX(MATH_DEG_TO_RAD((float)elapsedTime / 1000.0f * 180.0f));
+    //tile.Update(scene->getActiveCamera(), elapsedTime);
 }
 
 void words::render(float elapsedTime)
 {
     // Clear the color and depth buffers
-    clear(CLEAR_COLOR_DEPTH, Vector4::one(), 1.0f, 0);
+    clear(CLEAR_COLOR_DEPTH, Vector4::zero(), 1.0f, 0);
 
     // Visit all the nodes in the scene for drawing
-    scene->visit(this, &words::drawScene);
+    //scene->visit(this, &words::drawScene);
+    LetterManager::Render(scene->getActiveCamera());
 }
 
 bool words::drawScene(Node* node)

@@ -3,6 +3,10 @@
 
 #include "gameplay.h"
 #include "camera_control.hpp"
+#include "tile.hpp"
+#include "renderable_node_repository.hpp"
+#include "letter_manager.hpp"
+
 
 using namespace gameplay;
 
@@ -57,13 +61,8 @@ private:
      */
     bool drawScene(Node* node);
 
-	void initLetter(int x, int y, int z, const char* name);
-
 	/// @summary	The scene.
 	Scene* scene;
-
-	/// @summary	The box node.
-	Node* box_node;
 
 	/// @summary	The camera node.
 	Node* camera_node;
