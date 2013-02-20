@@ -109,8 +109,6 @@ void Tile::Render(gameplay::Camera* camera) {
 			tileLayer->renderable_node->setTranslation(position.x, position.y, position.z);
 			tileLayer->renderable_node->setRotation(p);
 
-
-		
 			tileLayer->renderable_node->getModel()->draw();
 		}
 	}
