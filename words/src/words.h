@@ -38,7 +38,7 @@ public:
     /**
      * @see Game::mouseEvent
      */
-	bool words::mouseEvent(Mouse::MouseEvent evt, int x, int y, int wheelDelta);
+	bool mouseEvent(Mouse::MouseEvent evt, int x, int y, int wheelDelta);
 
 
 protected:

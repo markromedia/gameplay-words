@@ -40,11 +40,25 @@
 		42C9331D1491A6750098216A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42C9331C1491A6750098216A /* QuartzCore.framework */; };
 		42C9331F1491A67F0098216A /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42C9331E1491A67F0098216A /* OpenAL.framework */; };
 		42C9332F1491A78D0098216A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 42C9332D1491A7810098216A /* libz.dylib */; };
-		5B61611614CCC24C0073B857 /* words.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 42C932EF1491A5160098216A /* words.cpp */; };
 		5B61612614CCC24C0073B857 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C932ED1491A4CB0098216A /* icon.png */; };
 		5B61612714CCC24C0073B857 /* res in Resources */ = {isa = PBXBuildFile; fileRef = 42C932F21491A53E0098216A /* res */; };
 		9041D25516C6BBB00098C475 /* camera_control.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9041D25316C6BBB00098C475 /* camera_control.cpp */; };
-		9041D25616C6BFCB0098C475 /* camera_control.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9041D25316C6BBB00098C475 /* camera_control.cpp */; };
+		905108D716D4A59700E17584 /* input_event_handler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905108CF16D4A59700E17584 /* input_event_handler.cpp */; };
+		905108D816D4A59700E17584 /* letter_controller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905108D116D4A59700E17584 /* letter_controller.cpp */; };
+		905108D916D4A59700E17584 /* renderable_node_repository.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905108D316D4A59700E17584 /* renderable_node_repository.cpp */; };
+		905108DA16D4A59700E17584 /* tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905108D516D4A59700E17584 /* tile.cpp */; };
+		905108DD16D4A5B700E17584 /* input_event_handler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905108CF16D4A59700E17584 /* input_event_handler.cpp */; };
+		905108DE16D4A5B700E17584 /* input_event_handler.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 905108D016D4A59700E17584 /* input_event_handler.hpp */; };
+		905108DF16D4A5B700E17584 /* letter_controller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905108D116D4A59700E17584 /* letter_controller.cpp */; };
+		905108E016D4A5B700E17584 /* letter_controller.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 905108D216D4A59700E17584 /* letter_controller.hpp */; };
+		905108E116D4A5B700E17584 /* renderable_node_repository.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905108D316D4A59700E17584 /* renderable_node_repository.cpp */; };
+		905108E216D4A5B700E17584 /* renderable_node_repository.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 905108D416D4A59700E17584 /* renderable_node_repository.hpp */; };
+		905108E316D4A5B700E17584 /* tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905108D516D4A59700E17584 /* tile.cpp */; };
+		905108E416D4A5B700E17584 /* tile.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 905108D616D4A59700E17584 /* tile.hpp */; };
+		905108E516D4A5B700E17584 /* camera_control.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9041D25316C6BBB00098C475 /* camera_control.cpp */; };
+		905108E616D4A5B700E17584 /* camera_control.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 9041D25416C6BBB00098C475 /* camera_control.hpp */; };
+		905108E716D4A5B700E17584 /* words.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 42C932EF1491A5160098216A /* words.cpp */; };
+		905108E816D4A5B700E17584 /* words.h in Sources */ = {isa = PBXBuildFile; fileRef = 42C932F01491A5160098216A /* words.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +121,14 @@
 		5BC4E849150F911D00CBE1C0 /* shaders */ = {isa = PBXFileReference; lastKnownFileType = text; name = shaders; path = "../gameplay-1.6/gameplay/res/shaders"; sourceTree = SOURCE_ROOT; };
 		9041D25316C6BBB00098C475 /* camera_control.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = camera_control.cpp; sourceTree = "<group>"; };
 		9041D25416C6BBB00098C475 /* camera_control.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = camera_control.hpp; sourceTree = "<group>"; };
+		905108CF16D4A59700E17584 /* input_event_handler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = input_event_handler.cpp; sourceTree = "<group>"; };
+		905108D016D4A59700E17584 /* input_event_handler.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = input_event_handler.hpp; sourceTree = "<group>"; };
+		905108D116D4A59700E17584 /* letter_controller.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = letter_controller.cpp; sourceTree = "<group>"; };
+		905108D216D4A59700E17584 /* letter_controller.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = letter_controller.hpp; sourceTree = "<group>"; };
+		905108D316D4A59700E17584 /* renderable_node_repository.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = renderable_node_repository.cpp; sourceTree = "<group>"; };
+		905108D416D4A59700E17584 /* renderable_node_repository.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = renderable_node_repository.hpp; sourceTree = "<group>"; };
+		905108D516D4A59700E17584 /* tile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tile.cpp; sourceTree = "<group>"; };
+		905108D616D4A59700E17584 /* tile.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = tile.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +214,14 @@
 		42C932C61491A0DB0098216A /* src */ = {
 			isa = PBXGroup;
 			children = (
+				905108CF16D4A59700E17584 /* input_event_handler.cpp */,
+				905108D016D4A59700E17584 /* input_event_handler.hpp */,
+				905108D116D4A59700E17584 /* letter_controller.cpp */,
+				905108D216D4A59700E17584 /* letter_controller.hpp */,
+				905108D316D4A59700E17584 /* renderable_node_repository.cpp */,
+				905108D416D4A59700E17584 /* renderable_node_repository.hpp */,
+				905108D516D4A59700E17584 /* tile.cpp */,
+				905108D616D4A59700E17584 /* tile.hpp */,
 				9041D25316C6BBB00098C475 /* camera_control.cpp */,
 				9041D25416C6BBB00098C475 /* camera_control.hpp */,
 				42C932EF1491A5160098216A /* words.cpp */,
@@ -431,6 +461,10 @@
 			files = (
 				42C932F11491A5160098216A /* words.cpp in Sources */,
 				9041D25516C6BBB00098C475 /* camera_control.cpp in Sources */,
+				905108D716D4A59700E17584 /* input_event_handler.cpp in Sources */,
+				905108D816D4A59700E17584 /* letter_controller.cpp in Sources */,
+				905108D916D4A59700E17584 /* renderable_node_repository.cpp in Sources */,
+				905108DA16D4A59700E17584 /* tile.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,8 +472,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B61611614CCC24C0073B857 /* words.cpp in Sources */,
-				9041D25616C6BFCB0098C475 /* camera_control.cpp in Sources */,
+				905108DD16D4A5B700E17584 /* input_event_handler.cpp in Sources */,
+				905108DE16D4A5B700E17584 /* input_event_handler.hpp in Sources */,
+				905108DF16D4A5B700E17584 /* letter_controller.cpp in Sources */,
+				905108E016D4A5B700E17584 /* letter_controller.hpp in Sources */,
+				905108E116D4A5B700E17584 /* renderable_node_repository.cpp in Sources */,
+				905108E216D4A5B700E17584 /* renderable_node_repository.hpp in Sources */,
+				905108E316D4A5B700E17584 /* tile.cpp in Sources */,
+				905108E416D4A5B700E17584 /* tile.hpp in Sources */,
+				905108E516D4A5B700E17584 /* camera_control.cpp in Sources */,
+				905108E616D4A5B700E17584 /* camera_control.hpp in Sources */,
+				905108E716D4A5B700E17584 /* words.cpp in Sources */,
+				905108E816D4A5B700E17584 /* words.h in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
