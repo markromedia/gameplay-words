@@ -10,14 +10,16 @@ void RenderableNodeRepository::Init(gameplay::Scene * scene) {
 	gameplay::Node* powerup_model = scene->findNode("powerup");
 
 	//init the letter background
-	instance->initializeNode("letter_layer_unselected_background","res/words.material#letter", letter_model->clone(), scene);
+	instance->initializeNode("letter_layer_unselected_background","res/words.material#letter_layer_unselected_background", letter_model->clone(), scene);
+
+	//init the selected letter background
+	instance->initializeNode("letter_layer_selected_background","res/words.material#letter_layer_selected_background", letter_model->clone(), scene);
 
 	//init the powerups
 	instance->initializeNode("powerup_arrows","res/words.material#powerup_arrows", letter_model->clone(), scene);
-
 	
 	//init the letters
-	
+	instance->initializeNode("letter_a","res/words.material#letter_a", letter_model->clone(), scene);
 	
 }
 

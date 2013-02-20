@@ -31,9 +31,19 @@ private:
 
 	/// @summary	The position.
  	gameplay::Vector3 position;
+
+	/// Gets a billboard transformation.
+	/// @param [in,out]	camera	If non-null, the camera.
+	/// @return	The billboard transformation.
+	gameplay::Quaternion getBillboardTransformation(gameplay::Camera* camera);
+
+	/// @summary	The physics node.
+	gameplay::Node* physics_node;
 public:
-	/// Default constructor.
-	Tile();
+	
+	/// Constructor.
+	/// @param [in,out]	physics_node	If non-null, the physics node.
+	Tile(gameplay::Node* physics_node);
 
 	/// Values for the layer types and their order.
 	enum LayerLevel {BASE, ICON};
@@ -63,6 +73,11 @@ public:
 	/// Renders the given camera.
 	/// @param [in,out]	camera	If non-null, the camera.
 	void Render(gameplay::Camera* camera);
+
+	/// Query if this object intersects the given ray.
+	/// @param [in,out]	ray	The ray.
+	/// @return	true if it succeeds, false if it fails.
+	bool Intersects(gameplay::Ray& ray);
 };
 
 

@@ -8,13 +8,13 @@
 #include "renderable_node_repository.hpp"
 
 
-class LetterManager {
+class LetterController {
 private:
 	/// Default constructor.
-	LetterManager();
+	LetterController();
 
 	/// @summary	The instance.
-	static LetterManager* instance;
+	static LetterController* instance;
 
 	std::vector<Tile*> tiles;
 	std::vector<Tile*> renderables;
@@ -25,7 +25,17 @@ public:
 
 	/// Gets the singleton instance.
 	/// @return	null if it fails, else.
-	static LetterManager* get();
+	static LetterController* get();
+
+	/// Handles the touch down event.
+	/// @param	ray the calculated ray
+	/// @param	x	The x coordinate.
+	/// @param	y	The y coordinate.
+	/// @return	true if it succeeds, false if it fails.
+	static bool HandleTouchDownEvent(gameplay::Ray& ray, int x, int y);
+
+	/// Handles the touch up event.
+	static void HandleTouchUpEvent();
 
 	static void Render(gameplay::Camera* camera);
 

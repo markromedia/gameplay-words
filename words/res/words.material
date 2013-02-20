@@ -1,4 +1,4 @@
-material letter
+material base
 {
     technique
     {
@@ -28,14 +28,30 @@ material letter
     renderState
     {
         cullFace = true
-        depthTest = true
+        depthTest = false
 		blend = true
 		blendSrc = SRC_ALPHA
 		blendDst = ONE_MINUS_SRC_ALPHA
     }
 }
 
-material powerup_arrows : letter
+material letter_layer_unselected_background : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/letter_layer_unselected_background.png
+    }
+}
+
+material letter_layer_selected_background : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/letter_layer_selected_background.png
+    }
+}
+
+material powerup_arrows : base
 {
     sampler u_diffuseTexture
     {
@@ -43,7 +59,7 @@ material powerup_arrows : letter
     }
 }
 
-material powerup_gear : letter
+material powerup_gear : base
 {
     sampler u_diffuseTexture
     {
@@ -51,10 +67,26 @@ material powerup_gear : letter
     }
 }
 
-material powerup_star : letter
+material powerup_star : base
 {
     sampler u_diffuseTexture
     {
         path = res/png/powerup_star.png
+    }
+}
+
+material powerup_star : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/powerup_star.png
+    }
+}
+
+material letter_a : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/letter_a_texture.png
     }
 }

@@ -5,7 +5,7 @@
 #include "camera_control.hpp"
 #include "tile.hpp"
 #include "renderable_node_repository.hpp"
-#include "letter_manager.hpp"
+#include "letter_controller.hpp"
 
 
 using namespace gameplay;
@@ -16,6 +16,8 @@ using namespace gameplay;
 class words: public Game
 {
 public:
+	/// @summary	The scene.
+	Scene* scene;
 
     /**
      * Constructor.
@@ -31,6 +33,13 @@ public:
      * @see Game::touchEvent
      */
     void touchEvent(Touch::TouchEvent evt, int x, int y, unsigned int contactIndex);
+
+		
+    /**
+     * @see Game::mouseEvent
+     */
+	bool words::mouseEvent(Mouse::MouseEvent evt, int x, int y, int wheelDelta);
+
 
 protected:
 
@@ -60,9 +69,6 @@ private:
      * Draws the scene each frame.
      */
     bool drawScene(Node* node);
-
-	/// @summary	The scene.
-	Scene* scene;
 
 	/// @summary	The camera node.
 	Node* camera_node;

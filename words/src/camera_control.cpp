@@ -6,8 +6,8 @@ CameraControl::CameraControl(Node* camera_node) {
 	this->camera_node = camera_node;
 	camera_move_direction = NONE;
 
-	camera_target.x = 0; camera_target.y = 0; camera_target.z = 325; 
-	camera_node->translate(camera_target);
+	camera_target.x = 0; camera_target.y = 0; camera_target.z = 260; 
+	camera_node->setTranslation(camera_target);
 }
 
 void CameraControl::Update(float delta) 

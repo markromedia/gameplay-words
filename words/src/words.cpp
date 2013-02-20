@@ -26,7 +26,7 @@ void words::initialize()
 	
 	//tile test
 	RenderableNodeRepository::Init(scene);
-	LetterManager::Init(scene);
+	LetterController::Init(scene);
 }
 
 void words::finalize()
@@ -44,11 +44,11 @@ void words::update(float elapsedTime)
 void words::render(float elapsedTime)
 {
     // Clear the color and depth buffers
-    clear(CLEAR_COLOR_DEPTH, Vector4::zero(), 1.0f, 0);
+    clear(CLEAR_COLOR_DEPTH, Vector4::one(), 1.0f, 0);
 
     // Visit all the nodes in the scene for drawing
     //scene->visit(this, &words::drawScene);
-    LetterManager::Render(scene->getActiveCamera());
+    LetterController::Render(scene->getActiveCamera());
 }
 
 bool words::drawScene(Node* node)
@@ -62,28 +62,3 @@ bool words::drawScene(Node* node)
     return true;
 }
 
-void words::keyEvent(Keyboard::KeyEvent evt, int key)
-{
-    if (evt == Keyboard::KEY_PRESS)
-    {
-        switch (key)
-        {
-        case Keyboard::KEY_ESCAPE:
-            exit();
-            break;
-        }
-    }
-}
-
-void words::touchEvent(Touch::TouchEvent evt, int x, int y, unsigned int contactIndex)
-{
-    switch (evt)
-    {
-    case Touch::TOUCH_PRESS:
-        break;
-    case Touch::TOUCH_RELEASE:
-        break;
-    case Touch::TOUCH_MOVE:
-        break;
-    };
-}
