@@ -6,7 +6,7 @@
 #include "gameplay.h"
 #include "tile.hpp"
 #include "renderable_node_repository.hpp"
-
+#include "letter_provider.hpp"
 
 class LetterController {
 private:

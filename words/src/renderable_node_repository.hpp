@@ -11,7 +11,7 @@
 
 class RenderableNodeRepository {
 private:
-	std::map<const char*, gameplay::Node*> renderable_node_map;
+	std::map<std::string, gameplay::Node*> renderable_node_map;
 
 	/// @summary	The singlton instance.
 	static RenderableNodeRepository* instance;
@@ -21,7 +21,7 @@ private:
 	/// @param	material		  	The material.
 	/// @param [in,out]	model_node	If non-null, the model node.
 	/// @param [in,out]	scene	  	If non-null, the scene.
-	void initializeNode(const char* id, const char* material, gameplay::Node* model_node, gameplay::Scene* scene);
+	void initializeNode(std::string id, const char* material, gameplay::Node* model_node, gameplay::Scene* scene);
 public:
 	static void Init(gameplay::Scene* scene);
 
@@ -37,12 +37,12 @@ public:
 	/// Gets a renderable node.
 	/// @param	id	The identifier.
 	/// @return	null if it fails, else the renderable node.
-	gameplay::Node* getRenderableNode(const char* id);
+	gameplay::Node* getRenderableNode(std::string id);
 
 	/// Array indexer operator.
 	/// @param	parameter1	The first parameter.
 	/// @return	The indexed value.
-	gameplay::Node* &operator[] (const char*);
+	gameplay::Node* &operator[] (std::string id);
 };
 
 

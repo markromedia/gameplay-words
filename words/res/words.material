@@ -90,3 +90,203 @@ material letter_a : base
         path = res/png/letter_a_texture.png
     }
 }
+
+material letter_b : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/letter_b_texture.png
+    }
+}
+
+material letter_c : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/letter_c_texture.png
+    }
+}
+
+material letter_d : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/letter_d_texture.png
+    }
+}
+
+material letter_e : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/letter_e_texture.png
+    }
+}
+
+material letter_f : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/letter_f_texture.png
+    }
+}
+
+material letter_g : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/letter_g_texture.png
+    }
+}
+
+material letter_h : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/letter_h_texture.png
+    }
+}
+
+material letter_i : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/letter_i_texture.png
+    }
+}
+
+material letter_j : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/letter_j_texture.png
+    }
+}
+
+material letter_k : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/letter_k_texture.png
+    }
+}
+
+material letter_l : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/letter_l_texture.png
+    }
+}
+
+material letter_m : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/letter_m_texture.png
+    }
+}
+
+material letter_n : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/letter_n_texture.png
+    }
+}
+
+material letter_o : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/letter_o_texture.png
+    }
+}
+
+material letter_p : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/letter_p_texture.png
+    }
+}
+
+material letter_qu : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/letter_qu_texture.png
+    }
+}
+
+material letter_r : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/letter_r_texture.png
+    }
+}
+
+material letter_s : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/letter_s_texture.png
+    }
+}
+
+material letter_t : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/letter_t_texture.png
+    }
+}
+
+material letter_u : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/letter_u_texture.png
+    }
+}
+
+material letter_v : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/letter_v_texture.png
+    }
+}
+
+material letter_w : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/letter_w_texture.png
+    }
+}
+
+material letter_x : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/letter_x_texture.png
+    }
+}
+
+material letter_y : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/letter_y_texture.png
+    }
+}
+
+material letter_z : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/letter_z_texture.png
+    }
+}

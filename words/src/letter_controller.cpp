@@ -64,7 +64,11 @@ void LetterController::Init(gameplay::Scene* scene)
 
 			tile->SetPosition(x + x_offset, y + y_offset, 0);
 			tile->GetLayer(Tile::BASE)->SetRenderableNode(RENDERABLE("letter_layer_unselected_background"));
-			tile->GetLayer(Tile::ICON)->SetRenderableNode(RENDERABLE("letter_a"));
+
+			//assign a letter
+			std::string letter_material = "letter_";
+			letter_material.append(LetterProvider::getNextLetter(i));
+			tile->GetLayer(Tile::ICON)->SetRenderableNode(RENDERABLE(letter_material));
 
 			instance->renderables.push_back(tile);
 		}
