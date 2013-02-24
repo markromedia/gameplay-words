@@ -21,6 +21,9 @@ void words::initialize()
 	camera_node->setCamera(camera);
 	scene->setActiveCamera(camera);
 
+	// Display the gameplay splash screen for at least 3 second.
+	displayScreen(this, &words::drawSplash, NULL, 3000L);
+
 	//create the camera control
 	camera_control = new CameraControl(camera_node);
 	
@@ -60,5 +63,15 @@ bool words::drawScene(Node* node)
         model->draw();
     }
     return true;
+}
+
+void words::drawSplash(void* param)
+{
+	clear(CLEAR_COLOR_DEPTH, Vector4(1, 1, 1, 1), 1.0f, 0);
+	SpriteBatch* batch = SpriteBatch::create("res/png/logo.png");
+	batch->start();
+	batch->draw(getWidth() * 0.5f, getHeight() * 0.5f, 0.0f, 512.0f, 128.0f, 0.0f, 1.0f, 1.0f, 0.0f, Vector4::one(), true);
+	batch->finish();
+	SAFE_DELETE(batch);
 }
 

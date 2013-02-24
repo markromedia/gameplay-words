@@ -73,11 +73,6 @@ void LetterController::Init(gameplay::Scene* scene)
 			instance->renderables.push_back(tile);
 		}
 	}
-
-	//instance->renderables.push_back(instance->tiles[3]);
-	//instance->tiles[3]->CreateLayer(Tile::ICON, scene, RENDERABLE("letter_layer_selected_background"));
-	//instance->tiles[3]->SetPosition(x_offset,y_offset, 0);
-	//instance->tiles[0]->CreateLayer(Tile::ICON, scene, RENDERABLE("letter_layer_selected_background"));
 }
 
 bool LetterController::HandleTouchDownEvent(gameplay::Ray& ray, int x, int y )
