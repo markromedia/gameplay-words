@@ -2,6 +2,7 @@
 #define __LETTER_MANAGER__hpp
 
 #include <vector>
+#include <queue>
 
 #include "gameplay.h"
 #include "tile.hpp"
@@ -59,19 +60,31 @@ private:
 	/// @summary	The selected tiles
 	std::vector<Tile*> selected_tiles;
 
+	/// @summary	The tiles available for use
+	std::queue<Tile*> available_tiles;
+
 	/// @summary	The 4x4 grid that positions the letters.
 	Grid* grid;
-
-	/// @summary	The renderables.
-	std::vector<Tile*> renderables;
-
-	/// @summary	true if the tiles are growing.
-	bool is_growing;
 
 	/// Builds the grid.
 	/// @param [in,out]	letter_model	If non-null, the letter model.
 	void buildGrid(gameplay::Node* letter_model);
+
+	/// Refill empty grid cells.
+	void refillEmptyGridCells();
+
+	/// @summary	Number of moving tiles.
+	int moving_tiles_count;
 public:
+	/// Callback, called when the tile movement complete.
+	/// @param [in,out]	tile	If non-null, the tile.
+	/// @param	is_starting 	true if this object is starting. false is stopping
+	void TileMovementCompleteCallback(Tile* tile, bool is_starting);
+
+	/// Updates the given dt.
+	/// @param	dt	The dt.
+	void Update(float dt);
+
 	/// Initialises this object.
 	/// @param [in,out]	scene	If non-null, the scene.
 	static void Init(gameplay::Scene* scene);
@@ -91,8 +104,6 @@ public:
 	static void HandleTouchUpEvent();
 
 	static void Render(gameplay::Camera* camera);
-
-	void Update(float dt);
 };
 
 

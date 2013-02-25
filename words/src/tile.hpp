@@ -5,8 +5,10 @@
 #include <math.h>
 
 #include "gameplay.h"
+#include "letter_controller.hpp"
 
 class Tile;
+class LetterController;
 
 class TileLayer {
 friend class Tile;
@@ -26,6 +28,8 @@ public:
 
 class Tile {
 private:
+	enum Animation { NONE, DELAYING_TO_MOVE, MOVING, SHRINKING, POPPING, POPPING_SNAP_BACK};
+
 	/// @summary	The layers.
 	std::vector<TileLayer*> layers;
 
@@ -35,8 +39,8 @@ private:
 	/// @summary	Target position.
 	gameplay::Vector3 target_position;
 
-	/// @summary	true if this object is moving.
-	bool is_moving;
+	/// @summary	The animation.
+	Animation animation;
 
 	/// @summary	The move delay.
 	float move_delay;
@@ -49,13 +53,15 @@ private:
 	/// @summary	The physics node.
 	gameplay::Node* physics_node;
 
+	/// @summary	The letter controller.
+	LetterController* letterController;
 public:
 	/// Values for the layer types and their order.
 	enum LayerLevel {BASE, ICON};
 	
 	/// Constructor.
 	/// @param [in,out]	physics_node	If non-null, the physics node.
-	Tile(gameplay::Node* physics_node);
+	Tile(gameplay::Node* physics_node, LetterController* letterController);
 
 	/// @summary	true if this object is visible.
 	bool is_visible;
@@ -89,7 +95,11 @@ public:
 	/// @param	y	The y coordinate.
 	/// @param	z	The z coordinate.
 	/// @param	delay	the delay
-	void SetTargetPosition(int x, int y, int z, float delay);
+	void TranslateTo(int x, int y, int z, float delay);
+
+	/// Play pop animation.
+	/// @param [in,out]	movingDoneCallFunc	If non-null, the moving done call function.
+	void PlayPopAnimation();
 
 	/// Updates this object.
 	/// @param	dt			  	The dt.

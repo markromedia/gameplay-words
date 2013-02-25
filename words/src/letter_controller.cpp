@@ -2,6 +2,8 @@
 
 LetterController* LetterController::instance = NULL;
 
+///-----------------------------------------------------------------------------------------------
+
 void GridColumn::adjust(int count) {
 	//recursive end condition
 	if (count == 0) {
@@ -21,15 +23,17 @@ void GridColumn::adjust(int count) {
 	}
 
 	//find the first non-empty starting at the search index
+	int idx_of_first_non_empty;
 	for (int i = non_empty_search_index; i < 4; i++) {
 		if (!first_non_empty && cells[i]->tile) {
 			first_non_empty = cells[i];
+			idx_of_first_non_empty = i;
 		}
 	}
 
 	if (first_empty && first_non_empty) {
 		//translate the non-empty to the empty position
-		first_non_empty->tile->SetTargetPosition(first_empty->x, first_empty->y, 0, (3 - count) * 54);
+		first_non_empty->tile->TranslateTo(first_empty->x, first_empty->y, 0, (idx_of_first_non_empty - 1) * 75);
 		//update the empties now
 		first_empty->tile = first_non_empty->tile;
 		first_non_empty->tile = NULL;
@@ -43,6 +47,7 @@ void GridColumn::AdjustTiles()
 {
 	//check if any empties 
 	int non_empty_count = 0;
+
 	for (int i = 0; i < 4; i++) {
 		if (cells[i]->tile) {
 			non_empty_count++;
@@ -77,11 +82,13 @@ void Grid::Remove( Tile* tile )
 	}
 }
 
+///-----------------------------------------------------------------------------------------------
+
 LetterController::LetterController()
 {
-	tiles.reserve(26);
+	tiles.reserve(16);
 	grid = new Grid();
-	renderables.reserve(26);
+	moving_tiles_count = 0;
 }
 
 void LetterController::buildGrid( gameplay::Node* letter_model )
@@ -115,6 +122,36 @@ void LetterController::buildGrid( gameplay::Node* letter_model )
 	}
 }
 
+void LetterController::refillEmptyGridCells()
+{
+	for (int i = 0; i < 4; i++) {
+		GridColumn* column = grid->columns[i];
+		for (int j = 0; j < 4; j++) {
+			if (column->cells[j]->tile == NULL) {
+				if (available_tiles.empty()) {
+					return;
+				}
+
+				//grab a tile from the available tiles
+				Tile* tile = available_tiles.front();
+				available_tiles.pop();
+
+				//assign grid values and tie it to the cell
+				column->cells[j]->tile = tile;
+				tile->is_visible = true;
+				tile->SetPosition(column->cells[j]->x, column->cells[j]->y, 0);
+
+				//assign a new letter
+				std::string letter_material = "letter_";
+				letter_material.append(LetterProvider::getNextLetter(i));
+				tile->GetLayer(Tile::ICON)->SetRenderableNode(RENDERABLE(letter_material));
+
+				//start the tile popping
+				tile->PlayPopAnimation();
+			}
+		}
+	}
+}
 
 void LetterController::Init(gameplay::Scene* scene)
 {
@@ -137,7 +174,7 @@ void LetterController::Init(gameplay::Scene* scene)
 		physics_node->setCollisionObject(gameplay::PhysicsCollisionObject::RIGID_BODY, gameplay::PhysicsCollisionShape::box(), &params);
 		scene->addNode(physics_node);
 
-		Tile* tile = new Tile(physics_node);
+		Tile* tile = new Tile(physics_node, instance);
 		//add ref to the tile
 		physics_node->setUserPointer(tile);
 
@@ -166,7 +203,7 @@ void LetterController::Init(gameplay::Scene* scene)
 			letter_material.append(LetterProvider::getNextLetter(i));
 			tile->GetLayer(Tile::ICON)->SetRenderableNode(RENDERABLE(letter_material));
 
-			instance->renderables.push_back(tile);
+			instance->tiles.push_back(tile);
 		}
 	}
 }
@@ -195,12 +232,23 @@ void LetterController::HandleTouchUpEvent()
 	for(std::vector<Tile*>::iterator it = instance->selected_tiles.begin(); it != instance->selected_tiles.end(); ++it) {			
 		Tile* tile = *it;
 		tile->is_visible = false;
+		//add this tile to the available list
+		instance->available_tiles.push(tile);
 		//find this tile and remove it from the grid
 		instance->grid->Remove(tile);
 	}
 
+	//clear selected list
+	instance->selected_tiles.clear();
+
 	//adjust the grid
 	instance->grid->AdjustColumns();
+
+	//check the movement count. if the movement count is 0 after adjustment, means no movement, 
+	//but there are still empties. need to force the pop now
+	if (instance->moving_tiles_count == 0) {
+		instance->refillEmptyGridCells();
+	}
 
 	for(std::vector<Tile*>::iterator it = instance->tiles.begin(); it != instance->tiles.end(); ++it) {			
 		Tile* tile = *it;
@@ -210,7 +258,7 @@ void LetterController::HandleTouchUpEvent()
 
 void LetterController::Render(gameplay::Camera* camera)
 {
-	for(std::vector<Tile*>::iterator it = instance->renderables.begin(); it != instance->renderables.end(); ++it) {			
+	for(std::vector<Tile*>::iterator it = instance->tiles.begin(); it != instance->tiles.end(); ++it) {			
 		Tile* tile = *it;
 		if (tile->is_selected) {
 			tile->GetLayer(Tile::BASE)->SetRenderableNode(RENDERABLE("letter_layer_selected_background"));
@@ -227,27 +275,27 @@ void LetterController::Render(gameplay::Camera* camera)
 
 void LetterController::Update( float dt )
 {
-	for(std::vector<Tile*>::iterator it = instance->renderables.begin(); it != instance->renderables.end(); ++it) {			
+	for(std::vector<Tile*>::iterator it = instance->tiles.begin(); it != instance->tiles.end(); ++it) {			
 		Tile* tile = *it;
 		tile->Update(dt);
 	}
-	/*
-	Tile* t = instance->tiles[6];
-	if (is_growing) {
-		gameplay::MathUtil::smooth(&t->scale, 1.25, dt, 32);
-		if (t->scale >= 1.24f) {
-			is_growing = false;
-		}
-	} else {
-		gameplay::MathUtil::smooth(&t->scale, .3f, dt, 32);
-		if (t->scale <= .31f) {
-			is_growing = true;
-		}
-	}
-	*/
 }
 
 LetterController* LetterController::get()
 {
 	return instance;
+}
+
+void LetterController::TileMovementCompleteCallback( Tile* tile, bool is_starting )
+{
+	if (is_starting) {
+		moving_tiles_count++;
+	} else {
+		moving_tiles_count--;
+	}
+
+	//if we're at 0, means everyone is done and time to refill the empty spaces
+	if (moving_tiles_count == 0) {
+		refillEmptyGridCells();
+	}
 }

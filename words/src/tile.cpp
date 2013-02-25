@@ -13,13 +13,15 @@ void TileLayer::SetRenderableNode(gameplay::Node* renderable_node) {
 
 ///-----------------------------------------------------------------------------------------------
 
-Tile::Tile(gameplay::Node* physics_node) {
-	layers.reserve(8);
+Tile::Tile(gameplay::Node* physics_node, LetterController* letterController) {
 	this->physics_node = physics_node;
+	this->letterController = letterController;
+
+	layers.reserve(8);
 	scale = 1.0f;
 	is_visible = true;
 	is_selected = false;
-	is_moving = false;
+	animation = NONE;
 }
 
 void createBillboardHelper(const Vector3& objectPosition, const Vector3& cameraPosition,
@@ -85,19 +87,40 @@ TileLayer* Tile::GetLayer(LayerLevel layerLevel) {
 }
 
 void Tile::Update(float dt) {
-	if (is_moving) {
+	switch (animation) {
+	case DELAYING_TO_MOVE : {
 		move_delay -= dt;
-		if (move_delay > 0) {
-			return;
-		}
-
-		position += (target_position - position) * (dt / (dt + 64));
+		if (move_delay <= 0) 
+			animation = MOVING;
+		break;
+	}
+	case MOVING : {
+		position += (target_position - position) * (dt / (dt + 130));
 		//we're only moving down, so we can rely on y to see if we've arrived
-		if (position.y <= target_position.y) {
-			is_moving = false;
+		if ((position.y - 0.5f) <= target_position.y) {
 			position.y = target_position.y;
 			move_delay = 0;
+			animation = NONE;
+			this->letterController->TileMovementCompleteCallback(this, false);
 		}
+		break;
+	}
+	case POPPING : {
+		gameplay::MathUtil::smooth(&scale, 1.25f, dt, 64);
+		if (scale >= 1.24f) {
+			scale = 1.25f;
+			animation = POPPING_SNAP_BACK;
+		}
+		break;
+	}
+	case POPPING_SNAP_BACK : {
+		gameplay::MathUtil::smooth(&scale, 1, dt, 64);
+		if (scale <= 1.1) {
+			scale = 1.0;
+			animation = NONE;
+		}
+		break;
+	}
 	}
 }
 
@@ -108,18 +131,28 @@ void Tile::SetPosition(int x, int y, int z) {
 }
 
 
-void Tile::SetTargetPosition( int x, int y, int z, float delay)
+void Tile::TranslateTo( int x, int y, int z, float delay)
 {
 	target_position.x = x;
 	target_position.y = y;
 	target_position.z = z;
-	
-	//if not currently moving, set the delay
-	if (!is_moving) {
-		move_delay = delay;
+
+	if (animation == NONE) {
+		//notified that will start to move
+		this->letterController->TileMovementCompleteCallback(this, true);
 	}
 	
-	is_moving = true;
+	//if not currently moving or getting ready to move, set the delay
+	if (!(animation == DELAYING_TO_MOVE || animation == MOVING)) {
+		animation = DELAYING_TO_MOVE;
+		move_delay = delay;
+	} 
+}
+
+void Tile::PlayPopAnimation()
+{
+	animation = POPPING;
+	scale = 0.3f;
 }
 
 
