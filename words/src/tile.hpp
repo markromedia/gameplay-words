@@ -32,6 +32,15 @@ private:
 	/// @summary	The position.
  	gameplay::Vector3 position;
 
+	/// @summary	Target position.
+	gameplay::Vector3 target_position;
+
+	/// @summary	true if this object is moving.
+	bool is_moving;
+
+	/// @summary	The move delay.
+	float move_delay;
+
 	/// Gets a billboard transformation.
 	/// @param [in,out]	camera	If non-null, the camera.
 	/// @return	The billboard transformation.
@@ -39,14 +48,23 @@ private:
 
 	/// @summary	The physics node.
 	gameplay::Node* physics_node;
+
 public:
+	/// Values for the layer types and their order.
+	enum LayerLevel {BASE, ICON};
 	
 	/// Constructor.
 	/// @param [in,out]	physics_node	If non-null, the physics node.
 	Tile(gameplay::Node* physics_node);
 
-	/// Values for the layer types and their order.
-	enum LayerLevel {BASE, ICON};
+	/// @summary	true if this object is visible.
+	bool is_visible;
+
+	/// @summary	true if this object is selected.
+	bool is_selected;
+
+	/// @summary	The scale.
+	float scale;
 
 	/// Creates a layer of the specified type
 	///
@@ -65,6 +83,13 @@ public:
 	/// @param	y	The y coordinate.
 	/// @param	z	The z coordinate.
 	void SetPosition(int x, int y, int z);
+
+	/// Sets a target position to translate to
+	/// @param	x	The x coordinate.
+	/// @param	y	The y coordinate.
+	/// @param	z	The z coordinate.
+	/// @param	delay	the delay
+	void SetTargetPosition(int x, int y, int z, float delay);
 
 	/// Updates this object.
 	/// @param	dt			  	The dt.

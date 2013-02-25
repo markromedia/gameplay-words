@@ -48,6 +48,6 @@ namespace words {
 		/// @param	dt	The dt.
 		void Update(float dt);
 	};
-}
+};
 
 #endif  // __ANIMATION__hpp

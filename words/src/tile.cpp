@@ -16,6 +16,10 @@ void TileLayer::SetRenderableNode(gameplay::Node* renderable_node) {
 Tile::Tile(gameplay::Node* physics_node) {
 	layers.reserve(8);
 	this->physics_node = physics_node;
+	scale = 1.0f;
+	is_visible = true;
+	is_selected = false;
+	is_moving = false;
 }
 
 void createBillboardHelper(const Vector3& objectPosition, const Vector3& cameraPosition,
@@ -81,6 +85,20 @@ TileLayer* Tile::GetLayer(LayerLevel layerLevel) {
 }
 
 void Tile::Update(float dt) {
+	if (is_moving) {
+		move_delay -= dt;
+		if (move_delay > 0) {
+			return;
+		}
+
+		position += (target_position - position) * (dt / (dt + 64));
+		//we're only moving down, so we can rely on y to see if we've arrived
+		if (position.y <= target_position.y) {
+			is_moving = false;
+			position.y = target_position.y;
+			move_delay = 0;
+		}
+	}
 }
 
 void Tile::SetPosition(int x, int y, int z) {
@@ -88,6 +106,22 @@ void Tile::SetPosition(int x, int y, int z) {
 	position.y = y;
 	position.z = z;
 }
+
+
+void Tile::SetTargetPosition( int x, int y, int z, float delay)
+{
+	target_position.x = x;
+	target_position.y = y;
+	target_position.z = z;
+	
+	//if not currently moving, set the delay
+	if (!is_moving) {
+		move_delay = delay;
+	}
+	
+	is_moving = true;
+}
+
 
 void Tile::Render(gameplay::Camera* camera) {
 	gameplay::Quaternion p;
@@ -105,9 +139,14 @@ void Tile::Render(gameplay::Camera* camera) {
 	for(unsigned int i = 0; i < layers.size(); i++) {
 		TileLayer* tileLayer = layers[i];
 		if (tileLayer && tileLayer->renderable_node) {
+			//figure out y based on scale
+			int height = tileLayer->renderable_node->getModel()->getMesh()->getBoundingBox().max.z - tileLayer->renderable_node->getModel()->getMesh()->getBoundingBox().min.z;
+			float y = position.y - ((1 - scale) * height / 2);
+
 			//update the renderable node and draw it where we need to
-			tileLayer->renderable_node->setTranslation(position.x, position.y, position.z);
+			tileLayer->renderable_node->setTranslation(position.x, y, position.z);
 			tileLayer->renderable_node->setRotation(p);
+			tileLayer->renderable_node->setScale(scale);
 
 			tileLayer->renderable_node->getModel()->draw();
 		}

@@ -42,6 +42,7 @@ void words::update(float elapsedTime)
     // Rotate model
     //scene->findNode("Box01")->rotateX(MATH_DEG_TO_RAD((float)elapsedTime / 1000.0f * 180.0f));
     //tile.Update(scene->getActiveCamera(), elapsedTime);
+    LetterController::get()->Update(elapsedTime);
 }
 
 void words::render(float elapsedTime)
