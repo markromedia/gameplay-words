@@ -75,7 +75,7 @@ private:
 	/// @summary	The camera control.
 	CameraControl* camera_control;
 
-	void words::drawSplash(void* param);
+	void drawSplash(void* param);
 };
 
 #endif
