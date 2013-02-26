@@ -8,6 +8,7 @@
 #include "tile.hpp"
 #include "renderable_node_repository.hpp"
 #include "letter_provider.hpp"
+#include "selected_text_label.hpp"
 
 class Tile;
 class GridColumn;
@@ -75,6 +76,12 @@ private:
 
 	/// @summary	Number of moving tiles.
 	int moving_tiles_count;
+
+	/// @summary	The selected text label.
+	SelectedTextLabel* selectedTextLabel;
+
+	/// @summary	true to draw selected text.
+	bool draw_selected_text;
 public:
 	/// Callback, called when the tile movement complete.
 	/// @param [in,out]	tile	If non-null, the tile.

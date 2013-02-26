@@ -17,7 +17,7 @@ void RenderableNodeRepository::Init(gameplay::Scene * scene) {
 
 	//init the powerups
 	instance->initializeNode("powerup_arrows","res/words.material#powerup_arrows", letter_model->clone(), scene);
-	
+
 	//init the letters
 	instance->initializeNode("letter_a","res/words.material#letter_a", letter_model->clone(), scene);
 	instance->initializeNode("letter_b","res/words.material#letter_b", letter_model->clone(), scene);

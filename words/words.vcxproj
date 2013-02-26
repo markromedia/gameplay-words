@@ -336,6 +336,9 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <None Include="res\letter.FBX" />
     <None Include="res\letter.gpb" />
     <None Include="res\logo_powered_white.png" />
+    <None Include="res\myriadpro100.gpb" />
+    <None Include="res\myriadpro12.gpb" />
+    <None Include="res\myriadpro50.gpb" />
     <None Include="res\png\a_texture.png" />
     <None Include="res\png\letter_a.png" />
     <None Include="res\png\letter_a_highlight.png" />
@@ -371,6 +374,9 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <None Include="res\png\powerup_arrows.png" />
     <None Include="res\png\powerup_gear.png" />
     <None Include="res\png\powerup_star.png" />
+    <None Include="res\png\selected_text_left_bg.png" />
+    <None Include="res\png\selected_text_right_bg.png" />
+    <None Include="res\png\selected_text_tiling_bg.png" />
     <None Include="res\shaders\ambient.frag" />
     <None Include="res\shaders\ambient.vert" />
     <None Include="res\shaders\colored-unlit.frag" />
@@ -418,6 +424,7 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <None Include="words-macosx.plist" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\selected_text_label.cpp" />
     <ClCompile Include="src\animation.cpp" />
     <ClCompile Include="src\input_event_handler.cpp" />
     <ClCompile Include="src\letter_controller.cpp" />
@@ -428,6 +435,7 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <ClCompile Include="src\words.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\selected_text_label.hpp" />
     <ClInclude Include="src\animation.hpp" />
     <ClInclude Include="src\input_event_handler.hpp" />
     <ClInclude Include="src\letter_controller.hpp" />

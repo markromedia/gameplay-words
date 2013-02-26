@@ -89,6 +89,8 @@ LetterController::LetterController()
 	tiles.reserve(16);
 	grid = new Grid();
 	moving_tiles_count = 0;
+	selectedTextLabel = new SelectedTextLabel();
+	draw_selected_text = false;
 }
 
 void LetterController::buildGrid( gameplay::Node* letter_model )
@@ -143,8 +145,10 @@ void LetterController::refillEmptyGridCells()
 
 				//assign a new letter
 				std::string letter_material = "letter_";
-				letter_material.append(LetterProvider::getNextLetter(i));
+				std::string c = LetterProvider::getNextLetter(i);
+				letter_material.append(c);
 				tile->GetLayer(Tile::ICON)->SetRenderableNode(RENDERABLE(letter_material));
+				tile->value = c;
 
 				//start the tile popping
 				tile->PlayPopAnimation();
@@ -156,6 +160,12 @@ void LetterController::refillEmptyGridCells()
 void LetterController::Init(gameplay::Scene* scene)
 {
 	instance = new LetterController();
+
+	//init the selected text label
+	instance->selectedTextLabel->Init();
+
+	//build the letter columns
+	LetterProvider::BuildColumns();
 
 	//the model we'll use for the physics stuff
 	gameplay::Node* letter_model = scene->findNode("letter_tile");
@@ -200,8 +210,10 @@ void LetterController::Init(gameplay::Scene* scene)
 
 			//assign a letter
 			std::string letter_material = "letter_";
-			letter_material.append(LetterProvider::getNextLetter(i));
+			std::string c = LetterProvider::getNextLetter(i);
+			letter_material.append(c);
 			tile->GetLayer(Tile::ICON)->SetRenderableNode(RENDERABLE(letter_material));
+			tile->value = c;
 
 			instance->tiles.push_back(tile);
 		}
@@ -258,6 +270,7 @@ void LetterController::HandleTouchUpEvent()
 
 void LetterController::Render(gameplay::Camera* camera)
 {
+	instance->selectedTextLabel->Render();
 	for(std::vector<Tile*>::iterator it = instance->tiles.begin(); it != instance->tiles.end(); ++it) {			
 		Tile* tile = *it;
 		if (tile->is_selected) {
@@ -275,6 +288,18 @@ void LetterController::Render(gameplay::Camera* camera)
 
 void LetterController::Update( float dt )
 {
+	//draw the selected text if there are any characters
+	if (instance->selected_tiles.size() > 0) {
+		std::string selected_text = "";
+		for(std::vector<Tile*>::iterator it = instance->selected_tiles.begin(); it != instance->selected_tiles.end(); ++it) {			
+			Tile* tile = *it;
+			if (tile->value.length() > 0)
+				selected_text.append(tile->value);	
+		}
+		instance->selectedTextLabel->SetStringToDraw(selected_text);
+	}
+	instance->selectedTextLabel->Update(dt);
+
 	for(std::vector<Tile*>::iterator it = instance->tiles.begin(); it != instance->tiles.end(); ++it) {			
 		Tile* tile = *it;
 		tile->Update(dt);

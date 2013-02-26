@@ -72,6 +72,9 @@ public:
 	/// @summary	The scale.
 	float scale;
 
+	/// @summary	The value of this tile (as text)
+	std::string value;
+
 	/// Creates a layer of the specified type
 	///
 	/// @param	layer		 	The layer.
