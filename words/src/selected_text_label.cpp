@@ -10,7 +10,8 @@ void SelectedTextLabel::Init()
 	this->tiling_bg = gameplay::SpriteBatch::create("res/png/selected_text_tiling_bg.png");
 
 	//make sure the tiling one actually tiles
-	this->tiling_bg->getSampler()->setWrapMode(gameplay::Texture::Wrap::REPEAT, gameplay::Texture::Wrap::CLAMP);
+	this->tiling_bg->getSampler()->setWrapMode(gameplay::Texture::REPEAT, gameplay::Texture::CLAMP);
+	int a = 1;
 }
 
 void SelectedTextLabel::SetStringToDraw( std::string str )
