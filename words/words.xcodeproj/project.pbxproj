@@ -65,6 +65,9 @@
 		90A2D14516DB369D00E6C6DA /* camera_control.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 9041D25416C6BBB00098C475 /* camera_control.hpp */; };
 		90A2D14616DB369D00E6C6DA /* words.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 42C932EF1491A5160098216A /* words.cpp */; };
 		90A2D14716DB369D00E6C6DA /* words.h in Sources */ = {isa = PBXBuildFile; fileRef = 42C932F01491A5160098216A /* words.h */; };
+		90A2D14A16DC8D6700E6C6DA /* selected_text_label.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D14816DC8D6700E6C6DA /* selected_text_label.cpp */; };
+		90A2D14B16DC8D6E00E6C6DA /* selected_text_label.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D14816DC8D6700E6C6DA /* selected_text_label.cpp */; };
+		90A2D14C16DC8D6E00E6C6DA /* selected_text_label.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D14916DC8D6700E6C6DA /* selected_text_label.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +142,8 @@
 		90A2D13316DB369500E6C6DA /* animation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = animation.hpp; sourceTree = "<group>"; };
 		90A2D13416DB369500E6C6DA /* letter_provider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = letter_provider.cpp; sourceTree = "<group>"; };
 		90A2D13516DB369500E6C6DA /* letter_provider.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = letter_provider.hpp; sourceTree = "<group>"; };
+		90A2D14816DC8D6700E6C6DA /* selected_text_label.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = selected_text_label.cpp; sourceTree = "<group>"; };
+		90A2D14916DC8D6700E6C6DA /* selected_text_label.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = selected_text_label.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +229,8 @@
 		42C932C61491A0DB0098216A /* src */ = {
 			isa = PBXGroup;
 			children = (
+				90A2D14816DC8D6700E6C6DA /* selected_text_label.cpp */,
+				90A2D14916DC8D6700E6C6DA /* selected_text_label.hpp */,
 				90A2D13216DB369500E6C6DA /* animation.cpp */,
 				90A2D13316DB369500E6C6DA /* animation.hpp */,
 				90A2D13416DB369500E6C6DA /* letter_provider.cpp */,
@@ -481,6 +488,7 @@
 				905108DA16D4A59700E17584 /* tile.cpp in Sources */,
 				90A2D13616DB369500E6C6DA /* animation.cpp in Sources */,
 				90A2D13716DB369500E6C6DA /* letter_provider.cpp in Sources */,
+				90A2D14A16DC8D6700E6C6DA /* selected_text_label.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +496,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90A2D14B16DC8D6E00E6C6DA /* selected_text_label.cpp in Sources */,
+				90A2D14C16DC8D6E00E6C6DA /* selected_text_label.hpp in Sources */,
 				90A2D13816DB369D00E6C6DA /* animation.cpp in Sources */,
 				90A2D13916DB369D00E6C6DA /* animation.hpp in Sources */,
 				90A2D13A16DB369D00E6C6DA /* letter_provider.cpp in Sources */,
