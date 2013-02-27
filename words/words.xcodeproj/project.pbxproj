@@ -68,6 +68,53 @@
 		90A2D14A16DC8D6700E6C6DA /* selected_text_label.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D14816DC8D6700E6C6DA /* selected_text_label.cpp */; };
 		90A2D14B16DC8D6E00E6C6DA /* selected_text_label.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D14816DC8D6700E6C6DA /* selected_text_label.cpp */; };
 		90A2D14C16DC8D6E00E6C6DA /* selected_text_label.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D14916DC8D6700E6C6DA /* selected_text_label.hpp */; };
+		90A2D16F16DDC92700E6C6DA /* affentry.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D14E16DDC92700E6C6DA /* affentry.cxx */; };
+		90A2D17016DDC92700E6C6DA /* affixmgr.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D15016DDC92700E6C6DA /* affixmgr.cxx */; };
+		90A2D17116DDC92700E6C6DA /* csutil.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D15516DDC92700E6C6DA /* csutil.cxx */; };
+		90A2D17216DDC92700E6C6DA /* dictmgr.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D15716DDC92700E6C6DA /* dictmgr.cxx */; };
+		90A2D17316DDC92700E6C6DA /* filemgr.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D15916DDC92700E6C6DA /* filemgr.cxx */; };
+		90A2D17416DDC92700E6C6DA /* hashmgr.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D15B16DDC92700E6C6DA /* hashmgr.cxx */; };
+		90A2D17516DDC92700E6C6DA /* hunspell.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D15E16DDC92700E6C6DA /* hunspell.cxx */; };
+		90A2D17616DDC92700E6C6DA /* hunzip.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D16216DDC92700E6C6DA /* hunzip.cxx */; };
+		90A2D17716DDC92700E6C6DA /* license.hunspell in Resources */ = {isa = PBXBuildFile; fileRef = 90A2D16516DDC92700E6C6DA /* license.hunspell */; };
+		90A2D17816DDC92700E6C6DA /* license.myspell in Resources */ = {isa = PBXBuildFile; fileRef = 90A2D16616DDC92700E6C6DA /* license.myspell */; };
+		90A2D17916DDC92700E6C6DA /* phonet.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D16716DDC92700E6C6DA /* phonet.cxx */; };
+		90A2D17A16DDC92700E6C6DA /* replist.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D16916DDC92700E6C6DA /* replist.cxx */; };
+		90A2D17B16DDC92700E6C6DA /* suggestmgr.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D16B16DDC92700E6C6DA /* suggestmgr.cxx */; };
+		90A2D17C16DDC92700E6C6DA /* utf_info.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D16D16DDC92700E6C6DA /* utf_info.cxx */; };
+		90A2D17D16DDC93400E6C6DA /* affentry.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D14E16DDC92700E6C6DA /* affentry.cxx */; };
+		90A2D17E16DDC93400E6C6DA /* affentry.hxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D14F16DDC92700E6C6DA /* affentry.hxx */; };
+		90A2D17F16DDC93400E6C6DA /* affixmgr.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D15016DDC92700E6C6DA /* affixmgr.cxx */; };
+		90A2D18016DDC93400E6C6DA /* affixmgr.hxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D15116DDC92700E6C6DA /* affixmgr.hxx */; };
+		90A2D18116DDC93400E6C6DA /* atypes.hxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D15216DDC92700E6C6DA /* atypes.hxx */; };
+		90A2D18216DDC93400E6C6DA /* baseaffix.hxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D15316DDC92700E6C6DA /* baseaffix.hxx */; };
+		90A2D18316DDC93400E6C6DA /* config.h in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D15416DDC92700E6C6DA /* config.h */; };
+		90A2D18416DDC93400E6C6DA /* csutil.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D15516DDC92700E6C6DA /* csutil.cxx */; };
+		90A2D18516DDC93400E6C6DA /* csutil.hxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D15616DDC92700E6C6DA /* csutil.hxx */; };
+		90A2D18616DDC93400E6C6DA /* dictmgr.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D15716DDC92700E6C6DA /* dictmgr.cxx */; };
+		90A2D18716DDC93400E6C6DA /* dictmgr.hxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D15816DDC92700E6C6DA /* dictmgr.hxx */; };
+		90A2D18816DDC93400E6C6DA /* filemgr.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D15916DDC92700E6C6DA /* filemgr.cxx */; };
+		90A2D18916DDC93400E6C6DA /* filemgr.hxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D15A16DDC92700E6C6DA /* filemgr.hxx */; };
+		90A2D18A16DDC93400E6C6DA /* hashmgr.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D15B16DDC92700E6C6DA /* hashmgr.cxx */; };
+		90A2D18B16DDC93400E6C6DA /* hashmgr.hxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D15C16DDC92700E6C6DA /* hashmgr.hxx */; };
+		90A2D18C16DDC93400E6C6DA /* htypes.hxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D15D16DDC92700E6C6DA /* htypes.hxx */; };
+		90A2D18D16DDC93400E6C6DA /* hunspell.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D15E16DDC92700E6C6DA /* hunspell.cxx */; };
+		90A2D18E16DDC93400E6C6DA /* hunspell.h in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D15F16DDC92700E6C6DA /* hunspell.h */; };
+		90A2D18F16DDC93400E6C6DA /* hunspell.hxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D16016DDC92700E6C6DA /* hunspell.hxx */; };
+		90A2D19016DDC93400E6C6DA /* hunvisapi.h in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D16116DDC92700E6C6DA /* hunvisapi.h */; };
+		90A2D19116DDC93400E6C6DA /* hunzip.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D16216DDC92700E6C6DA /* hunzip.cxx */; };
+		90A2D19216DDC93400E6C6DA /* hunzip.hxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D16316DDC92700E6C6DA /* hunzip.hxx */; };
+		90A2D19316DDC93400E6C6DA /* langnum.hxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D16416DDC92700E6C6DA /* langnum.hxx */; };
+		90A2D19416DDC93400E6C6DA /* license.hunspell in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D16516DDC92700E6C6DA /* license.hunspell */; };
+		90A2D19516DDC93400E6C6DA /* license.myspell in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D16616DDC92700E6C6DA /* license.myspell */; };
+		90A2D19616DDC93400E6C6DA /* phonet.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D16716DDC92700E6C6DA /* phonet.cxx */; };
+		90A2D19716DDC93400E6C6DA /* phonet.hxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D16816DDC92700E6C6DA /* phonet.hxx */; };
+		90A2D19816DDC93400E6C6DA /* replist.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D16916DDC92700E6C6DA /* replist.cxx */; };
+		90A2D19916DDC93400E6C6DA /* replist.hxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D16A16DDC92700E6C6DA /* replist.hxx */; };
+		90A2D19A16DDC93400E6C6DA /* suggestmgr.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D16B16DDC92700E6C6DA /* suggestmgr.cxx */; };
+		90A2D19B16DDC93400E6C6DA /* suggestmgr.hxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D16C16DDC92700E6C6DA /* suggestmgr.hxx */; };
+		90A2D19C16DDC93400E6C6DA /* utf_info.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D16D16DDC92700E6C6DA /* utf_info.cxx */; };
+		90A2D19D16DDC93400E6C6DA /* w_char.hxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D16E16DDC92700E6C6DA /* w_char.hxx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +191,39 @@
 		90A2D13516DB369500E6C6DA /* letter_provider.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = letter_provider.hpp; sourceTree = "<group>"; };
 		90A2D14816DC8D6700E6C6DA /* selected_text_label.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = selected_text_label.cpp; sourceTree = "<group>"; };
 		90A2D14916DC8D6700E6C6DA /* selected_text_label.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = selected_text_label.hpp; sourceTree = "<group>"; };
+		90A2D14E16DDC92700E6C6DA /* affentry.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = affentry.cxx; sourceTree = "<group>"; };
+		90A2D14F16DDC92700E6C6DA /* affentry.hxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = affentry.hxx; sourceTree = "<group>"; };
+		90A2D15016DDC92700E6C6DA /* affixmgr.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = affixmgr.cxx; sourceTree = "<group>"; };
+		90A2D15116DDC92700E6C6DA /* affixmgr.hxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = affixmgr.hxx; sourceTree = "<group>"; };
+		90A2D15216DDC92700E6C6DA /* atypes.hxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = atypes.hxx; sourceTree = "<group>"; };
+		90A2D15316DDC92700E6C6DA /* baseaffix.hxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = baseaffix.hxx; sourceTree = "<group>"; };
+		90A2D15416DDC92700E6C6DA /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		90A2D15516DDC92700E6C6DA /* csutil.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = csutil.cxx; sourceTree = "<group>"; };
+		90A2D15616DDC92700E6C6DA /* csutil.hxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = csutil.hxx; sourceTree = "<group>"; };
+		90A2D15716DDC92700E6C6DA /* dictmgr.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dictmgr.cxx; sourceTree = "<group>"; };
+		90A2D15816DDC92700E6C6DA /* dictmgr.hxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = dictmgr.hxx; sourceTree = "<group>"; };
+		90A2D15916DDC92700E6C6DA /* filemgr.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = filemgr.cxx; sourceTree = "<group>"; };
+		90A2D15A16DDC92700E6C6DA /* filemgr.hxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = filemgr.hxx; sourceTree = "<group>"; };
+		90A2D15B16DDC92700E6C6DA /* hashmgr.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hashmgr.cxx; sourceTree = "<group>"; };
+		90A2D15C16DDC92700E6C6DA /* hashmgr.hxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = hashmgr.hxx; sourceTree = "<group>"; };
+		90A2D15D16DDC92700E6C6DA /* htypes.hxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = htypes.hxx; sourceTree = "<group>"; };
+		90A2D15E16DDC92700E6C6DA /* hunspell.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hunspell.cxx; sourceTree = "<group>"; };
+		90A2D15F16DDC92700E6C6DA /* hunspell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hunspell.h; sourceTree = "<group>"; };
+		90A2D16016DDC92700E6C6DA /* hunspell.hxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = hunspell.hxx; sourceTree = "<group>"; };
+		90A2D16116DDC92700E6C6DA /* hunvisapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hunvisapi.h; sourceTree = "<group>"; };
+		90A2D16216DDC92700E6C6DA /* hunzip.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hunzip.cxx; sourceTree = "<group>"; };
+		90A2D16316DDC92700E6C6DA /* hunzip.hxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = hunzip.hxx; sourceTree = "<group>"; };
+		90A2D16416DDC92700E6C6DA /* langnum.hxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = langnum.hxx; sourceTree = "<group>"; };
+		90A2D16516DDC92700E6C6DA /* license.hunspell */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license.hunspell; sourceTree = "<group>"; };
+		90A2D16616DDC92700E6C6DA /* license.myspell */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license.myspell; sourceTree = "<group>"; };
+		90A2D16716DDC92700E6C6DA /* phonet.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = phonet.cxx; sourceTree = "<group>"; };
+		90A2D16816DDC92700E6C6DA /* phonet.hxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = phonet.hxx; sourceTree = "<group>"; };
+		90A2D16916DDC92700E6C6DA /* replist.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = replist.cxx; sourceTree = "<group>"; };
+		90A2D16A16DDC92700E6C6DA /* replist.hxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = replist.hxx; sourceTree = "<group>"; };
+		90A2D16B16DDC92700E6C6DA /* suggestmgr.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = suggestmgr.cxx; sourceTree = "<group>"; };
+		90A2D16C16DDC92700E6C6DA /* suggestmgr.hxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = suggestmgr.hxx; sourceTree = "<group>"; };
+		90A2D16D16DDC92700E6C6DA /* utf_info.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = utf_info.cxx; sourceTree = "<group>"; };
+		90A2D16E16DDC92700E6C6DA /* w_char.hxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = w_char.hxx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +309,7 @@
 		42C932C61491A0DB0098216A /* src */ = {
 			isa = PBXGroup;
 			children = (
+				90A2D14D16DDC92700E6C6DA /* hunspell */,
 				90A2D14816DC8D6700E6C6DA /* selected_text_label.cpp */,
 				90A2D14916DC8D6700E6C6DA /* selected_text_label.hpp */,
 				90A2D13216DB369500E6C6DA /* animation.cpp */,
@@ -302,6 +383,46 @@
 				9041D25116C6BAD50098C475 /* libgameplay.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		90A2D14D16DDC92700E6C6DA /* hunspell */ = {
+			isa = PBXGroup;
+			children = (
+				90A2D14E16DDC92700E6C6DA /* affentry.cxx */,
+				90A2D14F16DDC92700E6C6DA /* affentry.hxx */,
+				90A2D15016DDC92700E6C6DA /* affixmgr.cxx */,
+				90A2D15116DDC92700E6C6DA /* affixmgr.hxx */,
+				90A2D15216DDC92700E6C6DA /* atypes.hxx */,
+				90A2D15316DDC92700E6C6DA /* baseaffix.hxx */,
+				90A2D15416DDC92700E6C6DA /* config.h */,
+				90A2D15516DDC92700E6C6DA /* csutil.cxx */,
+				90A2D15616DDC92700E6C6DA /* csutil.hxx */,
+				90A2D15716DDC92700E6C6DA /* dictmgr.cxx */,
+				90A2D15816DDC92700E6C6DA /* dictmgr.hxx */,
+				90A2D15916DDC92700E6C6DA /* filemgr.cxx */,
+				90A2D15A16DDC92700E6C6DA /* filemgr.hxx */,
+				90A2D15B16DDC92700E6C6DA /* hashmgr.cxx */,
+				90A2D15C16DDC92700E6C6DA /* hashmgr.hxx */,
+				90A2D15D16DDC92700E6C6DA /* htypes.hxx */,
+				90A2D15E16DDC92700E6C6DA /* hunspell.cxx */,
+				90A2D15F16DDC92700E6C6DA /* hunspell.h */,
+				90A2D16016DDC92700E6C6DA /* hunspell.hxx */,
+				90A2D16116DDC92700E6C6DA /* hunvisapi.h */,
+				90A2D16216DDC92700E6C6DA /* hunzip.cxx */,
+				90A2D16316DDC92700E6C6DA /* hunzip.hxx */,
+				90A2D16416DDC92700E6C6DA /* langnum.hxx */,
+				90A2D16516DDC92700E6C6DA /* license.hunspell */,
+				90A2D16616DDC92700E6C6DA /* license.myspell */,
+				90A2D16716DDC92700E6C6DA /* phonet.cxx */,
+				90A2D16816DDC92700E6C6DA /* phonet.hxx */,
+				90A2D16916DDC92700E6C6DA /* replist.cxx */,
+				90A2D16A16DDC92700E6C6DA /* replist.hxx */,
+				90A2D16B16DDC92700E6C6DA /* suggestmgr.cxx */,
+				90A2D16C16DDC92700E6C6DA /* suggestmgr.hxx */,
+				90A2D16D16DDC92700E6C6DA /* utf_info.cxx */,
+				90A2D16E16DDC92700E6C6DA /* w_char.hxx */,
+			);
+			path = hunspell;
 			sourceTree = "<group>";
 		};
 		F1F49B8516AD8C22008715A2 /* MacOSX */ = {
@@ -432,6 +553,8 @@
 				42C932EE1491A4CB0098216A /* icon.png in Resources */,
 				428F7BDE15CB131A009ED24C /* game.config in Resources */,
 				42C932F31491A53E0098216A /* res in Resources */,
+				90A2D17716DDC92700E6C6DA /* license.hunspell in Resources */,
+				90A2D17816DDC92700E6C6DA /* license.myspell in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +612,18 @@
 				90A2D13616DB369500E6C6DA /* animation.cpp in Sources */,
 				90A2D13716DB369500E6C6DA /* letter_provider.cpp in Sources */,
 				90A2D14A16DC8D6700E6C6DA /* selected_text_label.cpp in Sources */,
+				90A2D16F16DDC92700E6C6DA /* affentry.cxx in Sources */,
+				90A2D17016DDC92700E6C6DA /* affixmgr.cxx in Sources */,
+				90A2D17116DDC92700E6C6DA /* csutil.cxx in Sources */,
+				90A2D17216DDC92700E6C6DA /* dictmgr.cxx in Sources */,
+				90A2D17316DDC92700E6C6DA /* filemgr.cxx in Sources */,
+				90A2D17416DDC92700E6C6DA /* hashmgr.cxx in Sources */,
+				90A2D17516DDC92700E6C6DA /* hunspell.cxx in Sources */,
+				90A2D17616DDC92700E6C6DA /* hunzip.cxx in Sources */,
+				90A2D17916DDC92700E6C6DA /* phonet.cxx in Sources */,
+				90A2D17A16DDC92700E6C6DA /* replist.cxx in Sources */,
+				90A2D17B16DDC92700E6C6DA /* suggestmgr.cxx in Sources */,
+				90A2D17C16DDC92700E6C6DA /* utf_info.cxx in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +631,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90A2D17D16DDC93400E6C6DA /* affentry.cxx in Sources */,
+				90A2D17E16DDC93400E6C6DA /* affentry.hxx in Sources */,
+				90A2D17F16DDC93400E6C6DA /* affixmgr.cxx in Sources */,
+				90A2D18016DDC93400E6C6DA /* affixmgr.hxx in Sources */,
+				90A2D18116DDC93400E6C6DA /* atypes.hxx in Sources */,
+				90A2D18216DDC93400E6C6DA /* baseaffix.hxx in Sources */,
+				90A2D18316DDC93400E6C6DA /* config.h in Sources */,
+				90A2D18416DDC93400E6C6DA /* csutil.cxx in Sources */,
+				90A2D18516DDC93400E6C6DA /* csutil.hxx in Sources */,
+				90A2D18616DDC93400E6C6DA /* dictmgr.cxx in Sources */,
+				90A2D18716DDC93400E6C6DA /* dictmgr.hxx in Sources */,
+				90A2D18816DDC93400E6C6DA /* filemgr.cxx in Sources */,
+				90A2D18916DDC93400E6C6DA /* filemgr.hxx in Sources */,
+				90A2D18A16DDC93400E6C6DA /* hashmgr.cxx in Sources */,
+				90A2D18B16DDC93400E6C6DA /* hashmgr.hxx in Sources */,
+				90A2D18C16DDC93400E6C6DA /* htypes.hxx in Sources */,
+				90A2D18D16DDC93400E6C6DA /* hunspell.cxx in Sources */,
+				90A2D18E16DDC93400E6C6DA /* hunspell.h in Sources */,
+				90A2D18F16DDC93400E6C6DA /* hunspell.hxx in Sources */,
+				90A2D19016DDC93400E6C6DA /* hunvisapi.h in Sources */,
+				90A2D19116DDC93400E6C6DA /* hunzip.cxx in Sources */,
+				90A2D19216DDC93400E6C6DA /* hunzip.hxx in Sources */,
+				90A2D19316DDC93400E6C6DA /* langnum.hxx in Sources */,
+				90A2D19416DDC93400E6C6DA /* license.hunspell in Sources */,
+				90A2D19516DDC93400E6C6DA /* license.myspell in Sources */,
+				90A2D19616DDC93400E6C6DA /* phonet.cxx in Sources */,
+				90A2D19716DDC93400E6C6DA /* phonet.hxx in Sources */,
+				90A2D19816DDC93400E6C6DA /* replist.cxx in Sources */,
+				90A2D19916DDC93400E6C6DA /* replist.hxx in Sources */,
+				90A2D19A16DDC93400E6C6DA /* suggestmgr.cxx in Sources */,
+				90A2D19B16DDC93400E6C6DA /* suggestmgr.hxx in Sources */,
+				90A2D19C16DDC93400E6C6DA /* utf_info.cxx in Sources */,
+				90A2D19D16DDC93400E6C6DA /* w_char.hxx in Sources */,
 				90A2D14B16DC8D6E00E6C6DA /* selected_text_label.cpp in Sources */,
 				90A2D14C16DC8D6E00E6C6DA /* selected_text_label.hpp in Sources */,
 				90A2D13816DB369D00E6C6DA /* animation.cpp in Sources */,
