@@ -22,6 +22,7 @@ Tile::Tile(gameplay::Node* physics_node, LetterController* letterController) {
 	is_visible = true;
 	is_selected = false;
 	animation = NONE;
+	physics_node_scale = 0.5f;
 }
 
 void createBillboardHelper(const Vector3& objectPosition, const Vector3& cameraPosition,
@@ -166,8 +167,10 @@ void Tile::Render(gameplay::Camera* camera) {
 	p = getBillboardTransformation(camera);
 
 	//make sure the physics node is also where it needs to be
-	physics_node->setTranslation(position.x, position.y, position.z);
+	int physics_node_height = physics_node->getModel()->getMesh()->getBoundingBox().max.z - physics_node->getModel()->getMesh()->getBoundingBox().min.z;
+	physics_node->setTranslation(position.x, position.y  - ((1 - physics_node_scale) * (physics_node_height / 2)), position.z);
 	physics_node->setRotation(p);
+	physics_node->setScale(physics_node_scale);
 
 	for(unsigned int i = 0; i < layers.size(); i++) {
 		TileLayer* tileLayer = layers[i];

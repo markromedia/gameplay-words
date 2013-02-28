@@ -5,7 +5,7 @@
 #include "camera_control.hpp"
 #include "renderable_node_repository.hpp"
 #include "letter_controller.hpp"
-
+#include "word_checker.hpp"
 
 using namespace gameplay;
 

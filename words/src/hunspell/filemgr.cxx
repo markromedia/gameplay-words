@@ -7,6 +7,8 @@
 
 #include "filemgr.hxx"
 
+#include "gameplay.h"
+
 int FileMgr::fail(const char * err, const char * par) {
     fprintf(stderr, err, par);
     return -1;
@@ -16,6 +18,8 @@ FileMgr::FileMgr(const char * file, const char * key) {
     linenum = 0;
     hin = NULL;
     fin = fopen(file, "r");
+
+	fin = gameplay::FileSystem::openFile(file, "r");
     if (!fin) {
         // check hzipped file
         char * st = (char *) malloc(strlen(file) + strlen(HZIP_EXTENSION) + 1);

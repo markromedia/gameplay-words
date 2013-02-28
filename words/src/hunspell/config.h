@@ -167,9 +167,6 @@
 /* Define to 1 if you have the `tsearch' function. */
 #define HAVE_TSEARCH 1
 
-/* Define to 1 if you have the <unistd.h> header file. */
-#define HAVE_UNISTD_H 1
-
 /* Define to 1 if you have the `__argz_count' function. */
 #define HAVE___ARGZ_COUNT 1
 
@@ -209,4 +206,4 @@
 
 #define HUNSPELL_STATIC
 
-# define _CRT_SECURE_NO_WARNINGS
+#define _CRT_SECURE_NO_WARNINGS

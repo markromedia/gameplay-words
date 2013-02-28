@@ -27,9 +27,10 @@ void words::initialize()
 	//create the camera control
 	camera_control = new CameraControl(camera_node);
 	
-	//tile test
+	//init singletons
 	RenderableNodeRepository::Init(scene);
 	LetterController::Init(scene);
+	WordChecker::Init();
 }
 
 void words::finalize()

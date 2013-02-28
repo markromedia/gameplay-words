@@ -53,6 +53,9 @@ private:
 	/// @summary	The physics node.
 	gameplay::Node* physics_node;
 
+	//the scale factor of the physics node
+	float physics_node_scale;
+
 	/// @summary	The letter controller.
 	LetterController* letterController;
 public:

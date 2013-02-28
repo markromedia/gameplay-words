@@ -107,8 +107,9 @@ void LetterController::buildGrid( gameplay::Node* letter_model )
 	int x_space = 0;
 	int y_space = 0;
 
+	int y_offset = 25;
 	int start_x = (col_count * letter_width + (x_space * (col_count - 1))) / -2 + letter_width / 2;
-	int start_y = (row_count * letter_height + (y_space * (row_count - 1))) / -2 + (letter_height / 2 + 20);
+	int start_y = (row_count * letter_height + (y_space * (row_count - 1))) / -2 + (letter_height / 2 + y_offset);
 
 	for (int i = 0; i < col_count; i++) { //col
 		GridColumn* column = new GridColumn();
@@ -240,28 +241,43 @@ bool LetterController::HandleTouchDownEvent(gameplay::Ray& ray, int x, int y )
 
 void LetterController::HandleTouchUpEvent()
 {
-	//remove the selected tiles
+	if (instance->selected_tiles.size() == 0) {
+		return;
+	}
+
+	//construct the word and check it
+	std::string selected_text = "";
 	for(std::vector<Tile*>::iterator it = instance->selected_tiles.begin(); it != instance->selected_tiles.end(); ++it) {			
 		Tile* tile = *it;
-		tile->is_visible = false;
-		//add this tile to the available list
-		instance->available_tiles.push(tile);
-		//find this tile and remove it from the grid
-		instance->grid->Remove(tile);
+		if (tile->value.length() > 0)
+			selected_text.append(tile->value);	
+	}
+
+	if (WordChecker::IsWord(selected_text.c_str())) {
+		//remove the selected tiles
+		for(std::vector<Tile*>::iterator it = instance->selected_tiles.begin(); it != instance->selected_tiles.end(); ++it) {			
+			Tile* tile = *it;
+			tile->is_visible = false;
+			//add this tile to the available list
+			instance->available_tiles.push(tile);
+			//find this tile and remove it from the grid
+			instance->grid->Remove(tile);
+		}
+
+		//adjust the grid
+		instance->grid->AdjustColumns();
+
+		//check the movement count. if the movement count is 0 after adjustment, means no movement, 
+		//but there are still empties. need to force the pop now
+		if (instance->moving_tiles_count == 0) {
+			instance->refillEmptyGridCells();
+		}
 	}
 
 	//clear selected list
 	instance->selected_tiles.clear();
 
-	//adjust the grid
-	instance->grid->AdjustColumns();
-
-	//check the movement count. if the movement count is 0 after adjustment, means no movement, 
-	//but there are still empties. need to force the pop now
-	if (instance->moving_tiles_count == 0) {
-		instance->refillEmptyGridCells();
-	}
-
+	//make sure everything is unselected
 	for(std::vector<Tile*>::iterator it = instance->tiles.begin(); it != instance->tiles.end(); ++it) {			
 		Tile* tile = *it;
 		tile->is_selected = false;

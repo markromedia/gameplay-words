@@ -37,7 +37,7 @@ void SelectedTextLabel::Render()
 	//basic position vars
 	int left_x_pos = gameplay::Game::getInstance()->getWidth() / 2 - (width / 2);
 	int right_x_pos = gameplay::Game::getInstance()->getWidth() / 2 + (width / 2);
-	int y_pos = 100;
+	int y_pos = 110;
 
 	int bg_left = 287;
 	int bg_right = 318;
@@ -76,6 +76,6 @@ void SelectedTextLabel::toUpper( std::string& str )
 
 void SelectedTextLabel::Update( float dt )
 {
-	do_render = total_visible_time <= 500;
+	do_render = total_visible_time <= 300;
 	total_visible_time += dt;
 }

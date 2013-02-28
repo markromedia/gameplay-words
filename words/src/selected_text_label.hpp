@@ -8,6 +8,8 @@
 
 class SelectedTextLabel {
 private:
+	enum ANIMATION_MODE { NONE, SHAKING, SUCESS};
+
 	/// @summary	The used to draw the text itself.
 	gameplay::Font* font;
 
