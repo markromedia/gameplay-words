@@ -115,6 +115,9 @@
 		90A2D19B16DDC93400E6C6DA /* suggestmgr.hxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D16C16DDC92700E6C6DA /* suggestmgr.hxx */; };
 		90A2D19C16DDC93400E6C6DA /* utf_info.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D16D16DDC92700E6C6DA /* utf_info.cxx */; };
 		90A2D19D16DDC93400E6C6DA /* w_char.hxx in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D16E16DDC92700E6C6DA /* w_char.hxx */; };
+		90A2D1A016DEFF3900E6C6DA /* word_checker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D19E16DEFF3900E6C6DA /* word_checker.cpp */; };
+		90A2D1A116DEFF5900E6C6DA /* word_checker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D19E16DEFF3900E6C6DA /* word_checker.cpp */; };
+		90A2D1A216DEFF5900E6C6DA /* word_checker.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D19F16DEFF3900E6C6DA /* word_checker.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -224,6 +227,8 @@
 		90A2D16C16DDC92700E6C6DA /* suggestmgr.hxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = suggestmgr.hxx; sourceTree = "<group>"; };
 		90A2D16D16DDC92700E6C6DA /* utf_info.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = utf_info.cxx; sourceTree = "<group>"; };
 		90A2D16E16DDC92700E6C6DA /* w_char.hxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = w_char.hxx; sourceTree = "<group>"; };
+		90A2D19E16DEFF3900E6C6DA /* word_checker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = word_checker.cpp; sourceTree = "<group>"; };
+		90A2D19F16DEFF3900E6C6DA /* word_checker.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = word_checker.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,6 +314,8 @@
 		42C932C61491A0DB0098216A /* src */ = {
 			isa = PBXGroup;
 			children = (
+				90A2D19E16DEFF3900E6C6DA /* word_checker.cpp */,
+				90A2D19F16DEFF3900E6C6DA /* word_checker.hpp */,
 				90A2D14D16DDC92700E6C6DA /* hunspell */,
 				90A2D14816DC8D6700E6C6DA /* selected_text_label.cpp */,
 				90A2D14916DC8D6700E6C6DA /* selected_text_label.hpp */,
@@ -624,6 +631,7 @@
 				90A2D17A16DDC92700E6C6DA /* replist.cxx in Sources */,
 				90A2D17B16DDC92700E6C6DA /* suggestmgr.cxx in Sources */,
 				90A2D17C16DDC92700E6C6DA /* utf_info.cxx in Sources */,
+				90A2D1A016DEFF3900E6C6DA /* word_checker.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,6 +639,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90A2D1A116DEFF5900E6C6DA /* word_checker.cpp in Sources */,
+				90A2D1A216DEFF5900E6C6DA /* word_checker.hpp in Sources */,
 				90A2D17D16DDC93400E6C6DA /* affentry.cxx in Sources */,
 				90A2D17E16DDC93400E6C6DA /* affentry.hxx in Sources */,
 				90A2D17F16DDC93400E6C6DA /* affixmgr.cxx in Sources */,
