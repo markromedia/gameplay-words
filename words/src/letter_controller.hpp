@@ -10,6 +10,7 @@
 #include "letter_provider.hpp"
 #include "selected_text_label.hpp"
 #include "word_checker.hpp"
+#include "score_controller.hpp"
 
 class Tile;
 class GridColumn;
@@ -77,9 +78,6 @@ private:
 
 	/// @summary	Number of moving tiles.
 	int moving_tiles_count;
-
-	/// @summary	The selected text label.
-	SelectedTextLabel* selectedTextLabel;
 
 	/// @summary	true to draw selected text.
 	bool draw_selected_text;

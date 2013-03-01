@@ -30,7 +30,12 @@ void words::initialize()
 	//init singletons
 	RenderableNodeRepository::Init(scene);
 	LetterController::Init(scene);
+	SelectedTextLabel::Init();
 	WordChecker::Init();
+	ScoreController::Init();
+	TimerController::Init();
+
+	TimerController::StartTimer();
 }
 
 void words::finalize()
@@ -40,19 +45,26 @@ void words::finalize()
 
 void words::update(float elapsedTime)
 {
-    // Rotate model
-    //scene->findNode("Box01")->rotateX(MATH_DEG_TO_RAD((float)elapsedTime / 1000.0f * 180.0f));
-    //tile.Update(scene->getActiveCamera(), elapsedTime);
-    LetterController::get()->Update(elapsedTime);
+    //update everyone
+    ScoreController::Update(elapsedTime);
+	TimerController::Update(elapsedTime);
+	LetterController::get()->Update(elapsedTime);
+	SelectedTextLabel::get()->Update(elapsedTime);
 }
 
 void words::render(float elapsedTime)
 {
     // Clear the color and depth buffers
-    clear(CLEAR_COLOR_DEPTH, Vector4::one(), 1.0f, 0);
+    clear(CLEAR_COLOR_DEPTH, Vector4(1, 1, 1, 1), 1.0f, 0);
 
-    // Visit all the nodes in the scene for drawing
-    //scene->visit(this, &words::drawScene);
+	//render score and timer
+	ScoreController::Render();
+	TimerController::Render();
+
+	//render selected text
+	SelectedTextLabel::get()->Render();
+
+	//render letter grid
     LetterController::Render(scene->getActiveCamera());
 }
 

@@ -33,9 +33,13 @@ private:
 	gameplay::SpriteBatch* left_bg;
 	gameplay::SpriteBatch* right_bg;
 	gameplay::SpriteBatch* tiling_bg;
+	gameplay::SpriteBatch* background;
+
+	/// @summary	The instance.
+	static SelectedTextLabel* instance;
 public:
 	/// Initialises this object.
-	void Init();
+	static void Init();
 
 	/// Sets a string to draw.
 	/// @param	str	The.
@@ -47,6 +51,10 @@ public:
 	/// Called to see if
 	/// @param	dt	The dt.
 	void Update(float dt);
+
+	/// Returns instance.
+	/// @return	null if it fails, else.
+	static SelectedTextLabel* get();
 };
 
 #endif  // __SELECTED_TEXT_LABEL__hpp

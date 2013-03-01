@@ -1,17 +1,22 @@
 #include "selected_text_label.hpp"
 
+
+SelectedTextLabel* SelectedTextLabel::instance;
+
 void SelectedTextLabel::Init()
 {
-	this->font = gameplay::Font::create("res/myriadpro50.gpb");
-	this->font_size = 50;
+	instance = new SelectedTextLabel();
 
-	this->left_bg = gameplay::SpriteBatch::create("res/png/selected_text_left_bg.png");
-	this->right_bg = gameplay::SpriteBatch::create("res/png/selected_text_right_bg.png");
-	this->tiling_bg = gameplay::SpriteBatch::create("res/png/selected_text_tiling_bg.png");
+	instance->font = gameplay::Font::create("res/myriadpro50.gpb");
+	instance->font_size = 50;
+
+	instance->left_bg = gameplay::SpriteBatch::create("res/png/selected_text_left_bg.png");
+	instance->right_bg = gameplay::SpriteBatch::create("res/png/selected_text_right_bg.png");
+	instance->tiling_bg = gameplay::SpriteBatch::create("res/png/selected_text_tiling_bg.png");
+	instance->background = gameplay::SpriteBatch::create("res/png/selected_text_depressed_bg.png");
 
 	//make sure the tiling one actually tiles
-	this->tiling_bg->getSampler()->setWrapMode(gameplay::Texture::REPEAT, gameplay::Texture::CLAMP);
-	int a = 1;
+	instance->tiling_bg->getSampler()->setWrapMode(gameplay::Texture::REPEAT, gameplay::Texture::CLAMP);
 }
 
 void SelectedTextLabel::SetStringToDraw( std::string str )
@@ -24,11 +29,16 @@ void SelectedTextLabel::SetStringToDraw( std::string str )
 
 void SelectedTextLabel::Render()
 {
+	//always draw the background
+	background->start();
+	background->draw(gameplay::Game::getInstance()->getWidth() / 2, 104 + 32, 0.0f, 512, 96, 0.0f, 1.0f, 1.0f, 0.0f, gameplay::Vector4::one(), true);
+	background->finish();
+
+	//dont draw bubble if no text
 	if (!do_render || string_to_draw.length() == 0) {
 		return;
 	}
 
-	font->start();
 	//grab the width and height of the text
 	unsigned int width;
 	unsigned int height;
@@ -42,6 +52,7 @@ void SelectedTextLabel::Render()
 	int bg_left = 287;
 	int bg_right = 318;
 	int bg_ypos = y_pos - 6;
+
 
 	//draw the background stuff
 	//if drawing more than 1 character, move starts and put tiling
@@ -62,6 +73,7 @@ void SelectedTextLabel::Render()
 	right_bg->draw(bg_right, bg_ypos, 0.0f, 32, 64, 0.0f, 1.0f, 1.0f, 0.0f, gameplay::Vector4::one(), false);
 	right_bg->finish();
 
+	font->start();
 	font->drawText(string_to_draw.c_str(), left_x_pos, y_pos, gameplay::Vector4(0, 0, 0, 1), font_size);
 	font->finish();
 }
@@ -78,4 +90,9 @@ void SelectedTextLabel::Update( float dt )
 {
 	do_render = total_visible_time <= 300;
 	total_visible_time += dt;
+}
+
+SelectedTextLabel* SelectedTextLabel::get()
+{
+	return instance;
 }

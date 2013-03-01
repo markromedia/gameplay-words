@@ -376,6 +376,7 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <None Include="res\png\powerup_arrows.png" />
     <None Include="res\png\powerup_gear.png" />
     <None Include="res\png\powerup_star.png" />
+    <None Include="res\png\selected_text_depressed_bg.png" />
     <None Include="res\png\selected_text_left_bg.png" />
     <None Include="res\png\selected_text_right_bg.png" />
     <None Include="res\png\selected_text_tiling_bg.png" />
@@ -440,6 +441,7 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <ClCompile Include="src\hunspell\replist.cxx" />
     <ClCompile Include="src\hunspell\suggestmgr.cxx" />
     <ClCompile Include="src\hunspell\utf_info.cxx" />
+    <ClCompile Include="src\score_controller.cpp" />
     <ClCompile Include="src\selected_text_label.cpp" />
     <ClCompile Include="src\animation.cpp" />
     <ClCompile Include="src\input_event_handler.cpp" />
@@ -448,6 +450,7 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <ClCompile Include="src\letter_provider.cpp" />
     <ClCompile Include="src\renderable_node_repository.cpp" />
     <ClCompile Include="src\tile.cpp" />
+    <ClCompile Include="src\timer_controller.cpp" />
     <ClCompile Include="src\words.cpp" />
     <ClCompile Include="src\word_checker.cpp" />
   </ItemGroup>
@@ -471,6 +474,7 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <ClInclude Include="src\hunspell\replist.hxx" />
     <ClInclude Include="src\hunspell\suggestmgr.hxx" />
     <ClInclude Include="src\hunspell\w_char.hxx" />
+    <ClInclude Include="src\score_controller.hpp" />
     <ClInclude Include="src\selected_text_label.hpp" />
     <ClInclude Include="src\animation.hpp" />
     <ClInclude Include="src\input_event_handler.hpp" />
@@ -479,6 +483,7 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <ClInclude Include="src\letter_provider.hpp" />
     <ClInclude Include="src\renderable_node_repository.hpp" />
     <ClInclude Include="src\tile.hpp" />
+    <ClInclude Include="src\timer_controller.hpp" />
     <ClInclude Include="src\words.h" />
     <ClInclude Include="src\word_checker.hpp" />
   </ItemGroup>

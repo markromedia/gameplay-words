@@ -89,7 +89,6 @@ LetterController::LetterController()
 	tiles.reserve(16);
 	grid = new Grid();
 	moving_tiles_count = 0;
-	selectedTextLabel = new SelectedTextLabel();
 	draw_selected_text = false;
 }
 
@@ -161,9 +160,6 @@ void LetterController::refillEmptyGridCells()
 void LetterController::Init(gameplay::Scene* scene)
 {
 	instance = new LetterController();
-
-	//init the selected text label
-	instance->selectedTextLabel->Init();
 
 	//build the letter columns
 	LetterProvider::BuildColumns();
@@ -253,7 +249,10 @@ void LetterController::HandleTouchUpEvent()
 			selected_text.append(tile->value);	
 	}
 
-	if (WordChecker::IsWord(selected_text.c_str())) {
+	if (selected_text.length() > 1 && WordChecker::IsWord(selected_text.c_str())) {
+		//add to the points
+		ScoreController::AddToScore(selected_text.length() * 100);
+
 		//remove the selected tiles
 		for(std::vector<Tile*>::iterator it = instance->selected_tiles.begin(); it != instance->selected_tiles.end(); ++it) {			
 			Tile* tile = *it;
@@ -286,7 +285,6 @@ void LetterController::HandleTouchUpEvent()
 
 void LetterController::Render(gameplay::Camera* camera)
 {
-	instance->selectedTextLabel->Render();
 	for(std::vector<Tile*>::iterator it = instance->tiles.begin(); it != instance->tiles.end(); ++it) {			
 		Tile* tile = *it;
 		if (tile->is_selected) {
@@ -312,9 +310,8 @@ void LetterController::Update( float dt )
 			if (tile->value.length() > 0)
 				selected_text.append(tile->value);	
 		}
-		instance->selectedTextLabel->SetStringToDraw(selected_text);
+		SelectedTextLabel::get()->SetStringToDraw(selected_text);
 	}
-	instance->selectedTextLabel->Update(dt);
 
 	for(std::vector<Tile*>::iterator it = instance->tiles.begin(); it != instance->tiles.end(); ++it) {			
 		Tile* tile = *it;
