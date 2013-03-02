@@ -26,10 +26,17 @@ private:
 
 	/// @summary	State of the touch.
 	TouchState touchState;
+
+	/// @summary	true to enable, false to disable.
+	bool enabled;
 public:
 	/// Gets returns singleton instance
 	/// @return	null if it fails, else.
 	static InputEventHandler* get();
+
+	/// Sets the input handler to enabled or not
+	/// @param	enabled	true to enable, false to disable.
+	void SetEnabled(bool enabled);
 
 	/// Touch event handler.
 	/// @param	game		instance of the game itself

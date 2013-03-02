@@ -99,6 +99,9 @@ public:
 	/// @return	null if it fails, else.
 	static LetterController* get();
 
+	/// Creates a initial letter state
+	static void InitializeLetters();
+
 	/// Handles the touch down event.
 	/// @param	ray the calculated ray
 	/// @param	x	The x coordinate.

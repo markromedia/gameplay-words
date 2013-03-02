@@ -15,6 +15,11 @@ void ScoreController::AddToScore( int num )
 	instance->points += num;
 }
 
+void ScoreController::ResetScore()
+{
+	instance->points = 0;
+}
+
 void ScoreController::Update( float dt )
 {
 

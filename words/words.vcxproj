@@ -335,9 +335,12 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <None Include="res\colored.vert" />
     <None Include="res\dict\en_US.aff" />
     <None Include="res\dict\en_US.dic" />
+    <None Include="res\editor.png" />
     <None Include="res\letter.FBX" />
     <None Include="res\letter.gpb" />
     <None Include="res\logo_powered_white.png" />
+    <None Include="res\menu.form" />
+    <None Include="res\menu.theme" />
     <None Include="res\myriadpro100.gpb" />
     <None Include="res\myriadpro12.gpb" />
     <None Include="res\myriadpro50.gpb" />
@@ -373,6 +376,7 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <None Include="res\png\letter_y_texture.png" />
     <None Include="res\png\letter_z_texture.png" />
     <None Include="res\png\logo.png" />
+    <None Include="res\png\overlay.png" />
     <None Include="res\png\powerup_arrows.png" />
     <None Include="res\png\powerup_gear.png" />
     <None Include="res\png\powerup_star.png" />
@@ -441,6 +445,7 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <ClCompile Include="src\hunspell\replist.cxx" />
     <ClCompile Include="src\hunspell\suggestmgr.cxx" />
     <ClCompile Include="src\hunspell\utf_info.cxx" />
+    <ClCompile Include="src\menu.cpp" />
     <ClCompile Include="src\score_controller.cpp" />
     <ClCompile Include="src\selected_text_label.cpp" />
     <ClCompile Include="src\animation.cpp" />
@@ -474,6 +479,7 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <ClInclude Include="src\hunspell\replist.hxx" />
     <ClInclude Include="src\hunspell\suggestmgr.hxx" />
     <ClInclude Include="src\hunspell\w_char.hxx" />
+    <ClInclude Include="src\menu.hpp" />
     <ClInclude Include="src\score_controller.hpp" />
     <ClInclude Include="src\selected_text_label.hpp" />
     <ClInclude Include="src\animation.hpp" />

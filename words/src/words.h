@@ -9,8 +9,12 @@
 #include "selected_text_label.hpp"
 #include "score_controller.hpp"
 #include "timer_controller.hpp"
+#include "menu.hpp"
+#include "letter_provider.hpp"
 
 using namespace gameplay;
+
+class Menu;
 
 /**
  * Main game class.
@@ -42,7 +46,11 @@ public:
      */
 	bool mouseEvent(Mouse::MouseEvent evt, int x, int y, int wheelDelta);
 
+	/// Sets up the game for a new game
+	void NewGame();
 
+	/// Called when a game is over
+	void GameOver();
 protected:
 
     /**
@@ -67,18 +75,23 @@ protected:
 
 private:
 
-    /**
-     * Draws the scene each frame.
-     */
-    bool drawScene(Node* node);
-
 	/// @summary	The camera node.
 	Node* camera_node;
 
 	/// @summary	The camera control.
 	CameraControl* camera_control;
 
+	/// @summary	The menu.
+	Menu* menu;
+
+	/// Draw splash.
+	/// @param [in,out]	param	If non-null, the parameter.
 	void drawSplash(void* param);
+
+	void drawFrameRate(unsigned int fps);
+
+	/// @summary	The framerate font.
+	Font* framerate;
 };
 
 #endif

@@ -161,9 +161,6 @@ void LetterController::Init(gameplay::Scene* scene)
 {
 	instance = new LetterController();
 
-	//build the letter columns
-	LetterProvider::BuildColumns();
-
 	//the model we'll use for the physics stuff
 	gameplay::Node* letter_model = scene->findNode("letter_tile");
 
@@ -191,7 +188,10 @@ void LetterController::Init(gameplay::Scene* scene)
 
 		instance->tiles.push_back(tile);
 	}
+}
 
+void LetterController::InitializeLetters()
+{
 	//position tile and init letter
 	Grid* grid = instance->grid;
 	for (int i = 0; i < 4; i++) {
@@ -211,8 +211,6 @@ void LetterController::Init(gameplay::Scene* scene)
 			letter_material.append(c);
 			tile->GetLayer(Tile::ICON)->SetRenderableNode(RENDERABLE(letter_material));
 			tile->value = c;
-
-			instance->tiles.push_back(tile);
 		}
 	}
 }

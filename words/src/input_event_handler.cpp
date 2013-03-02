@@ -1,5 +1,6 @@
 #include "input_event_handler.hpp"
 
+
 using namespace gameplay;
 
 InputEventHandler* InputEventHandler::instance = NULL;
@@ -8,6 +9,7 @@ void InputEventHandler::_checkCreateInstance()
 {
 	if (instance == NULL) {
 		instance = new InputEventHandler();
+		instance->enabled = true;
 	}
 }
 
@@ -19,6 +21,10 @@ InputEventHandler* InputEventHandler::get()
 
 bool InputEventHandler::handleTouchEvent(words* game, int x, int y )
 {
+	if (!enabled) {
+		return false;
+	}
+
 	if (touchState == TOUCH_DOWN) {
 		Node* cameraNode = game->scene->getActiveCamera()->getNode();
 		Ray ray;
@@ -85,6 +91,11 @@ void InputEventHandler::keyEvent(words* game, gameplay::Keyboard::KeyEvent evt, 
 			break;
 		}
 	}
+}
+
+void InputEventHandler::SetEnabled( bool enabled)
+{
+	this->enabled = enabled;
 }
 
 /************************************************************************/

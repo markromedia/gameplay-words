@@ -2,7 +2,7 @@
 
 TimerController* TimerController::instance = NULL;
 
-#define START_TIME 121 * 1000
+#define START_TIME (121 * 1000) - 1
 
 void TimerController::Init()
 {
@@ -19,7 +19,6 @@ void TimerController::Reset()
 
 void TimerController::StartTimer()
 {
-	instance->time_remaining = START_TIME;
 	instance->timer_running = true;
 }
 
@@ -34,7 +33,8 @@ void TimerController::Update( float dt )
 		instance->time_remaining -= dt;
 
 		if (instance->time_remaining <= 0) {
-			instance->time_remaining = START_TIME;
+			//times up. show the game over screen
+			((words*) gameplay::Game::getInstance())->GameOver();
 		} 
 	}
 }

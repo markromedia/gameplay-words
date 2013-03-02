@@ -29,6 +29,9 @@ public:
 	/// Adds to the score.
 	/// @param	num	Number of.
 	static void AddToScore(int num);
+
+	/// Resets the score.
+	static void ResetScore();
 };
 
 #endif  // __SCORE_CONTROLLER__hpp

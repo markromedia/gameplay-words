@@ -96,7 +96,7 @@ void Tile::Update(float dt) {
 		break;
 	}
 	case MOVING : {
-		position += (target_position - position) * (dt / (dt + 130));
+		position += (target_position - position) * (dt / (dt + 64));
 		//we're only moving down, so we can rely on y to see if we've arrived
 		if ((position.y - 0.5f) <= target_position.y) {
 			position.y = target_position.y;
@@ -107,7 +107,7 @@ void Tile::Update(float dt) {
 		break;
 	}
 	case POPPING : {
-		gameplay::MathUtil::smooth(&scale, 1.25f, dt, 64);
+		gameplay::MathUtil::smooth(&scale, 1.25f, dt, 32);
 		if (scale >= 1.24f) {
 			scale = 1.25f;
 			animation = POPPING_SNAP_BACK;
@@ -115,7 +115,7 @@ void Tile::Update(float dt) {
 		break;
 	}
 	case POPPING_SNAP_BACK : {
-		gameplay::MathUtil::smooth(&scale, 1, dt, 64);
+		gameplay::MathUtil::smooth(&scale, 1, dt, 32);
 		if (scale <= 1.1) {
 			scale = 1.0;
 			animation = NONE;
