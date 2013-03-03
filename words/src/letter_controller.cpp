@@ -259,6 +259,8 @@ void LetterController::HandleTouchUpEvent()
 			instance->available_tiles.push(tile);
 			//find this tile and remove it from the grid
 			instance->grid->Remove(tile);
+            //return the letter to the letter provider
+            LetterProvider::ReturnLetter(tile->value);
 		}
 
 		//adjust the grid

@@ -15,11 +15,20 @@ Dice::Dice( std::string s1, std::string s2, std::string s3, std::string s4, std:
 	this->sides.push_back(s6);
 }
 
-std::string Dice::getLetter()
+std::string Dice::getRandomLetter()
 {
 	return this->sides[std::rand() % 6];
 }
 
+void Dice::assignLetter() {
+    int idx = std::rand() % 6;
+    this->assigned_letter = this->sides[idx];
+}
+
+std::string Dice::getAssignedLetter()
+{
+	return this->assigned_letter;
+}
 
 LetterProvider::LetterProvider()
 {
@@ -54,20 +63,47 @@ LetterProvider::LetterProvider()
 	this->dice.push_back(new Dice("o", "o", "o", "t", "t", "u" ));
 }
 
+void LetterProvider::Init() {
+    instance = new LetterProvider();
+    
+    instance->BuildColumns();
+    instance->BuildFixed25();
+}
+
+void LetterProvider::ReturnLetter(std::string letter) {
+    if (instance->mode == FIXED25) {
+        for (int i = 0; i < instance->dice_in_use.size(); i++) {
+            if (instance->dice_in_use[i]->getAssignedLetter() == letter) {
+                instance->available_dice.push_back(instance->dice_in_use[i]);
+                instance->dice_in_use.erase(instance->dice_in_use.begin() + i);
+                return;
+            }
+        }
+    }
+}
+
 void LetterProvider::BuildColumns()
 {
-	checkCreateInstance();
-	for (int i = 0; i < 25; i++) {
+    for (int i = 0; i < 25; i++) {
 		//copy 25 dice from all dice into available
-		instance->available_dice = instance->dice;
+		available_dice = dice;
 		//grab 16 dice
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
-				int dice_idx = std::rand() % instance->available_dice.size();
-				instance->columns[i].push(instance->available_dice[dice_idx]->getLetter());
-				instance->available_dice.erase(instance->available_dice.begin() + dice_idx);
+				int dice_idx = std::rand() % available_dice.size();
+				columns[i].push(available_dice[dice_idx]->getRandomLetter());
+				available_dice.erase(available_dice.begin() + dice_idx);
 			}
 		}
+	}
+}
+
+void LetterProvider::BuildFixed25() {
+    //copy 25 dice from all dice into available
+    available_dice = dice;
+
+    for (int i = 0; i < 25; i++) {
+        available_dice[i]->assignLetter();
 	}
 }
 
@@ -80,9 +116,24 @@ void LetterProvider::checkCreateInstance()
 
 std::string LetterProvider::_getNextLetter( int column_index )
 {
-	std::string letter = instance->columns[column_index].front();
-	instance->columns[column_index].pop();
-	return letter;
+    switch (instance->mode) {
+        case COLUMN: {
+            std::string letter = instance->columns[column_index].front();
+            instance->columns[column_index].pop();
+            return letter;
+        }
+        case FIXED25: {
+            int dice_idx = std::rand() % available_dice.size();
+            Dice* dice = available_dice[dice_idx];
+            //reassign the dices value
+            dice->assignLetter();
+            std::string letter = dice->getAssignedLetter();
+            dice_in_use.push_back(dice);
+            available_dice.erase(available_dice.begin() + dice_idx);
+            return letter;
+        }
+    }
+    return "";
 }
 
 
@@ -90,6 +141,10 @@ std::string LetterProvider::getNextLetter( int column_index )
 {
 	checkCreateInstance();
 	return instance->_getNextLetter(column_index);
+}
+
+void LetterProvider::SetMode(Mode mode) {
+    instance->mode = mode;
 }
 
 

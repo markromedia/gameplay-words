@@ -15,6 +15,9 @@ private:
 
 	/// @summary	The current displayed points.
 	int points;
+    
+    /// @summary	The number of words
+    int words;
 public:
 	/// Initialises this object.
 	static void Init();

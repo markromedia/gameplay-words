@@ -22,7 +22,7 @@ Tile::Tile(gameplay::Node* physics_node, LetterController* letterController) {
 	is_visible = true;
 	is_selected = false;
 	animation = NONE;
-	physics_node_scale = 0.5f;
+	physics_node_scale = 0.75f;
 }
 
 void createBillboardHelper(const Vector3& objectPosition, const Vector3& cameraPosition,

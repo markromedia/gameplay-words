@@ -21,7 +21,7 @@ void SelectedTextLabel::Init()
 
 void SelectedTextLabel::SetStringToDraw( std::string str )
 {
-	//reset visible time to start over 
+	//reset visible time to start over L,AKMZZBMZ,MCCVVG    GHKSAWKLS
 	total_visible_time = 0;
 	this->string_to_draw = str;
 	toUpper(this->string_to_draw);
@@ -31,7 +31,7 @@ void SelectedTextLabel::Render()
 {
 	//always draw the background
 	background->start();
-	background->draw(gameplay::Game::getInstance()->getWidth() / 2, 104 + 32, 0.0f, 512, 96, 0.0f, 1.0f, 1.0f, 0.0f, gameplay::Vector4::one(), true);
+	background->draw(gameplay::Game::getInstance()->getWidth() / 2, 104 + 48, 0.0f, 512, 128, 0.0f, 1.0f, 1.0f, 0.0f, gameplay::Vector4::one(), true);
 	background->finish();
 
 	//dont draw bubble if no text

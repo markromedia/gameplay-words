@@ -48,7 +48,8 @@ void words::initialize()
 void words::NewGame()
 {
 	//initialize the letter provider
-	LetterProvider::BuildColumns();
+	LetterProvider::Init();
+    LetterProvider::SetMode(LetterProvider::FIXED25);
 
 	//initialize the actual letters
 	LetterController::InitializeLetters();

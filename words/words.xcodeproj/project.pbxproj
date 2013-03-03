@@ -118,6 +118,15 @@
 		90A2D1A016DEFF3900E6C6DA /* word_checker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D19E16DEFF3900E6C6DA /* word_checker.cpp */; };
 		90A2D1A116DEFF5900E6C6DA /* word_checker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D19E16DEFF3900E6C6DA /* word_checker.cpp */; };
 		90A2D1A216DEFF5900E6C6DA /* word_checker.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D19F16DEFF3900E6C6DA /* word_checker.hpp */; };
+		90A2D1A916E2887200E6C6DA /* menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D1A316E2887200E6C6DA /* menu.cpp */; };
+		90A2D1AA16E2887200E6C6DA /* score_controller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D1A516E2887200E6C6DA /* score_controller.cpp */; };
+		90A2D1AB16E2887200E6C6DA /* timer_controller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D1A716E2887200E6C6DA /* timer_controller.cpp */; };
+		90A2D1AC16E2889100E6C6DA /* menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D1A316E2887200E6C6DA /* menu.cpp */; };
+		90A2D1AD16E2889100E6C6DA /* menu.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D1A416E2887200E6C6DA /* menu.hpp */; };
+		90A2D1AE16E2889100E6C6DA /* score_controller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D1A516E2887200E6C6DA /* score_controller.cpp */; };
+		90A2D1AF16E2889100E6C6DA /* score_controller.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D1A616E2887200E6C6DA /* score_controller.hpp */; };
+		90A2D1B016E2889100E6C6DA /* timer_controller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D1A716E2887200E6C6DA /* timer_controller.cpp */; };
+		90A2D1B116E2889100E6C6DA /* timer_controller.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D1A816E2887200E6C6DA /* timer_controller.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -229,6 +238,12 @@
 		90A2D16E16DDC92700E6C6DA /* w_char.hxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = w_char.hxx; sourceTree = "<group>"; };
 		90A2D19E16DEFF3900E6C6DA /* word_checker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = word_checker.cpp; sourceTree = "<group>"; };
 		90A2D19F16DEFF3900E6C6DA /* word_checker.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = word_checker.hpp; sourceTree = "<group>"; };
+		90A2D1A316E2887200E6C6DA /* menu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = menu.cpp; sourceTree = "<group>"; };
+		90A2D1A416E2887200E6C6DA /* menu.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = menu.hpp; sourceTree = "<group>"; };
+		90A2D1A516E2887200E6C6DA /* score_controller.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = score_controller.cpp; sourceTree = "<group>"; };
+		90A2D1A616E2887200E6C6DA /* score_controller.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = score_controller.hpp; sourceTree = "<group>"; };
+		90A2D1A716E2887200E6C6DA /* timer_controller.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = timer_controller.cpp; sourceTree = "<group>"; };
+		90A2D1A816E2887200E6C6DA /* timer_controller.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = timer_controller.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,27 +329,33 @@
 		42C932C61491A0DB0098216A /* src */ = {
 			isa = PBXGroup;
 			children = (
-				90A2D19E16DEFF3900E6C6DA /* word_checker.cpp */,
-				90A2D19F16DEFF3900E6C6DA /* word_checker.hpp */,
-				90A2D14D16DDC92700E6C6DA /* hunspell */,
-				90A2D14816DC8D6700E6C6DA /* selected_text_label.cpp */,
-				90A2D14916DC8D6700E6C6DA /* selected_text_label.hpp */,
 				90A2D13216DB369500E6C6DA /* animation.cpp */,
-				90A2D13316DB369500E6C6DA /* animation.hpp */,
-				90A2D13416DB369500E6C6DA /* letter_provider.cpp */,
-				90A2D13516DB369500E6C6DA /* letter_provider.hpp */,
-				905108CF16D4A59700E17584 /* input_event_handler.cpp */,
-				905108D016D4A59700E17584 /* input_event_handler.hpp */,
-				905108D116D4A59700E17584 /* letter_controller.cpp */,
-				905108D216D4A59700E17584 /* letter_controller.hpp */,
-				905108D316D4A59700E17584 /* renderable_node_repository.cpp */,
-				905108D416D4A59700E17584 /* renderable_node_repository.hpp */,
-				905108D516D4A59700E17584 /* tile.cpp */,
-				905108D616D4A59700E17584 /* tile.hpp */,
 				9041D25316C6BBB00098C475 /* camera_control.cpp */,
-				9041D25416C6BBB00098C475 /* camera_control.hpp */,
+				905108CF16D4A59700E17584 /* input_event_handler.cpp */,
+				905108D116D4A59700E17584 /* letter_controller.cpp */,
+				90A2D13416DB369500E6C6DA /* letter_provider.cpp */,
+				90A2D1A316E2887200E6C6DA /* menu.cpp */,
+				905108D316D4A59700E17584 /* renderable_node_repository.cpp */,
+				90A2D1A516E2887200E6C6DA /* score_controller.cpp */,
+				90A2D14816DC8D6700E6C6DA /* selected_text_label.cpp */,
+				905108D516D4A59700E17584 /* tile.cpp */,
+				90A2D1A716E2887200E6C6DA /* timer_controller.cpp */,
+				90A2D19E16DEFF3900E6C6DA /* word_checker.cpp */,
 				42C932EF1491A5160098216A /* words.cpp */,
 				42C932F01491A5160098216A /* words.h */,
+				90A2D13316DB369500E6C6DA /* animation.hpp */,
+				9041D25416C6BBB00098C475 /* camera_control.hpp */,
+				905108D016D4A59700E17584 /* input_event_handler.hpp */,
+				905108D216D4A59700E17584 /* letter_controller.hpp */,
+				90A2D13516DB369500E6C6DA /* letter_provider.hpp */,
+				90A2D1A416E2887200E6C6DA /* menu.hpp */,
+				905108D416D4A59700E17584 /* renderable_node_repository.hpp */,
+				90A2D1A616E2887200E6C6DA /* score_controller.hpp */,
+				90A2D14916DC8D6700E6C6DA /* selected_text_label.hpp */,
+				905108D616D4A59700E17584 /* tile.hpp */,
+				90A2D1A816E2887200E6C6DA /* timer_controller.hpp */,
+				90A2D19F16DEFF3900E6C6DA /* word_checker.hpp */,
+				90A2D14D16DDC92700E6C6DA /* hunspell */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -632,6 +653,9 @@
 				90A2D17B16DDC92700E6C6DA /* suggestmgr.cxx in Sources */,
 				90A2D17C16DDC92700E6C6DA /* utf_info.cxx in Sources */,
 				90A2D1A016DEFF3900E6C6DA /* word_checker.cpp in Sources */,
+				90A2D1A916E2887200E6C6DA /* menu.cpp in Sources */,
+				90A2D1AA16E2887200E6C6DA /* score_controller.cpp in Sources */,
+				90A2D1AB16E2887200E6C6DA /* timer_controller.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,6 +663,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90A2D1AC16E2889100E6C6DA /* menu.cpp in Sources */,
+				90A2D1AD16E2889100E6C6DA /* menu.hpp in Sources */,
+				90A2D1AE16E2889100E6C6DA /* score_controller.cpp in Sources */,
+				90A2D1AF16E2889100E6C6DA /* score_controller.hpp in Sources */,
+				90A2D1B016E2889100E6C6DA /* timer_controller.cpp in Sources */,
+				90A2D1B116E2889100E6C6DA /* timer_controller.hpp in Sources */,
 				90A2D1A116DEFF5900E6C6DA /* word_checker.cpp in Sources */,
 				90A2D1A216DEFF5900E6C6DA /* word_checker.hpp in Sources */,
 				90A2D17D16DDC93400E6C6DA /* affentry.cxx in Sources */,
