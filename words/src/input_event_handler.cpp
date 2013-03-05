@@ -1,6 +1,5 @@
 #include "input_event_handler.hpp"
 
-
 using namespace gameplay;
 
 InputEventHandler* InputEventHandler::instance = NULL;

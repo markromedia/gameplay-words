@@ -36,10 +36,16 @@ void words::initialize()
 	//init singletons
 	RenderableNodeRepository::Init(scene);
 	LetterController::Init(scene);
+	Board::Init(scene->findNode("letter_tile"));
 	SelectedTextLabel::Init();
-	WordChecker::Init();
 	ScoreController::Init();
 	TimerController::Init();
+
+	//TODO remove
+	LetterProvider::Init();
+	LetterProvider::SetMode(LetterProvider::FIXED25);
+	Dictionary::Init();
+
 
 	//init with a new game
 	NewGame();
@@ -60,6 +66,7 @@ void words::NewGame()
 	//reset time and kick if of
 	TimerController::Reset();
 	TimerController::StartTimer();
+
 }
 
 void words::GameOver()

@@ -36,31 +36,22 @@ LetterProvider::LetterProvider()
 	std::srand((unsigned int)std::time(NULL));
 
 	//init the dice
-	this->dice.push_back(new Dice("a", "a", "a", "f", "r", "s" ));
-	this->dice.push_back(new Dice("a", "e", "e", "g", "m", "u" ));
-	this->dice.push_back(new Dice("c", "e", "i", "i", "l", "t" ));
-	this->dice.push_back(new Dice("d", "h", "l", "n", "o", "r" ));
-	this->dice.push_back(new Dice("f", "i", "p", "r", "s", "y" ));
-	this->dice.push_back(new Dice("a", "a", "e", "e", "e", "e" ));
-	this->dice.push_back(new Dice("a", "e", "g", "m", "n", "n" ));
-	this->dice.push_back(new Dice("c", "e", "i", "l", "p", "t" ));
-	this->dice.push_back(new Dice("d", "d", "l", "n", "o", "r" ));
-	this->dice.push_back(new Dice("g", "o", "r", "r", "v", "w" ));
-	this->dice.push_back(new Dice("a", "a", "f", "i", "r", "s" ));
-	this->dice.push_back(new Dice("a", "f", "i", "r", "s", "y" ));
-	this->dice.push_back(new Dice("c", "e", "i", "l", "s", "t" ));
-	this->dice.push_back(new Dice("e", "i", "i", "i", "t", "t" ));
-	this->dice.push_back(new Dice("h", "i", "p", "r", "r", "y" ));
-	this->dice.push_back(new Dice("a", "d", "e", "n", "n", "n" ));
-	this->dice.push_back(new Dice("b", "j", "k", "qu", "x", "z" ));
-	this->dice.push_back(new Dice("d", "h", "h", "n", "o", "t" ));
-	this->dice.push_back(new Dice("e", "m", "o", "t", "t", "t" ));
-	this->dice.push_back(new Dice("n", "o", "o", "t", "u", "w" ));
-	this->dice.push_back(new Dice("a", "e", "e", "e", "e", "m" ));
-	this->dice.push_back(new Dice("c", "c", "n", "s", "t", "w" ));
-	this->dice.push_back(new Dice("d", "h", "h", "l", "o", "r" ));
-	this->dice.push_back(new Dice("e", "n", "s", "s", "s", "u" ));
-	this->dice.push_back(new Dice("o", "o", "o", "t", "t", "u" ));
+	this->dice.push_back(new Dice("a", "a", "e", "e", "g", "n" ));
+	this->dice.push_back(new Dice("e", "l", "r", "t", "t", "y" ));
+	this->dice.push_back(new Dice("a", "o", "o", "t", "t", "w" ));
+	this->dice.push_back(new Dice("a", "b", "b", "j", "o", "o" ));
+	this->dice.push_back(new Dice("e", "h", "r", "t", "v", "w" ));
+	this->dice.push_back(new Dice("c", "i", "m", "o", "t", "u" ));
+	this->dice.push_back(new Dice("d", "i", "s", "t", "t", "y" ));
+	this->dice.push_back(new Dice("e", "i", "o", "s", "s", "t" ));
+	this->dice.push_back(new Dice("d", "e", "l", "r", "v", "y" ));
+	this->dice.push_back(new Dice("a", "c", "h", "o", "p", "s" ));
+	this->dice.push_back(new Dice("h", "i", "m", "n", "a", "u" ));
+	this->dice.push_back(new Dice("e", "e", "i", "n", "s", "u" ));
+	this->dice.push_back(new Dice("e", "e", "g", "h", "n", "a" ));
+	this->dice.push_back(new Dice("a", "f", "f", "k", "p", "s" ));
+	this->dice.push_back(new Dice("h", "l", "n", "n", "r", "z" ));
+	this->dice.push_back(new Dice("d", "e", "i", "l", "r", "x" ));
 }
 
 void LetterProvider::Init() {
@@ -102,7 +93,7 @@ void LetterProvider::BuildFixed25() {
     //copy 25 dice from all dice into available
     available_dice = dice;
 
-    for (int i = 0; i < 25; i++) {
+    for (int i = 0; i < 16; i++) {
         available_dice[i]->assignLetter();
 	}
 }

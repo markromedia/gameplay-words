@@ -333,6 +333,7 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <None Include="res\box.material" />
     <None Include="res\colored.frag" />
     <None Include="res\colored.vert" />
+    <None Include="res\dict\dictionary.txt" />
     <None Include="res\dict\en_US.aff" />
     <None Include="res\dict\en_US.dic" />
     <None Include="res\editor.png" />
@@ -433,6 +434,8 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <None Include="words-macosx.plist" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\board.cpp" />
+    <ClCompile Include="src\boggle.c" />
     <ClCompile Include="src\hunspell\affentry.cxx" />
     <ClCompile Include="src\hunspell\affixmgr.cxx" />
     <ClCompile Include="src\hunspell\csutil.cxx" />
@@ -446,6 +449,9 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <ClCompile Include="src\hunspell\suggestmgr.cxx" />
     <ClCompile Include="src\hunspell\utf_info.cxx" />
     <ClCompile Include="src\menu.cpp" />
+    <ClCompile Include="src\perf-solver\boggler.cc" />
+    <ClCompile Include="src\perf-solver\boggle_solver.cc" />
+    <ClCompile Include="src\perf-solver\trie.cc" />
     <ClCompile Include="src\score_controller.cpp" />
     <ClCompile Include="src\selected_text_label.cpp" />
     <ClCompile Include="src\animation.cpp" />
@@ -457,9 +463,10 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <ClCompile Include="src\tile.cpp" />
     <ClCompile Include="src\timer_controller.cpp" />
     <ClCompile Include="src\words.cpp" />
-    <ClCompile Include="src\word_checker.cpp" />
+    <ClCompile Include="src\dictionary.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\board.hpp" />
     <ClInclude Include="src\hunspell\affentry.hxx" />
     <ClInclude Include="src\hunspell\affixmgr.hxx" />
     <ClInclude Include="src\hunspell\atypes.hxx" />
@@ -480,6 +487,9 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <ClInclude Include="src\hunspell\suggestmgr.hxx" />
     <ClInclude Include="src\hunspell\w_char.hxx" />
     <ClInclude Include="src\menu.hpp" />
+    <ClInclude Include="src\perf-solver\boggler.h" />
+    <ClInclude Include="src\perf-solver\boggle_solver.h" />
+    <ClInclude Include="src\perf-solver\trie.h" />
     <ClInclude Include="src\score_controller.hpp" />
     <ClInclude Include="src\selected_text_label.hpp" />
     <ClInclude Include="src\animation.hpp" />
@@ -491,7 +501,7 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <ClInclude Include="src\tile.hpp" />
     <ClInclude Include="src\timer_controller.hpp" />
     <ClInclude Include="src\words.h" />
-    <ClInclude Include="src\word_checker.hpp" />
+    <ClInclude Include="src\dictionary.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -104,8 +104,10 @@ public:
 	void TranslateTo(int x, int y, int z, float delay);
 
 	/// Play pop animation.
-	/// @param [in,out]	movingDoneCallFunc	If non-null, the moving done call function.
 	void PlayPopAnimation();
+
+	/// Play shrinking animation.
+	void PlayShrinkingAnimation();
 
 	/// Updates this object.
 	/// @param	dt			  	The dt.

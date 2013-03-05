@@ -122,6 +122,18 @@ void Tile::Update(float dt) {
 		}
 		break;
 	}
+	case SHRINKING : {
+		gameplay::MathUtil::smooth(&scale, 0.65f, dt, 16);
+		if (scale <= 0.66) {
+			scale = 1.0f;
+			is_visible = false;
+			this->is_selected = false;
+			animation = NONE;
+			//tell controller we're done shrinking
+			this->letterController->TileShrinkingCompleteCallback(this, false);
+		}
+		break;
+	}
 	}
 }
 
@@ -152,8 +164,21 @@ void Tile::TranslateTo( int x, int y, int z, float delay)
 
 void Tile::PlayPopAnimation()
 {
+	is_visible = true;
 	animation = POPPING;
 	scale = 0.3f;
+}
+
+void Tile::PlayShrinkingAnimation()
+{
+	//set it to selected, since this might reset
+	this->is_selected = true;
+	//we're staring to shrink, so tell controller
+	this->letterController->TileShrinkingCompleteCallback(this, true);
+
+	is_visible = true;
+	animation = SHRINKING;
+	scale = 1.2f;
 }
 
 
