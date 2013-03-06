@@ -6,6 +6,7 @@
 
 #include <limits.h>
 #include <string>
+#include "trie.h"
 
 // Interface for a boggle solver. Very specifically does not refer to the Trie
 // type, so that it does not need to be templated. Subclasses may be templated,
@@ -48,6 +49,8 @@ public:
 	// Returns true if it's a valid boggle word and converts "qu" -> 'q'
 	static bool BogglifyWord(char* word);
 
+	/// @summary	The prefix tree.
+	SimpleTrie* prefix_tree;
 protected:
 	virtual int InternalScore() = 0;
 	unsigned int runs_;  // TODO(danvk): This belongs to the Trie, not Boggler.

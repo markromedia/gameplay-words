@@ -18,18 +18,22 @@ BoggleSolver* BoggleSolver::Create(int size, const char* dictionary_file) {
   if (!t) return NULL;
 
   BoggleSolver* solver = NULL;
+
   switch (size) {
     case 44: solver = new Boggler(t); break;
     default:
       fprintf(stderr, "Unknown board size: %d\n", size);
       return NULL;
   }
+
+  //assign prefix tree
+  solver->prefix_tree = t;
   return solver;
 }
 
 /* static */ bool BoggleSolver::IsBoggleWord(const char* wd) {
   int size = strlen(wd);
-  if (size < 3 || size > 17) return false;
+  if (size < 2 || size > 17) return false;
   for (int i=0; i<size; ++i) {
     int c = wd[i];
     if (c<'a' || c>'z') return false;

@@ -9,7 +9,7 @@
 #include "renderable_node_repository.hpp"
 #include "letter_provider.hpp"
 #include "selected_text_label.hpp"
-#include "dictionary.hpp"
+#include "board_solver.hpp"
 #include "score_controller.hpp"
 #include "board.hpp"
 

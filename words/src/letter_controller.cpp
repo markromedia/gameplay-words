@@ -137,7 +137,7 @@ void LetterController::HandleTouchUpEvent()
 			selected_text.append(tile->value);	
 	}
 
-	if (selected_text.length() > 1 && Dictionary::IsWord(selected_text.c_str())) {
+	if (selected_text.length() > 1 && BoardSolver::IsWord(selected_text.c_str())) {
 		//add to the points
 		ScoreController::AddToScore(selected_text.length() * 100);
 

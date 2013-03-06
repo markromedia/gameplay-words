@@ -89,8 +89,11 @@ public:
 	void Mark(uintptr_t m) { mark_ = m; }
 	uintptr_t Mark() { return mark_; }
 
-	// Returns a pointer to the new Trie node at the end of the word.
+	// Returns a pointer to the new Trie n
+	// ode at the end of the word.
 	SimpleTrie* AddWord(const char* wd);
+
+	bool SimpleTrie::IsWord(const char* wd) const;
 
 private:
 	bool is_word_;

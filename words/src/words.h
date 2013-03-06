@@ -5,7 +5,7 @@
 #include "camera_control.hpp"
 #include "renderable_node_repository.hpp"
 #include "letter_controller.hpp"
-#include "dictionary.hpp"
+#include "board_solver.hpp"
 #include "selected_text_label.hpp"
 #include "score_controller.hpp"
 #include "timer_controller.hpp"

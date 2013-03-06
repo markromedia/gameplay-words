@@ -162,6 +162,19 @@ SimpleTrie* SimpleTrie::AddWord(const char* wd) {
 	return Descend(c)->AddWord(wd+1);
 }
 
+bool SimpleTrie::IsWord(const char* wd) const {
+	if (!wd) return false;
+	if (!*wd) return IsWord();
+
+	int c = *wd - 'a';
+	if (c<0 || c>=kNumLetters) return false;
+
+	if (StartsWord(c)) {
+		return Descend(c)->IsWord(wd+1);
+	}
+	return false;
+}
+
 SimpleTrie::~SimpleTrie() {
 	for (int i=0; i<26; i++) {
 		if (children_[i]) delete children_[i];

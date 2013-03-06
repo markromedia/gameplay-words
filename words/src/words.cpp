@@ -44,7 +44,7 @@ void words::initialize()
 	//TODO remove
 	LetterProvider::Init();
 	LetterProvider::SetMode(LetterProvider::FIXED25);
-	Dictionary::Init();
+	BoardSolver::Init();
 
 
 	//init with a new game
