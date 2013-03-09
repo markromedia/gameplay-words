@@ -45,7 +45,7 @@ void LetterController::Init(gameplay::Scene* scene)
 void LetterController::refillEmptyBoardCells()
 {
 	//tell board to assign its letters
-	Board::AssignLetters();
+	Board::AssignBoard();
 
 	//iterate over board and fill in empty tiles
 	for (int i = 0; i < 4; i++) {
@@ -66,10 +66,10 @@ void LetterController::refillEmptyBoardCells()
 
 				//assign a new letter
 				std::string letter_material = "letter_";
-				std::string c = column->cells[j]->letter;
-				letter_material.append(c);
+				letter_material.append(column->cells[j]->die->getAssignedLetter());
 				tile->GetLayer(Tile::ICON)->SetRenderableNode(RENDERABLE(letter_material));
-				tile->value = c;
+				tile->value = column->cells[j]->die->getAssignedLetter();
+				tile->cell = column->cells[j];
 
 				//start the tile popping
 				tile->PlayPopAnimation();
@@ -81,26 +81,27 @@ void LetterController::refillEmptyBoardCells()
 void LetterController::InitializeLetters()
 {
 	//Tell the board to create a new board
-	Board::CreateNewBoard();
+	Board::CreateNewBoardFromPrecalculatedBoards();
 
 	//position tile and init letter
-	for (int i = 0; i < 4; i++) {
-		BoardColumn* column = Board::Columns()[i];
-		for (int j = 0; j < 4; j++) {
-			Tile* tile = instance->tiles[i * 4 + j];
-			BoardCell* cell = column->cells[j];
-
+	for (int row = 3; row >= 0; row--) {
+		for (int col = 0; col < 4; col++) {
+			Tile* tile = instance->tiles[row * 4 + col];
+			BoardColumn* column = Board::Columns()[col];
+			BoardCell* cell = column->cells[row];
+			
+			//assign refs to each other
 			cell->tile = tile;
+			tile->cell = cell;
 
 			tile->SetPosition(cell->x, cell->y, 0);
 			tile->GetLayer(Tile::BASE)->SetRenderableNode(RENDERABLE("letter_layer_unselected_background"));
 
-			//assign a letter
+			//assign a new letter
 			std::string letter_material = "letter_";
-			std::string c = cell->letter;
-			letter_material.append(c);
+			letter_material.append(cell->die->getAssignedLetter());
 			tile->GetLayer(Tile::ICON)->SetRenderableNode(RENDERABLE(letter_material));
-			tile->value = c;
+			tile->value = cell->die->getAssignedLetter();
 		}
 	}
 }
@@ -150,12 +151,12 @@ void LetterController::HandleTouchUpEvent()
 			instance->available_tiles.push(tile);
 			//find this tile and remove it from the grid
 			Board::Remove(tile);
-            //return the letter to the letter provider
-            LetterProvider::ReturnLetter(tile->value);
+            //return the die to the dice manager
+            DiceManager::ReturnDie(tile->cell->die);
 		}
 
-		//tell the board to prepare the letters
-		Board::PrepareLetters();
+		//tell the board to prepare itself
+		Board::PrepareBoard();
 	} 
 	
 	//make sure everything is unselected

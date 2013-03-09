@@ -7,55 +7,63 @@
 #include <vector>
 #include <queue>
 #include <iostream>
+#include <map>
 
 #include "gameplay.h"
 
+class DiceManager;
+
 class Dice {
+friend class DiceManager;
 private:
+public:
+	Dice(int id, std::string s1, std::string s2, std::string s3, std::string s4, std::string s5, std::string s6);
+
 	/// @summary	The of this dice.
 	std::vector<std::string> sides;
-    
-    ///the assigned letter
-    std::string assigned_letter;
-public:
-	Dice(std::string s1, std::string s2, std::string s3, std::string s4, std::string s5, std::string s6);
+
+	/// @summary	The identifier of this dice.
+	int id;
 
 	/// Gets a letter from the dice.
 	/// @return	The letter.
 	std::string getRandomLetter();
     
     ///assigns a letter to this dice
-    void assignLetter();
-    
-    std::string getAssignedLetter();
+    void roll();
+
+	/// Gets the assigned letter.
+	/// @return	The assigned letter.
+	std::string getAssignedLetter();
+
+	/// @summary	Zero-based index of the side.
+	unsigned int side_index;
 };
 
-class LetterProvider {
+class DiceManager {
 public:
-    enum Mode { COLUMN, FIXED25 };
-    
-    //set the mode
-    static void SetMode(Mode mode);
-    
     //inits the letter provider with all its modes
     static void Init();
     
-    /// returns a letter back to the pool
-    static void ReturnLetter(std::string letter);
+    /// returns a die back to the pool
+    static void ReturnDie(Dice* die);
     
-	/// Builds the columns. Will make columns with 100 entries each
-    void BuildColumns();
+    /// builds the fixed 16
+    static void ReassignDice();
     
-    /// builds the fixed 25
-    void BuildFixed25();
-    
-	/// Gets the next letter and moves the column pointer up
-	/// @param	column_index	Zero-based index of the column.
-	/// @return	null if it fails, else the next letter.
-	static std::string getNextLetter(int column_index);
+	/// Gets an unused die
+	static Dice* GetRandomDie();
+
+	/// Gets a dice by identifier.
+	/// @param	id	The identifier.
+	/// @return	null if it fails, else the dice by identifier.
+	static Dice* GetDieById(int id);
+
+	/// @summary	The dice.
+	static std::vector<Dice*> dice;
 private:
 	/// Default constructor.
-	LetterProvider();
+	DiceManager();
 
 	/// Check create instance.
 	static void checkCreateInstance();
@@ -64,15 +72,7 @@ private:
 	static std::string letters[26];
 
 	/// @summary	The instance.
-	static LetterProvider* instance;
-
-	/// Gets the next letter.
-	/// @param	column_index	Zero-based index of the column.
-	/// @return	null if it fails, else the next letter.
-	std::string _getNextLetter(int column_index);
-
-	/// @summary	The dice.
-	std::vector<Dice*> dice;
+	static DiceManager* instance;
 
 	/// @summary	The available dice.
 	std::vector<Dice*> available_dice;
@@ -80,15 +80,7 @@ private:
     /// @summary	The dice in use.
 	std::vector<Dice*> dice_in_use;
 
-	/// @summary	The columns.
-	std::queue<std::string> columns[4];
-
-	/// @summary	stores the index of each column
-	int column_index[4];
-    
-    // the mode 
-    LetterProvider::Mode mode;
-
+	std::map<int, Dice*> dice_map;
 };
 
 #endif  // __LETTER_PROVIDER__hpp

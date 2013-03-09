@@ -336,6 +336,7 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <None Include="res\dict\dictionary.txt" />
     <None Include="res\dict\en_US.aff" />
     <None Include="res\dict\en_US.dic" />
+    <None Include="res\dict\precalculated_boards.txt" />
     <None Include="res\editor.png" />
     <None Include="res\letter.FBX" />
     <None Include="res\letter.gpb" />

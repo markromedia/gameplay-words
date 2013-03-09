@@ -5,13 +5,13 @@
 #include <queue>
 
 #include "gameplay.h"
+#include "board.hpp"
 #include "tile.hpp"
 #include "renderable_node_repository.hpp"
 #include "letter_provider.hpp"
 #include "selected_text_label.hpp"
 #include "board_solver.hpp"
 #include "score_controller.hpp"
-#include "board.hpp"
 
 class LetterController {
 private:

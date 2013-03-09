@@ -6,6 +6,7 @@
 #include <sstream>
 #include <stdio.h>
 #include <iostream>
+#include <fstream>
 
 #include "gameplay.h"
 #include "perf-solver/boggle_solver.h"
@@ -28,6 +29,13 @@ public:
 	/// @param [in,out]	str	If non-null, the.
 	/// @return	true if word, false if not.
 	static bool IsWord(const char* str);
+
+	/// Generates a random hi(300+ word) board.
+	/// @return	The random hi board. (first 16 are the letters. then a space then the word count)
+	static std::string GenerateRandomHiBoard();
+
+	/// Creates the precalculated boards and writes it to the /dict folder
+	static void CreatePrecalculatedBoards();
 };
 
 #endif  // __WORD_CHECKER__hpp

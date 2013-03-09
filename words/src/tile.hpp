@@ -6,6 +6,7 @@
 
 #include "gameplay.h"
 #include "letter_controller.hpp"
+#include "letter_provider.hpp"
 
 class Tile;
 class LetterController;
@@ -74,6 +75,9 @@ public:
 
 	/// @summary	The scale.
 	float scale;
+
+	/// @summary	The cell thats attached to this tile
+	BoardCell* cell;
 
 	/// @summary	The value of this tile (as text)
 	std::string value;

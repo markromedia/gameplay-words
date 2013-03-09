@@ -1,12 +1,13 @@
 #include "letter_provider.hpp"
 
-std::string LetterProvider::letters[] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "qu", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
+std::string DiceManager::letters[] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "qu", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
 
-LetterProvider* LetterProvider::instance = NULL;
+DiceManager* DiceManager::instance = NULL;
+std::vector<Dice*> DiceManager::dice;
 
-
-Dice::Dice( std::string s1, std::string s2, std::string s3, std::string s4, std::string s5, std::string s6 )
+Dice::Dice( int id, std::string s1, std::string s2, std::string s3, std::string s4, std::string s5, std::string s6 )
 {
+	this->id = id;
 	this->sides.push_back(s1);
 	this->sides.push_back(s2);
 	this->sides.push_back(s3);
@@ -20,124 +21,101 @@ std::string Dice::getRandomLetter()
 	return this->sides[std::rand() % 6];
 }
 
-void Dice::assignLetter() {
+void Dice::roll() {
     int idx = std::rand() % 6;
-    this->assigned_letter = this->sides[idx];
+	this->side_index = idx;
 }
 
 std::string Dice::getAssignedLetter()
 {
-	return this->assigned_letter;
+	return this->sides[side_index];
 }
 
-LetterProvider::LetterProvider()
+DiceManager::DiceManager()
 {
 	//seed random
 	std::srand((unsigned int)std::time(NULL));
 
 	//init the dice
-	this->dice.push_back(new Dice("a", "a", "e", "e", "g", "n" ));
-	this->dice.push_back(new Dice("e", "l", "r", "t", "t", "y" ));
-	this->dice.push_back(new Dice("a", "o", "o", "t", "t", "w" ));
-	this->dice.push_back(new Dice("a", "b", "b", "j", "o", "o" ));
-	this->dice.push_back(new Dice("e", "h", "r", "t", "v", "w" ));
-	this->dice.push_back(new Dice("c", "i", "m", "o", "t", "u" ));
-	this->dice.push_back(new Dice("d", "i", "s", "t", "t", "y" ));
-	this->dice.push_back(new Dice("e", "i", "o", "s", "s", "t" ));
-	this->dice.push_back(new Dice("d", "e", "l", "r", "v", "y" ));
-	this->dice.push_back(new Dice("a", "c", "h", "o", "p", "s" ));
-	this->dice.push_back(new Dice("h", "i", "m", "n", "a", "u" ));
-	this->dice.push_back(new Dice("e", "e", "i", "n", "s", "u" ));
-	this->dice.push_back(new Dice("e", "e", "g", "h", "n", "a" ));
-	this->dice.push_back(new Dice("a", "f", "f", "k", "p", "s" ));
-	this->dice.push_back(new Dice("h", "l", "n", "n", "r", "z" ));
-	this->dice.push_back(new Dice("d", "e", "i", "l", "r", "x" ));
+	dice.push_back(new Dice(1,  "a", "a", "e", "e", "g", "n" ));
+	dice.push_back(new Dice(2,  "e", "l", "r", "t", "t", "y" ));
+	dice.push_back(new Dice(3,  "a", "o", "o", "t", "t", "w" ));
+	dice.push_back(new Dice(4,  "a", "b", "b", "j", "o", "o" ));
+	dice.push_back(new Dice(5,  "e", "h", "r", "t", "v", "w" ));
+	dice.push_back(new Dice(6,  "c", "i", "m", "o", "t", "u" ));
+	dice.push_back(new Dice(7,  "d", "i", "s", "t", "t", "y" ));
+	dice.push_back(new Dice(8,  "e", "i", "o", "s", "s", "t" ));
+	dice.push_back(new Dice(9,  "d", "e", "l", "r", "v", "y" ));
+	dice.push_back(new Dice(10, "a", "c", "h", "o", "p", "s" ));
+	dice.push_back(new Dice(11, "h", "i", "m", "n", "a", "u" ));
+	dice.push_back(new Dice(12, "e", "e", "i", "n", "s", "u" ));
+	dice.push_back(new Dice(13, "e", "e", "g", "h", "n", "a" ));
+	dice.push_back(new Dice(14, "a", "f", "f", "k", "p", "s" ));
+	dice.push_back(new Dice(15, "h", "l", "n", "n", "r", "z" ));
+	dice.push_back(new Dice(16, "d", "e", "i", "l", "r", "x" ));
+
+	//add them to a map by their id
+	for (unsigned int i = 0; i < dice.size(); i++) {
+		dice_map[dice[i]->id] = dice[i];
+	}
 }
 
-void LetterProvider::Init() {
-    instance = new LetterProvider();
-    
-    instance->BuildColumns();
-    instance->BuildFixed25();
+Dice* DiceManager::GetDieById( int id )
+{
+	Dice* die = instance->dice_map[id];
+	//make sure this is marked as unavailable
+	instance->dice_in_use.push_back(die);
+	std::vector<Dice*>::iterator position = std::find(instance->available_dice.begin(), instance->available_dice.end(), die);
+	if (position != instance->available_dice.end()) {
+		instance->available_dice.erase(position);
+	}
+
+	return die;
 }
 
-void LetterProvider::ReturnLetter(std::string letter) {
-    if (instance->mode == FIXED25) {
-        for (int i = 0; i < instance->dice_in_use.size(); i++) {
-            if (instance->dice_in_use[i]->getAssignedLetter() == letter) {
-                instance->available_dice.push_back(instance->dice_in_use[i]);
-                instance->dice_in_use.erase(instance->dice_in_use.begin() + i);
-                return;
-            }
+void DiceManager::Init() {
+    instance = new DiceManager();
+}
+
+void DiceManager::ReturnDie(Dice* die) {
+    for (unsigned int i = 0; i < instance->dice_in_use.size(); i++) {
+        if (instance->dice_in_use[i] == die) {
+            instance->available_dice.push_back(instance->dice_in_use[i]);
+            instance->dice_in_use.erase(instance->dice_in_use.begin() + i);
+            return;
         }
     }
 }
 
-void LetterProvider::BuildColumns()
-{
-    for (int i = 0; i < 25; i++) {
-		//copy 25 dice from all dice into available
-		available_dice = dice;
-		//grab 16 dice
-		for (int i = 0; i < 4; i++) {
-			for (int j = 0; j < 4; j++) {
-				int dice_idx = std::rand() % available_dice.size();
-				columns[i].push(available_dice[dice_idx]->getRandomLetter());
-				available_dice.erase(available_dice.begin() + dice_idx);
-			}
-		}
-	}
-}
-
-void LetterProvider::BuildFixed25() {
-    //copy 25 dice from all dice into available
-    available_dice = dice;
+void DiceManager::ReassignDice() {
+    //copy 16 dice from all dice into available
+    instance->available_dice = DiceManager::dice;
 
     for (int i = 0; i < 16; i++) {
-        available_dice[i]->assignLetter();
+        instance->available_dice[i]->roll();
 	}
 }
 
-void LetterProvider::checkCreateInstance()
+void DiceManager::checkCreateInstance()
 {
 	if (instance == NULL) {
-		instance = new LetterProvider();
+		instance = new DiceManager();
 	}
 }
 
-std::string LetterProvider::_getNextLetter( int column_index )
-{
-    switch (instance->mode) {
-        case COLUMN: {
-            std::string letter = instance->columns[column_index].front();
-            instance->columns[column_index].pop();
-            return letter;
-        }
-        case FIXED25: {
-            int dice_idx = std::rand() % available_dice.size();
-            Dice* dice = available_dice[dice_idx];
-            //reassign the dices value
-            dice->assignLetter();
-            std::string letter = dice->getAssignedLetter();
-            dice_in_use.push_back(dice);
-            available_dice.erase(available_dice.begin() + dice_idx);
-            return letter;
-        }
-    }
-    return "";
-}
-
-
-std::string LetterProvider::getNextLetter( int column_index )
+Dice* DiceManager::GetRandomDie()
 {
 	checkCreateInstance();
-	return instance->_getNextLetter(column_index);
-}
+	int dice_idx = std::rand() % instance->available_dice.size();
+	Dice* dice = instance->available_dice[dice_idx];
+	dice->roll();
+	
+	//make sure this is marked as unavailable
+	instance->dice_in_use.push_back(dice);
+	instance->available_dice.erase(instance->available_dice.begin() + dice_idx);
 
-void LetterProvider::SetMode(Mode mode) {
-    instance->mode = mode;
+	return dice;
 }
-
 
 
 

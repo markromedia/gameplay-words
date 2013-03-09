@@ -35,17 +35,16 @@ void words::initialize()
 	
 	//init singletons
 	RenderableNodeRepository::Init(scene);
+	DiceManager::Init();
 	LetterController::Init(scene);
 	Board::Init(scene->findNode("letter_tile"));
 	SelectedTextLabel::Init();
 	ScoreController::Init();
 	TimerController::Init();
-
-	//TODO remove
-	LetterProvider::Init();
-	LetterProvider::SetMode(LetterProvider::FIXED25);
 	BoardSolver::Init();
 
+	//TODO remove
+	//BoardSolver::CreatePrecalculatedBoards();
 
 	//init with a new game
 	NewGame();
@@ -54,8 +53,7 @@ void words::initialize()
 void words::NewGame()
 {
 	//initialize the letter provider
-	LetterProvider::Init();
-    LetterProvider::SetMode(LetterProvider::FIXED25);
+	DiceManager::ReassignDice();
 
 	//initialize the actual letters
 	LetterController::InitializeLetters();
