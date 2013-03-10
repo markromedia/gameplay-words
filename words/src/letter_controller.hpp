@@ -12,6 +12,7 @@
 #include "selected_text_label.hpp"
 #include "board_solver.hpp"
 #include "score_controller.hpp"
+#include "selected_text_connector.hpp"
 
 class LetterController {
 private:

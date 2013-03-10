@@ -51,6 +51,14 @@ material letter_layer_selected_background : base
     }
 }
 
+material connector : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/selected_connector.png
+    }
+}
+
 material powerup_arrows : base
 {
     sampler u_diffuseTexture

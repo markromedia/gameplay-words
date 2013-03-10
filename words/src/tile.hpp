@@ -34,8 +34,6 @@ private:
 	/// @summary	The layers.
 	std::vector<TileLayer*> layers;
 
-	/// @summary	The position.
- 	gameplay::Vector3 position;
 
 	/// @summary	Target position.
 	gameplay::Vector3 target_position;
@@ -82,6 +80,15 @@ public:
 	/// @summary	The value of this tile (as text)
 	std::string value;
 
+	/// @summary	The position.
+	gameplay::Vector3 position;
+
+	/// @summary	Zero-based index of the row.
+	int row_index;
+
+	/// @summary	Zero-based index of the col.
+	int col_index;
+
 	/// Creates a layer of the specified type
 	///
 	/// @param	layer		 	The layer.
@@ -125,6 +132,10 @@ public:
 	/// @param [in,out]	ray	The ray.
 	/// @return	true if it succeeds, false if it fails.
 	bool Intersects(gameplay::Ray& ray);
+
+	static void createBillboardHelper(const gameplay::Vector3& objectPosition, const gameplay::Vector3& cameraPosition,
+		const gameplay::Vector3& cameraUpVector, const gameplay::Vector3& cameraForwardVector,
+		gameplay::Matrix* dst);
 };
 
 

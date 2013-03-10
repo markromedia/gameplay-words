@@ -11,6 +11,7 @@
 
 class Tile;
 class BoardColumn;
+class Board;
 
 /// utility macro for cells of the board
 /// @param	id	The identifier.
@@ -23,12 +24,27 @@ public:
 };
 
 class BoardCell {
+friend class Board;
+friend class BoardColumn;
+private:
+	//the location of the cell within the board
+	int col_index;
+	int row_index;
+
+	Tile* tile;
 public:
 	BoardColumn* parent_column;
-	Tile* tile;
 	int x;
 	int y;
 	Dice* die;
+
+	/// Assign tile to this cell
+	/// @param [in,out]	tile	If non-null, the tile.
+	void AssignTile(Tile* tile, bool assignPosition = false);
+
+	/// Query if this object is empty.
+	/// @return	true if empty, false if not.
+	bool BoardCell::IsEmpty();
 };
 
 class BoardColumn {

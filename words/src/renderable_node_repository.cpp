@@ -8,12 +8,16 @@ void RenderableNodeRepository::Init(gameplay::Scene * scene) {
 	//grab the models in the scene we're copying
 	gameplay::Node* letter_model = scene->findNode("letter_tile");
 	gameplay::Node* powerup_model = scene->findNode("powerup");
+	gameplay::Node* connector_model = scene->findNode("connector");
 
 	//init the letter background
 	instance->initializeNode("letter_layer_unselected_background","res/words.material#letter_layer_unselected_background", letter_model->clone(), scene);
 
 	//init the selected letter background
 	instance->initializeNode("letter_layer_selected_background","res/words.material#letter_layer_selected_background", letter_model->clone(), scene);
+
+	//init the selected text connector
+	instance->initializeNode("connector", "res/words.material#connector", connector_model->clone(), scene);
 
 	//init the powerups
 	instance->initializeNode("powerup_arrows","res/words.material#powerup_arrows", letter_model->clone(), scene);
@@ -72,4 +76,18 @@ gameplay::Node* RenderableNodeRepository::getRenderableNode(std::string id) {
 
 gameplay::Node* &RenderableNodeRepository::operator [](std::string id) {
 	return renderable_node_map[id];
+}
+
+void RenderableNodeRepository::initConnectorNode( gameplay::Node* model_node, gameplay::Scene* scene)
+{
+	gameplay::Material* material = gameplay::Material::create("res/words.material#connector");
+
+	//create the model from scratch
+	model_node->setModel(gameplay::Model::create(gameplay::Mesh::createQuad(0, 0, 600, 120)));
+
+	scene->addNode(model_node);
+	renderable_node_map["connector"] = model_node;
+
+	//they're all clones, so release is ok
+	model_node->release();
 }

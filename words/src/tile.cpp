@@ -25,7 +25,7 @@ Tile::Tile(gameplay::Node* physics_node, LetterController* letterController) {
 	physics_node_scale = 0.75f;
 }
 
-void createBillboardHelper(const Vector3& objectPosition, const Vector3& cameraPosition,
+void Tile::createBillboardHelper(const Vector3& objectPosition, const Vector3& cameraPosition,
 								   const Vector3& cameraUpVector, const Vector3& cameraForwardVector,
 								   Matrix* dst)
 {

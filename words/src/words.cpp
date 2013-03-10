@@ -42,6 +42,7 @@ void words::initialize()
 	ScoreController::Init();
 	TimerController::Init();
 	BoardSolver::Init();
+	SelectedTextConnector::Init();
 
 	//TODO remove
 	//BoardSolver::CreatePrecalculatedBoards();

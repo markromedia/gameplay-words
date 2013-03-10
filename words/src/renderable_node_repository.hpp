@@ -22,6 +22,9 @@ private:
 	/// @param [in,out]	model_node	If non-null, the model node.
 	/// @param [in,out]	scene	  	If non-null, the scene.
 	void initializeNode(std::string id, const char* material, gameplay::Node* model_node, gameplay::Scene* scene);
+
+	/// Creates the connector node.
+	void initConnectorNode(gameplay::Node* model_node, gameplay::Scene* scene);
 public:
 	static void Init(gameplay::Scene* scene);
 

@@ -5,6 +5,25 @@
 Board* Board::instance = NULL;
 long Board::start_time = 0;
 
+void BoardCell::AssignTile( Tile* tile, bool assignPosition)
+{
+	if (tile == NULL) {
+		this->tile = NULL;
+		return;
+	}
+	this->tile = tile;
+	tile->cell = this;
+	tile->row_index = this->row_index;
+	tile->col_index = this->col_index;
+	if (assignPosition) {
+		tile->SetPosition(x, y, 0);
+	}
+}
+
+bool BoardCell::IsEmpty() {
+	return this->tile == NULL;
+}
+
 void BoardColumn::adjust(int count) {
 	//recursive end condition
 	if (count == 0) {
@@ -36,7 +55,7 @@ void BoardColumn::adjust(int count) {
 		//translate the non-empty to the empty position
 		first_non_empty->tile->TranslateTo(first_empty->x, first_empty->y, 0, (idx_of_first_non_empty - 1) * 75);
 		//update the empties now
-		first_empty->tile = first_non_empty->tile;
+		first_empty->AssignTile(first_non_empty->tile, false);
 		first_non_empty->tile = NULL;
 	}
 
@@ -128,6 +147,8 @@ void Board::Init(gameplay::Node* letter_model ) {
 			BoardCell* cell = new BoardCell();
 			cell->x = start_x + (i * (x_space + letter_width));
 			cell->y = start_y + (j * (y_space + letter_height));
+			cell->col_index = i;
+			cell->row_index = j;
 
 			column->cells[j] = cell;
 		}

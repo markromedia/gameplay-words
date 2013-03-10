@@ -10,8 +10,6 @@ LetterController::LetterController()
 	draw_selected_text = false;
 }
 
-
-
 void LetterController::Init(gameplay::Scene* scene)
 {
 	instance = new LetterController();
@@ -51,7 +49,7 @@ void LetterController::refillEmptyBoardCells()
 	for (int i = 0; i < 4; i++) {
 		BoardColumn* column = Board::Columns()[i];
 		for (int j = 0; j < 4; j++) {
-			if (column->cells[j]->tile == NULL) {
+			if (column->cells[j]->IsEmpty()) {
 				if (available_tiles.empty()) {
 					return;
 				}
@@ -61,7 +59,7 @@ void LetterController::refillEmptyBoardCells()
 				available_tiles.pop();
 
 				//assign grid values and tie it to the cell
-				column->cells[j]->tile = tile;
+				column->cells[j]->AssignTile(tile);
 				tile->SetPosition(column->cells[j]->x, column->cells[j]->y, 0);
 
 				//assign a new letter
@@ -90,11 +88,9 @@ void LetterController::InitializeLetters()
 			BoardColumn* column = Board::Columns()[col];
 			BoardCell* cell = column->cells[row];
 			
-			//assign refs to each other
-			cell->tile = tile;
-			tile->cell = cell;
+			//assign tile to cell
+			cell->AssignTile(tile, true);
 
-			tile->SetPosition(cell->x, cell->y, 0);
 			tile->GetLayer(Tile::BASE)->SetRenderableNode(RENDERABLE("letter_layer_unselected_background"));
 
 			//assign a new letter
@@ -171,6 +167,7 @@ void LetterController::HandleTouchUpEvent()
 
 void LetterController::Render(gameplay::Camera* camera)
 {
+	SelectedTextConnector::Draw(camera, instance->selected_tiles);
 	for(std::vector<Tile*>::iterator it = instance->tiles.begin(); it != instance->tiles.end(); ++it) {			
 		Tile* tile = *it;
 		if (tile->is_selected) {

@@ -12,6 +12,7 @@
 #include "menu.hpp"
 #include "letter_provider.hpp"
 #include "board.hpp"
+#include "selected_text_connector.hpp"
 
 using namespace gameplay;
 
