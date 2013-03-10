@@ -93,7 +93,7 @@ public:
 	// ode at the end of the word.
 	SimpleTrie* AddWord(const char* wd);
 
-	bool SimpleTrie::IsWord(const char* wd) const;
+	bool IsWord(const char* wd) const;
 
 private:
 	bool is_word_;
