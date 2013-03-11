@@ -77,6 +77,10 @@
 		90A2D1AF16E2889100E6C6DA /* score_controller.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D1A616E2887200E6C6DA /* score_controller.hpp */; };
 		90A2D1B016E2889100E6C6DA /* timer_controller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D1A716E2887200E6C6DA /* timer_controller.cpp */; };
 		90A2D1B116E2889100E6C6DA /* timer_controller.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D1A816E2887200E6C6DA /* timer_controller.hpp */; };
+		90B9A70E16ED2031006A4896 /* selected_text_connector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90B9A70C16ED2031006A4896 /* selected_text_connector.cpp */; };
+		90B9A71116ED2148006A4896 /* selected_text_connector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90B9A70C16ED2031006A4896 /* selected_text_connector.cpp */; };
+		90B9A71216ED2148006A4896 /* board.hpp in Sources */ = {isa = PBXBuildFile; fileRef = B8F0B67416E7B4260024EF45 /* board.hpp */; };
+		90B9A71316ED2148006A4896 /* selected_text_connector.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 90B9A70D16ED2031006A4896 /* selected_text_connector.hpp */; };
 		B81EE52316E7B25C00429109 /* board_solver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B81EE52116E7B25C00429109 /* board_solver.cpp */; };
 		B81EE52416E7B25C00429109 /* board_solver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B81EE52116E7B25C00429109 /* board_solver.cpp */; };
 		B81EE54516E7B31100429109 /* board_solver.hpp in Sources */ = {isa = PBXBuildFile; fileRef = B81EE52216E7B25C00429109 /* board_solver.hpp */; };
@@ -173,6 +177,8 @@
 		90A2D1A616E2887200E6C6DA /* score_controller.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = score_controller.hpp; sourceTree = "<group>"; };
 		90A2D1A716E2887200E6C6DA /* timer_controller.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = timer_controller.cpp; sourceTree = "<group>"; };
 		90A2D1A816E2887200E6C6DA /* timer_controller.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = timer_controller.hpp; sourceTree = "<group>"; };
+		90B9A70C16ED2031006A4896 /* selected_text_connector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = selected_text_connector.cpp; sourceTree = "<group>"; };
+		90B9A70D16ED2031006A4896 /* selected_text_connector.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = selected_text_connector.hpp; sourceTree = "<group>"; };
 		B81EE52116E7B25C00429109 /* board_solver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = board_solver.cpp; sourceTree = "<group>"; };
 		B81EE52216E7B25C00429109 /* board_solver.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = board_solver.hpp; sourceTree = "<group>"; };
 		B8F0B66216E7B3A70024EF45 /* boggle_solver.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = boggle_solver.cc; sourceTree = "<group>"; };
@@ -268,12 +274,9 @@
 		42C932C61491A0DB0098216A /* src */ = {
 			isa = PBXGroup;
 			children = (
-				B8F0B66116E7B3A70024EF45 /* perf-solver */,
 				90A2D13216DB369500E6C6DA /* animation.cpp */,
 				B8F0B67316E7B4260024EF45 /* board.cpp */,
-				B8F0B67416E7B4260024EF45 /* board.hpp */,
 				B81EE52116E7B25C00429109 /* board_solver.cpp */,
-				B81EE52216E7B25C00429109 /* board_solver.hpp */,
 				9041D25316C6BBB00098C475 /* camera_control.cpp */,
 				905108CF16D4A59700E17584 /* input_event_handler.cpp */,
 				905108D116D4A59700E17584 /* letter_controller.cpp */,
@@ -281,12 +284,15 @@
 				90A2D1A316E2887200E6C6DA /* menu.cpp */,
 				905108D316D4A59700E17584 /* renderable_node_repository.cpp */,
 				90A2D1A516E2887200E6C6DA /* score_controller.cpp */,
+				90B9A70C16ED2031006A4896 /* selected_text_connector.cpp */,
 				90A2D14816DC8D6700E6C6DA /* selected_text_label.cpp */,
 				905108D516D4A59700E17584 /* tile.cpp */,
 				90A2D1A716E2887200E6C6DA /* timer_controller.cpp */,
 				42C932EF1491A5160098216A /* words.cpp */,
 				42C932F01491A5160098216A /* words.h */,
 				90A2D13316DB369500E6C6DA /* animation.hpp */,
+				B8F0B67416E7B4260024EF45 /* board.hpp */,
+				B81EE52216E7B25C00429109 /* board_solver.hpp */,
 				9041D25416C6BBB00098C475 /* camera_control.hpp */,
 				905108D016D4A59700E17584 /* input_event_handler.hpp */,
 				905108D216D4A59700E17584 /* letter_controller.hpp */,
@@ -294,9 +300,11 @@
 				90A2D1A416E2887200E6C6DA /* menu.hpp */,
 				905108D416D4A59700E17584 /* renderable_node_repository.hpp */,
 				90A2D1A616E2887200E6C6DA /* score_controller.hpp */,
+				90B9A70D16ED2031006A4896 /* selected_text_connector.hpp */,
 				90A2D14916DC8D6700E6C6DA /* selected_text_label.hpp */,
 				905108D616D4A59700E17584 /* tile.hpp */,
 				90A2D1A816E2887200E6C6DA /* timer_controller.hpp */,
+				B8F0B66116E7B3A70024EF45 /* perf-solver */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -560,6 +568,7 @@
 				B8F0B66A16E7B3A70024EF45 /* boggler.cc in Sources */,
 				B8F0B66C16E7B3A70024EF45 /* trie.cc in Sources */,
 				B8F0B67C16E7B4260024EF45 /* board.cpp in Sources */,
+				90B9A70E16ED2031006A4896 /* selected_text_connector.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,6 +576,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90B9A71116ED2148006A4896 /* selected_text_connector.cpp in Sources */,
+				90B9A71216ED2148006A4896 /* board.hpp in Sources */,
+				90B9A71316ED2148006A4896 /* selected_text_connector.hpp in Sources */,
 				B8F0B67016E7B3DF0024EF45 /* boggle_solver.h in Sources */,
 				B8F0B67116E7B3DF0024EF45 /* boggler.h in Sources */,
 				B8F0B67216E7B3DF0024EF45 /* trie.h in Sources */,
