@@ -9,6 +9,7 @@
 #include "gameplay.h"
 #include "letter_provider.hpp"
 
+
 class Tile;
 class BoardColumn;
 class Board;

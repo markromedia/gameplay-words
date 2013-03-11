@@ -434,6 +434,7 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <None Include="words-macosx.plist" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src-win\board_file_loader.cpp" />
     <ClCompile Include="src\board.cpp" />
     <ClCompile Include="src\menu.cpp" />
     <ClCompile Include="src\perf-solver\boggler.cc" />
@@ -454,6 +455,7 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <ClCompile Include="src\board_solver.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src-win\board_file_loader.hpp" />
     <ClInclude Include="src\board.hpp" />
     <ClInclude Include="src\menu.hpp" />
     <ClInclude Include="src\perf-solver\boggler.h" />
