@@ -4,6 +4,8 @@
 
 #ifdef WIN32
 #include "../src-win/board_file_loader.hpp"
+#elif __APPLE__
+#include "../src-ios/board_file_loader.hpp"
 #endif
 
 Board* Board::instance = NULL;
@@ -166,7 +168,9 @@ void Board::buildPrecomputerBoardsQueue()
 {
 #ifdef WIN32
 	BoardFileLoader::LoadPrecalculatedBoard(&precalculated_boards);
-#endif	
+#elif __APPLE__
+    BoardFileLoader::LoadPrecalculatedBoard(&precalculated_boards);
+#endif
 }
 
 

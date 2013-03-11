@@ -45,7 +45,7 @@ public:
 
 	/// Query if this object is empty.
 	/// @return	true if empty, false if not.
-	bool BoardCell::IsEmpty();
+	bool IsEmpty();
 };
 
 class BoardColumn {
