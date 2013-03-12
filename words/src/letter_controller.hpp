@@ -42,6 +42,12 @@ private:
 
 	/// @summary	true to draw selected text.
 	bool draw_selected_text;
+
+	/// @summary	true to do check selected letters.
+	bool do_check_selected_letters;
+
+	/// Checks selected letters and responds appropriately.
+	void checkSelectedLetters();
 public:
 	/// Callback, called when the tile movement complete.
 	/// @param [in,out]	tile	If non-null, the tile.

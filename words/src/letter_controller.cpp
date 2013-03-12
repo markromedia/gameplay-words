@@ -122,6 +122,10 @@ bool LetterController::HandleTouchDownEvent(gameplay::Ray& ray, int x, int y )
 
 void LetterController::HandleTouchUpEvent()
 {
+	instance->do_check_selected_letters = true;
+}
+
+void LetterController::checkSelectedLetters() {
 	if (instance->selected_tiles.size() == 0) {
 		return;
 	}
@@ -147,14 +151,14 @@ void LetterController::HandleTouchUpEvent()
 			instance->available_tiles.push(tile);
 			//find this tile and remove it from the grid
 			Board::Remove(tile);
-            //return the die to the dice manager
-            DiceManager::ReturnDie(tile->cell->die);
+			//return the die to the dice manager
+			DiceManager::ReturnDie(tile->cell->die);
 		}
 
 		//tell the board to prepare itself
 		Board::PrepareBoard();
 	} 
-	
+
 	//make sure everything is unselected
 	for(std::vector<Tile*>::iterator it = instance->tiles.begin(); it != instance->tiles.end(); ++it) {			
 		Tile* tile = *it;
@@ -185,6 +189,11 @@ void LetterController::Render(gameplay::Camera* camera)
 
 void LetterController::Update( float dt )
 {
+	if (do_check_selected_letters) {
+		instance->checkSelectedLetters();
+		do_check_selected_letters = false;
+	}
+
 	//draw the selected text if there are any characters
 	if (instance->selected_tiles.size() > 0) {
 		std::string selected_text = "";
