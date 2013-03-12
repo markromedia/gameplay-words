@@ -78,9 +78,17 @@ void DiceManager::Init() {
 }
 
 void DiceManager::ReturnDie(Dice* die) {
+    std::stringstream ss;
+    ss << die->id << "\n";
+
+    gameplay::Logger::log(gameplay::Logger::LEVEL_INFO, "returning a die: ");
+    gameplay::Logger::log(gameplay::Logger::LEVEL_INFO, ss.str().c_str());
+    
     for (unsigned int i = 0; i < instance->dice_in_use.size(); i++) {
-        if (instance->dice_in_use[i] == die) {
-            instance->available_dice.push_back(instance->dice_in_use[i]);
+        if (instance->dice_in_use[i]->id == die->id) {
+            gameplay::Logger::log(gameplay::Logger::LEVEL_INFO, "SUCCESS\n");
+            Dice* die = instance->dice_in_use[i];
+            instance->available_dice.push_back(die);
             instance->dice_in_use.erase(instance->dice_in_use.begin() + i);
             return;
         }
@@ -106,6 +114,12 @@ void DiceManager::checkCreateInstance()
 Dice* DiceManager::GetRandomDie()
 {
 	checkCreateInstance();
+    std::stringstream ss;
+    ss << instance->available_dice.size() << "\n";
+    
+    gameplay::Logger::log(gameplay::Logger::LEVEL_INFO, "available dice: ");
+    gameplay::Logger::log(gameplay::Logger::LEVEL_INFO, ss.str().c_str());
+    
 	int dice_idx = std::rand() % instance->available_dice.size();
 	Dice* dice = instance->available_dice[dice_idx];
 	dice->roll();

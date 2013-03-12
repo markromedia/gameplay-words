@@ -12,4 +12,11 @@
 
 @interface BoardLoader : NSObject
 
+// basic check create instance for singleton
++ (void) checkCreateInstance;
+
+// Loads the file from disk
++ (void) LoadFile;
+
+- (NSArray*) readLine;
 @end

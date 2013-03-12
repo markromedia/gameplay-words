@@ -188,7 +188,6 @@
 		90BF0AA016ED8C05005ED530 /* board_loader_bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = board_loader_bridge.h; sourceTree = "<group>"; };
 		90BF0AA116ED9454005ED530 /* board_file_loader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = board_file_loader.hpp; sourceTree = "<group>"; };
 		90BF0AA216ED94AB005ED530 /* board_file_loader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = board_file_loader.cpp; sourceTree = "<group>"; };
-		90BF0AA316ED94AB005ED530 /* board_file_loader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = board_file_loader.h; sourceTree = "<group>"; };
 		B81EE52116E7B25C00429109 /* board_solver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = board_solver.cpp; sourceTree = "<group>"; };
 		B81EE52216E7B25C00429109 /* board_solver.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = board_solver.hpp; sourceTree = "<group>"; };
 		B8F0B66216E7B3A70024EF45 /* boggle_solver.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = boggle_solver.cc; sourceTree = "<group>"; };
@@ -381,7 +380,6 @@
 				90BF0AA016ED8C05005ED530 /* board_loader_bridge.h */,
 				90BF0AA116ED9454005ED530 /* board_file_loader.hpp */,
 				90BF0AA216ED94AB005ED530 /* board_file_loader.cpp */,
-				90BF0AA316ED94AB005ED530 /* board_file_loader.h */,
 			);
 			path = "src-ios";
 			sourceTree = "<group>";

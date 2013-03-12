@@ -10,7 +10,17 @@
 #ifndef words_board_loader_bridge_h
 #define words_board_loader_bridge_h
 
-char* readBoardLoaderLine();
+/**
+ * Loads the precalcuated boards contents into
+ * memory
+ */
+void loadPrecalculatedBoardsFile();
+
+/**
+ * Returns a 16 x 2 + 1 sized array that presents
+ * a line (dice data followed by the word count)
+ */
+int* readLine();
 
 #endif
 #endif

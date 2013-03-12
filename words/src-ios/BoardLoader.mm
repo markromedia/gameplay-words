@@ -8,8 +8,20 @@
 
 #import "BoardLoader.h"
 
+@interface BoardLoader ()
+@property (nonatomic, strong) NSArray *lines;
+@property (nonatomic, assign) int currentIndex;
+@end
+
 @implementation BoardLoader
+
+//synthesize stuffs
+@synthesize lines;
+@synthesize currentIndex;
+
+//singleton
 static BoardLoader* instance;
+
 
 + (void) checkCreateInstance {
     if (instance == Nil) {
@@ -19,15 +31,53 @@ static BoardLoader* instance;
 
 + (void) LoadFile {
     [self.class checkCreateInstance];
-    NSLog(@"%@", @"inside objective-c");
+    
+    //load precalculated file
+    NSString* path = [[NSBundle mainBundle] pathForResource:@"res/dict/precalculated_boards"
+                                                     ofType:@"txt"];
+    NSString* content = [NSString stringWithContentsOfFile:path
+                                                  encoding:NSUTF8StringEncoding
+                                                     error:NULL];
+    //split it up into new line separated strings
+    instance.lines = [content componentsSeparatedByString:@"\n"];
+    
+    //TODO. skip the dice check for now
+    instance.currentIndex = 16;
+}
+
+- (NSArray*) readLine {
+    if (self.currentIndex > [self.lines count]) {
+        //TODO. might need to clear up the lines array for mem
+        return nil;
+    }
+    
+    NSArray* values = [[NSArray alloc] init];
+    NSString* line = [lines objectAtIndex: currentIndex];
+    //increment counter
+    currentIndex++;
+    
+    return [line componentsSeparatedByString:@" "];
 }
 
 //
+// C stuff goes here
 //
-//
-char* readBoardLoaderLine() {
+void loadPrecalculatedBoardsFile() {
     [BoardLoader LoadFile];
-    return NULL;
+}
+
+int* readLine() {
+    NSArray* lineValues = [instance readLine];
+    int val_count = [lineValues count];
+    if (lineValues == nil || [lineValues count] < 33) {
+        return NULL;
+    }
+    
+    int* int_line_vals = new int[33];
+    for (int i = 0; i < 33; i++) {
+        int_line_vals[i] = [[lineValues objectAtIndex:i] intValue];
+    }
+    return int_line_vals;
 }
 
 @end
