@@ -145,14 +145,15 @@ void LetterController::checkSelectedLetters() {
 		//remove the selected tiles
 		for(std::vector<Tile*>::iterator it = instance->selected_tiles.begin(); it != instance->selected_tiles.end(); ++it) {			
 			Tile* tile = *it;
-			//tell the tile to shrink itself (which will then kick off translation animation and finally popping animation)
-			tile->PlayShrinkingAnimation();
+            //return the die to the dice manager
+			DiceManager::ReturnDie(tile->cell->die);
 			//add this tile to the available list
 			instance->available_tiles.push(tile);
 			//find this tile and remove it from the grid
 			Board::Remove(tile);
-			//return the die to the dice manager
-			DiceManager::ReturnDie(tile->cell->die);
+            //tell the tile to shrink itself (which will then kick off translation animation and finally popping animation)
+			tile->PlayShrinkingAnimation();
+
 		}
 
 		//tell the board to prepare itself

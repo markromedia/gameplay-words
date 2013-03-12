@@ -93,6 +93,8 @@ void DiceManager::ReturnDie(Dice* die) {
             return;
         }
     }
+    
+    int failed_to_return = 1;
 }
 
 void DiceManager::ReassignDice() {
@@ -127,6 +129,11 @@ Dice* DiceManager::GetRandomDie()
 	//make sure this is marked as unavailable
 	instance->dice_in_use.push_back(dice);
 	instance->available_dice.erase(instance->available_dice.begin() + dice_idx);
+    
+    std::stringstream ss2;
+    ss2 << "random die: " << dice->id << "\n";
+    gameplay::Logger::log(gameplay::Logger::LEVEL_INFO, ss2.str().c_str());
+
 
 	return dice;
 }
