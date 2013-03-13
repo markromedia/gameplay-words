@@ -10,6 +10,7 @@
 #include <map>
 
 #include "gameplay.h"
+#include "thread_manager.hpp"
 
 class DiceManager;
 

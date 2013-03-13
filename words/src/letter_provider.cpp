@@ -109,6 +109,8 @@ void DiceManager::checkCreateInstance()
 Dice* DiceManager::GetRandomDie()
 {
 	checkCreateInstance();
+	ThreadManager::PrintCurrentThreadName();
+
     std::stringstream ss;
     ss << "getting die from pool[";
     
