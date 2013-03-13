@@ -141,25 +141,29 @@ void LetterController::checkSelectedLetters() {
 	if (selected_text.length() > 1 && BoardSolver::IsWord(selected_text.c_str())) {
 		//add to the points
 		ScoreController::AddToScore(selected_text.length() * 100);
-
-		//remove the selected tiles
-		for(std::vector<Tile*>::iterator it = instance->selected_tiles.begin(); it != instance->selected_tiles.end(); ++it) {			
+        
+        //remove the selected tiles
+		for(std::vector<Tile*>::iterator it = instance->selected_tiles.begin(); it != instance->selected_tiles.end(); ++it) {
 			Tile* tile = *it;
             //return the die to the dice manager
-			DiceManager::ReturnDie(tile->cell->die);
+			tile->cell->RemoveAssignedDie();
+            //find this tile and remove it from the grid
+			Board::Remove(tile);
 			//add this tile to the available list
 			instance->available_tiles.push(tile);
-			//find this tile and remove it from the grid
-			Board::Remove(tile);
-            //tell the tile to shrink itself (which will then kick off translation animation and finally popping animation)
-			tile->PlayShrinkingAnimation();
-
-		}
+        }
 
 		//tell the board to prepare itself
 		Board::PrepareBoard();
-	} 
-
+        
+        //tell all the tiles to shrink themselves
+        for(std::vector<Tile*>::iterator it = instance->selected_tiles.begin(); it != instance->selected_tiles.end(); ++it) {
+            Tile* tile = *it;
+            //tell the tile to shrink itself (which will then kick off translation animation and finally popping animation)
+            tile->PlayShrinkingAnimation();
+        }
+	}
+    
 	//make sure everything is unselected
 	for(std::vector<Tile*>::iterator it = instance->tiles.begin(); it != instance->tiles.end(); ++it) {			
 		Tile* tile = *it;

@@ -30,6 +30,13 @@ bool BoardCell::IsEmpty() {
 	return this->tile == NULL;
 }
 
+void BoardCell::RemoveAssignedDie() {
+    if (this->die != NULL) {
+        DiceManager::ReturnDie(this->die);
+        this->die = NULL;
+    }
+}
+
 void BoardColumn::adjust(int count) {
 	//recursive end condition
 	if (count == 0) {
@@ -184,7 +191,7 @@ void Board::AssignBoard()
 	for (int i = 0; i < 4; i++) {
 		BoardColumn* column = Board::Columns()[i];
 		for (int j = 0; j < 4; j++) {
-			if (column->cells[j]->tile == NULL) {
+			if (column->cells[j]->die == NULL) {
 				column->cells[j]->die = DiceManager::GetRandomDie();
 			}
 		}

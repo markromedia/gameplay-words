@@ -46,6 +46,9 @@ public:
 	/// Query if this object is empty.
 	/// @return	true if empty, false if not.
 	bool IsEmpty();
+    
+    /// Returns the removed die to the pool and nulls reference out
+    void RemoveAssignedDie();
 };
 
 class BoardColumn {

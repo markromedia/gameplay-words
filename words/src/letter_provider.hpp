@@ -77,9 +77,6 @@ private:
 	/// @summary	The available dice.
 	std::vector<Dice*> available_dice;
     
-    /// @summary	The dice in use.
-	std::vector<Dice*> dice_in_use;
-
 	std::map<int, Dice*> dice_map;
 };
 

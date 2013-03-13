@@ -1,5 +1,7 @@
 #include "letter_provider.hpp"
 
+#include "board.hpp"
+
 std::string DiceManager::letters[] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "qu", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
 
 DiceManager* DiceManager::instance = NULL;
@@ -63,8 +65,6 @@ DiceManager::DiceManager()
 Dice* DiceManager::GetDieById( int id )
 {
 	Dice* die = instance->dice_map[id];
-	//make sure this is marked as unavailable
-	instance->dice_in_use.push_back(die);
 	std::vector<Dice*>::iterator position = std::find(instance->available_dice.begin(), instance->available_dice.end(), die);
 	if (position != instance->available_dice.end()) {
 		instance->available_dice.erase(position);
@@ -79,22 +79,15 @@ void DiceManager::Init() {
 
 void DiceManager::ReturnDie(Dice* die) {
     std::stringstream ss;
-    ss << die->id << "\n";
-
-    gameplay::Logger::log(gameplay::Logger::LEVEL_INFO, "returning a die: ");
+    ss << "returning die [" << die->id << "] into pool[";
+    
+    for (int i = 0; i < instance->available_dice.size(); i++) {
+        ss << instance->available_dice[i]->id << " ";
+    }
+    ss << "]\n";
     gameplay::Logger::log(gameplay::Logger::LEVEL_INFO, ss.str().c_str());
     
-    for (unsigned int i = 0; i < instance->dice_in_use.size(); i++) {
-        if (instance->dice_in_use[i]->id == die->id) {
-            gameplay::Logger::log(gameplay::Logger::LEVEL_INFO, "SUCCESS\n");
-            Dice* die = instance->dice_in_use[i];
-            instance->available_dice.push_back(die);
-            instance->dice_in_use.erase(instance->dice_in_use.begin() + i);
-            return;
-        }
-    }
-    
-    int failed_to_return = 1;
+    instance->available_dice.push_back(die);
 }
 
 void DiceManager::ReassignDice() {
@@ -117,17 +110,21 @@ Dice* DiceManager::GetRandomDie()
 {
 	checkCreateInstance();
     std::stringstream ss;
-    ss << instance->available_dice.size() << "\n";
+    ss << "getting die from pool[";
     
-    gameplay::Logger::log(gameplay::Logger::LEVEL_INFO, "available dice: ");
+    for (int i = 0; i < instance->available_dice.size(); i++) {
+        ss << instance->available_dice[i]->id << " ";
+    }
+    ss << "] ";
+    
     gameplay::Logger::log(gameplay::Logger::LEVEL_INFO, ss.str().c_str());
+    
     
 	int dice_idx = std::rand() % instance->available_dice.size();
 	Dice* dice = instance->available_dice[dice_idx];
 	dice->roll();
 	
 	//make sure this is marked as unavailable
-	instance->dice_in_use.push_back(dice);
 	instance->available_dice.erase(instance->available_dice.begin() + dice_idx);
     
     std::stringstream ss2;
