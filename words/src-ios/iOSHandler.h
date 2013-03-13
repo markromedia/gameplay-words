@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#include "board_loader_bridge.h"
+#include "ios_bridge.h"
 
 
 @interface BoardLoader : NSObject
@@ -18,5 +18,9 @@
 // Loads the file from disk
 + (void) LoadFile;
 
-- (NSArray*) readLine;
+// reads a liine from precalculated boards file
+- (NSArray*) readLineFromPrecalcBoardFile;
+
+// prints the name of current thread executing this code
+- (void) printCurrentThreadName;
 @end

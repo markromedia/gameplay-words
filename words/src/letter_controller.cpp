@@ -45,29 +45,24 @@ void LetterController::refillEmptyBoardCells()
 	//tell board to assign its letters
 	Board::AssignBoard();
 
-	//iterate over board and fill in empty tiles
+	//iterate over board and reassign non-empties
 	for (int i = 0; i < 4; i++) {
 		BoardColumn* column = Board::Columns()[i];
 		for (int j = 0; j < 4; j++) {
-			if (column->cells[j]->IsEmpty()) {
-				if (available_tiles.empty()) {
-					return;
-				}
-
+            BoardCell* cell = column->cells[j];
+			if (cell->IsEmpty() && !available_tiles.empty()) {
 				//grab a tile from the available tiles
 				Tile* tile = available_tiles.front();
 				available_tiles.pop();
 
 				//assign grid values and tie it to the cell
-				column->cells[j]->AssignTile(tile);
-				tile->SetPosition(column->cells[j]->x, column->cells[j]->y, 0);
+				cell->AssignTile(tile, true);
 
 				//assign a new letter
 				std::string letter_material = "letter_";
-				letter_material.append(column->cells[j]->die->getAssignedLetter());
+				letter_material.append(cell->die->getAssignedLetter());
 				tile->GetLayer(Tile::ICON)->SetRenderableNode(RENDERABLE(letter_material));
-				tile->value = column->cells[j]->die->getAssignedLetter();
-				tile->cell = column->cells[j];
+				tile->value = cell->die->getAssignedLetter();
 
 				//start the tile popping
 				tile->PlayPopAnimation();
@@ -145,10 +140,8 @@ void LetterController::checkSelectedLetters() {
         //remove the selected tiles
 		for(std::vector<Tile*>::iterator it = instance->selected_tiles.begin(); it != instance->selected_tiles.end(); ++it) {
 			Tile* tile = *it;
-            //return the die to the dice manager
-			tile->cell->RemoveAssignedDie();
-            //find this tile and remove it from the grid
-			Board::Remove(tile);
+            //find this tile and remove it from the grid and clean up the cell it belonged to
+			Board::RemoveTileAndCleanupCell(tile);
 			//add this tile to the available list
 			instance->available_tiles.push(tile);
         }

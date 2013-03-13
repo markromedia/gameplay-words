@@ -12,7 +12,7 @@
 #include "perf-solver/boggle_solver.h"
 
 #include "board.hpp"
-#include "letter_provider.hpp"
+#include "dice_manager.hpp"
 
 class BoardSolver {
 private:

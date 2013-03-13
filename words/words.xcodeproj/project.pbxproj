@@ -48,11 +48,11 @@
 		905108D916D4A59700E17584 /* renderable_node_repository.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905108D316D4A59700E17584 /* renderable_node_repository.cpp */; };
 		905108DA16D4A59700E17584 /* tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905108D516D4A59700E17584 /* tile.cpp */; };
 		90A2D13616DB369500E6C6DA /* animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D13216DB369500E6C6DA /* animation.cpp */; };
-		90A2D13716DB369500E6C6DA /* letter_provider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D13416DB369500E6C6DA /* letter_provider.cpp */; };
+		90A2D13716DB369500E6C6DA /* dice_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D13416DB369500E6C6DA /* dice_manager.cpp */; };
 		90A2D13816DB369D00E6C6DA /* animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D13216DB369500E6C6DA /* animation.cpp */; };
 		90A2D13916DB369D00E6C6DA /* animation.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D13316DB369500E6C6DA /* animation.hpp */; };
-		90A2D13A16DB369D00E6C6DA /* letter_provider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D13416DB369500E6C6DA /* letter_provider.cpp */; };
-		90A2D13B16DB369D00E6C6DA /* letter_provider.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D13516DB369500E6C6DA /* letter_provider.hpp */; };
+		90A2D13A16DB369D00E6C6DA /* dice_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D13416DB369500E6C6DA /* dice_manager.cpp */; };
+		90A2D13B16DB369D00E6C6DA /* dice_manager.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D13516DB369500E6C6DA /* dice_manager.hpp */; };
 		90A2D13C16DB369D00E6C6DA /* input_event_handler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905108CF16D4A59700E17584 /* input_event_handler.cpp */; };
 		90A2D13D16DB369D00E6C6DA /* input_event_handler.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 905108D016D4A59700E17584 /* input_event_handler.hpp */; };
 		90A2D13E16DB369D00E6C6DA /* letter_controller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905108D116D4A59700E17584 /* letter_controller.cpp */; };
@@ -81,10 +81,12 @@
 		90B9A71116ED2148006A4896 /* selected_text_connector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90B9A70C16ED2031006A4896 /* selected_text_connector.cpp */; };
 		90B9A71216ED2148006A4896 /* board.hpp in Sources */ = {isa = PBXBuildFile; fileRef = B8F0B67416E7B4260024EF45 /* board.hpp */; };
 		90B9A71316ED2148006A4896 /* selected_text_connector.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 90B9A70D16ED2031006A4896 /* selected_text_connector.hpp */; };
-		90BF0A9E16ED8952005ED530 /* BoardLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 90BF0A9D16ED8952005ED530 /* BoardLoader.mm */; };
-		90BF0A9F16ED8952005ED530 /* BoardLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 90BF0A9D16ED8952005ED530 /* BoardLoader.mm */; };
+		90BF0A9E16ED8952005ED530 /* iOSHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 90BF0A9D16ED8952005ED530 /* iOSHandler.mm */; };
+		90BF0A9F16ED8952005ED530 /* iOSHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 90BF0A9D16ED8952005ED530 /* iOSHandler.mm */; };
 		90BF0AA416ED94AB005ED530 /* board_file_loader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90BF0AA216ED94AB005ED530 /* board_file_loader.cpp */; };
 		90BF0AA516ED94AB005ED530 /* board_file_loader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90BF0AA216ED94AB005ED530 /* board_file_loader.cpp */; };
+		90BF0AA816F00D3C005ED530 /* thread_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90BF0AA616F00D3C005ED530 /* thread_manager.cpp */; };
+		90BF0AA916F00D3C005ED530 /* thread_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90BF0AA616F00D3C005ED530 /* thread_manager.cpp */; };
 		B81EE52316E7B25C00429109 /* board_solver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B81EE52116E7B25C00429109 /* board_solver.cpp */; };
 		B81EE52416E7B25C00429109 /* board_solver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B81EE52116E7B25C00429109 /* board_solver.cpp */; };
 		B81EE54516E7B31100429109 /* board_solver.hpp in Sources */ = {isa = PBXBuildFile; fileRef = B81EE52216E7B25C00429109 /* board_solver.hpp */; };
@@ -171,8 +173,8 @@
 		905108D616D4A59700E17584 /* tile.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = tile.hpp; sourceTree = "<group>"; };
 		90A2D13216DB369500E6C6DA /* animation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = animation.cpp; sourceTree = "<group>"; };
 		90A2D13316DB369500E6C6DA /* animation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = animation.hpp; sourceTree = "<group>"; };
-		90A2D13416DB369500E6C6DA /* letter_provider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = letter_provider.cpp; sourceTree = "<group>"; };
-		90A2D13516DB369500E6C6DA /* letter_provider.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = letter_provider.hpp; sourceTree = "<group>"; };
+		90A2D13416DB369500E6C6DA /* dice_manager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dice_manager.cpp; sourceTree = "<group>"; };
+		90A2D13516DB369500E6C6DA /* dice_manager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = dice_manager.hpp; sourceTree = "<group>"; };
 		90A2D14816DC8D6700E6C6DA /* selected_text_label.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = selected_text_label.cpp; sourceTree = "<group>"; };
 		90A2D14916DC8D6700E6C6DA /* selected_text_label.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = selected_text_label.hpp; sourceTree = "<group>"; };
 		90A2D1A316E2887200E6C6DA /* menu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = menu.cpp; sourceTree = "<group>"; };
@@ -183,11 +185,13 @@
 		90A2D1A816E2887200E6C6DA /* timer_controller.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = timer_controller.hpp; sourceTree = "<group>"; };
 		90B9A70C16ED2031006A4896 /* selected_text_connector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = selected_text_connector.cpp; sourceTree = "<group>"; };
 		90B9A70D16ED2031006A4896 /* selected_text_connector.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = selected_text_connector.hpp; sourceTree = "<group>"; };
-		90BF0A9C16ED8952005ED530 /* BoardLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardLoader.h; sourceTree = "<group>"; };
-		90BF0A9D16ED8952005ED530 /* BoardLoader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BoardLoader.mm; sourceTree = "<group>"; };
-		90BF0AA016ED8C05005ED530 /* board_loader_bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = board_loader_bridge.h; sourceTree = "<group>"; };
-		90BF0AA116ED9454005ED530 /* board_file_loader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = board_file_loader.hpp; sourceTree = "<group>"; };
+		90BF0A9C16ED8952005ED530 /* iOSHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSHandler.h; sourceTree = "<group>"; };
+		90BF0A9D16ED8952005ED530 /* iOSHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iOSHandler.mm; sourceTree = "<group>"; };
+		90BF0AA016ED8C05005ED530 /* ios_bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ios_bridge.h; sourceTree = "<group>"; };
 		90BF0AA216ED94AB005ED530 /* board_file_loader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = board_file_loader.cpp; sourceTree = "<group>"; };
+		90BF0AA616F00D3C005ED530 /* thread_manager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = thread_manager.cpp; sourceTree = "<group>"; };
+		90BF0AAA16F00D95005ED530 /* thread_manager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = thread_manager.hpp; sourceTree = "<group>"; };
+		90BF0AAB16F012F0005ED530 /* board_file_loader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = board_file_loader.hpp; sourceTree = "<group>"; };
 		B81EE52116E7B25C00429109 /* board_solver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = board_solver.cpp; sourceTree = "<group>"; };
 		B81EE52216E7B25C00429109 /* board_solver.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = board_solver.hpp; sourceTree = "<group>"; };
 		B8F0B66216E7B3A70024EF45 /* boggle_solver.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = boggle_solver.cc; sourceTree = "<group>"; };
@@ -288,9 +292,9 @@
 				B8F0B67316E7B4260024EF45 /* board.cpp */,
 				B81EE52116E7B25C00429109 /* board_solver.cpp */,
 				9041D25316C6BBB00098C475 /* camera_control.cpp */,
+				90A2D13416DB369500E6C6DA /* dice_manager.cpp */,
 				905108CF16D4A59700E17584 /* input_event_handler.cpp */,
 				905108D116D4A59700E17584 /* letter_controller.cpp */,
-				90A2D13416DB369500E6C6DA /* letter_provider.cpp */,
 				90A2D1A316E2887200E6C6DA /* menu.cpp */,
 				905108D316D4A59700E17584 /* renderable_node_repository.cpp */,
 				90A2D1A516E2887200E6C6DA /* score_controller.cpp */,
@@ -302,16 +306,18 @@
 				42C932F01491A5160098216A /* words.h */,
 				90A2D13316DB369500E6C6DA /* animation.hpp */,
 				B8F0B67416E7B4260024EF45 /* board.hpp */,
+				90BF0AAB16F012F0005ED530 /* board_file_loader.hpp */,
 				B81EE52216E7B25C00429109 /* board_solver.hpp */,
 				9041D25416C6BBB00098C475 /* camera_control.hpp */,
+				90A2D13516DB369500E6C6DA /* dice_manager.hpp */,
 				905108D016D4A59700E17584 /* input_event_handler.hpp */,
 				905108D216D4A59700E17584 /* letter_controller.hpp */,
-				90A2D13516DB369500E6C6DA /* letter_provider.hpp */,
 				90A2D1A416E2887200E6C6DA /* menu.hpp */,
 				905108D416D4A59700E17584 /* renderable_node_repository.hpp */,
 				90A2D1A616E2887200E6C6DA /* score_controller.hpp */,
 				90B9A70D16ED2031006A4896 /* selected_text_connector.hpp */,
 				90A2D14916DC8D6700E6C6DA /* selected_text_label.hpp */,
+				90BF0AAA16F00D95005ED530 /* thread_manager.hpp */,
 				905108D616D4A59700E17584 /* tile.hpp */,
 				90A2D1A816E2887200E6C6DA /* timer_controller.hpp */,
 				B8F0B66116E7B3A70024EF45 /* perf-solver */,
@@ -375,11 +381,11 @@
 		90BF0A9916ED8916005ED530 /* src-ios */ = {
 			isa = PBXGroup;
 			children = (
-				90BF0A9C16ED8952005ED530 /* BoardLoader.h */,
-				90BF0A9D16ED8952005ED530 /* BoardLoader.mm */,
-				90BF0AA016ED8C05005ED530 /* board_loader_bridge.h */,
-				90BF0AA116ED9454005ED530 /* board_file_loader.hpp */,
+				90BF0A9C16ED8952005ED530 /* iOSHandler.h */,
+				90BF0A9D16ED8952005ED530 /* iOSHandler.mm */,
+				90BF0AA016ED8C05005ED530 /* ios_bridge.h */,
 				90BF0AA216ED94AB005ED530 /* board_file_loader.cpp */,
+				90BF0AA616F00D3C005ED530 /* thread_manager.cpp */,
 			);
 			path = "src-ios";
 			sourceTree = "<group>";
@@ -580,7 +586,7 @@
 				905108D916D4A59700E17584 /* renderable_node_repository.cpp in Sources */,
 				905108DA16D4A59700E17584 /* tile.cpp in Sources */,
 				90A2D13616DB369500E6C6DA /* animation.cpp in Sources */,
-				90A2D13716DB369500E6C6DA /* letter_provider.cpp in Sources */,
+				90A2D13716DB369500E6C6DA /* dice_manager.cpp in Sources */,
 				90A2D14A16DC8D6700E6C6DA /* selected_text_label.cpp in Sources */,
 				90A2D1A916E2887200E6C6DA /* menu.cpp in Sources */,
 				90A2D1AA16E2887200E6C6DA /* score_controller.cpp in Sources */,
@@ -591,8 +597,9 @@
 				B8F0B66C16E7B3A70024EF45 /* trie.cc in Sources */,
 				B8F0B67C16E7B4260024EF45 /* board.cpp in Sources */,
 				90B9A70E16ED2031006A4896 /* selected_text_connector.cpp in Sources */,
-				90BF0A9E16ED8952005ED530 /* BoardLoader.mm in Sources */,
+				90BF0A9E16ED8952005ED530 /* iOSHandler.mm in Sources */,
 				90BF0AA416ED94AB005ED530 /* board_file_loader.cpp in Sources */,
+				90BF0AA816F00D3C005ED530 /* thread_manager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,8 +624,8 @@
 				90A2D14C16DC8D6E00E6C6DA /* selected_text_label.hpp in Sources */,
 				90A2D13816DB369D00E6C6DA /* animation.cpp in Sources */,
 				90A2D13916DB369D00E6C6DA /* animation.hpp in Sources */,
-				90A2D13A16DB369D00E6C6DA /* letter_provider.cpp in Sources */,
-				90A2D13B16DB369D00E6C6DA /* letter_provider.hpp in Sources */,
+				90A2D13A16DB369D00E6C6DA /* dice_manager.cpp in Sources */,
+				90A2D13B16DB369D00E6C6DA /* dice_manager.hpp in Sources */,
 				90A2D13C16DB369D00E6C6DA /* input_event_handler.cpp in Sources */,
 				90A2D13D16DB369D00E6C6DA /* input_event_handler.hpp in Sources */,
 				90A2D13E16DB369D00E6C6DA /* letter_controller.cpp in Sources */,
@@ -636,8 +643,9 @@
 				B8F0B66B16E7B3A70024EF45 /* boggler.cc in Sources */,
 				B8F0B66D16E7B3A70024EF45 /* trie.cc in Sources */,
 				B8F0B67D16E7B4260024EF45 /* board.cpp in Sources */,
-				90BF0A9F16ED8952005ED530 /* BoardLoader.mm in Sources */,
+				90BF0A9F16ED8952005ED530 /* iOSHandler.mm in Sources */,
 				90BF0AA516ED94AB005ED530 /* board_file_loader.cpp in Sources */,
+				90BF0AA916F00D3C005ED530 /* thread_manager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,7 +6,7 @@
 //
 //
 
-#import "BoardLoader.h"
+#import "iOSHandler.h"
 
 @interface BoardLoader ()
 @property (nonatomic, strong) NSArray *lines;
@@ -45,7 +45,7 @@ static BoardLoader* instance;
     instance.currentIndex = 16;
 }
 
-- (NSArray*) readLine {
+- (NSArray*) readLineFromPrecalcBoardFile {
     if (self.currentIndex > [self.lines count]) {
         //TODO. might need to clear up the lines array for mem
         return nil;
@@ -59,6 +59,10 @@ static BoardLoader* instance;
     return [line componentsSeparatedByString:@" "];
 }
 
+- (void) printCurrentThreadName {
+    NSLog(@"%@", [NSThread currentThread]);
+}
+
 //
 // C stuff goes here
 //
@@ -66,8 +70,8 @@ void loadPrecalculatedBoardsFile() {
     [BoardLoader LoadFile];
 }
 
-int* readLine() {
-    NSArray* lineValues = [instance readLine];
+int* readLineFromPrecalculateBoardsFile() {
+    NSArray* lineValues = [instance readLineFromPrecalcBoardFile];
     int val_count = [lineValues count];
     if (lineValues == nil || [lineValues count] < 33) {
         return NULL;
@@ -78,6 +82,10 @@ int* readLine() {
         int_line_vals[i] = [[lineValues objectAtIndex:i] intValue];
     }
     return int_line_vals;
+}
+
+void printThreadName() {
+    [instance printCurrentThreadName];
 }
 
 @end

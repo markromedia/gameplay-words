@@ -1,12 +1,7 @@
 #include "board.hpp"
 
 #include "tile.hpp"
-
-#ifdef WIN32
-#include "../src-win/board_file_loader.hpp"
-#elif __APPLE__
-#include "../src-ios/board_file_loader.hpp"
-#endif
+#include "board_file_loader.hpp"
 
 Board* Board::instance = NULL;
 long Board::start_time = 0;
@@ -69,6 +64,10 @@ void BoardColumn::adjust(int count) {
 		first_non_empty->tile->TranslateTo(first_empty->x, first_empty->y, 0, (idx_of_first_non_empty - 1) * 75);
 		//update the empties now
 		first_empty->AssignTile(first_non_empty->tile, false);
+        //make sure the die moves with the tile
+        first_empty->die = first_non_empty->die;
+        //make this die available
+        first_non_empty->die = NULL;
 		first_non_empty->tile = NULL;
 	}
 
@@ -106,17 +105,13 @@ void Board::AdjustColumns()
 	}
 }
 
-void Board::Remove( Tile* tile )
+void Board::RemoveTileAndCleanupCell( Tile* tile )
 {
-	for (int i = 0; i < 4; i++) {
-		BoardColumn* column = instance->columns[i];
-		for (int j = 0; j < 4; j++) {
-			if (column->cells[j]->tile == tile) {
-				column->cells[j]->tile = NULL;
-				return;
-			}
-		}
-	}
+    if (tile->cell != NULL) {
+        BoardCell* cell = tile->cell;
+        cell->AssignTile(NULL);
+        cell->RemoveAssignedDie();
+    }
 }
 
 BoardColumn** Board::Columns()
@@ -173,11 +168,7 @@ void Board::Init(gameplay::Node* letter_model ) {
 
 void Board::buildPrecomputerBoardsQueue()
 {
-#ifdef WIN32
-	BoardFileLoader::LoadPrecalculatedBoard(&precalculated_boards);
-#elif __APPLE__
     BoardFileLoader::LoadPrecalculatedBoard(&precalculated_boards);
-#endif
 }
 
 
@@ -229,17 +220,19 @@ void Board::CreateRandomBoard() {
 }
 
 void Board::PrintBoard() {
-	gameplay::Logger::log(gameplay::Logger::LEVEL_INFO, "\n");
+    std::stringstream ss;
+    ss << "\n";
+    
 	for (int row = 3; row >= 0; row--) {
 		for (int col = 0; col < 4; col++) {
 			BoardColumn* column = Board::Columns()[col];
 			BoardCell* cell = column->cells[row];
-			
-			gameplay::Logger::log(gameplay::Logger::LEVEL_INFO, cell->die->getAssignedLetter().c_str());
-			gameplay::Logger::log(gameplay::Logger::LEVEL_INFO, " ");
+            ss << cell->die->getAssignedLetter() << ":" << cell->die->id << ":" << cell->die->side_index << " ";
 		}
-		gameplay::Logger::log(gameplay::Logger::LEVEL_INFO, "\n");
+		ss << "\n";
 	}
+    gameplay::Logger::log(gameplay::Logger::LEVEL_INFO, ss.str().c_str());
+
 }
 
 

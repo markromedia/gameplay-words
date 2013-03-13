@@ -7,7 +7,7 @@
 #include <assert.h>
 
 #include "gameplay.h"
-#include "letter_provider.hpp"
+#include "dice_manager.hpp"
 
 
 class Tile;
@@ -32,12 +32,12 @@ private:
 	int col_index;
 	int row_index;
 
-	Tile* tile;
 public:
 	BoardColumn* parent_column;
 	int x;
 	int y;
 	Dice* die;
+    Tile* tile;
 
 	/// Assign tile to this cell
 	/// @param [in,out]	tile	If non-null, the tile.
@@ -93,7 +93,7 @@ public:
 
 	/// Removes the given tile from its cell
 	/// @param [in,out]	tile	If non-null, the Tile* to remove.
-	static void Remove(Tile* tile);
+	static void RemoveTileAndCleanupCell(Tile* tile);
 
 	/// Adjust the tiles to fill in spaces 
 	static void AdjustColumns();

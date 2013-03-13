@@ -18,7 +18,7 @@
 
 
 #include "../src/board.hpp"
-#include "../src/letter_provider.hpp"
+#include "../src/dice_manager.hpp"
 
 class BoardFileLoader {
 public:

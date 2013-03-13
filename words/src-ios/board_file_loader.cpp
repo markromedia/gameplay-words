@@ -7,15 +7,15 @@
 //
 
 #ifdef __APPLE__
-#include "board_file_loader.hpp"
-#include "board_loader_bridge.h"
+#include "../src/board_file_loader.hpp"
+#include "ios_bridge.h"
 
 void BoardFileLoader::LoadPrecalculatedBoard(std::queue<PrecalculatedBoard*>* precalculated_boards) {
     loadPrecalculatedBoardsFile();
     
     int* line_values;
     std::vector<PrecalculatedBoard*> boards_vec;
-    while ((line_values = readLine()) != NULL) {
+    while ((line_values = readLineFromPrecalculateBoardsFile()) != NULL) {
         PrecalculatedBoard* board = new PrecalculatedBoard();;
         
         int idx = 0;

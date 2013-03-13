@@ -8,7 +8,7 @@
 #include "board.hpp"
 #include "tile.hpp"
 #include "renderable_node_repository.hpp"
-#include "letter_provider.hpp"
+#include "dice_manager.hpp"
 #include "selected_text_label.hpp"
 #include "board_solver.hpp"
 #include "score_controller.hpp"

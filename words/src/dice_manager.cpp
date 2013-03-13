@@ -1,4 +1,4 @@
-#include "letter_provider.hpp"
+#include "dice_manager.hpp"
 
 #include "board.hpp"
 
@@ -78,15 +78,6 @@ void DiceManager::Init() {
 }
 
 void DiceManager::ReturnDie(Dice* die) {
-    std::stringstream ss;
-    ss << "returning die [" << die->id << "] into pool[";
-    
-    for (int i = 0; i < instance->available_dice.size(); i++) {
-        ss << instance->available_dice[i]->id << " ";
-    }
-    ss << "]\n";
-    gameplay::Logger::log(gameplay::Logger::LEVEL_INFO, ss.str().c_str());
-    
     instance->available_dice.push_back(die);
 }
 
@@ -109,19 +100,8 @@ void DiceManager::checkCreateInstance()
 Dice* DiceManager::GetRandomDie()
 {
 	checkCreateInstance();
-	ThreadManager::PrintCurrentThreadName();
-
-    std::stringstream ss;
-    ss << "getting die from pool[";
     
-    for (int i = 0; i < instance->available_dice.size(); i++) {
-        ss << instance->available_dice[i]->id << " ";
-    }
-    ss << "] ";
-    
-    gameplay::Logger::log(gameplay::Logger::LEVEL_INFO, ss.str().c_str());
-    
-    
+    //grab die
 	int dice_idx = std::rand() % instance->available_dice.size();
 	Dice* dice = instance->available_dice[dice_idx];
 	dice->roll();
@@ -129,11 +109,6 @@ Dice* DiceManager::GetRandomDie()
 	//make sure this is marked as unavailable
 	instance->available_dice.erase(instance->available_dice.begin() + dice_idx);
     
-    std::stringstream ss2;
-    ss2 << "random die: " << dice->id << "\n";
-    gameplay::Logger::log(gameplay::Logger::LEVEL_INFO, ss2.str().c_str());
-
-
 	return dice;
 }
 

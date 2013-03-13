@@ -10,7 +10,7 @@
 #include "score_controller.hpp"
 #include "timer_controller.hpp"
 #include "menu.hpp"
-#include "letter_provider.hpp"
+#include "dice_manager.hpp"
 #include "board.hpp"
 #include "selected_text_connector.hpp"
 
