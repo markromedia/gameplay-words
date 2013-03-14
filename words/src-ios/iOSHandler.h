@@ -23,4 +23,10 @@
 
 // prints the name of current thread executing this code
 - (void) printCurrentThreadName;
+
+// starts the solver worker
+- (void) startWorker;
+
+// stops the solver worker
+- (void) stopWorker;
 @end

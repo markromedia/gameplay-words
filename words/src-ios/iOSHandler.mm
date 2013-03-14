@@ -7,10 +7,17 @@
 //
 
 #import "iOSHandler.h"
+#import <dispatch/dispatch.h>
+
+#include "../src/solver_worker.hpp"
+
+typedef SolverWorker SolverWorker;
 
 @interface BoardLoader ()
 @property (nonatomic, strong) NSArray *lines;
 @property (nonatomic, assign) int currentIndex;
+@property (nonatomic, assign) bool running;
+@property (nonatomic, assign) SolverWorker *worker;
 @end
 
 @implementation BoardLoader
@@ -18,10 +25,24 @@
 //synthesize stuffs
 @synthesize lines;
 @synthesize currentIndex;
+@synthesize running;
+@synthesize worker;
 
 //singleton
 static BoardLoader* instance;
 
+//instanced background queue
+dispatch_queue_t backgroundQueue;
+
+//lock we're gonna use
+pthread_mutex_t mutex;
+
+- (BoardLoader*) init {
+    worker = new SolverWorker();
+    pthread_mutex_init(&mutex, NULL);
+    backgroundQueue = dispatch_queue_create("com.markromedia.bgqueue", NULL);
+    return self;
+}
 
 + (void) checkCreateInstance {
     if (instance == Nil) {
@@ -63,6 +84,26 @@ static BoardLoader* instance;
     NSLog(@"%@", [NSThread currentThread]);
 }
 
+- (void) startWorker {
+    running = true;
+    
+    dispatch_async(backgroundQueue, ^(void) {
+        while (running) {
+            pthread_mutex_lock(&mutex);
+            if (running) { //might not be running after lock is acquired
+                self.worker->PerformSolverTask();
+            }
+            pthread_mutex_unlock(&mutex);
+        }
+    });
+}
+
+- (void) stopWorker {
+    pthread_mutex_lock(&mutex);
+    running = false;
+    
+}
+
 //
 // C stuff goes here
 //
@@ -86,6 +127,18 @@ int* readLineFromPrecalculateBoardsFile() {
 
 void printThreadName() {
     [instance printCurrentThreadName];
+}
+
+void startWorkerThread() {
+    [instance startWorker];
+}
+
+void stopWorkerThread() {
+    [instance stopWorker];
+}
+
+void releaseWorkerLock() {
+    pthread_mutex_unlock(&mutex);
 }
 
 @end

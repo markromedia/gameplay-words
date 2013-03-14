@@ -64,7 +64,7 @@ std::string BoardSolver::GenerateRandomHiBoard()
 		}
 		
 		instance->solver->Score(board.c_str());
-		word_count = instance->solver->WordCount;
+		word_count = 300;//instance->solver->WordCount;
 	}
 
 	string_stream << word_count << " " << board;

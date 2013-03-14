@@ -85,8 +85,8 @@
 		90BF0A9F16ED8952005ED530 /* iOSHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 90BF0A9D16ED8952005ED530 /* iOSHandler.mm */; };
 		90BF0AA416ED94AB005ED530 /* board_file_loader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90BF0AA216ED94AB005ED530 /* board_file_loader.cpp */; };
 		90BF0AA516ED94AB005ED530 /* board_file_loader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90BF0AA216ED94AB005ED530 /* board_file_loader.cpp */; };
-		90BF0AA816F00D3C005ED530 /* thread_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90BF0AA616F00D3C005ED530 /* thread_manager.cpp */; };
-		90BF0AA916F00D3C005ED530 /* thread_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90BF0AA616F00D3C005ED530 /* thread_manager.cpp */; };
+		90BF0AA816F00D3C005ED530 /* solver_worker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90BF0AA616F00D3C005ED530 /* solver_worker.cpp */; };
+		90BF0AA916F00D3C005ED530 /* solver_worker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90BF0AA616F00D3C005ED530 /* solver_worker.cpp */; };
 		B81EE52316E7B25C00429109 /* board_solver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B81EE52116E7B25C00429109 /* board_solver.cpp */; };
 		B81EE52416E7B25C00429109 /* board_solver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B81EE52116E7B25C00429109 /* board_solver.cpp */; };
 		B81EE54516E7B31100429109 /* board_solver.hpp in Sources */ = {isa = PBXBuildFile; fileRef = B81EE52216E7B25C00429109 /* board_solver.hpp */; };
@@ -189,8 +189,8 @@
 		90BF0A9D16ED8952005ED530 /* iOSHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iOSHandler.mm; sourceTree = "<group>"; };
 		90BF0AA016ED8C05005ED530 /* ios_bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ios_bridge.h; sourceTree = "<group>"; };
 		90BF0AA216ED94AB005ED530 /* board_file_loader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = board_file_loader.cpp; sourceTree = "<group>"; };
-		90BF0AA616F00D3C005ED530 /* thread_manager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = thread_manager.cpp; sourceTree = "<group>"; };
-		90BF0AAA16F00D95005ED530 /* thread_manager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = thread_manager.hpp; sourceTree = "<group>"; };
+		90BF0AA616F00D3C005ED530 /* solver_worker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = solver_worker.cpp; sourceTree = "<group>"; };
+		90BF0AAA16F00D95005ED530 /* solver_worker.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = solver_worker.hpp; sourceTree = "<group>"; };
 		90BF0AAB16F012F0005ED530 /* board_file_loader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = board_file_loader.hpp; sourceTree = "<group>"; };
 		B81EE52116E7B25C00429109 /* board_solver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = board_solver.cpp; sourceTree = "<group>"; };
 		B81EE52216E7B25C00429109 /* board_solver.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = board_solver.hpp; sourceTree = "<group>"; };
@@ -317,7 +317,7 @@
 				90A2D1A616E2887200E6C6DA /* score_controller.hpp */,
 				90B9A70D16ED2031006A4896 /* selected_text_connector.hpp */,
 				90A2D14916DC8D6700E6C6DA /* selected_text_label.hpp */,
-				90BF0AAA16F00D95005ED530 /* thread_manager.hpp */,
+				90BF0AAA16F00D95005ED530 /* solver_worker.hpp */,
 				905108D616D4A59700E17584 /* tile.hpp */,
 				90A2D1A816E2887200E6C6DA /* timer_controller.hpp */,
 				B8F0B66116E7B3A70024EF45 /* perf-solver */,
@@ -385,7 +385,7 @@
 				90BF0A9D16ED8952005ED530 /* iOSHandler.mm */,
 				90BF0AA016ED8C05005ED530 /* ios_bridge.h */,
 				90BF0AA216ED94AB005ED530 /* board_file_loader.cpp */,
-				90BF0AA616F00D3C005ED530 /* thread_manager.cpp */,
+				90BF0AA616F00D3C005ED530 /* solver_worker.cpp */,
 			);
 			path = "src-ios";
 			sourceTree = "<group>";
@@ -599,7 +599,7 @@
 				90B9A70E16ED2031006A4896 /* selected_text_connector.cpp in Sources */,
 				90BF0A9E16ED8952005ED530 /* iOSHandler.mm in Sources */,
 				90BF0AA416ED94AB005ED530 /* board_file_loader.cpp in Sources */,
-				90BF0AA816F00D3C005ED530 /* thread_manager.cpp in Sources */,
+				90BF0AA816F00D3C005ED530 /* solver_worker.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -645,7 +645,7 @@
 				B8F0B67D16E7B4260024EF45 /* board.cpp in Sources */,
 				90BF0A9F16ED8952005ED530 /* iOSHandler.mm in Sources */,
 				90BF0AA516ED94AB005ED530 /* board_file_loader.cpp in Sources */,
-				90BF0AA916F00D3C005ED530 /* thread_manager.cpp in Sources */,
+				90BF0AA916F00D3C005ED530 /* solver_worker.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

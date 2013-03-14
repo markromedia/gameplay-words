@@ -10,6 +10,8 @@
 #ifndef words_board_loader_bridge_h
 #define words_board_loader_bridge_h
 
+#include "solver_worker.hpp"
+
 /**
  * Loads the precalcuated boards contents into
  * memory
@@ -26,6 +28,22 @@ int* readLineFromPrecalculateBoardsFile();
  * Prints the current thread name
  */
 void printThreadName();
+
+/**
+ * starts the worker thread
+ */
+void startWorkerThread();
+
+/**
+ * stops the worker thread
+ */
+void stopWorkerThread();
+
+/**
+ * releases the lock on the worker thread
+ */
+void releaseWorkerLock();
+
 
 #endif
 #endif

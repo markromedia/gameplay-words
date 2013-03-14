@@ -175,10 +175,12 @@ void Board::buildPrecomputerBoardsQueue()
 void Board::PrepareBoard()
 {
 	start_time = gameplay::Game::getInstance()->getAbsoluteTime();
+    SolverWorker::StartSolverWorker();
 }
 
 void Board::AssignBoard()
 {
+    SolverWorker::StopWorker();
 	for (int i = 0; i < 4; i++) {
 		BoardColumn* column = Board::Columns()[i];
 		for (int j = 0; j < 4; j++) {
