@@ -5,10 +5,10 @@
 
 class SolverWorker
 {
-private:
-    /// @summary	singleton instance
-	static SolverWorker* instance;
 public:
+	/// @summary	singleton instance
+	static SolverWorker* instance;
+
 	/// Simple utility to print the current threads name
 	static void PrintCurrentThreadName();
     

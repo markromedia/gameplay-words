@@ -137,15 +137,15 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_ITERATOR_DEBUG_LEVEL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../gameplay-1.6/external-deps/lua/include;../gameplay-1.6/external-deps/bullet/include;../gameplay-1.6/gameplay/src;../gameplay-1.6/external-deps/openal/include/AL;../gameplay-1.6/external-deps/oggvorbis/include;../gameplay-1.6/external-deps/libpng/include;../gameplay-1.6/external-deps/zlib/include;../gameplay-1.6/external-deps/glew/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../gameplay-1.6/external-deps/lua/include;../gameplay-1.6/external-deps/bullet/include;../gameplay-1.6/gameplay/src;../gameplay-1.6/external-deps/openal/include/AL;../gameplay-1.6/external-deps/oggvorbis/include;../gameplay-1.6/external-deps/libpng/include;../gameplay-1.6/external-deps/zlib/include;../gameplay-1.6/external-deps/glew/include;../boost</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>lua.lib;OpenAL32.lib;OpenGL32.lib;GLU32.lib;glew32.lib;libpng14.lib;zlib.lib;gameplay.lib;libogg.lib;libvorbis.lib;libvorbisfile.lib;BulletDynamics.lib;BulletCollision.lib;LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../gameplay-1.6/external-deps/lua/lib/windows/x86;../gameplay-1.6/external-deps/bullet/lib/windows/x86;../gameplay-1.6/external-deps/openal/lib/windows/x86;../gameplay-1.6/external-deps/oggvorbis/lib/windows/x86;../gameplay-1.6/external-deps/glew/lib/windows/x86;../gameplay-1.6/external-deps/libpng/lib/windows/x86;../gameplay-1.6/external-deps/zlib/lib/windows/x86;../gameplay-1.6/gameplay/windows/x86/$(Configuration)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>lua.lib;OpenAL32.lib;OpenGL32.lib;GLU32.lib;glew32.lib;libpng14.lib;zlib.lib;gameplay.lib;libogg.lib;libvorbis.lib;libvorbisfile.lib;BulletDynamics.lib;BulletCollision.lib;LinearMath.lib;libboost_chrono-vc100-mt-gd-1_48.lib;libboost_date_time-vc100-mt-gd-1_48.lib;libboost_system-vc100-mt-gd-1_48.lib;libboost_thread-vc100-mt-gd-1_48.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../gameplay-1.6/external-deps/lua/lib/windows/x86;../gameplay-1.6/external-deps/bullet/lib/windows/x86;../gameplay-1.6/external-deps/openal/lib/windows/x86;../gameplay-1.6/external-deps/oggvorbis/lib/windows/x86;../gameplay-1.6/external-deps/glew/lib/windows/x86;../gameplay-1.6/external-deps/libpng/lib/windows/x86;../gameplay-1.6/external-deps/zlib/lib/windows/x86;../gameplay-1.6/gameplay/windows/x86/$(Configuration);../win-dependencies/lib</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -153,6 +153,7 @@
     </PostBuildEvent>
     <CustomBuildStep>
       <Command>xcopy ..\gameplay-1.6\bin\windows $(OutDir) /E /I /Y 
+xcopy ..\win-dependencies\dll $(OutDir) /E /I /Y 
 xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
 </Command>
       <Message>
