@@ -1,5 +1,6 @@
 #ifdef WIN32
-#include "board_file_loader.hpp"
+
+#include "../src/board_file_loader.hpp"
 
 void BoardFileLoader::LoadPrecalculatedBoard( std::queue<PrecalculatedBoard*> *precalculated_boards )
 {
