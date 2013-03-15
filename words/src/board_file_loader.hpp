@@ -6,7 +6,6 @@
 //
 //
 
-#ifdef __APPLE__
 #ifndef words_board_file_loader_hpp
 #define words_board_file_loader_hpp
 
@@ -17,13 +16,12 @@
 #include <assert.h>
 
 
-#include "../src/board.hpp"
-#include "../src/dice_manager.hpp"
+#include "board.hpp"
+#include "dice_manager.hpp"
 
 class BoardFileLoader {
 public:
     static void LoadPrecalculatedBoard(std::queue<PrecalculatedBoard*>* precalculated_boards);
 };
 
-#endif
 #endif
