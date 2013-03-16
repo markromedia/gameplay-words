@@ -31,7 +31,7 @@
     <!-- Name of author which is used for signing. Must match the developer name of your development certificate. -->
     <author>Flying Monkey Games</author>
 
-    <!-- Unique author ID assigned by signing authority. Required if using debug tokens. -->
+    <!-- Unique author ID is_assigned by signing authority. Required if using debug tokens. -->
     <!-- <authorId>gYAAgPkLP1tZlyYP1wiMaRFFNMw</authorId> -->
 
     <initialWindow>

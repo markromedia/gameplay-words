@@ -34,7 +34,6 @@ private:
 	/// @summary	The layers.
 	std::vector<TileLayer*> layers;
 
-
 	/// @summary	Target position.
 	gameplay::Vector3 target_position;
 
@@ -57,6 +56,9 @@ private:
 
 	/// @summary	The letter controller.
 	LetterController* letterController;
+
+	/// @summary	true if translation is dirty.
+	bool translation_is_dirty;
 public:
 	/// Values for the layer types and their order.
 	enum LayerLevel {BASE, ICON};
@@ -113,6 +115,9 @@ public:
 	/// @param	z	The z coordinate.
 	/// @param	delay	the delay
 	void TranslateTo(int x, int y, int z, float delay);
+
+	/// Applies the translation animation
+	void ApplyTranslation();
 
 	/// Play pop animation.
 	void PlayPopAnimation();

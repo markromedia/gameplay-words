@@ -97,14 +97,14 @@ public:
 	static void RemoveTileAndCleanupCell(Tile* tile);
 
 	/// Adjust the tiles to fill in spaces 
-	static void AdjustColumns();
+	static void DropTiles();
 
 	/// @summary	The columns.
 	static BoardColumn** Columns();
 
 	/// Called to inform the board that it should do whatever it
 	/// needs to to begin preparing the letters
-	static void PrepareBoard();
+	static void StartSolvingNewBoard();
 
 	/// Called after PrepareLetters() is run. This will assign 
 	/// a letter to each of the grid cells of this object

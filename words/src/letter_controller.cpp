@@ -146,8 +146,14 @@ void LetterController::checkSelectedLetters() {
 			instance->available_tiles.push(tile);
         }
 
-		//tell the board to prepare itself
-		Board::PrepareBoard();
+		//drop the tiles into the new locations that will be made available when the
+		//used letters collapse. This doesn't trigger the actual translation yet, but
+		//simply moves the tile/die associations
+		Board::DropTiles();
+
+		//tell the board to start solving itself to figure out whats the 
+		//best combination of dice to add to the board
+		Board::StartSolvingNewBoard();
         
         //tell all the tiles to shrink themselves
         for(std::vector<Tile*>::iterator it = instance->selected_tiles.begin(); it != instance->selected_tiles.end(); ++it) {
@@ -237,8 +243,10 @@ void LetterController::TileShrinkingCompleteCallback( Tile* tile, bool is_starti
 	}
 	
 	if (shrinking_tiles_count == 0) {
-		//adjust the grid (will start moving the tiles)
-		Board:: AdjustColumns();
+		//move any tiles which were marked as needing a tran
+		for(std::vector<Tile*>::iterator it = instance->tiles.begin(); it != instance->tiles.end(); ++it) {			
+			(*it)->ApplyTranslation();
+		}
 
 		//check the movement count. if the movement count is 0 after adjustment, means no movement, 
 		//but there are still empties. need to force the pop now

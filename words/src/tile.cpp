@@ -23,6 +23,7 @@ Tile::Tile(gameplay::Node* physics_node, LetterController* letterController) {
 	is_selected = false;
 	animation = NONE;
 	physics_node_scale = 0.75f;
+	translation_is_dirty = false;
 }
 
 void Tile::createBillboardHelper(const Vector3& objectPosition, const Vector3& cameraPosition,
@@ -149,18 +150,30 @@ void Tile::TranslateTo( int x, int y, int z, float delay)
 	target_position.x = x;
 	target_position.y = y;
 	target_position.z = z;
+	move_delay = delay;
+	translation_is_dirty = true;
+
+}
+
+void Tile::ApplyTranslation()
+{
+	if (!translation_is_dirty) {
+		return;
+	}
+
+	translation_is_dirty = false;
 
 	if (animation == NONE) {
 		//notified that will start to move
 		this->letterController->TileMovementCompleteCallback(this, true);
 	}
-	
+
 	//if not currently moving or getting ready to move, set the delay
 	if (!(animation == DELAYING_TO_MOVE || animation == MOVING)) {
 		animation = DELAYING_TO_MOVE;
-		move_delay = delay;
 	} 
 }
+
 
 void Tile::PlayPopAnimation()
 {

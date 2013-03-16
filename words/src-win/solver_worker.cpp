@@ -1,4 +1,7 @@
+#ifdef WIN32
+
 #include "../src/solver_worker.hpp"
+#include "../src/board_solver.hpp"
 
 #include <sstream>
 #include <boost/thread.hpp>   
@@ -44,10 +47,6 @@ void SolverWorker::StopWorker() {
 	mutex.lock();
 	is_running = false;
 	mutex.unlock();
-
-	std::stringstream ss;
-	ss << "ran " << count << " iterations inside thread\n";
-	gameplay::Logger::log(gameplay::Logger::LEVEL_INFO, ss.str().c_str());
 }
 
 // preforms the solver task (in a thread)
@@ -57,8 +56,10 @@ void SolverWorker::PerformSolverTask() {
 		//might not still be running, so make sure
 		if (is_running) {
 			//solve a board
-			count++;
+			BoardSolver::SolveBoard();
 		}
 		mutex.unlock();
 	}
 }
+
+#endif

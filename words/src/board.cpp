@@ -97,7 +97,7 @@ BoardCell* &BoardColumn::operator[](int index) {
 	return cells[index];
 }
 
-void Board::AdjustColumns()
+void Board::DropTiles()
 {
 	for (int i = 0; i < 4; i++) {
 		BoardColumn* column = instance->columns[i];
@@ -172,23 +172,17 @@ void Board::buildPrecomputerBoardsQueue()
 }
 
 
-void Board::PrepareBoard()
+void Board::StartSolvingNewBoard()
 {
 	start_time = gameplay::Game::getInstance()->getAbsoluteTime();
-    SolverWorker::StartSolverWorker();
+    BoardSolver::PrepareToSolveCurrentBoard();
+	SolverWorker::StartSolverWorker();
 }
 
 void Board::AssignBoard()
 {
     SolverWorker::StopWorker();
-	for (int i = 0; i < 4; i++) {
-		BoardColumn* column = Board::Columns()[i];
-		for (int j = 0; j < 4; j++) {
-			if (column->cells[j]->die == NULL) {
-				column->cells[j]->die = DiceManager::GetRandomDie();
-			}
-		}
-	}
+	BoardSolver::AssignHighBoardToMainBoard();
 }
 
 void Board::CreateNewBoardFromPrecalculatedBoards()
