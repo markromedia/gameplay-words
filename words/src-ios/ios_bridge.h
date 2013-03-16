@@ -44,6 +44,11 @@ void stopWorkerThread();
  */
 void releaseWorkerLock();
 
+/**
+ * Returns whether or not the worker is running
+ */
+bool isRunning();
+
 
 #endif
 #endif
