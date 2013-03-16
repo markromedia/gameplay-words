@@ -124,7 +124,7 @@ void Tile::Update(float dt) {
 		break;
 	}
 	case SHRINKING : {
-		gameplay::MathUtil::smooth(&scale, 0.65f, dt, 16);
+		gameplay::MathUtil::smooth(&scale, 0.65f, dt, 16);//16);
 		if (scale <= 0.66) {
 			scale = 1.0f;
 			is_visible = false;

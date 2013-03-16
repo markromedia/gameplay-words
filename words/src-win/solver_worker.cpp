@@ -14,7 +14,7 @@ SolverWorker* SolverWorker::instance = NULL;
 //the mutex lock
 boost::mutex mutex;
 //the state of the bool
-bool is_running;
+bool SolverWorker::is_running = false;
 
 long count;
 
@@ -34,7 +34,7 @@ void SolverWorker::StartSolverWorker() {
 	}
 
 	count = 0;
-	is_running = true;
+	SolverWorker::is_running = true;
 	
 	//probably should use a pool, since creates new thread every time. might
 	//not be the most efficient to keep creating threads every secondish
@@ -45,21 +45,26 @@ void SolverWorker::StartSolverWorker() {
 // stops the worker
 void SolverWorker::StopWorker() {
 	mutex.lock();
-	is_running = false;
+	SolverWorker::is_running = false;
 	mutex.unlock();
 }
 
 // preforms the solver task (in a thread)
 void SolverWorker::PerformSolverTask() {
-	while (is_running) {
+	while (SolverWorker::is_running) {
 		mutex.lock();
 		//might not still be running, so make sure
-		if (is_running) {
+		if (SolverWorker::is_running) {
 			//solve a board
 			BoardSolver::SolveBoard();
 		}
 		mutex.unlock();
 	}
+}
+
+bool SolverWorker::IsRunning()
+{
+	return SolverWorker::is_running;
 }
 
 #endif

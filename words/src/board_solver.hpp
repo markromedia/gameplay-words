@@ -21,12 +21,14 @@ public:
 	int die_side_index;
 	char value;
 	bool is_fixed;
+	BoardCell* cell;
 
 	/// Resets this object.
 	inline void Reset() {
 		die_id = 0;
 		die_side_index = 0;
 		is_fixed = false;
+		cell = NULL;
 	}
 };
 

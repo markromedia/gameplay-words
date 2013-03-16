@@ -96,6 +96,9 @@ void BoardSolver::PrepareToSolveCurrentBoard()
 			BoardValue* high_board_value = instance->high_board[idx];
 			idx++;
 
+			//keep track of the cell
+			board_value->cell = cell;
+
 			if (cell->die != NULL) {
 				//copy fixed values into board and highboard (they never change, so this fine)
 				board_value->die_id = cell->die->id;									
@@ -107,6 +110,7 @@ void BoardSolver::PrepareToSolveCurrentBoard()
 				high_board_value->is_fixed = board_value->is_fixed;
 				high_board_value->die_id = board_value->die_id;
 				high_board_value->value = board_value->value;
+				high_board_value->cell = board_value->cell;
 			} else {
 				instance->variable_values[instance->num_variable_values++] = board_value;
 			}
@@ -164,23 +168,17 @@ void BoardSolver::AssignHighBoardToMainBoard()
 	ss << "It has " << instance->current_max_words << " words\n\n";
 	gameplay::Logger::log(gameplay::Logger::LEVEL_INFO, ss.str().c_str());
 
-
-	int idx = 0;
-	for (int row = 3; row >= 0; row--) {
-		for (int col = 0; col < 4; col++) {
-			BoardColumn* column = Board::Columns()[col];
-			BoardCell* cell = column->cells[row];
-			BoardValue* high_board = instance->high_board[idx++];
-			if (!high_board->is_fixed) {
-				//find a side
-				Dice* die = DiceManager::GetDieById(high_board->die_id);
-				for (unsigned int i = 0; i < die->sides.size(); i++) {
-					if (high_board->value == (die->sides[i]).c_str()[0]) {
-						die->side_index = i;
-					}
+	for (int i = 0; i < instance->num_variable_values; i++) {
+		BoardValue* board_value = instance->variable_values[i];
+		if (!board_value->is_fixed) {
+			//find a side
+			Dice* die = DiceManager::GetDieById(board_value->die_id);
+			for (unsigned int i = 0; i < die->sides.size(); i++) {
+				if (board_value->value == (die->sides[i]).c_str()[0]) {
+					die->side_index = i;
 				}
-				cell->die = die;
 			}
+			board_value->cell->die = die;
 		}
 	}
 }

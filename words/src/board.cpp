@@ -99,6 +99,14 @@ BoardCell* &BoardColumn::operator[](int index) {
 
 void Board::DropTiles()
 {
+	//if the solver worker is running, stop it before
+	//making an adjustment (this happens when the player
+	//enters a second word before the second is complete)
+	if (SolverWorker::IsRunning()) {
+		SolverWorker::StopWorker();
+		BoardSolver::AssignHighBoardToMainBoard();
+	}
+
 	for (int i = 0; i < 4; i++) {
 		BoardColumn* column = instance->columns[i];
 		column->AdjustTiles();

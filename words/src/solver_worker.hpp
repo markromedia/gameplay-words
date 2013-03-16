@@ -5,6 +5,9 @@
 
 class SolverWorker
 {
+private:
+	//whether or not its running
+	static bool is_running;
 public:
 	/// @summary	singleton instance
 	static SolverWorker* instance;
@@ -17,6 +20,10 @@ public:
     
     // stops the worker
     static void StopWorker();
+
+	/// Query if this object is running.
+	/// @return	true if running, false if not.
+	static bool IsRunning();
     
     // preforms the solver task (in a thread)
     void PerformSolverTask();
