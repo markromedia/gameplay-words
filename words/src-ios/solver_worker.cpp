@@ -31,6 +31,7 @@ void SolverWorker::StopWorker() {
 }
 
 void SolverWorker::PerformSolverTask() {
+    BoardSolver::SolveBoard();
 }
 
 
