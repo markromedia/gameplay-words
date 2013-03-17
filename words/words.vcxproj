@@ -347,9 +347,6 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <None Include="res\myriadpro100.gpb" />
     <None Include="res\myriadpro12.gpb" />
     <None Include="res\myriadpro50.gpb" />
-    <None Include="res\png\a_texture.png" />
-    <None Include="res\png\letter_a.png" />
-    <None Include="res\png\letter_a_highlight.png" />
     <None Include="res\png\letter_a_texture.png" />
     <None Include="res\png\letter_b_texture.png" />
     <None Include="res\png\letter_c_texture.png" />
@@ -388,6 +385,15 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <None Include="res\png\selected_text_left_bg.png" />
     <None Include="res\png\selected_text_right_bg.png" />
     <None Include="res\png\selected_text_tiling_bg.png" />
+    <None Include="res\png\tile_score_1.png" />
+    <None Include="res\png\tile_score_2.png" />
+    <None Include="res\png\tile_score_3.png" />
+    <None Include="res\png\tile_score_4.png" />
+    <None Include="res\png\tile_score_5.png" />
+    <None Include="res\png\tile_score_6.png" />
+    <None Include="res\png\tile_score_7.png" />
+    <None Include="res\png\tile_score_8.png" />
+    <None Include="res\png\tile_score_9.png" />
     <None Include="res\shaders\ambient.frag" />
     <None Include="res\shaders\ambient.vert" />
     <None Include="res\shaders\colored-unlit.frag" />

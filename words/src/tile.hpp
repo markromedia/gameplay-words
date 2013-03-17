@@ -61,7 +61,7 @@ private:
 	bool translation_is_dirty;
 public:
 	/// Values for the layer types and their order.
-	enum LayerLevel {BASE, ICON};
+	enum LayerLevel {BASE, ICON, SCORE};
 	
 	/// Constructor.
 	/// @param [in,out]	physics_node	If non-null, the physics node.

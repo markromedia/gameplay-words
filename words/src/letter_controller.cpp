@@ -35,9 +35,24 @@ void LetterController::Init(gameplay::Scene* scene)
 		//create the layers 
 		tile->CreateLayer(Tile::BASE, scene);
 		tile->CreateLayer(Tile::ICON, scene);
+		tile->CreateLayer(Tile::SCORE, scene);
 
 		instance->tiles.push_back(tile);
 	}
+}
+
+void LetterController::assignTileToCell( BoardCell* cell, Tile* tile )
+{
+	//assign grid values and tie it to the cell
+	cell->AssignTile(tile, true);
+
+	//assign a new letter
+	std::string letter_material = "letter_";
+	letter_material.append(cell->die->getAssignedLetter());
+	tile->value = cell->die->getAssignedLetter();
+	//assign rendenderables
+	tile->GetLayer(Tile::ICON)->SetRenderableNode(RENDERABLE(letter_material));
+	ScoreController::AssignScoreLayer(tile);
 }
 
 void LetterController::refillEmptyBoardCells()
@@ -55,14 +70,8 @@ void LetterController::refillEmptyBoardCells()
 				Tile* tile = available_tiles.front();
 				available_tiles.pop();
 
-				//assign grid values and tie it to the cell
-				cell->AssignTile(tile, true);
-
-				//assign a new letter
-				std::string letter_material = "letter_";
-				letter_material.append(cell->die->getAssignedLetter());
-				tile->GetLayer(Tile::ICON)->SetRenderableNode(RENDERABLE(letter_material));
-				tile->value = cell->die->getAssignedLetter();
+				//assign to the tile to the cell
+				assignTileToCell(cell, tile);
 
 				//start the tile popping
 				tile->PlayPopAnimation();
@@ -84,15 +93,10 @@ void LetterController::InitializeLetters()
 			BoardCell* cell = column->cells[row];
 			
 			//assign tile to cell
-			cell->AssignTile(tile, true);
+			instance->assignTileToCell(cell, tile);
 
+			//set background
 			tile->GetLayer(Tile::BASE)->SetRenderableNode(RENDERABLE("letter_layer_unselected_background"));
-
-			//assign a new letter
-			std::string letter_material = "letter_";
-			letter_material.append(cell->die->getAssignedLetter());
-			tile->GetLayer(Tile::ICON)->SetRenderableNode(RENDERABLE(letter_material));
-			tile->value = cell->die->getAssignedLetter();
 		}
 	}
 }

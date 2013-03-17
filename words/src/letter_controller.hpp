@@ -48,6 +48,11 @@ private:
 
 	/// Checks selected letters and responds appropriately.
 	void checkSelectedLetters();
+
+	/// Assign tile to cell.
+	/// @param [in,out]	cell	If non-null, the cell.
+	/// @param [in,out]	tile	If non-null, the tile.
+	void assignTileToCell(BoardCell* cell, Tile* tile);
 public:
 	/// Callback, called when the tile movement complete.
 	/// @param [in,out]	tile	If non-null, the tile.

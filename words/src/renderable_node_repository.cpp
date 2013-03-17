@@ -49,6 +49,17 @@ void RenderableNodeRepository::Init(gameplay::Scene * scene) {
 	instance->initializeNode("letter_x","res/words.material#letter_x", letter_model->clone(), scene);
 	instance->initializeNode("letter_y","res/words.material#letter_y", letter_model->clone(), scene);
 	instance->initializeNode("letter_z","res/words.material#letter_z", letter_model->clone(), scene);
+
+	//init tile scores
+	instance->initializeNode("tile_score_1","res/words.material#tile_score_1", letter_model->clone(), scene);
+	instance->initializeNode("tile_score_2","res/words.material#tile_score_2", letter_model->clone(), scene);
+	instance->initializeNode("tile_score_3","res/words.material#tile_score_3", letter_model->clone(), scene);
+	instance->initializeNode("tile_score_4","res/words.material#tile_score_4", letter_model->clone(), scene);
+	instance->initializeNode("tile_score_5","res/words.material#tile_score_5", letter_model->clone(), scene);
+	instance->initializeNode("tile_score_6","res/words.material#tile_score_6", letter_model->clone(), scene);
+	instance->initializeNode("tile_score_7","res/words.material#tile_score_7", letter_model->clone(), scene);
+	instance->initializeNode("tile_score_8","res/words.material#tile_score_8", letter_model->clone(), scene);
+	instance->initializeNode("tile_score_9","res/words.material#tile_score_9", letter_model->clone(), scene);
 }
 
 void RenderableNodeRepository::initializeNode(std::string id, const char* material_id, gameplay::Node* model_node, gameplay::Scene* scene) {

@@ -91,6 +91,79 @@ material powerup_star : base
     }
 }
 
+
+material tile_score_1 : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/tile_score_1.png
+    }
+}
+
+material tile_score_2 : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/tile_score_2.png
+    }
+}
+
+material tile_score_3 : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/tile_score_3.png
+    }
+}
+
+material tile_score_4 : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/tile_score_4.png
+    }
+}
+
+material tile_score_5 : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/tile_score_5.png
+    }
+}
+
+material tile_score_6 : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/tile_score_6.png
+    }
+}
+
+material tile_score_7 : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/tile_score_7.png
+    }
+}
+
+material tile_score_8 : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/tile_score_8.png
+    }
+}
+
+material tile_score_9 : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/tile_score_9.png
+    }
+}
+
 material letter_a : base
 {
     sampler u_diffuseTexture
