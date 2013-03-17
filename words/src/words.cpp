@@ -96,15 +96,15 @@ void words::render(float elapsedTime)
 	//draw framerate
 	drawFrameRate(getFrameRate());
 
-	//render score and timer
-	ScoreController::Render();
-	TimerController::Render();
-
 	//render selected text
 	SelectedTextLabel::get()->Render();
 
 	//render letter grid
     LetterController::Render(scene->getActiveCamera());
+
+	//render score and timer
+	ScoreController::Render();
+	TimerController::Render();
 
 	//tell menu to render (if its visible)
 	menu->Render();

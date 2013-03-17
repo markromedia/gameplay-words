@@ -37,7 +37,7 @@ bool InputEventHandler::handleTouchEvent(words* game, int x, int y )
 		}
 	} else if (touchState == TOUCH_UP) { 
 		//pass along the touch event to the controllers who are listening
-		LetterController::HandleTouchUpEvent();
+		LetterController::HandleTouchUpEvent(x, y);
 	}
 
 

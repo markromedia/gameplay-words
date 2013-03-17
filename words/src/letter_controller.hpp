@@ -46,6 +46,9 @@ private:
 	/// @summary	true to do check selected letters.
 	bool do_check_selected_letters;
 
+	/// @summary	The last known touch x / y.
+	gameplay::Vector2 last_known_touch;
+
 	/// Checks selected letters and responds appropriately.
 	void checkSelectedLetters();
 
@@ -87,7 +90,9 @@ public:
 	static bool HandleTouchDownEvent(gameplay::Ray& ray, int x, int y);
 
 	/// Handles the touch up event.
-	static void HandleTouchUpEvent();
+	/// @param	x	The x coordinate.
+	/// @param	y	The y coordinate.
+	static void HandleTouchUpEvent(int x, int y);
 
 	static void Render(gameplay::Camera* camera);
 };

@@ -119,9 +119,11 @@ bool LetterController::HandleTouchDownEvent(gameplay::Ray& ray, int x, int y )
 	return false;
 }
 
-void LetterController::HandleTouchUpEvent()
+void LetterController::HandleTouchUpEvent(int x, int y)
 {
 	instance->do_check_selected_letters = true;
+	instance->last_known_touch.x = x;
+	instance->last_known_touch.y = y;
 }
 
 void LetterController::checkSelectedLetters() {
@@ -139,7 +141,7 @@ void LetterController::checkSelectedLetters() {
 
 	if (selected_text.length() > 1 && BoardSolver::IsWord(selected_text.c_str())) {
 		//add to the points
-		ScoreController::AddToScore(selected_text.length() * 100);
+		ScoreController::AddToScore(selected_tiles, &last_known_touch);
         
         //remove the selected tiles
 		for(std::vector<Tile*>::iterator it = instance->selected_tiles.begin(); it != instance->selected_tiles.end(); ++it) {
