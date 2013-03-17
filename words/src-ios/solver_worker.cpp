@@ -34,6 +34,10 @@ void SolverWorker::PerformSolverTask() {
     BoardSolver::SolveBoard();
 }
 
+bool SolverWorker::IsRunning() {
+    return isRunning();
+}
+
 
 #endif
 

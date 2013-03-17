@@ -141,4 +141,8 @@ void releaseWorkerLock() {
     pthread_mutex_unlock(&mutex);
 }
 
+bool isRunning() {
+    return instance.running;
+}
+
 @end
