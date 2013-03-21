@@ -1,6 +1,7 @@
 #include "score_controller.hpp"
 #include "tile.hpp"
 #include "renderable_node_repository.hpp"
+#include "statistics.hpp"
 
 //singleton instance
 ScoreController* ScoreController::instance = NULL;
@@ -61,11 +62,16 @@ void ScoreController::AddToScore( std::vector<Tile*> selected_tiles, gameplay::V
 
 	//figure out the score to add 
 	instance->points_for_word = 0;
+	std::stringstream ss;
 	for(std::vector<Tile*>::iterator it = selected_tiles.begin(); it != selected_tiles.end(); ++it) {			
 		Tile* t = (*it);
 		instance->points_for_word += letter_point_values_map[t->value];
+		ss << t->value;
 	}
 	instance->points_for_word += (selected_tiles.size() * 2);
+
+	//add to the statistics
+	Statistics::AddWordToRound(ss.str(), instance->points_for_word);
 	
 	//increment word count
 	instance->words++;
@@ -184,6 +190,11 @@ void ScoreController::AssignScoreLayer( Tile* tile )
 		ss << "tile_score_" << value;
 		tile->GetLayer(Tile::SCORE)->SetRenderableNode(RENDERABLE(ss.str()));
 	}
+}
+
+int ScoreController::RoundPoints()
+{
+	return instance->game_points;
 }
 
 

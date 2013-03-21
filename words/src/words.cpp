@@ -43,6 +43,8 @@ void words::initialize()
 	TimerController::Init();
 	BoardSolver::Init();
 	SelectedTextConnector::Init();
+	Statistics::Init();
+	RestHandler::Init();
 
 	//TODO remove
 	//BoardSolver::CreatePrecalculatedBoards();
@@ -53,6 +55,9 @@ void words::initialize()
 
 void words::NewGame()
 {
+	//reset statistics
+	Statistics::StartNewRound();
+
 	//initialize the letter provider
 	DiceManager::ReassignDice();
 
@@ -70,6 +75,7 @@ void words::NewGame()
 
 void words::GameOver()
 {
+	Statistics::RoundComplete(ScoreController::RoundPoints());
 	menu->Show();
 }
 

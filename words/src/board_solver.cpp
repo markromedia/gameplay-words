@@ -6,6 +6,8 @@ ValueProvider* BoardSolver::value_provider = NULL;
 
 ValueProvider::ValueProvider()
 {
+
+
 	//init unique sided dice
 	for (int i = 0; i < 16; i++) {
 		unique_sided_dice[i] = new UniqueSidedDie;

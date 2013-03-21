@@ -13,10 +13,14 @@
 #include "dice_manager.hpp"
 #include "board.hpp"
 #include "selected_text_connector.hpp"
+#include "statistics.hpp"
+#include "rest_handler.hpp"
 
 using namespace gameplay;
 
 class Menu;
+
+#define APP_VERSION std::string("0.1.0")
 
 /**
  * Main game class.

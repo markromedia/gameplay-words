@@ -37,6 +37,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v100</PlatformToolset>
+    <CLRSupport>false</CLRSupport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -137,14 +138,14 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_ITERATOR_DEBUG_LEVEL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../gameplay-1.6/external-deps/lua/include;../gameplay-1.6/external-deps/bullet/include;../gameplay-1.6/gameplay/src;../gameplay-1.6/external-deps/openal/include/AL;../gameplay-1.6/external-deps/oggvorbis/include;../gameplay-1.6/external-deps/libpng/include;../gameplay-1.6/external-deps/zlib/include;../gameplay-1.6/external-deps/glew/include;../boost</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../gameplay-1.6/external-deps/lua/include;../gameplay-1.6/external-deps/bullet/include;../gameplay-1.6/gameplay/src;../gameplay-1.6/external-deps/openal/include/AL;../gameplay-1.6/external-deps/oggvorbis/include;../gameplay-1.6/external-deps/libpng/include;../gameplay-1.6/external-deps/zlib/include;../gameplay-1.6/external-deps/glew/include;../boost;../win-dependencies/include</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>lua.lib;OpenAL32.lib;OpenGL32.lib;GLU32.lib;glew32.lib;libpng14.lib;zlib.lib;gameplay.lib;libogg.lib;libvorbis.lib;libvorbisfile.lib;BulletDynamics.lib;BulletCollision.lib;LinearMath.lib;libboost_chrono-vc100-mt-gd-1_48.lib;libboost_date_time-vc100-mt-gd-1_48.lib;libboost_system-vc100-mt-gd-1_48.lib;libboost_thread-vc100-mt-gd-1_48.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>lua.lib;OpenAL32.lib;OpenGL32.lib;GLU32.lib;glew32.lib;libpng14.lib;zlib.lib;gameplay.lib;libogg.lib;libvorbis.lib;libvorbisfile.lib;BulletDynamics.lib;BulletCollision.lib;LinearMath.lib;libboost_chrono-vc100-mt-gd-1_48.lib;libboost_date_time-vc100-mt-gd-1_48.lib;libboost_system-vc100-mt-gd-1_48.lib;libboost_thread-vc100-mt-gd-1_48.lib;libcurl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>../gameplay-1.6/external-deps/lua/lib/windows/x86;../gameplay-1.6/external-deps/bullet/lib/windows/x86;../gameplay-1.6/external-deps/openal/lib/windows/x86;../gameplay-1.6/external-deps/oggvorbis/lib/windows/x86;../gameplay-1.6/external-deps/glew/lib/windows/x86;../gameplay-1.6/external-deps/libpng/lib/windows/x86;../gameplay-1.6/external-deps/zlib/lib/windows/x86;../gameplay-1.6/gameplay/windows/x86/$(Configuration);../win-dependencies/lib</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
@@ -443,6 +444,7 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src-win\board_file_loader.cpp" />
+    <ClCompile Include="src-win\rest_handler.cpp" />
     <ClCompile Include="src\board.cpp" />
     <ClCompile Include="src\dice_manager.cpp" />
     <ClCompile Include="src\menu.cpp" />
@@ -458,6 +460,7 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <ClCompile Include="src\camera_control.cpp" />
     <ClCompile Include="src\renderable_node_repository.cpp" />
     <ClCompile Include="src-win\solver_worker.cpp" />
+    <ClCompile Include="src\statistics.cpp" />
     <ClCompile Include="src\tile.cpp" />
     <ClCompile Include="src\timer_controller.cpp" />
     <ClCompile Include="src\words.cpp" />
@@ -471,6 +474,7 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <ClInclude Include="src\perf-solver\boggler.h" />
     <ClInclude Include="src\perf-solver\boggle_solver.h" />
     <ClInclude Include="src\perf-solver\trie.h" />
+    <ClInclude Include="src\rest_handler.hpp" />
     <ClInclude Include="src\score_controller.hpp" />
     <ClInclude Include="src\selected_text_connector.hpp" />
     <ClInclude Include="src\selected_text_label.hpp" />
@@ -480,6 +484,7 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <ClInclude Include="src\camera_control.hpp" />
     <ClInclude Include="src\renderable_node_repository.hpp" />
     <ClInclude Include="src\solver_worker.hpp" />
+    <ClInclude Include="src\statistics.hpp" />
     <ClInclude Include="src\tile.hpp" />
     <ClInclude Include="src\timer_controller.hpp" />
     <ClInclude Include="src\words.h" />

@@ -80,6 +80,10 @@ public:
 	/// Resets the score.
 	static void ResetScore();
 
+	/// Gets the round points.
+	/// @return	.
+	static int RoundPoints();
+
 	/// Assign score layer to the tile
 	/// @param [in,out]	tile	If non-null, the tile.
 	static void AssignScoreLayer(Tile* tile);
