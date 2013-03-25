@@ -343,8 +343,6 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <None Include="res\letter.FBX" />
     <None Include="res\letter.gpb" />
     <None Include="res\logo_powered_white.png" />
-    <None Include="res\menu.form" />
-    <None Include="res\menu.theme" />
     <None Include="res\myriadpro100.gpb" />
     <None Include="res\myriadpro12.gpb" />
     <None Include="res\myriadpro50.gpb" />

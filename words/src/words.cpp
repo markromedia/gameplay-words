@@ -46,6 +46,8 @@ void words::initialize()
 	Statistics::Init();
 	RestHandler::Init();
 
+	this->menu->Show(false);
+
 	//TODO remove
 	//BoardSolver::CreatePrecalculatedBoards();
 
@@ -76,7 +78,7 @@ void words::NewGame()
 void words::GameOver()
 {
 	Statistics::RoundComplete(ScoreController::RoundPoints());
-	menu->Show();
+	menu->Show(true);
 }
 
 void words::finalize()
@@ -99,21 +101,23 @@ void words::render(float elapsedTime)
     // Clear the color and depth buffers
     clear(CLEAR_COLOR_DEPTH, Vector4(1, 1, 1, 1), 1.0f, 0);
 
+
 	//draw framerate
 	drawFrameRate(getFrameRate());
 
-	//render selected text
-	SelectedTextLabel::get()->Render();
+	if (menu->IsVisible()) {
+		this->menu->Render();
+	} else {
+		//render selected text
+		SelectedTextLabel::get()->Render();
 
-	//render letter grid
-    LetterController::Render(scene->getActiveCamera());
+		//render letter grid
+		LetterController::Render(scene->getActiveCamera());
 
-	//render score and timer
-	ScoreController::Render();
-	TimerController::Render();
-
-	//tell menu to render (if its visible)
-	menu->Render();
+		//render score and timer
+		ScoreController::Render();
+		TimerController::Render();
+	}
 }
 
 void words::drawSplash(void* param)

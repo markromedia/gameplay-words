@@ -57,6 +57,9 @@ public:
 
 	/// Called when a game is over
 	void GameOver();
+
+	/// @summary	The menu.
+	Menu* menu;
 protected:
 
     /**
@@ -87,8 +90,6 @@ private:
 	/// @summary	The camera control.
 	CameraControl* camera_control;
 
-	/// @summary	The menu.
-	Menu* menu;
 
 	/// Draw splash.
 	/// @param [in,out]	param	If non-null, the parameter.

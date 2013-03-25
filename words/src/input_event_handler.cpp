@@ -29,8 +29,10 @@ bool InputEventHandler::handleTouchEvent(words* game, int x, int y )
 		Ray ray;
 		game->scene->getActiveCamera()->pickRay(game->getViewport(), x, y, &ray);
 
-		//pass along the touch event to the controllers who are listening
-		if (LetterController::HandleTouchDownEvent(ray, x, y)) {
+		if (game->menu->IsVisible()) {
+			game->menu->HandleTouchDownEvent(ray, x, y);
+			return true;
+		} else if (LetterController::HandleTouchDownEvent(ray, x, y)) {
 			return true;
 		} else {
 			//ADD MORE

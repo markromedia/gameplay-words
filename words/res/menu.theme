@@ -4,7 +4,37 @@ theme particleEditor
 
     imageList normalImages
     {
-        color = #4A8799ff
+        color = #fffffff
+
+		image game_over_text
+        {
+            region = 0, 0, 502, 75
+        }
+
+		image menu_text
+        {
+            region = 0, 89, 256, 164
+        }
+
+		image score_text
+        {
+            region = 0, 89, 158, 211
+        }
+
+		image word_count_text
+        {
+            region = 0, 214, 340, 270
+        }
+
+		image new_game_button
+        {
+            region = 0, 275, 334, 360
+        }
+
+		image replay_button
+        {
+            region = 0, 375, 334, 460
+        }
 
         image unchecked
         {
