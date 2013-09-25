@@ -138,14 +138,14 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_ITERATOR_DEBUG_LEVEL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../gameplay-1.6/external-deps/lua/include;../gameplay-1.6/external-deps/bullet/include;../gameplay-1.6/gameplay/src;../gameplay-1.6/external-deps/openal/include/AL;../gameplay-1.6/external-deps/oggvorbis/include;../gameplay-1.6/external-deps/libpng/include;../gameplay-1.6/external-deps/zlib/include;../gameplay-1.6/external-deps/glew/include;../boost;../win-dependencies/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../gameplay-1.6/external-deps/lua/include;../gameplay-1.6/external-deps/bullet/include;../gameplay-1.6/gameplay/src;../gameplay-1.6/external-deps/openal/include/AL;../gameplay-1.6/external-deps/oggvorbis/include;../gameplay-1.6/external-deps/libpng/include;../gameplay-1.6/external-deps/zlib/include;../gameplay-1.6/external-deps/glew/include;../boost;../win-dependencies/include;../librocket/Include/Rocket</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>lua.lib;OpenAL32.lib;OpenGL32.lib;GLU32.lib;glew32.lib;libpng14.lib;zlib.lib;gameplay.lib;libogg.lib;libvorbis.lib;libvorbisfile.lib;BulletDynamics.lib;BulletCollision.lib;LinearMath.lib;libboost_chrono-vc100-mt-gd-1_48.lib;libboost_date_time-vc100-mt-gd-1_48.lib;libboost_system-vc100-mt-gd-1_48.lib;libboost_thread-vc100-mt-gd-1_48.lib;libcurl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>lua.lib;OpenAL32.lib;OpenGL32.lib;GLU32.lib;glew32.lib;libpng14.lib;zlib.lib;gameplay.lib;libogg.lib;libvorbis.lib;libvorbisfile.lib;BulletDynamics.lib;BulletCollision.lib;LinearMath.lib;libboost_chrono-vc100-mt-gd-1_48.lib;libboost_date_time-vc100-mt-gd-1_48.lib;libboost_system-vc100-mt-gd-1_48.lib;libboost_thread-vc100-mt-gd-1_48.lib;libcurl.lib;RocketControls_d.lib;RocketCore_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>../gameplay-1.6/external-deps/lua/lib/windows/x86;../gameplay-1.6/external-deps/bullet/lib/windows/x86;../gameplay-1.6/external-deps/openal/lib/windows/x86;../gameplay-1.6/external-deps/oggvorbis/lib/windows/x86;../gameplay-1.6/external-deps/glew/lib/windows/x86;../gameplay-1.6/external-deps/libpng/lib/windows/x86;../gameplay-1.6/external-deps/zlib/lib/windows/x86;../gameplay-1.6/gameplay/windows/x86/$(Configuration);../win-dependencies/lib</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
@@ -394,6 +394,17 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <None Include="res\png\tile_score_7.png" />
     <None Include="res\png\tile_score_8.png" />
     <None Include="res\png\tile_score_9.png" />
+    <None Include="res\rocket\Delicious-Bold.otf" />
+    <None Include="res\rocket\Delicious-BoldItalic.otf" />
+    <None Include="res\rocket\Delicious-Italic.otf" />
+    <None Include="res\rocket\Delicious-Roman.otf" />
+    <None Include="res\rocket\invader.png" />
+    <None Include="res\shaders\rocketui.frag" />
+    <None Include="res\rocketui.material" />
+    <None Include="res\shaders\rocketui.vert" />
+    <None Include="res\rocket\test.png" />
+    <None Include="res\rocket\test.rcss" />
+    <None Include="res\rocket\test.rml" />
     <None Include="res\shaders\ambient.frag" />
     <None Include="res\shaders\ambient.vert" />
     <None Include="res\shaders\colored-unlit.frag" />
@@ -445,6 +456,7 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <ClCompile Include="src-win\rest_handler.cpp" />
     <ClCompile Include="src\board.cpp" />
     <ClCompile Include="src\dice_manager.cpp" />
+    <ClCompile Include="src\librocket\RocketInterfaces.cpp" />
     <ClCompile Include="src\menu.cpp" />
     <ClCompile Include="src\perf-solver\boggler.cc" />
     <ClCompile Include="src\perf-solver\boggle_solver.cc" />
@@ -468,6 +480,7 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <ClInclude Include="src\board.hpp" />
     <ClInclude Include="src\board_file_loader.hpp" />
     <ClInclude Include="src\dice_manager.hpp" />
+    <ClInclude Include="src\librocket\RocketInterfaces.h" />
     <ClInclude Include="src\menu.hpp" />
     <ClInclude Include="src\perf-solver\boggler.h" />
     <ClInclude Include="src\perf-solver\boggle_solver.h" />

@@ -3,6 +3,8 @@
 
 #include "gameplay.h"
 #include "timer_controller.hpp"
+#include "librocket//RocketInterfaces.h"
+#include <Rocket/Core.h>
 
 class Menu {
 private:
@@ -30,6 +32,11 @@ private:
 	void Menu::drawItem( int p_idx, int x, int y );
 
 	void Menu::drawNumber( int number, int x, int y );
+
+	RocketGP3DFile _fileInterface;
+	RocketGP3DSystem _systemInterface;
+	RocketGP3Render _renderInterface;
+	Rocket::Core::Context *_rocketContext;
 public:
 	/// Constructor.
 	///
@@ -55,6 +62,9 @@ public:
 	void Update(float dt);
 
 	bool HandleTouchDownEvent(gameplay::Ray& ray, int x, int y );
+
+	/// Initializes the rocket.
+	void initializeRocket();
 };
 
 #endif  // __MENU__hpp

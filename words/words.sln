@@ -8,6 +8,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "words", "words.vcxproj", "{
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gameplay", "..\gameplay-1.6\gameplay\gameplay.vcxproj", "{1032BA4B-57EB-4348-9E03-29DD63E80E4A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RocketCore", "..\librocket\Build\vc2012\RocketCore.vcxproj", "{1AAC0B29-AEB9-4E3F-8EDF-B46F8949C41B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RocketControls", "..\librocket\Build\vc2012\RocketControls.vcxproj", "{1AAC0B29-AEC9-4E3F-9EDF-B56F8949C41B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -42,6 +46,24 @@ Global
 		{1032BA4B-57EB-4348-9E03-29DD63E80E4A}.Release|Win32.Build.0 = Release|Win32
 		{1032BA4B-57EB-4348-9E03-29DD63E80E4A}.Release|x64.ActiveCfg = Release|x64
 		{1032BA4B-57EB-4348-9E03-29DD63E80E4A}.Release|x64.Build.0 = Release|x64
+		{1AAC0B29-AEB9-4E3F-8EDF-B46F8949C41B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1AAC0B29-AEB9-4E3F-8EDF-B46F8949C41B}.Debug|Win32.Build.0 = Debug|Win32
+		{1AAC0B29-AEB9-4E3F-8EDF-B46F8949C41B}.Debug|x64.ActiveCfg = Debug|Win32
+		{1AAC0B29-AEB9-4E3F-8EDF-B46F8949C41B}.DebugMem|Win32.ActiveCfg = Debug|Win32
+		{1AAC0B29-AEB9-4E3F-8EDF-B46F8949C41B}.DebugMem|Win32.Build.0 = Debug|Win32
+		{1AAC0B29-AEB9-4E3F-8EDF-B46F8949C41B}.DebugMem|x64.ActiveCfg = Debug|Win32
+		{1AAC0B29-AEB9-4E3F-8EDF-B46F8949C41B}.Release|Win32.ActiveCfg = Release|Win32
+		{1AAC0B29-AEB9-4E3F-8EDF-B46F8949C41B}.Release|Win32.Build.0 = Release|Win32
+		{1AAC0B29-AEB9-4E3F-8EDF-B46F8949C41B}.Release|x64.ActiveCfg = Release|Win32
+		{1AAC0B29-AEC9-4E3F-9EDF-B56F8949C41B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1AAC0B29-AEC9-4E3F-9EDF-B56F8949C41B}.Debug|Win32.Build.0 = Debug|Win32
+		{1AAC0B29-AEC9-4E3F-9EDF-B56F8949C41B}.Debug|x64.ActiveCfg = Debug|Win32
+		{1AAC0B29-AEC9-4E3F-9EDF-B56F8949C41B}.DebugMem|Win32.ActiveCfg = Debug|Win32
+		{1AAC0B29-AEC9-4E3F-9EDF-B56F8949C41B}.DebugMem|Win32.Build.0 = Debug|Win32
+		{1AAC0B29-AEC9-4E3F-9EDF-B56F8949C41B}.DebugMem|x64.ActiveCfg = Debug|Win32
+		{1AAC0B29-AEC9-4E3F-9EDF-B56F8949C41B}.Release|Win32.ActiveCfg = Release|Win32
+		{1AAC0B29-AEC9-4E3F-9EDF-B56F8949C41B}.Release|Win32.Build.0 = Release|Win32
+		{1AAC0B29-AEC9-4E3F-9EDF-B56F8949C41B}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

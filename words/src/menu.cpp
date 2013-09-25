@@ -31,6 +31,7 @@ Menu::Menu()
 	menu_items = gameplay::SpriteBatch::create("res/png/menu_items.png");
 	menu_numbers = gameplay::SpriteBatch::create("res/png/menu_items_numbers.png");
 	this->visible = false;
+	this->initializeRocket();
 }
 
 void Menu::Hide()
@@ -96,6 +97,8 @@ void Menu::Render()
 	}
 
 	menu_items->finish();
+
+	_rocketContext->Render();
 }
 
 void Menu::drawNumber( int number, int x, int y )
@@ -151,7 +154,7 @@ bool Menu::IsVisible()
 
 void Menu::Update( float dt )
 {
-
+	_rocketContext->Update();
 }
 
 bool Menu::HandleTouchDownEvent( gameplay::Ray& ray, int x, int y )
@@ -180,4 +183,30 @@ bool Menu::HandleTouchDownEvent( gameplay::Ray& ray, int x, int y )
 	}
 
 	return true;
+}
+
+void Menu::initializeRocket()
+{
+	Rocket::Core::SetFileInterface(&_fileInterface);
+	Rocket::Core::SetRenderInterface(&_renderInterface);
+	Rocket::Core::SetSystemInterface(&_systemInterface);
+
+	Rocket::Core::Initialise();
+	_rocketContext = Rocket::Core::CreateContext("main",
+		Rocket::Core::Vector2i(gameplay::Game::getInstance()->getWidth(), gameplay::Game::getInstance()->getHeight()));
+
+	Rocket::Core::String font_names[4];
+	font_names[0] = "Delicious-Roman.otf";
+	font_names[1] = "Delicious-Italic.otf";
+	font_names[2] = "Delicious-Bold.otf";
+	font_names[3] = "Delicious-BoldItalic.otf";
+
+	for (int i = 0; i < sizeof(font_names) / sizeof(Rocket::Core::String); i++)
+	{
+		Rocket::Core::FontDatabase::LoadFontFace(font_names[i]);
+	}
+
+	Rocket::Core::ElementDocument* document = _rocketContext->LoadDocument("test.rml");
+	document->Show();
+	document->RemoveReference();
 }

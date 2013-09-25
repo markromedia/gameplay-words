@@ -1,0 +1,24 @@
+material rocketui
+{
+    technique
+    {
+        pass
+        {
+            // shaders
+            vertexShader = res/shaders/rocketui.vert
+            fragmentShader = res/shaders/rocketui.frag
+            defines = VERTEX_COLOR
+
+            // render state
+            renderState
+            {
+                cullFace = false
+                depthWrite = false
+                depthTest = false
+                blend = true
+                blendSrc = SRC_ALPHA
+                blendDst = ONE_MINUS_SRC_ALPHA
+            }
+        }
+    }
+}
