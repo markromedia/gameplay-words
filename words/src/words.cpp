@@ -1,5 +1,20 @@
 #include "words.h"
 
+#include "renderable_node_repository.hpp"
+#include "letter_controller.hpp"
+#include "board_solver.hpp"
+#include "selected_text_label.hpp"
+#include "score_controller.hpp"
+#include "timer_controller.hpp"
+#include "menu.hpp"
+#include "dice_manager.hpp"
+#include "board.hpp"
+#include "selected_text_connector.hpp"
+#include "statistics.hpp"
+#include "rest_handler.hpp"
+#include "menu_icon_controller.hpp"
+
+
 // Declare our game instance
 words game;
 
@@ -21,8 +36,8 @@ void words::initialize()
 	camera_node->setCamera(camera);
 	scene->setActiveCamera(camera);
 
-	// Display the gameplay splash screen for at least 3 second.
-	displayScreen(this, &words::drawSplash, NULL, 3000L);
+	// Display the gameplay splash screen for at least 1.5 second.
+	displayScreen(this, &words::drawSplash, NULL, 1500L);
 
 	//create the camera control
 	camera_control = new CameraControl(camera_node);
@@ -39,14 +54,15 @@ void words::initialize()
 	LetterController::Init(scene);
 	Board::Init(scene->findNode("letter_tile"));
 	SelectedTextLabel::Init();
+	SelectedTextConnector::Init();
 	ScoreController::Init();
 	TimerController::Init();
 	BoardSolver::Init();
-	SelectedTextConnector::Init();
+	MenuIconController::Init();
 	Statistics::Init();
 	RestHandler::Init();
 
-	this->menu->Show(false);
+	//this->menu->Show(false);
 
 	//TODO remove
 	//BoardSolver::CreatePrecalculatedBoards();
@@ -72,13 +88,18 @@ void words::NewGame()
 	//reset time and kick if of
 	TimerController::Reset();
 	TimerController::StartTimer();
-
 }
 
 void words::GameOver()
 {
 	Statistics::RoundComplete(ScoreController::RoundPoints());
 	menu->Show(true);
+}
+
+
+void words::ShowMenu()
+{
+	menu->Show(false);
 }
 
 void words::finalize()
@@ -90,10 +111,14 @@ void words::update(float elapsedTime)
 {
     //update everyone
     menu->Update(elapsedTime);
-    ScoreController::Update(elapsedTime);
-	TimerController::Update(elapsedTime);
-	LetterController::get()->Update(elapsedTime);
-	SelectedTextLabel::get()->Update(elapsedTime);
+
+	if (!menu->IsVisible())
+	{
+		ScoreController::Update(elapsedTime);
+		TimerController::Update(elapsedTime);
+		LetterController::get()->Update(elapsedTime);
+		SelectedTextLabel::get()->Update(elapsedTime);
+	}
 }
 
 void words::render(float elapsedTime)
@@ -117,6 +142,9 @@ void words::render(float elapsedTime)
 		//render score and timer
 		ScoreController::Render();
 		TimerController::Render();
+
+		//render the menu icon
+		MenuIconController::Render();
 	}
 }
 

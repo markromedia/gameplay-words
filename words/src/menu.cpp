@@ -1,5 +1,6 @@
 #include "menu.hpp"
 #include "input_event_handler.hpp"
+#include "score_controller.hpp"
 
 //(width/height/crop-x/crop-y)
 float Menu::menu_items_coords[7][4] = {
@@ -9,7 +10,7 @@ float Menu::menu_items_coords[7][4] = {
 	{340, 85, 0, 275}, //replay button
 	{340, 85, 0, 375}, //resume button
 	{313, 52, 0, 460}, //word count text
-	{155, 40, 340, 460} //score text
+	{136, 48, 340, 456} //score text
 };
 
 float Menu::menu_numbers_coords[10][4] = {
@@ -17,7 +18,7 @@ float Menu::menu_numbers_coords[10][4] = {
 	{24, 46, 46, 82}, //1
 	{34, 46, 86, 82}, //2
 	{34, 46, 129, 82}, //3
-	{37, 46, 141, 82}, //4
+	{37, 46, 171, 82}, //4
 	
 	{34, 46, 5, 11}, //5
 	{36, 46, 48, 11}, //6
@@ -31,7 +32,7 @@ Menu::Menu()
 	menu_items = gameplay::SpriteBatch::create("res/png/menu_items.png");
 	menu_numbers = gameplay::SpriteBatch::create("res/png/menu_items_numbers.png");
 	this->visible = false;
-	this->initializeRocket();
+	//this->initializeRocket();
 }
 
 void Menu::Hide()
@@ -71,12 +72,12 @@ void Menu::Render()
 
 	//draw text
 	menu_numbers->start();
-	drawItem(6, text_start, start_y); //score label
-	drawNumber(305, text_start + menu_items_coords[6][0] + 10, start_y - 5); //score text
+	drawItem(6, text_start, start_y); //time label
+	drawNumber(TimerController::TotalTimeForGame() / 1000, text_start + menu_items_coords[6][0] + 10, start_y); //score text
 	start_y += menu_items_coords[6][1] + 20;
 
 	drawItem(5, text_start, start_y); //word count label
-	drawNumber(30, text_start + menu_items_coords[5][0] + 10, start_y + 5); //word count text
+	drawNumber(ScoreController::WordsForRound(), text_start + menu_items_coords[5][0] + 10, start_y); //word count text
 	start_y += menu_items_coords[5][1] + 150;
 	menu_numbers->finish();
 
@@ -84,7 +85,6 @@ void Menu::Render()
 	button_positions[0][0] = center_x -  menu_items_coords[2][0] / 2;
 	button_positions[0][1] = start_y;
 	drawItem(2, center_x -  menu_items_coords[2][0] / 2, start_y); start_y += menu_items_coords[2][1] + 50;
-
 	
 	//draw resume or replay
 	button_positions[1][1] = start_y;
@@ -98,7 +98,7 @@ void Menu::Render()
 
 	menu_items->finish();
 
-	_rocketContext->Render();
+	//_rocketContext->Render();
 }
 
 void Menu::drawNumber( int number, int x, int y )
@@ -154,7 +154,7 @@ bool Menu::IsVisible()
 
 void Menu::Update( float dt )
 {
-	_rocketContext->Update();
+	//_rocketContext->Update();
 }
 
 bool Menu::HandleTouchDownEvent( gameplay::Ray& ray, int x, int y )
@@ -170,13 +170,13 @@ bool Menu::HandleTouchDownEvent( gameplay::Ray& ray, int x, int y )
 		if (is_collision) {
 			if (i == 0) {
 				((words*) gameplay::Game::getInstance())->NewGame();
-				this->visible = false;
+				this->Hide();
 				//new game
 			} else if (is_game_over) {
-				this->visible = false;
+				this->Hide();
 				//replay
 			} else {
-				this->visible = false;
+				this->Hide();
 				//resume
 			}
 		}
@@ -187,26 +187,26 @@ bool Menu::HandleTouchDownEvent( gameplay::Ray& ray, int x, int y )
 
 void Menu::initializeRocket()
 {
-	Rocket::Core::SetFileInterface(&_fileInterface);
-	Rocket::Core::SetRenderInterface(&_renderInterface);
-	Rocket::Core::SetSystemInterface(&_systemInterface);
+	//Rocket::Core::SetFileInterface(&_fileInterface);
+	//Rocket::Core::SetRenderInterface(&_renderInterface);
+	//Rocket::Core::SetSystemInterface(&_systemInterface);
 
-	Rocket::Core::Initialise();
-	_rocketContext = Rocket::Core::CreateContext("main",
-		Rocket::Core::Vector2i(gameplay::Game::getInstance()->getWidth(), gameplay::Game::getInstance()->getHeight()));
+	//Rocket::Core::Initialise();
+	//_rocketContext = Rocket::Core::CreateContext("main",
+	//	Rocket::Core::Vector2i(gameplay::Game::getInstance()->getWidth(), gameplay::Game::getInstance()->getHeight()));
 
-	Rocket::Core::String font_names[4];
-	font_names[0] = "Delicious-Roman.otf";
-	font_names[1] = "Delicious-Italic.otf";
-	font_names[2] = "Delicious-Bold.otf";
-	font_names[3] = "Delicious-BoldItalic.otf";
+	//Rocket::Core::String font_names[4];
+	//font_names[0] = "Delicious-Roman.otf";
+	//font_names[1] = "Delicious-Italic.otf";
+	//font_names[2] = "Delicious-Bold.otf";
+	//font_names[3] = "Delicious-BoldItalic.otf";
 
-	for (int i = 0; i < sizeof(font_names) / sizeof(Rocket::Core::String); i++)
-	{
-		Rocket::Core::FontDatabase::LoadFontFace(font_names[i]);
-	}
+	//for (int i = 0; i < sizeof(font_names) / sizeof(Rocket::Core::String); i++)
+	//{
+	//	Rocket::Core::FontDatabase::LoadFontFace(font_names[i]);
+	//}
 
-	Rocket::Core::ElementDocument* document = _rocketContext->LoadDocument("test.rml");
-	document->Show();
-	document->RemoveReference();
+	//Rocket::Core::ElementDocument* document = _rocketContext->LoadDocument("test.rml");
+	//document->Show();
+	//document->RemoveReference();
 }

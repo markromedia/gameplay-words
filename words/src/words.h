@@ -3,18 +3,6 @@
 
 #include "gameplay.h"
 #include "camera_control.hpp"
-#include "renderable_node_repository.hpp"
-#include "letter_controller.hpp"
-#include "board_solver.hpp"
-#include "selected_text_label.hpp"
-#include "score_controller.hpp"
-#include "timer_controller.hpp"
-#include "menu.hpp"
-#include "dice_manager.hpp"
-#include "board.hpp"
-#include "selected_text_connector.hpp"
-#include "statistics.hpp"
-#include "rest_handler.hpp"
 
 using namespace gameplay;
 
@@ -57,6 +45,9 @@ public:
 
 	/// Called when a game is over
 	void GameOver();
+
+	/// Called to show the menu
+	void ShowMenu();
 
 	/// @summary	The menu.
 	Menu* menu;

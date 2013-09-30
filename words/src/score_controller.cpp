@@ -2,6 +2,7 @@
 #include "tile.hpp"
 #include "renderable_node_repository.hpp"
 #include "statistics.hpp"
+#include "timer_controller.hpp"
 
 //singleton instance
 ScoreController* ScoreController::instance = NULL;
@@ -21,6 +22,15 @@ float ScoreController::points_text_coords[11][4] = {
 	{51, 64, 427, 64}, //8
 	{51, 64, 427, 0}, //9
 	{42, 64, 0, 64} //plus
+};
+
+float ScoreController::time_levels[6] = {
+	0 * 60 * 1000, // 0-1 min
+	1 * 60 * 1000, // 1+ min
+	2 * 60 * 1000, // 2+ min
+	3 * 60 * 1000, // 3+ min
+	4 * 60 * 1000, // 4+ min
+	5 * 60 * 1000  // 5+ min
 };
 
 void ScoreController::Init()
@@ -69,6 +79,23 @@ void ScoreController::AddToScore( std::vector<Tile*> selected_tiles, gameplay::V
 		ss << t->value;
 	}
 	instance->points_for_word += (selected_tiles.size() * 2);
+
+	//figure out how much time this word got us
+	//1)figure out the level we're at
+	int level;
+	bool is_level_set = false;
+	for (int i = 5; i >= 0; i--) {
+		if (TimerController::TotalTimeForGame() >= ScoreController::time_levels[i] && !is_level_set) {
+			level = i;
+			is_level_set = true;
+		}
+	}
+
+	//2)figure out total time to add based on level and points for word calc
+	float time_to_add = (6 - level) / 6 * instance->points_for_word * 1000;
+
+	//3) add to the time to total
+	TimerController::AddTime(time_to_add);
 
 	//add to the statistics
 	Statistics::AddWordToRound(ss.str(), instance->points_for_word);
@@ -119,6 +146,7 @@ void ScoreController::Update( float dt )
 
 void ScoreController::Render()
 {
+	/* 
 	std::ostringstream oss;
 	oss << instance->game_points;
 	std::string str = oss.str();
@@ -138,6 +166,7 @@ void ScoreController::Render()
     instance->font->drawText(str.c_str(), gameplay::Game::getInstance()->getWidth() - 65 - width, 50, gameplay::Vector4(0, 0, 0, 1), 30, false);
 
     instance->font->finish();   
+	*/
 
 	if (instance->points_animation_step != NONE) {
 		instance->points_batch->start();
@@ -197,5 +226,10 @@ int ScoreController::RoundPoints()
 	return instance->game_points;
 }
 
+int ScoreController::WordsForRound()
+{
+	return instance->words;
+}
 
+	
 

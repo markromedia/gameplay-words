@@ -1,5 +1,19 @@
 #include "input_event_handler.hpp"
 
+#include "renderable_node_repository.hpp"
+#include "letter_controller.hpp"
+#include "board_solver.hpp"
+#include "selected_text_label.hpp"
+#include "score_controller.hpp"
+#include "timer_controller.hpp"
+#include "menu.hpp"
+#include "dice_manager.hpp"
+#include "board.hpp"
+#include "selected_text_connector.hpp"
+#include "statistics.hpp"
+#include "rest_handler.hpp"
+#include "menu_icon_controller.hpp"
+
 using namespace gameplay;
 
 InputEventHandler* InputEventHandler::instance = NULL;
@@ -29,12 +43,14 @@ bool InputEventHandler::handleTouchEvent(words* game, int x, int y )
 		Ray ray;
 		game->scene->getActiveCamera()->pickRay(game->getViewport(), x, y, &ray);
 
-		if (game->menu->IsVisible()) {
-			game->menu->HandleTouchDownEvent(ray, x, y);
+		if (game->menu->HandleTouchDownEvent(ray, x, y)) {
 			return true;
 		} else if (LetterController::HandleTouchDownEvent(ray, x, y)) {
 			return true;
-		} else {
+		} else if (MenuIconController::HandleTouchDownEvent(ray, x, y)) {
+			return true;
+		} 
+		else {
 			//ADD MORE
 		}
 	} else if (touchState == TOUCH_UP) { 

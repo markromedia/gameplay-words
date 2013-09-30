@@ -1,14 +1,20 @@
 #include "timer_controller.hpp"
 
-TimerController* TimerController::instance = NULL;
+#define START_TIME (30 * 1000) - 1
 
-#define START_TIME (121 * 1000) - 1
+TimerController* TimerController::instance = NULL;
+int TimerController::font_size = 80;
 
 void TimerController::Init()
 {
 	instance = new TimerController();
 
-	instance->font = gameplay::Font::create("res/myriadpro50.gpb");
+	instance->font = gameplay::Font::create("res/myriadpro100.gpb");
+
+	unsigned int width;
+	unsigned int height;
+	instance->font->measureText(std::string("  ").c_str(), TimerController::font_size, &width, &height);
+	instance->start_x = gameplay::Game::getInstance()->getWidth() / 2 - (width / 2);
 }
 
 void TimerController::Reset()
@@ -20,6 +26,7 @@ void TimerController::Reset()
 void TimerController::StartTimer()
 {
 	instance->timer_running = true;
+	instance->total_time = 0;
 }
 
 void TimerController::StopTimer()
@@ -29,6 +36,7 @@ void TimerController::StopTimer()
 
 void TimerController::Update( float dt )
 {
+	instance->total_time += dt;
 	if (instance->timer_running) {
 		instance->time_remaining -= dt;
 
@@ -53,11 +61,23 @@ void TimerController::Render()
 
 	instance->font->start();
 	if (instance->time_remaining < 11 * 1000) {
-		instance->font->drawText(oss.str().c_str(), 60, 10, gameplay::Vector4(1, 0, 0, 1), 40);
+		instance->font->drawText(oss.str().c_str(), instance->start_x, 10, gameplay::Vector4(1, 0, 0, 1), TimerController::font_size);
 	} else{
-		instance->font->drawText(oss.str().c_str(), 60, 10, gameplay::Vector4(0, 0, 0, 1), 40);
+		instance->font->drawText(oss.str().c_str(), instance->start_x, 10, gameplay::Vector4(0, 0, 0, 1), TimerController::font_size);
 	}
 	instance->font->finish();
 }
+
+void TimerController::AddTime( float millis )
+{
+	instance->time_remaining += millis;
+}
+
+float TimerController::TotalTimeForGame()
+{
+	return instance->total_time;
+}
+
+
 
 

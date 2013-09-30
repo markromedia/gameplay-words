@@ -3,8 +3,8 @@
 
 #include "gameplay.h"
 #include "timer_controller.hpp"
-#include "librocket//RocketInterfaces.h"
-#include <Rocket/Core.h>
+//#include "librocket//RocketInterfaces.h"
+//#include <Rocket/Core.h>
 
 class Menu {
 private:
@@ -33,10 +33,10 @@ private:
 
 	void Menu::drawNumber( int number, int x, int y );
 
-	RocketGP3DFile _fileInterface;
-	RocketGP3DSystem _systemInterface;
-	RocketGP3Render _renderInterface;
-	Rocket::Core::Context *_rocketContext;
+	//RocketGP3DFile _fileInterface;
+	//RocketGP3DSystem _systemInterface;
+	//RocketGP3Render _renderInterface;
+	//Rocket::Core::Context *_rocketContext;
 public:
 	/// Constructor.
 	///

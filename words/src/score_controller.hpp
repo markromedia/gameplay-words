@@ -7,6 +7,7 @@
 
 #include "gameplay.h"
 
+
 class Tile;
 
 class ScoreController {
@@ -27,6 +28,9 @@ private:
 
 	/// @summary	The letter values map.
 	static std::map<std::string,int> letter_point_values_map;
+
+	/// @summary	The time levels.
+	static float time_levels[6];
 
 	/// @summary	The points text coords
 	static float points_text_coords[11][4];
@@ -87,6 +91,10 @@ public:
 	/// Assign score layer to the tile
 	/// @param [in,out]	tile	If non-null, the tile.
 	static void AssignScoreLayer(Tile* tile);
+
+	/// Gets the words for round.
+	/// @return	.
+	static int WordsForRound();
 };
 
 #endif  // __SCORE_CONTROLLER__hpp

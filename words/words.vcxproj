@@ -138,14 +138,14 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_ITERATOR_DEBUG_LEVEL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../gameplay-1.6/external-deps/lua/include;../gameplay-1.6/external-deps/bullet/include;../gameplay-1.6/gameplay/src;../gameplay-1.6/external-deps/openal/include/AL;../gameplay-1.6/external-deps/oggvorbis/include;../gameplay-1.6/external-deps/libpng/include;../gameplay-1.6/external-deps/zlib/include;../gameplay-1.6/external-deps/glew/include;../boost;../win-dependencies/include;../librocket/Include/Rocket</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../gameplay-1.6/external-deps/lua/include;../gameplay-1.6/external-deps/bullet/include;../gameplay-1.6/gameplay/src;../gameplay-1.6/external-deps/openal/include/AL;../gameplay-1.6/external-deps/oggvorbis/include;../gameplay-1.6/external-deps/libpng/include;../gameplay-1.6/external-deps/zlib/include;../gameplay-1.6/external-deps/glew/include;../boost;../win-dependencies/include</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>lua.lib;OpenAL32.lib;OpenGL32.lib;GLU32.lib;glew32.lib;libpng14.lib;zlib.lib;gameplay.lib;libogg.lib;libvorbis.lib;libvorbisfile.lib;BulletDynamics.lib;BulletCollision.lib;LinearMath.lib;libboost_chrono-vc100-mt-gd-1_48.lib;libboost_date_time-vc100-mt-gd-1_48.lib;libboost_system-vc100-mt-gd-1_48.lib;libboost_thread-vc100-mt-gd-1_48.lib;libcurl.lib;RocketControls_d.lib;RocketCore_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>lua.lib;OpenAL32.lib;OpenGL32.lib;GLU32.lib;glew32.lib;libpng14.lib;zlib.lib;gameplay.lib;libogg.lib;libvorbis.lib;libvorbisfile.lib;BulletDynamics.lib;BulletCollision.lib;LinearMath.lib;libboost_chrono-vc100-mt-gd-1_48.lib;libboost_date_time-vc100-mt-gd-1_48.lib;libboost_system-vc100-mt-gd-1_48.lib;libboost_thread-vc100-mt-gd-1_48.lib;libcurl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>../gameplay-1.6/external-deps/lua/lib/windows/x86;../gameplay-1.6/external-deps/bullet/lib/windows/x86;../gameplay-1.6/external-deps/openal/lib/windows/x86;../gameplay-1.6/external-deps/oggvorbis/lib/windows/x86;../gameplay-1.6/external-deps/glew/lib/windows/x86;../gameplay-1.6/external-deps/libpng/lib/windows/x86;../gameplay-1.6/external-deps/zlib/lib/windows/x86;../gameplay-1.6/gameplay/windows/x86/$(Configuration);../win-dependencies/lib</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
@@ -375,6 +375,8 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <None Include="res\png\letter_y_texture.png" />
     <None Include="res\png\letter_z_texture.png" />
     <None Include="res\png\logo.png" />
+    <None Include="res\png\menu_items.png" />
+    <None Include="res\png\menu_items_numbers.png" />
     <None Include="res\png\overlay.png" />
     <None Include="res\png\points_font.png" />
     <None Include="res\png\powerup_arrows.png" />
@@ -385,6 +387,7 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <None Include="res\png\selected_text_left_bg.png" />
     <None Include="res\png\selected_text_right_bg.png" />
     <None Include="res\png\selected_text_tiling_bg.png" />
+    <None Include="res\png\settings_icon.png" />
     <None Include="res\png\tile_score_1.png" />
     <None Include="res\png\tile_score_2.png" />
     <None Include="res\png\tile_score_3.png" />
@@ -448,6 +451,7 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <None Include="res\words.material" />
     <None Include="res\words_scene.FBX" />
     <None Include="res\words_scene.gpb" />
+    <None Include="src\menu_icon_controller.hpp" />
     <None Include="words-ios.plist" />
     <None Include="words-macosx.plist" />
   </ItemGroup>
@@ -456,8 +460,8 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <ClCompile Include="src-win\rest_handler.cpp" />
     <ClCompile Include="src\board.cpp" />
     <ClCompile Include="src\dice_manager.cpp" />
-    <ClCompile Include="src\librocket\RocketInterfaces.cpp" />
     <ClCompile Include="src\menu.cpp" />
+    <ClCompile Include="src\menu_icon_controller.cpp" />
     <ClCompile Include="src\perf-solver\boggler.cc" />
     <ClCompile Include="src\perf-solver\boggle_solver.cc" />
     <ClCompile Include="src\perf-solver\trie.cc" />
@@ -480,7 +484,6 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <ClInclude Include="src\board.hpp" />
     <ClInclude Include="src\board_file_loader.hpp" />
     <ClInclude Include="src\dice_manager.hpp" />
-    <ClInclude Include="src\librocket\RocketInterfaces.h" />
     <ClInclude Include="src\menu.hpp" />
     <ClInclude Include="src\perf-solver\boggler.h" />
     <ClInclude Include="src\perf-solver\boggle_solver.h" />
