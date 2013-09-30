@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>130567DB-8BEE-455E-B570-0F6E12FB2BAD</string>
+	<key>IDESourceControlProjectName</key>
+	<string>words</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>35C7023C-C656-4B7E-957A-11C0DFB7EF87</key>
+		<string>ssh://git.assembla.com/project_8.4</string>
+		<key>B7D01AC6-61AA-4632-B06E-EA89C60E3AA5</key>
+		<string>https://github.com/blackberry/GamePlay.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>words/words.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>35C7023C-C656-4B7E-957A-11C0DFB7EF87</key>
+		<string>../../..</string>
+		<key>B7D01AC6-61AA-4632-B06E-EA89C60E3AA5</key>
+		<string>../../../../gameplay-1.6</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://git.assembla.com/project_8.4</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>35C7023C-C656-4B7E-957A-11C0DFB7EF87</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B7D01AC6-61AA-4632-B06E-EA89C60E3AA5</string>
+			<key>IDESourceControlWCCName</key>
+			<string>gameplay-1</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>35C7023C-C656-4B7E-957A-11C0DFB7EF87</string>
+			<key>IDESourceControlWCCName</key>
+			<string>gameplay-words</string>
+		</dict>
+	</array>
+</dict>
+</plist>

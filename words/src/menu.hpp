@@ -29,9 +29,9 @@ private:
 	/// @summary	The button positions[ 2].
 	float button_positions[2][2];
 
-	void Menu::drawItem( int p_idx, int x, int y );
+	void drawItem( int p_idx, int x, int y );
 
-	void Menu::drawNumber( int number, int x, int y );
+	void drawNumber( int number, int x, int y );
 
 	//RocketGP3DFile _fileInterface;
 	//RocketGP3DSystem _systemInterface;
