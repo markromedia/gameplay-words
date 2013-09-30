@@ -93,6 +93,9 @@ void ScoreController::AddToScore( std::vector<Tile*> selected_tiles, gameplay::V
 
 	//2)figure out total time to add based on level and points for word calc
 	float time_to_add = (6 - level) / 6 * instance->points_for_word * 1000;
+    if (time_to_add < 1000) {
+        time_to_add = 1000;
+    }
 
 	//3) add to the time to total
 	TimerController::AddTime(time_to_add);
