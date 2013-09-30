@@ -21,12 +21,12 @@ void TimerController::Reset()
 {
 	instance->time_remaining = START_TIME;
 	instance->timer_running = false;
+	instance->total_time = 0;
 }
 
 void TimerController::StartTimer()
 {
 	instance->timer_running = true;
-	instance->total_time = 0;
 }
 
 void TimerController::StopTimer()
