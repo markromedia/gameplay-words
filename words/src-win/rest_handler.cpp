@@ -1,4 +1,4 @@
-#include "../src/rest_handler.hpp"
+#include "../src/ext/rest_handler.hpp"
 
 #include "gameplay.h"
 #include <curl/curl.h>

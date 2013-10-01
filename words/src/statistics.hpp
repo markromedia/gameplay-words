@@ -4,7 +4,7 @@
 #include <string>
 #include <sstream>
 #include <queue>
-#include "rest_handler.hpp"
+#include "ext/rest_handler.hpp"
 
 
 class RoundData {
