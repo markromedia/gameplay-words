@@ -1,6 +1,7 @@
 #include "menu.hpp"
 #include "../input_event_handler.hpp"
-#include "score_controller.hpp"
+#include "../game/score_controller.hpp"
+#include "../ext/scene_manager.hpp"
 
 //(width/height/crop-x/crop-y)
 float Menu::menu_items_coords[7][4] = {
@@ -31,28 +32,13 @@ Menu::Menu()
 {
 	menu_items = gameplay::SpriteBatch::create("res/png/menu_items.png");
 	menu_numbers = gameplay::SpriteBatch::create("res/png/menu_items_numbers.png");
-	this->visible = false;
 	//this->initializeRocket();
-}
-
-void Menu::Hide()
-{
-	visible = false;
-	TimerController::StartTimer();
-}
-
-void Menu::Show(bool game_over_screen)
-{
-	visible = true;
-	is_game_over = game_over_screen;
-	TimerController::StopTimer();
 }
 
 void Menu::Render()
 {
-	if (!visible) {
-		return;
-	}
+	// Clear the color and depth buffers
+	gameplay::Game::getInstance()->clear(gameplay::Game::getInstance()->CLEAR_COLOR_DEPTH, gameplay::Vector4(1, 1, 1, 1), 1.0f, 0);
 
 	//draw background
 	menu_items->start();
@@ -147,11 +133,6 @@ void Menu::drawItem( int p_idx, int x, int y )
 		gameplay::Vector4::one(), false);
 }
 
-bool Menu::IsVisible()
-{
-	return this->visible;
-}
-
 void Menu::Update( float dt )
 {
 	//_rocketContext->Update();
@@ -159,9 +140,6 @@ void Menu::Update( float dt )
 
 bool Menu::HandleTouchDownEvent( gameplay::Ray& ray, int x, int y )
 {
-	if (!visible) {
-		return false;
-	}
 	for (int i = 0 ; i < 2; i++) {
 		bool is_collision = 
 			x >= button_positions[i][0] && x <= button_positions[i][0] + 340 &&
@@ -169,20 +147,30 @@ bool Menu::HandleTouchDownEvent( gameplay::Ray& ray, int x, int y )
 
 		if (is_collision) {
 			if (i == 0) {
-				((words*) gameplay::Game::getInstance())->NewGame();
-				this->Hide();
+				SceneManager::get()->StartNewGame();
 				//new game
 			} else if (is_game_over) {
-				this->Hide();
+				SceneManager::get()->GotoGameScene();
 				//replay
 			} else {
-				this->Hide();
+				SceneManager::get()->GotoGameScene();
 				//resume
 			}
 		}
 	}
 
 	return true;
+}
+
+bool Menu::HandleTouchUpEvent( gameplay::Ray& ray, int x, int y )
+{
+	return false;
+}
+
+
+void Menu::SetIsGameOver( bool is_game_over )
+{
+	this->is_game_over = is_game_over;
 }
 
 void Menu::initializeRocket()
@@ -210,3 +198,4 @@ void Menu::initializeRocket()
 	//document->Show();
 	//document->RemoveReference();
 }
+

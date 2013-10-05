@@ -4,8 +4,6 @@
 #include "gameplay.h"
 #include "camera_control.hpp"
 
-using namespace gameplay;
-
 class Menu;
 
 #define APP_VERSION std::string("0.1.0")
@@ -17,7 +15,7 @@ class words: public Game
 {
 public:
 	/// @summary	The scene.
-	Scene* scene;
+	gameplay::Scene* scene;
 
     /**
      * Constructor.
@@ -27,30 +25,18 @@ public:
     /**
      * @see Game::keyEvent
      */
-	void keyEvent(Keyboard::KeyEvent evt, int key);
+	void keyEvent(gameplay::Keyboard::KeyEvent evt, int key);
 	
     /**
      * @see Game::touchEvent
      */
-    void touchEvent(Touch::TouchEvent evt, int x, int y, unsigned int contactIndex);
+    void touchEvent(gameplay::Touch::TouchEvent evt, int x, int y, unsigned int contactIndex);
 
 		
     /**
      * @see Game::mouseEvent
      */
-	bool mouseEvent(Mouse::MouseEvent evt, int x, int y, int wheelDelta);
-
-	/// Sets up the game for a new game
-	void NewGame();
-
-	/// Called when a game is over
-	void GameOver();
-
-	/// Called to show the menu
-	void ShowMenu();
-
-	/// @summary	The menu.
-	Menu* menu;
+	bool mouseEvent(gameplay::Mouse::MouseEvent evt, int x, int y, int wheelDelta);
 protected:
 
     /**
@@ -76,11 +62,10 @@ protected:
 private:
 
 	/// @summary	The camera node.
-	Node* camera_node;
+	gameplay::Node* camera_node;
 
 	/// @summary	The camera control.
 	CameraControl* camera_control;
-
 
 	/// Draw splash.
 	/// @param [in,out]	param	If non-null, the parameter.
@@ -89,7 +74,7 @@ private:
 	void drawFrameRate(unsigned int fps);
 
 	/// @summary	The framerate font.
-	Font* framerate;
+	gameplay::Font* framerate;
 };
 
 #endif

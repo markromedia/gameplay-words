@@ -16,8 +16,8 @@
 #include <assert.h>
 
 
-#include "../board/board.hpp"
-#include "../board/dice_manager.hpp"
+#include "../game/board/board.hpp"
+#include "../game/board/dice_manager.hpp"
 
 class BoardFileLoader {
 public:

@@ -9,7 +9,7 @@
 #include <fstream>
 
 #include "gameplay.h"
-#include "../perf-solver/boggle_solver.h"
+#include "../../perf-solver/boggle_solver.h"
 
 #include "board.hpp"
 #include "dice_manager.hpp"

@@ -6,7 +6,7 @@
 
 #include "gameplay.h"
 #include "letter_controller.hpp"
-#include "../board/dice_manager.hpp"
+#include "../game/board/dice_manager.hpp"
 
 class Tile;
 class LetterController;

@@ -6,11 +6,11 @@
 #include "gameplay.h"
 #include "words.h"
 
+/// Values that represent TouchState.
+enum TouchState { TOUCH_DOWN, TOUCH_UP };
+
 class InputEventHandler {
 private:
-	/// Values that represent TouchState.
-	enum TouchState { TOUCH_DOWN, TOUCH_UP };
-
 	/// Makes sure we have an instance ready.
 	static void _checkCreateInstance();
 

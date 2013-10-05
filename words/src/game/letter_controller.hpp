@@ -5,12 +5,12 @@
 #include <queue>
 
 #include "gameplay.h"
-#include "../board/board.hpp"
+#include "../game/board/board.hpp"
 #include "tile.hpp"
 #include "../renderable_node_repository.hpp"
-#include "../board/dice_manager.hpp"
+#include "../game/board/dice_manager.hpp"
 #include "selected_text_label.hpp"
-#include "../board/board_solver.hpp"
+#include "../game/board/board_solver.hpp"
 #include "score_controller.hpp"
 #include "selected_text_connector.hpp"
 

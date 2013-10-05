@@ -36,7 +36,7 @@ void Statistics::RoundComplete( int round_points )
 			roundLog.words = round->words_for_round->str();
 			roundLog.version = APP_VERSION;
 
-			RestHandler::get()->SubmitRoundLog(&roundLog);
+			////RestHandler::get()->SubmitRoundLog(&roundLog);
 
 			delete round;
 		}

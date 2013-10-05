@@ -1,7 +1,7 @@
 #ifdef WIN32
 
 #include "../src/ext/solver_worker.hpp"
-#include "../src/board/board_solver.hpp"
+#include "../src/game/board/board_solver.hpp"
 
 #include <sstream>
 #include <boost/thread.hpp>   

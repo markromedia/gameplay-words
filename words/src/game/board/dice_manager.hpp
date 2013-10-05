@@ -10,7 +10,7 @@
 #include <map>
 
 #include "gameplay.h"
-#include "../ext/solver_worker.hpp"
+#include "../../ext/solver_worker.hpp"
 
 class DiceManager;
 

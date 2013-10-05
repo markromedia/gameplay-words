@@ -1,6 +1,7 @@
 #include "menu_icon_controller.hpp"
 
-#include "menu.hpp"
+#include "../words.h"
+#include "../ext/scene_manager.hpp"
 
 MenuIconController* MenuIconController::instance = NULL;
 
@@ -61,7 +62,7 @@ bool MenuIconController::HandleTouchDownEvent(gameplay::Ray& ray, int x, int y)
 		y >= instance->y_pos && y <= instance->y_pos + instance->icon_height;
 
 	if (is_collision) {
-		((words*) gameplay::Game::getInstance())->ShowMenu();
+		SceneManager::get()->GotoMenuScene(false);
 		return true;
 	}
 

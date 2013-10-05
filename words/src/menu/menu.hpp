@@ -2,20 +2,18 @@
 #define __MENU__hpp
 
 #include "gameplay.h"
-#include "timer_controller.hpp"
+#include "../game/timer_controller.hpp"
+#include "../scene.hpp"
 //#include "librocket//RocketInterfaces.h"
 //#include <Rocket/Core.h>
 
-class Menu {
+class Menu : public Words::Scene {
 private:
 	/// @summary	The background.
 	gameplay::SpriteBatch* menu_items;
 
 	/// @summary	The numbers.
 	gameplay::SpriteBatch* menu_numbers;
-
-	/// @summary	true to show, false to hide.
-	bool visible;
 
 	/// @summary	true if this object is game over.
 	bool is_game_over;
@@ -43,28 +41,24 @@ public:
 	/// @param [in,out]	game	If non-null, the game.
 	Menu();
 
-	/// Query if this object is visible.
-	/// @return	true if visible, false if not.
-	bool IsVisible();
+	/// <inheritdoc />
+	virtual bool Menu::HandleTouchDownEvent( gameplay::Ray& ray, int x, int y );
 
-	/// Hides the menu.
-	void Hide();
+	/// <inheritdoc />
+	virtual bool HandleTouchUpEvent(gameplay::Ray& ray, int x, int y) ;
 
-	/// Shows the menu. Also stops inputs
-	/// from going to the input handler
-	void Show(bool game_over_screen);
+	/// <inheritdoc />
+	virtual void Update(float elapsedTime);
 
-	/// Renders the menu.
-	void Render();
-
-	/// Updates the given dt.
-	/// @param	dt	The dt.
-	void Update(float dt);
-
-	bool HandleTouchDownEvent(gameplay::Ray& ray, int x, int y );
+	/// <inheritdoc />
+	virtual void Render();
 
 	/// Initializes the rocket.
 	void initializeRocket();
+
+	/// Sets the is game over.
+	/// @param	is_game_over	true if this object is game over.
+	void SetIsGameOver(bool is_game_over);
 };
 
 #endif  // __MENU__hpp

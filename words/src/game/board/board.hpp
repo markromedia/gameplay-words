@@ -8,7 +8,7 @@
 
 #include "gameplay.h"
 #include "dice_manager.hpp"
-#include "../ext/solver_worker.hpp"
+#include "../../ext/solver_worker.hpp"
 
 
 class Tile;

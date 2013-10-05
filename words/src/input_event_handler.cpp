@@ -1,19 +1,6 @@
 #include "input_event_handler.hpp"
 
-#include "renderable_node_repository.hpp"
-#include "ui/letter_controller.hpp"
-#include "board/board_solver.hpp"
-#include "ui/selected_text_label.hpp"
-#include "ui/score_controller.hpp"
-#include "ui/timer_controller.hpp"
-#include "ui/menu.hpp"
-#include "board/dice_manager.hpp"
-#include "board/board.hpp"
-#include "ui/selected_text_connector.hpp"
-#include "statistics.hpp"
-#include "ext/rest_handler.hpp"
-#include "ui/menu_icon_controller.hpp"
-
+#include "ext/scene_manager.hpp"
 
 using namespace gameplay;
 
@@ -39,28 +26,11 @@ bool InputEventHandler::handleTouchEvent(words* game, int x, int y )
 		return false;
 	}
 
-	if (touchState == TOUCH_DOWN) {
-		Node* cameraNode = game->scene->getActiveCamera()->getNode();
-		Ray ray;
-		game->scene->getActiveCamera()->pickRay(game->getViewport(), x, y, &ray);
+	Node* cameraNode = game->scene->getActiveCamera()->getNode();
+	Ray ray;
+	game->scene->getActiveCamera()->pickRay(game->getViewport(), x, y, &ray);
 
-		if (game->menu->HandleTouchDownEvent(ray, x, y)) {
-			return true;
-		} else if (LetterController::HandleTouchDownEvent(ray, x, y)) {
-			return true;
-		} else if (MenuIconController::HandleTouchDownEvent(ray, x, y)) {
-			return true;
-		} 
-		else {
-			//ADD MORE
-		}
-	} else if (touchState == TOUCH_UP) { 
-		//pass along the touch event to the controllers who are listening
-		LetterController::HandleTouchUpEvent(x, y);
-	}
-
-
-	return false;
+	return SceneManager::get()->DelegateTouchEvent(game, touchState, ray, x, y);
 }
 
 void InputEventHandler::touchEvent(words* game,  gameplay::Touch::TouchEvent evt, int x, int y, unsigned int contactIndex )

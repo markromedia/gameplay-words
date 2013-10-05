@@ -1,7 +1,7 @@
 #include "board.hpp"
 
-#include "../ui/tile.hpp"
-#include "../ext/board_file_loader.hpp"
+#include "../tile.hpp"
+#include "../../ext/board_file_loader.hpp"
 
 Board* Board::instance = NULL;
 long Board::start_time = 0;

@@ -1,6 +1,8 @@
 #include "timer_controller.hpp"
 
-#define START_TIME (30 * 1000) - 1
+#include "game.hpp"
+
+#define START_TIME (5 * 1000) - 1
 
 TimerController* TimerController::instance = NULL;
 int TimerController::font_size = 80;
@@ -42,7 +44,7 @@ void TimerController::Update( float dt )
 
 		if (instance->time_remaining <= 0) {
 			//times up. show the game over screen
-			((words*) gameplay::Game::getInstance())->GameOver();
+			Words::Game::Get()->GameOver();
 		} 
 	}
 }
