@@ -5,7 +5,6 @@
 
 #include "gameplay.h"
 #include "tile.hpp"
-#include "../renderable_node_repository.hpp"
 
 class SelectedTextConnector {
 private:
@@ -24,7 +23,7 @@ private:
 	/// Gets a billboard transformation.
 	/// @param [in,out]	camera	If non-null, the camera.
 	/// @return	The billboard transformation.
-	static gameplay::Quaternion getBillboardTransformation(gameplay::Camera* camera);
+	static gameplay::Quaternion getBillboardTransformation();
 public:
 	/// Initialises this object.
 	static void Init();
@@ -32,7 +31,7 @@ public:
 	/// Draws the connectors for the provided 
 	///
 	/// @param [in,out]	tiles_to_draw	If non-null, the tiles to draw.
-	static void Draw(gameplay::Camera* camera, std::vector<Tile*> tiles_to_draw);
+	static void Draw(std::vector<Tile*> tiles_to_draw);
 
 };
 

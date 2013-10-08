@@ -1,16 +1,17 @@
-#include "score_controller.hpp"
+#include "../../renderable_node_repository.hpp"
+#include "../../statistics.hpp"
+
+#include "score_view.hpp"
 #include "tile.hpp"
-#include "../renderable_node_repository.hpp"
-#include "../statistics.hpp"
 #include "timer_controller.hpp"
 
 //singleton instance
-ScoreController* ScoreController::instance = NULL;
+ScoreView* ScoreView::instance = NULL;
 //map of points of a letter to the the letter itself
-std::map<std::string,int> ScoreController::letter_point_values_map;
+std::map<std::string,int> ScoreView::letter_point_values_map;
 //points texture coords
 //(width/height/crop-x/crop-y)
-float ScoreController::points_text_coords[11][4] = {
+float ScoreView::points_text_coords[11][4] = {
 	{52, 64, 42, 64}, //0
 	{36, 64, 94, 64}, //1
 	{49, 64, 130, 64}, //2
@@ -24,7 +25,7 @@ float ScoreController::points_text_coords[11][4] = {
 	{42, 64, 0, 64} //plus
 };
 
-float ScoreController::time_levels[6] = {
+float ScoreView::time_levels[6] = {
 	0 * 60 * 1000, // 0-1 min
 	1 * 60 * 1000, // 1+ min
 	2 * 60 * 1000, // 2+ min
@@ -33,9 +34,9 @@ float ScoreController::time_levels[6] = {
 	5 * 60 * 1000  // 5+ min
 };
 
-void ScoreController::Init()
+void ScoreView::Init()
 {
-	instance = new ScoreController;
+	instance = new ScoreView;
 	
 	instance->points_batch = gameplay::SpriteBatch::create("res/png/points_font.png");
 	instance->font = gameplay::Font::create("res/myriadpro50.gpb");
@@ -59,7 +60,7 @@ void ScoreController::Init()
 	letter_point_values_map["o"] = 1; letter_point_values_map["a"] = 1; letter_point_values_map["t"] = 1; letter_point_values_map["e"] = 1; 
 }
 
-void ScoreController::AddToScore( std::vector<Tile*> selected_tiles, gameplay::Vector2* last_known_touch )
+void ScoreView::AddToScore( std::vector<Tile*> selected_tiles, gameplay::Vector2* last_known_touch )
 {
 	instance->points_animation_step = POPPING;
 	instance->animation_step_runtime = 0;
@@ -85,7 +86,7 @@ void ScoreController::AddToScore( std::vector<Tile*> selected_tiles, gameplay::V
 	int level;
 	bool is_level_set = false;
 	for (int i = 5; i >= 0; i--) {
-		if (TimerController::TotalTimeForGame() >= ScoreController::time_levels[i] && !is_level_set) {
+		if (TimerController::TotalTimeForGame() >= ScoreView::time_levels[i] && !is_level_set) {
 			level = i;
 			is_level_set = true;
 		}
@@ -105,7 +106,7 @@ void ScoreController::AddToScore( std::vector<Tile*> selected_tiles, gameplay::V
 	instance->game_points += instance->points_for_word;
 }
 
-void ScoreController::ResetScore()
+void ScoreView::ResetScore()
 {
 	instance->game_points = 0;
 	instance->words = 0;
@@ -116,7 +117,7 @@ void ScoreController::ResetScore()
 	instance->points_alpha = 1.0f;
 }
 
-void ScoreController::Update( float dt )
+void ScoreView::Update( float dt )
 {
 	switch (instance->points_animation_step) {
 	case POPPING:
@@ -144,7 +145,7 @@ void ScoreController::Update( float dt )
 	}
 }
 
-void ScoreController::Render()
+void ScoreView::Render()
 {
 	/* 
 	std::ostringstream oss;
@@ -194,7 +195,7 @@ void ScoreController::Render()
 	}
 }
 
-void ScoreController::drawPointCharacter( int p_idx )
+void ScoreView::drawPointCharacter( int p_idx )
 {
 	float p_width = points_text_coords[p_idx][0];
 	float p_height = points_text_coords[p_idx][1];
@@ -211,7 +212,7 @@ void ScoreController::drawPointCharacter( int p_idx )
 	current_characters_screen_location.x = current_characters_screen_location.x + (points_scale * p_width) + 1;
 }
 
-void ScoreController::AssignScoreLayer( Tile* tile )
+void ScoreView::AssignScoreLayer( Tile* tile )
 {
 	int value = letter_point_values_map[tile->value];
 	if (value >= 1 && value <= 9) {
@@ -221,12 +222,12 @@ void ScoreController::AssignScoreLayer( Tile* tile )
 	}
 }
 
-int ScoreController::RoundPoints()
+int ScoreView::RoundPoints()
 {
 	return instance->game_points;
 }
 
-int ScoreController::WordsForRound()
+int ScoreView::WordsForRound()
 {
 	return instance->words;
 }

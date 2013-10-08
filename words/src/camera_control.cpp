@@ -2,12 +2,25 @@
 
 const int CAMERA_VELOCITY = 10;
 
-CameraControl::CameraControl(Node* camera_node) {
-	this->camera_node = camera_node;
-	camera_move_direction = NONE;
+CameraControl* CameraControl::instance;
 
+CameraControl::CameraControl(Camera* camera, Node* camera_node) {
+	this->camera_node = camera_node;
+	this->camera = camera;
+
+	camera_move_direction = NONE;
 	camera_target.x = 0; camera_target.y = 0; camera_target.z = 290; 
 	camera_node->setTranslation(camera_target);
+}
+
+void CameraControl::Init( gameplay::Camera* camera, Node* camera_node)
+{
+	CameraControl::instance = new CameraControl(camera, camera_node);
+}
+
+CameraControl* CameraControl::Get()
+{
+	return CameraControl::instance;
 }
 
 void CameraControl::Update(float delta) 
@@ -109,3 +122,41 @@ void CameraControl::HandleMouseEvent(Mouse::MouseEvent evt, int x, int y, int wh
 	//reapply translation
 	camera_node->setTranslation(v);
 }
+
+void CameraControl::CreateBillboardHelper(const Vector3& objectPosition, const Vector3& cameraPosition,
+								 const Vector3& cameraUpVector, const Vector3& cameraForwardVector,
+								 Matrix* dst)
+{
+	Vector3 delta(objectPosition, cameraPosition);
+	bool isSufficientDelta = false;//delta.lengthSquared() > MATH_EPSILON;
+
+	dst->setIdentity();
+	dst->m[3] = objectPosition.x;
+	dst->m[7] = objectPosition.y;
+	dst->m[11] = objectPosition.z;
+
+	// As per the contracts for the 2 variants of createBillboard, we need
+	// either a safe default or a sufficient distance between object and camera.
+	Vector3 target = isSufficientDelta ? cameraPosition : (objectPosition - cameraForwardVector);
+
+	// A billboard is the inverse of a lookAt rotation
+	Matrix lookAt;
+	Matrix::createLookAt(objectPosition, target, cameraUpVector, &lookAt);
+	dst->m[0] = lookAt.m[0];
+	dst->m[1] = lookAt.m[4];
+	dst->m[2] = lookAt.m[8];
+	dst->m[4] = lookAt.m[1];
+	dst->m[5] = lookAt.m[5];
+	dst->m[6] = lookAt.m[9];
+	dst->m[8] = lookAt.m[2];
+	dst->m[9] = lookAt.m[6];
+	dst->m[10] = lookAt.m[10];
+}
+
+void CameraControl::CreateBillboardHelper( const gameplay::Vector3& objectPosition, gameplay::Matrix* dst )
+{
+	Camera* c = CameraControl::instance->camera;
+	CameraControl::CreateBillboardHelper(objectPosition, c->getNode()->getTranslationWorld(), c->getNode()->getUpVectorWorld(), c->getNode()->getForwardVector(), dst);
+}
+
+

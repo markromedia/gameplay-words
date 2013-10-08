@@ -2,18 +2,8 @@
 
 #include "renderable_node_repository.hpp"
 #include "game/game.hpp"
-#include "game/letter_controller.hpp"
-#include "game/board/board_solver.hpp"
-#include "game/selected_text_label.hpp"
-#include "game/score_controller.hpp"
-#include "game/timer_controller.hpp"
-#include "menu/menu.hpp"
-#include "game/board/dice_manager.hpp"
-#include "game/board/board.hpp"
-#include "game/selected_text_connector.hpp"
 #include "statistics.hpp"
 #include "ext/rest_handler.hpp"
-#include "game/menu_icon_controller.hpp"
 #include "ext/scene_manager.hpp"
 
 
@@ -42,7 +32,7 @@ void words::initialize()
 	displayScreen(this, &words::drawSplash, NULL, 1500L);
 
 	//create the camera control
-	camera_control = new CameraControl(camera_node);
+	CameraControl::Init(camera, camera_node);
 
 	//init font for the framerate
 	framerate = gameplay::Font::create("res/myriadpro50.gpb");

@@ -18,15 +18,31 @@ private:
 	/// @summary	The camera move direction.
 	int camera_move_direction;
 
+	/// @summary	The camera.
+	Camera* camera;
+	
 	/// @summary	The camera node.
 	Node* camera_node;
 
 	/// @summary	true if this object is looking at origin.
 	bool is_looking_at_origin;
+
+	/// @summary	The instance.
+	static CameraControl* instance;
 public:
 	/// Constructor.
+	/// @param [in,out]	camera	   	If non-null, the camera.
 	/// @param [in,out]	camera_node	If non-null, the camera node.
-	CameraControl(Node* camera_node);
+	CameraControl(Camera* camera, Node* camera_node);
+
+	/// Initialises this object.
+	/// @param [in,out]	camera	   	If non-null, the camera.
+	/// @param [in,out]	camera_node	If non-null, the camera node.
+	static void Init(gameplay::Camera* camera, Node* camera_node);
+
+	/// Gets the static instance
+	/// @return	null if it fails, else.
+	static CameraControl* Get();
 
 	/// Updates the given delta.
 	/// @param	delta	The delta.
@@ -43,6 +59,23 @@ public:
 	/// @param	y		  	The y coordinate.
 	/// @param	wheelDelta	The wheel delta.
 	void HandleMouseEvent(Mouse::MouseEvent evt, int x, int y, int wheelDelta);
+
+	/// Helper method that create billboard.
+	/// @param	objectPosition	   	The object position.
+	/// @param	cameraPosition	   	The camera position.
+	/// @param	cameraUpVector	   	The camera up vector.
+	/// @param	cameraForwardVector	The camera forward vector.
+	/// @param [in,out]	dst		   	If non-null, destination for the.
+	static void CreateBillboardHelper(const gameplay::Vector3& objectPosition, const gameplay::Vector3& cameraPosition,
+		const gameplay::Vector3& cameraUpVector, const gameplay::Vector3& cameraForwardVector,
+		gameplay::Matrix* dst);
+
+	//CameraControl::CreateBillboardHelper(physics_node->getTranslationWorld(), camera->getNode()->getTranslationWorld(), camera->getNode()->getUpVectorWorld(), camera->getNode()->getForwardVector(), &m);
+
+	/// Helper method that create billboard. Uses in
+	/// @param	objectPosition	The object position.
+	/// @param [in,out]	dst   	If non-null, destination for the.
+	static void CreateBillboardHelper(const gameplay::Vector3& objectPosition, gameplay::Matrix* dst);
 };
 
 #endif  // __CAMERA_CONTROL__hpp

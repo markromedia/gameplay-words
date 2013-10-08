@@ -1,8 +1,8 @@
 #include "timer_controller.hpp"
 
-#include "game.hpp"
+#include "../game.hpp"
 
-#define START_TIME (5 * 1000) - 1
+#define START_TIME (30 * 1000) - 1
 
 TimerController* TimerController::instance = NULL;
 int TimerController::font_size = 80;

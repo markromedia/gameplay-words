@@ -1,7 +1,7 @@
 #include "menu_icon_controller.hpp"
 
-#include "../words.h"
-#include "../ext/scene_manager.hpp"
+#include "../../words.h"
+#include "../../ext/scene_manager.hpp"
 
 MenuIconController* MenuIconController::instance = NULL;
 

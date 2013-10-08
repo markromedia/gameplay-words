@@ -1,5 +1,11 @@
 #include "tile.hpp"
 
+#include "gameplay.h"
+
+#include "../../camera_control.hpp"
+
+#include "board_view.hpp"
+
 using namespace gameplay;
 
 ///-----------------------------------------------------------------------------------------------
@@ -13,9 +19,8 @@ void TileLayer::SetRenderableNode(gameplay::Node* renderable_node) {
 
 ///-----------------------------------------------------------------------------------------------
 
-Tile::Tile(gameplay::Node* physics_node, LetterController* letterController) {
+Tile::Tile(gameplay::Node* physics_node) {
 	this->physics_node = physics_node;
-	this->letterController = letterController;
 
 	layers.reserve(8);
 	scale = 1.0f;
@@ -26,44 +31,14 @@ Tile::Tile(gameplay::Node* physics_node, LetterController* letterController) {
 	translation_is_dirty = false;
 }
 
-void Tile::createBillboardHelper(const Vector3& objectPosition, const Vector3& cameraPosition,
-								   const Vector3& cameraUpVector, const Vector3& cameraForwardVector,
-								   Matrix* dst)
-{
-	Vector3 delta(objectPosition, cameraPosition);
-	bool isSufficientDelta = false;//delta.lengthSquared() > MATH_EPSILON;
-
-	dst->setIdentity();
-	dst->m[3] = objectPosition.x;
-	dst->m[7] = objectPosition.y;
-	dst->m[11] = objectPosition.z;
-
-	// As per the contracts for the 2 variants of createBillboard, we need
-	// either a safe default or a sufficient distance between object and camera.
-    Vector3 target = isSufficientDelta ? cameraPosition : (objectPosition - cameraForwardVector);
-
-    // A billboard is the inverse of a lookAt rotation
-    Matrix lookAt;
-    Matrix::createLookAt(objectPosition, target, cameraUpVector, &lookAt);
-    dst->m[0] = lookAt.m[0];
-    dst->m[1] = lookAt.m[4];
-    dst->m[2] = lookAt.m[8];
-    dst->m[4] = lookAt.m[1];
-    dst->m[5] = lookAt.m[5];
-    dst->m[6] = lookAt.m[9];
-    dst->m[8] = lookAt.m[2];
-    dst->m[9] = lookAt.m[6];
-    dst->m[10] = lookAt.m[10];
-}
-
-gameplay::Quaternion Tile::getBillboardTransformation(gameplay::Camera* camera) {
+gameplay::Quaternion Tile::getBillboardTransformation() {
 	//update the first nodes position so we can use it to figure out the billboard transformation
 	physics_node->setTranslation(position.x, position.y, position.z);
 
 	gameplay::Quaternion q, p;
 	gameplay::Matrix m, m2;
 
-	createBillboardHelper(physics_node->getTranslationWorld(), camera->getNode()->getTranslationWorld(), camera->getNode()->getUpVectorWorld(), camera->getNode()->getForwardVector(), &m);
+	CameraControl::CreateBillboardHelper(physics_node->getTranslationWorld(), &m);
 
 	//the models from 3ds are coming in with z facing up, so need to retain that original orientation
 	m2.rotateX(90 * (MATH_PI / 180));
@@ -103,7 +78,7 @@ void Tile::Update(float dt) {
 			position.y = target_position.y;
 			move_delay = 0;
 			animation = NONE;
-			this->letterController->TileMovementCompleteCallback(this, false);
+			BoardView::get()->TileMovementCompleteCallback(this, false);
 		}
 		break;
 	}
@@ -131,7 +106,7 @@ void Tile::Update(float dt) {
 			this->is_selected = false;
 			animation = NONE;
 			//tell controller we're done shrinking
-			this->letterController->TileShrinkingCompleteCallback(this, false);
+			BoardView::get()->TileShrinkingCompleteCallback(this, false);
 		}
 		break;
 	}
@@ -165,7 +140,7 @@ void Tile::ApplyTranslation()
 
 	if (animation == NONE) {
 		//notified that will start to move
-		this->letterController->TileMovementCompleteCallback(this, true);
+		BoardView::get()->TileMovementCompleteCallback(this, true);
 	}
 
 	//if not currently moving or getting ready to move, set the delay
@@ -187,7 +162,7 @@ void Tile::PlayShrinkingAnimation()
 	//set it to selected, since this might reset
 	this->is_selected = true;
 	//we're staring to shrink, so tell controller
-	this->letterController->TileShrinkingCompleteCallback(this, true);
+	BoardView::get()->TileShrinkingCompleteCallback(this, true);
 
 	is_visible = true;
 	animation = SHRINKING;
@@ -195,14 +170,14 @@ void Tile::PlayShrinkingAnimation()
 }
 
 
-void Tile::Render(gameplay::Camera* camera) {
+void Tile::Render() {
 	gameplay::Quaternion p;
 	gameplay::Matrix m;
 
 	m.rotateX(90 * (MATH_PI / 180));
 	m.getRotation(&p);
 
-	p = getBillboardTransformation(camera);
+	p = getBillboardTransformation();
 
 	//make sure the physics node is also where it needs to be
 	int physics_node_height = physics_node->getModel()->getMesh()->getBoundingBox().max.z - physics_node->getModel()->getMesh()->getBoundingBox().min.z;

@@ -1,20 +1,22 @@
 #include "game.hpp"
 
 
-#include "letter_controller.hpp"
-#include "board/board_solver.hpp"
-#include "selected_text_label.hpp"
-#include "score_controller.hpp"
-#include "timer_controller.hpp"
-#include "menu_icon_controller.hpp"
 #include "../statistics.hpp"
 #include "../ext/scene_manager.hpp"
+
+#include "views/board_view.hpp"
+#include "views/selected_text_label.hpp"
+#include "views/score_view.hpp"
+#include "views/timer_controller.hpp"
+#include "views/menu_icon_controller.hpp"
+#include "views/time_tank_view.hpp"
+#include "board/board_solver.hpp"
 
 Words::Game* Words::Game::instance = NULL;
 
 bool Words::Game::HandleTouchDownEvent(gameplay::Ray& ray, int x, int y) 
 {
-	if (LetterController::HandleTouchDownEvent(ray, x, y)) {
+	if (BoardView::HandleTouchDownEvent(ray, x, y)) {
 		return true;
 	} else if (MenuIconController::HandleTouchDownEvent(ray, x, y)) {
 		return true;
@@ -26,7 +28,7 @@ bool Words::Game::HandleTouchDownEvent(gameplay::Ray& ray, int x, int y)
 bool Words::Game::HandleTouchUpEvent( gameplay::Ray& ray, int x, int y )
 {
 	//pass along the touch event to the controllers who are listening
-	LetterController::HandleTouchUpEvent(x, y);
+	BoardView::HandleTouchUpEvent(x, y);
 
 	return false;
 }
@@ -37,14 +39,16 @@ void Words::Game::Init(gameplay::Scene* scene)
 	Words::Game::instance->scene = scene;
 
 	DiceManager::Init();
-	LetterController::Init(scene);
+	BoardView::Init(scene);
 	Board::Init(scene->findNode("letter_tile"));
 	SelectedTextLabel::Init();
 	SelectedTextConnector::Init();
-	ScoreController::Init();
+	ScoreView::Init();
 	TimerController::Init();
 	BoardSolver::Init();
 	MenuIconController::Init();
+	TimerController::Init();
+	//TimeTankView::Init();
 }
 
 Words::Game* Words::Game::Get()
@@ -54,9 +58,9 @@ Words::Game* Words::Game::Get()
 
 void Words::Game::Update( float elapsedTime )
 {
-	ScoreController::Update(elapsedTime);
+	ScoreView::Update(elapsedTime);
 	TimerController::Update(elapsedTime);
-	LetterController::get()->Update(elapsedTime);
+	BoardView::get()->Update(elapsedTime);
 	SelectedTextLabel::get()->Update(elapsedTime);
 }
 
@@ -71,14 +75,17 @@ void Words::Game::Render()
 	SelectedTextLabel::get()->Render();
 
 	//render letter grid
-	LetterController::Render(this->scene->getActiveCamera());
+	BoardView::Render(this->scene->getActiveCamera());
 
 	//render score and timer
-	ScoreController::Render();
+	ScoreView::Render();
 	TimerController::Render();
 
 	//render the menu icon
 	MenuIconController::Render();
+
+	//render the time tanks
+	//TimeTankView::Render();
 }
 
 void Words::Game::NewGame()
@@ -90,10 +97,10 @@ void Words::Game::NewGame()
 	DiceManager::ReassignDice();
 
 	//initialize the actual letters
-	LetterController::InitializeLetters();
+	BoardView::InitializeLetters();
 
 	//set the score to 0
-	ScoreController::ResetScore();
+	ScoreView::ResetScore();
 
 	//reset time and kick if of
 	TimerController::Reset();
@@ -102,7 +109,7 @@ void Words::Game::NewGame()
 
 void Words::Game::GameOver()
 {
-	Statistics::RoundComplete(ScoreController::RoundPoints());
+	Statistics::RoundComplete(ScoreView::RoundPoints());
 	SceneManager::get()->GotoMenuScene(true);
 }
 

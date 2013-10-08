@@ -4,7 +4,7 @@
 #include <sstream>
 
 #include "gameplay.h"
-#include "../words.h"
+#include "../../words.h"
 
 class TimerController {
 private:

@@ -5,22 +5,24 @@
 #include <queue>
 
 #include "gameplay.h"
-#include "../game/board/board.hpp"
+#include "../../renderable_node_repository.hpp"
+#include "../board/board.hpp"
+#include "../board/board_solver.hpp"
+#include "../board/dice_manager.hpp"
+
 #include "tile.hpp"
-#include "../renderable_node_repository.hpp"
-#include "../game/board/dice_manager.hpp"
 #include "selected_text_label.hpp"
-#include "../game/board/board_solver.hpp"
-#include "score_controller.hpp"
+#include "score_view.hpp"
 #include "selected_text_connector.hpp"
 
-class LetterController {
+
+class BoardView {
 private:
 	/// Default constructor.
-	LetterController();
+	BoardView();
 
 	/// @summary	The instance.
-	static LetterController* instance;
+	static BoardView* instance;
 
 	/// @summary	The tiles.
 	std::vector<Tile*> tiles;
@@ -77,7 +79,7 @@ public:
 
 	/// Gets the singleton instance.
 	/// @return	null if it fails, else.
-	static LetterController* get();
+	static BoardView* get();
 
 	/// Creates a initial letter state
 	static void InitializeLetters();
@@ -94,6 +96,8 @@ public:
 	/// @param	y	The y coordinate.
 	static void HandleTouchUpEvent(int x, int y);
 
+	/// Renders the given camera.
+	/// @param [in,out]	camera	If non-null, the camera.
 	static void Render(gameplay::Camera* camera);
 };
 

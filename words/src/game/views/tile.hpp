@@ -4,12 +4,11 @@
 #include <vector>
 #include <math.h>
 
-#include "gameplay.h"
-#include "letter_controller.hpp"
-#include "../game/board/dice_manager.hpp"
+#include "../board/dice_manager.hpp"
+#include "../board/board_tile.hpp"
+#include "../board/board.hpp"
 
-class Tile;
-class LetterController;
+//#include "board_view.hpp"
 
 class TileLayer {
 friend class Tile;
@@ -27,7 +26,7 @@ public:
 
 ///-----------------------------------------------------------------------------------------------
 
-class Tile {
+class Tile : public BoardTile {
 private:
 	enum Animation { NONE, DELAYING_TO_MOVE, MOVING, SHRINKING, POPPING, POPPING_SNAP_BACK};
 
@@ -44,18 +43,14 @@ private:
 	float move_delay;
 
 	/// Gets a billboard transformation.
-	/// @param [in,out]	camera	If non-null, the camera.
 	/// @return	The billboard transformation.
-	gameplay::Quaternion getBillboardTransformation(gameplay::Camera* camera);
+	gameplay::Quaternion getBillboardTransformation();
 
 	/// @summary	The physics node.
 	gameplay::Node* physics_node;
 
 	//the scale factor of the physics node
 	float physics_node_scale;
-
-	/// @summary	The letter controller.
-	LetterController* letterController;
 
 	/// @summary	true if translation is dirty.
 	bool translation_is_dirty;
@@ -65,7 +60,7 @@ public:
 	
 	/// Constructor.
 	/// @param [in,out]	physics_node	If non-null, the physics node.
-	Tile(gameplay::Node* physics_node, LetterController* letterController);
+	Tile(gameplay::Node* physics_node);
 
 	/// @summary	true if this object is visible.
 	bool is_visible;
@@ -76,20 +71,11 @@ public:
 	/// @summary	The scale.
 	float scale;
 
-	/// @summary	The cell thats attached to this tile
-	BoardCell* cell;
-
 	/// @summary	The value of this tile (as text)
 	std::string value;
 
 	/// @summary	The position.
 	gameplay::Vector3 position;
-
-	/// @summary	Zero-based index of the row.
-	int row_index;
-
-	/// @summary	Zero-based index of the col.
-	int col_index;
 
 	/// Creates a layer of the specified type
 	///
@@ -107,14 +93,14 @@ public:
 	/// @param	x	The x coordinate.
 	/// @param	y	The y coordinate.
 	/// @param	z	The z coordinate.
-	void SetPosition(int x, int y, int z);
+	virtual void SetPosition(int x, int y, int z);
 
 	/// Sets a target position to translate to
 	/// @param	x	The x coordinate.
 	/// @param	y	The y coordinate.
 	/// @param	z	The z coordinate.
 	/// @param	delay	the delay
-	void TranslateTo(int x, int y, int z, float delay);
+	virtual void TranslateTo(int x, int y, int z, float delay);
 
 	/// Applies the translation animation
 	void ApplyTranslation();
@@ -131,16 +117,12 @@ public:
 
 	/// Renders the given camera.
 	/// @param [in,out]	camera	If non-null, the camera.
-	void Render(gameplay::Camera* camera);
+	void Render();
 
 	/// Query if this object intersects the given ray.
 	/// @param [in,out]	ray	The ray.
 	/// @return	true if it succeeds, false if it fails.
 	bool Intersects(gameplay::Ray& ray);
-
-	static void createBillboardHelper(const gameplay::Vector3& objectPosition, const gameplay::Vector3& cameraPosition,
-		const gameplay::Vector3& cameraUpVector, const gameplay::Vector3& cameraForwardVector,
-		gameplay::Matrix* dst);
 };
 
 

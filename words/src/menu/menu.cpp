@@ -1,6 +1,6 @@
 #include "menu.hpp"
 #include "../input_event_handler.hpp"
-#include "../game/score_controller.hpp"
+#include "../game/views/score_view.hpp"
 #include "../ext/scene_manager.hpp"
 
 //(width/height/crop-x/crop-y)
@@ -63,7 +63,7 @@ void Menu::Render()
 	start_y += menu_items_coords[6][1] + 20;
 
 	drawItem(5, text_start, start_y); //word count label
-	drawNumber(ScoreController::WordsForRound(), text_start + menu_items_coords[5][0] + 10, start_y); //word count text
+	drawNumber(ScoreView::WordsForRound(), text_start + menu_items_coords[5][0] + 10, start_y); //word count text
 	start_y += menu_items_coords[5][1] + 150;
 	menu_numbers->finish();
 

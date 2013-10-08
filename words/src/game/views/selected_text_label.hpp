@@ -4,7 +4,7 @@
 #include <vector>
 
 #include "gameplay.h"
-#include "../renderable_node_repository.hpp"
+#include "../../renderable_node_repository.hpp"
 
 class SelectedTextLabel {
 private:

@@ -64,9 +64,6 @@ private:
 	/// @summary	The camera node.
 	gameplay::Node* camera_node;
 
-	/// @summary	The camera control.
-	CameraControl* camera_control;
-
 	/// Draw splash.
 	/// @param [in,out]	param	If non-null, the parameter.
 	void drawSplash(void* param);

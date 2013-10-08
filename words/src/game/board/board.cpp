@@ -1,12 +1,13 @@
 #include "board.hpp"
 
-#include "../tile.hpp"
+#include "board_tile.hpp"
+#include "board_solver.hpp"
 #include "../../ext/board_file_loader.hpp"
 
 Board* Board::instance = NULL;
 long Board::start_time = 0;
 
-void BoardCell::AssignTile( Tile* tile, bool assignPosition)
+void BoardCell::AssignTile( BoardTile* tile, bool assignPosition)
 {
 	if (tile == NULL) {
 		this->tile = NULL;
@@ -113,7 +114,7 @@ void Board::DropTiles()
 	}
 }
 
-void Board::RemoveTileAndCleanupCell( Tile* tile )
+void Board::RemoveTileAndCleanupCell( BoardTile* tile )
 {
     if (tile->cell != NULL) {
         BoardCell* cell = tile->cell;
@@ -169,6 +170,10 @@ void Board::Init(gameplay::Node* letter_model ) {
 			column->cells[j] = cell;
 		}
 	}
+
+	//set dimensions and position
+	instance->bottom_left_x = start_x;
+	instance->bottom_left_y = start_y + (row_count - 1 * (y_space + letter_height));
 
 	instance->buildPrecomputerBoardsQueue();
 }

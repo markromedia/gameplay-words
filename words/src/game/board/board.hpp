@@ -11,7 +11,7 @@
 #include "../../ext/solver_worker.hpp"
 
 
-class Tile;
+class BoardTile;
 class BoardColumn;
 class Board;
 
@@ -36,13 +36,13 @@ private:
 public:
 	BoardColumn* parent_column;
 	int x;
-	int y;
+	int y; 
 	Dice* die;
-    Tile* tile;
+    BoardTile* tile;
 
 	/// Assign tile to this cell
 	/// @param [in,out]	tile	If non-null, the tile.
-	void AssignTile(Tile* tile, bool assignPosition = false);
+	void AssignTile(BoardTile* tile, bool assignPosition = false);
 
 	/// Query if this object is empty.
 	/// @return	true if empty, false if not.
@@ -88,13 +88,17 @@ private:
 	/// Builds the precomputer boards queue.
 	void buildPrecomputerBoardsQueue();
 public:
+
+	/// @summary	The position
+	int bottom_left_x, bottom_left_y;
+
 	/// Gets the static instance
 	/// @return	null if it fails, else.
 	static Board* get();
 
 	/// Removes the given tile from its cell
 	/// @param [in,out]	tile	If non-null, the Tile* to remove.
-	static void RemoveTileAndCleanupCell(Tile* tile);
+	static void RemoveTileAndCleanupCell(BoardTile* tile);
 
 	/// Adjust the tiles to fill in spaces 
 	static void DropTiles();

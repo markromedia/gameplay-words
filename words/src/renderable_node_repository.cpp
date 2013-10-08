@@ -60,6 +60,10 @@ void RenderableNodeRepository::Init(gameplay::Scene * scene) {
 	instance->initializeNode("tile_score_7","res/words.material#tile_score_7", letter_model->clone(), scene);
 	instance->initializeNode("tile_score_8","res/words.material#tile_score_8", letter_model->clone(), scene);
 	instance->initializeNode("tile_score_9","res/words.material#tile_score_9", letter_model->clone(), scene);
+
+	//init the active/inactive/progress ring for the time tanks
+	instance->initializeNode("time_tank_active","res/words.material#time_tank_active", letter_model->clone(), scene);
+	instance->initializeNode("time_tank_inactive","res/words.material#time_tank_inactive", letter_model->clone(), scene);
 }
 
 void RenderableNodeRepository::initializeNode(std::string id, const char* material_id, gameplay::Node* model_node, gameplay::Scene* scene) {

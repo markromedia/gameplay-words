@@ -2,7 +2,7 @@
 #define __MENU__hpp
 
 #include "gameplay.h"
-#include "../game/timer_controller.hpp"
+#include "../game/views/timer_controller.hpp"
 #include "../scene.hpp"
 //#include "librocket//RocketInterfaces.h"
 //#include <Rocket/Core.h>

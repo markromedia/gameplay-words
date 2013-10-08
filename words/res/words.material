@@ -35,6 +35,22 @@ material base
     }
 }
 
+material time_tank_active : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/time_tank_active.png
+    }
+}
+
+material time_tank_inactive : base
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/time_tank_inactive.png
+    }
+}
+
 material letter_layer_unselected_background : base
 {
     sampler u_diffuseTexture

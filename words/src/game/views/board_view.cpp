@@ -1,8 +1,10 @@
-#include "letter_controller.hpp"
+#include "board_view.hpp"
 
-LetterController* LetterController::instance = NULL;
+#include "tile.hpp"
 
-LetterController::LetterController()
+BoardView* BoardView::instance = NULL;
+
+BoardView::BoardView()
 {
 	tiles.reserve(16);
 	moving_tiles_count = 0;
@@ -10,9 +12,9 @@ LetterController::LetterController()
 	draw_selected_text = false;
 }
 
-void LetterController::Init(gameplay::Scene* scene)
+void BoardView::Init(gameplay::Scene* scene)
 {
-	instance = new LetterController();
+	instance = new BoardView();
 
 	//the model we'll use for the physics stuff
 	gameplay::Node* letter_model = scene->findNode("letter_tile");
@@ -28,7 +30,7 @@ void LetterController::Init(gameplay::Scene* scene)
 		physics_node->setCollisionObject(gameplay::PhysicsCollisionObject::RIGID_BODY, gameplay::PhysicsCollisionShape::box(), &params);
 		scene->addNode(physics_node);
 
-		Tile* tile = new Tile(physics_node, instance);
+		Tile* tile = new Tile(physics_node);
 		//add ref to the tile
 		physics_node->setUserPointer(tile);
 
@@ -41,7 +43,7 @@ void LetterController::Init(gameplay::Scene* scene)
 	}
 }
 
-void LetterController::assignTileToCell( BoardCell* cell, Tile* tile )
+void BoardView::assignTileToCell( BoardCell* cell, Tile* tile )
 {
 	//assign grid values and tie it to the cell
 	cell->AssignTile(tile, true);
@@ -52,10 +54,10 @@ void LetterController::assignTileToCell( BoardCell* cell, Tile* tile )
 	tile->value = cell->die->getAssignedLetter();
 	//assign rendenderables
 	tile->GetLayer(Tile::ICON)->SetRenderableNode(RENDERABLE(letter_material));
-	ScoreController::AssignScoreLayer(tile);
+	ScoreView::AssignScoreLayer(tile);
 }
 
-void LetterController::refillEmptyBoardCells()
+void BoardView::refillEmptyBoardCells()
 {
 	//tell board to assign its letters
 	Board::AssignBoard();
@@ -80,7 +82,7 @@ void LetterController::refillEmptyBoardCells()
 	}
 }
 
-void LetterController::InitializeLetters()
+void BoardView::InitializeLetters()
 {
 	//Tell the board to create a new board
 	Board::CreateNewBoardFromPrecalculatedBoards();
@@ -101,7 +103,7 @@ void LetterController::InitializeLetters()
 	}
 }
 
-bool LetterController::HandleTouchDownEvent(gameplay::Ray& ray, int x, int y )
+bool BoardView::HandleTouchDownEvent(gameplay::Ray& ray, int x, int y )
 {
 	//check all the registered tiles to see if they intersect
 	for(std::vector<Tile*>::iterator it = instance->tiles.begin(); it != instance->tiles.end(); ++it) {			
@@ -119,14 +121,14 @@ bool LetterController::HandleTouchDownEvent(gameplay::Ray& ray, int x, int y )
 	return false;
 }
 
-void LetterController::HandleTouchUpEvent(int x, int y)
+void BoardView::HandleTouchUpEvent(int x, int y)
 {
 	instance->do_check_selected_letters = true;
 	instance->last_known_touch.x = x;
 	instance->last_known_touch.y = y;
 }
 
-void LetterController::checkSelectedLetters() {
+void BoardView::checkSelectedLetters() {
 	if (instance->selected_tiles.size() == 0) {
 		return;
 	}
@@ -141,7 +143,7 @@ void LetterController::checkSelectedLetters() {
 
 	if (selected_text.length() > 1 && BoardSolver::IsWord(selected_text.c_str())) {
 		//add to the points
-		ScoreController::AddToScore(selected_tiles, &last_known_touch);
+		ScoreView::AddToScore(selected_tiles, &last_known_touch);
         
         //remove the selected tiles
 		for(std::vector<Tile*>::iterator it = instance->selected_tiles.begin(); it != instance->selected_tiles.end(); ++it) {
@@ -179,9 +181,9 @@ void LetterController::checkSelectedLetters() {
 	instance->selected_tiles.clear();
 }
 
-void LetterController::Render(gameplay::Camera* camera)
+void BoardView::Render(gameplay::Camera* camera)
 {
-	SelectedTextConnector::Draw(camera, instance->selected_tiles);
+	SelectedTextConnector::Draw(instance->selected_tiles);
 	for(std::vector<Tile*>::iterator it = instance->tiles.begin(); it != instance->tiles.end(); ++it) {			
 		Tile* tile = *it;
 		if (tile->is_selected) {
@@ -192,12 +194,12 @@ void LetterController::Render(gameplay::Camera* camera)
 		}
 
 		if (tile->is_visible) {
-			tile->Render(camera);
+			tile->Render();
 		}
 	}
 }
 
-void LetterController::Update( float dt )
+void BoardView::Update( float dt )
 {
 	if (do_check_selected_letters) {
 		instance->checkSelectedLetters();
@@ -221,12 +223,12 @@ void LetterController::Update( float dt )
 	}
 }
 
-LetterController* LetterController::get()
+BoardView* BoardView::get()
 {
 	return instance;
 }
 
-void LetterController::TileMovementCompleteCallback( Tile* tile, bool is_starting )
+void BoardView::TileMovementCompleteCallback( Tile* tile, bool is_starting )
 {
 	if (is_starting) {
 		moving_tiles_count++;
@@ -240,7 +242,7 @@ void LetterController::TileMovementCompleteCallback( Tile* tile, bool is_startin
 	}
 }
 
-void LetterController::TileShrinkingCompleteCallback( Tile* tile, bool is_starting )
+void BoardView::TileShrinkingCompleteCallback( Tile* tile, bool is_starting )
 {
 	if (is_starting) {
 		shrinking_tiles_count++;

@@ -10,7 +10,7 @@
 
 class Tile;
 
-class ScoreController {
+class ScoreView {
 private:
 	enum PointsAnimation { NONE, POPPING, SHRINKING, STEADY, FADING };
 
@@ -18,7 +18,7 @@ private:
 	gameplay::Font* font;
 
 	/// @summary	The instance.
-	static ScoreController* instance;
+	static ScoreView* instance;
 
 	/// @summary	The current displayed points.
 	int game_points;

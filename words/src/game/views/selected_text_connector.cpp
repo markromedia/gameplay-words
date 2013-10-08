@@ -1,5 +1,8 @@
 #include "selected_text_connector.hpp"
 
+#include "../../renderable_node_repository.hpp"
+#include "../../camera_control.hpp"
+
 using namespace gameplay;
 
 SelectedTextConnector* SelectedTextConnector::instance = NULL;
@@ -17,7 +20,7 @@ void SelectedTextConnector::Init()
 }
 
 
-void SelectedTextConnector::Draw(Camera* camera, std::vector<Tile*> tiles_to_draw)
+void SelectedTextConnector::Draw(std::vector<Tile*> tiles_to_draw)
 {
 	if (tiles_to_draw.size() < 2) {
 		return;
@@ -105,7 +108,7 @@ void SelectedTextConnector::Draw(Camera* camera, std::vector<Tile*> tiles_to_dra
 		m.rotateY(MATH_DEG_TO_RAD(rot));
 		m.getRotation(&p);
 
-		q = getBillboardTransformation(camera);
+		q = getBillboardTransformation();
 
 		//premultiply our z axis rotation
 		gameplay::Quaternion::multiply(q, p, &q);
@@ -117,12 +120,12 @@ void SelectedTextConnector::Draw(Camera* camera, std::vector<Tile*> tiles_to_dra
 	instance->connector_batch->finish();
 }
 
-gameplay::Quaternion SelectedTextConnector::getBillboardTransformation(gameplay::Camera* camera) {
+gameplay::Quaternion SelectedTextConnector::getBillboardTransformation() {
 
 	gameplay::Quaternion q, p;
 	gameplay::Matrix m, m2;
 
-	Tile::createBillboardHelper(instance->connector_node->getTranslationWorld(), camera->getNode()->getTranslationWorld(), camera->getNode()->getUpVectorWorld(), camera->getNode()->getForwardVector(), &m);
+	CameraControl::CreateBillboardHelper(instance->connector_node->getTranslationWorld(), &m);
 
 	//the models are facing the other way, rotate them
 	m2.rotateX(90 * (MATH_PI / 180));
