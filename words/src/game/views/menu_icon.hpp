@@ -7,10 +7,10 @@
 
 #include "gameplay.h"
 
-class MenuIconController {
+class MenuIcon {
 private:
 	/// Default constructor.
-	MenuIconController();
+	MenuIcon();
 
 	/// @summary	The numbers.
 	gameplay::SpriteBatch* menu_icon;
@@ -20,7 +20,7 @@ private:
 	bool visible;
 
 	/// @summary	The instance.
-	static MenuIconController* instance;
+	static MenuIcon* instance;
 
 	/// @summary	Source rectangle.
 	gameplay::Rectangle src_rect;

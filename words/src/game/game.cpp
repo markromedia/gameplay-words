@@ -4,11 +4,12 @@
 #include "../statistics.hpp"
 #include "../ext/scene_manager.hpp"
 
+#include "game_state_model.hpp"
 #include "views/board_view.hpp"
 #include "views/selected_text_label.hpp"
 #include "views/score_view.hpp"
 #include "views/timer_controller.hpp"
-#include "views/menu_icon_controller.hpp"
+#include "views/menu_icon.hpp"
 #include "views/time_tank_view.hpp"
 #include "board/board_solver.hpp"
 
@@ -18,7 +19,7 @@ bool Words::Game::HandleTouchDownEvent(gameplay::Ray& ray, int x, int y)
 {
 	if (BoardView::HandleTouchDownEvent(ray, x, y)) {
 		return true;
-	} else if (MenuIconController::HandleTouchDownEvent(ray, x, y)) {
+	} else if (MenuIcon::HandleTouchDownEvent(ray, x, y)) {
 		return true;
 	} 
 
@@ -38,6 +39,7 @@ void Words::Game::Init(gameplay::Scene* scene)
 	Words::Game::instance = new Words::Game();
 	Words::Game::instance->scene = scene;
 
+	GameStateModel::Reset();
 	DiceManager::Init();
 	BoardView::Init(scene);
 	Board::Init(scene->findNode("letter_tile"));
@@ -46,9 +48,9 @@ void Words::Game::Init(gameplay::Scene* scene)
 	ScoreView::Init();
 	TimerController::Init();
 	BoardSolver::Init();
-	MenuIconController::Init();
+	MenuIcon::Init();
 	TimerController::Init();
-	//TimeTankView::Init();
+	TimeTankView::Init();
 }
 
 Words::Game* Words::Game::Get()
@@ -58,6 +60,12 @@ Words::Game* Words::Game::Get()
 
 void Words::Game::Update( float elapsedTime )
 {
+	GameStateModel::Update(elapsedTime);
+	if (GameStateModel::TimeRemaining() <= 0) {
+		GameOver();
+		return;
+	}
+
 	ScoreView::Update(elapsedTime);
 	TimerController::Update(elapsedTime);
 	BoardView::get()->Update(elapsedTime);
@@ -82,7 +90,7 @@ void Words::Game::Render()
 	TimerController::Render();
 
 	//render the menu icon
-	MenuIconController::Render();
+	MenuIcon::Render();
 
 	//render the time tanks
 	//TimeTankView::Render();
@@ -90,6 +98,9 @@ void Words::Game::Render()
 
 void Words::Game::NewGame()
 {
+	//reset game state
+	GameStateModel::Reset();
+
 	//reset statistics
 	Statistics::StartNewRound();
 
@@ -98,18 +109,11 @@ void Words::Game::NewGame()
 
 	//initialize the actual letters
 	BoardView::InitializeLetters();
-
-	//set the score to 0
-	ScoreView::ResetScore();
-
-	//reset time and kick if of
-	TimerController::Reset();
-	TimerController::StartTimer();
 }
 
 void Words::Game::GameOver()
 {
-	Statistics::RoundComplete(ScoreView::RoundPoints());
+	Statistics::RoundComplete(GameStateModel::GamePoints());
 	SceneManager::get()->GotoMenuScene(true);
 }
 

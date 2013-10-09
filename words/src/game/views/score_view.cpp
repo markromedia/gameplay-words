@@ -1,6 +1,7 @@
 #include "../../renderable_node_repository.hpp"
 #include "../../statistics.hpp"
 
+#include "../game_state_model.hpp"
 #include "score_view.hpp"
 #include "tile.hpp"
 #include "timer_controller.hpp"
@@ -86,7 +87,7 @@ void ScoreView::AddToScore( std::vector<Tile*> selected_tiles, gameplay::Vector2
 	int level;
 	bool is_level_set = false;
 	for (int i = 5; i >= 0; i--) {
-		if (TimerController::TotalTimeForGame() >= ScoreView::time_levels[i] && !is_level_set) {
+		if (GameStateModel::TotalTime() >= ScoreView::time_levels[i] && !is_level_set) {
 			level = i;
 			is_level_set = true;
 		}
@@ -96,7 +97,7 @@ void ScoreView::AddToScore( std::vector<Tile*> selected_tiles, gameplay::Vector2
 	float time_to_add = (6 - level) / 6 * instance->points_for_word * 1000;
 
 	//3) add to the time to total
-	TimerController::AddTime(time_to_add);
+	GameStateModel::AddTime(time_to_add);
 
 	//add to the statistics
 	Statistics::AddWordToRound(ss.str(), instance->points_for_word);
@@ -220,15 +221,5 @@ void ScoreView::AssignScoreLayer( Tile* tile )
 		ss << "tile_score_" << value;
 		tile->GetLayer(Tile::SCORE)->SetRenderableNode(RENDERABLE(ss.str()));
 	}
-}
-
-int ScoreView::RoundPoints()
-{
-	return instance->game_points;
-}
-
-int ScoreView::WordsForRound()
-{
-	return instance->words;
 }
 

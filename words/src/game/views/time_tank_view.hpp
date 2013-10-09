@@ -1,5 +1,5 @@
-#ifndef __TIME_TANK_CONTROLLER__hpp
-#define __TIME_TANK_CONTROLLER__hpp
+#ifndef __TIME_TANK_VIEW__hpp
+#define __TIME_TANK_VIEW__hpp
 
 #include <vector>
 
@@ -77,4 +77,4 @@ public:
 };
 
 
-#endif  // __TIME_TANK_CONTROLLER__hpp
+#endif  // __TIME_TANK_VIEW__hpp

@@ -1,11 +1,11 @@
-#include "menu_icon_controller.hpp"
+#include "menu_icon.hpp"
 
 #include "../../words.h"
 #include "../../ext/scene_manager.hpp"
 
-MenuIconController* MenuIconController::instance = NULL;
+MenuIcon* MenuIcon::instance = NULL;
 
-MenuIconController::MenuIconController()
+MenuIcon::MenuIcon()
 {
 	this->menu_icon = gameplay::SpriteBatch::create("res/png/settings_icon.png");
 	this->visible = true;
@@ -24,23 +24,23 @@ MenuIconController::MenuIconController()
 	dest_rect = gameplay::Rectangle(x_pos, y_pos, icon_width, icon_height);
 }
 
-void MenuIconController::Init()
+void MenuIcon::Init()
 {
-	MenuIconController::instance = new MenuIconController();
+	MenuIcon::instance = new MenuIcon();
 }
 
-void MenuIconController::SetVisibility(bool visible) 
+void MenuIcon::SetVisibility(bool visible) 
 {
 	instance->visible = visible;
 }
 
-bool MenuIconController::IsVisible() 
+bool MenuIcon::IsVisible() 
 {
 	return instance->visible;
 }
 
 
-void MenuIconController::Render()
+void MenuIcon::Render()
 {
 	if (!instance->visible) {
 		return;
@@ -51,7 +51,7 @@ void MenuIconController::Render()
 	instance->menu_icon->finish();
 }
 
-bool MenuIconController::HandleTouchDownEvent(gameplay::Ray& ray, int x, int y)
+bool MenuIcon::HandleTouchDownEvent(gameplay::Ray& ray, int x, int y)
 {
 	if (!instance->visible) {
 		return false;

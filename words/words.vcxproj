@@ -454,7 +454,7 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <None Include="res\words.material" />
     <None Include="res\words_scene.FBX" />
     <None Include="res\words_scene.gpb" />
-    <None Include="src\game\views\menu_icon_controller.hpp" />
+    <None Include="src\game\views\menu_icon.hpp" />
     <None Include="words-ios.plist" />
     <None Include="words-macosx.plist" />
   </ItemGroup>
@@ -465,9 +465,10 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <ClCompile Include="src\game\board\board.cpp" />
     <ClCompile Include="src\game\board\dice_manager.cpp" />
     <ClCompile Include="src\game\game.cpp" />
+    <ClCompile Include="src\game\game_state_model.cpp" />
     <ClCompile Include="src\game\views\time_tank_view.cpp" />
     <ClCompile Include="src\menu\menu.cpp" />
-    <ClCompile Include="src\game\views\menu_icon_controller.cpp" />
+    <ClCompile Include="src\game\views\menu_icon.cpp" />
     <ClCompile Include="src\perf-solver\boggler.cc" />
     <ClCompile Include="src\perf-solver\boggle_solver.cc" />
     <ClCompile Include="src\perf-solver\trie.cc" />
@@ -493,6 +494,7 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <ClInclude Include="src\game\board\board_tile.hpp" />
     <ClInclude Include="src\game\board\dice_manager.hpp" />
     <ClInclude Include="src\game\game.hpp" />
+    <ClInclude Include="src\game\game_state_model.hpp" />
     <ClInclude Include="src\game\views\time_tank_view.hpp" />
     <ClInclude Include="src\menu\menu.hpp" />
     <ClInclude Include="src\perf-solver\boggler.h" />

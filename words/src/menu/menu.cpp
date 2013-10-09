@@ -1,6 +1,6 @@
 #include "menu.hpp"
 #include "../input_event_handler.hpp"
-#include "../game/views/score_view.hpp"
+#include "../game/game_state_model.hpp"
 #include "../ext/scene_manager.hpp"
 
 //(width/height/crop-x/crop-y)
@@ -59,11 +59,11 @@ void Menu::Render()
 	//draw text
 	menu_numbers->start();
 	drawItem(6, text_start, start_y); //time label
-	drawNumber(TimerController::TotalTimeForGame() / 1000, text_start + menu_items_coords[6][0] + 10, start_y); //score text
+	drawNumber(GameStateModel::TotalTime() / 1000, text_start + menu_items_coords[6][0] + 10, start_y); //score text
 	start_y += menu_items_coords[6][1] + 20;
 
 	drawItem(5, text_start, start_y); //word count label
-	drawNumber(ScoreView::WordsForRound(), text_start + menu_items_coords[5][0] + 10, start_y); //word count text
+	drawNumber(GameStateModel::WordCount(), text_start + menu_items_coords[5][0] + 10, start_y); //word count text
 	start_y += menu_items_coords[5][1] + 150;
 	menu_numbers->finish();
 
