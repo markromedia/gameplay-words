@@ -93,7 +93,7 @@ void Words::Game::Render()
 	MenuIcon::Render();
 
 	//render the time tanks
-	//TimeTankView::Render();
+	TimeTankView::Render();
 }
 
 void Words::Game::NewGame()
@@ -109,6 +109,10 @@ void Words::Game::NewGame()
 
 	//initialize the actual letters
 	BoardView::InitializeLetters();
+
+	//initialize powersups/time tanks
+	TimeTankView::Reset();
+
 }
 
 void Words::Game::GameOver()

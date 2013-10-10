@@ -5,8 +5,40 @@
 
 #include "gameplay.h"
 
-/**
-class TimeTankView;
+class TimeTank;
+
+class TimeTankView {
+private:
+
+	/// @summary	The instance.
+	static TimeTankView* instance;
+
+	/// Default constructor.
+	TimeTankView();
+
+	/// @summary	The time tank repository.
+	std::vector<TimeTank*> time_tank_repository;
+
+	/// @summary	The active time tanks.
+	std::vector<TimeTank*> active_time_tanks;
+
+	int active_tank_index;
+public:
+
+	/// Initialises this object.
+	static void Init();
+
+	/// Updates the given delay.
+	/// @param	delay	The delay.
+	static void Update(float delay);
+
+	/// Renders this object.
+	static void Render();
+
+	/// Resets this object.
+	static void Reset();
+};
+
 
 class TimeTank {
 	friend class TimeTankView;
@@ -32,6 +64,9 @@ private:
 
 	/// @summary	Target alpha.
 	float target_alpha;
+
+	/// @summary	Zero-based index of the.
+	int index;
 public:
 
 	/// Default constructor.
@@ -44,37 +79,5 @@ public:
 	/// Renders this object.
 	void Render();
 };
-**/
-
-
-class TimeTankView {
-private:
-
-	/// @summary	The instance.
-	static TimeTankView* instance;
-
-	/// Default constructor.
-	TimeTankView();
-
-	/// @summary	The time tank repository.
-	//std::vector<TimeTank*> time_tank_repository;
-
-	/// @summary	The active time tanks.
-	//std::vector<TimeTank*> active_time_tanks;
-
-	int active_tank_index;
-public:
-
-	/// Initialises this object.
-	static void Init();
-
-	/// Updates the given delay.
-	/// @param	delay	The delay.
-	static void Update(float delay);
-
-	/// Renders this object.
-	static void Render();
-};
-
 
 #endif  // __TIME_TANK_VIEW__hpp

@@ -98,6 +98,7 @@ void ScoreView::AddToScore( std::vector<Tile*> selected_tiles, gameplay::Vector2
 
 	//3) add to the time to total
 	GameStateModel::AddTime(time_to_add);
+	GameStateModel::AddWordPoints(instance->points_for_word);
 
 	//add to the statistics
 	Statistics::AddWordToRound(ss.str(), instance->points_for_word);
