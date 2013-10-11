@@ -2,6 +2,7 @@
 #define __TIME_TANK_VIEW__hpp
 
 #include <vector>
+#include <math.h>
 
 #include "gameplay.h"
 
@@ -44,7 +45,7 @@ class TimeTank {
 	friend class TimeTankView;
 private:
 	/// Values that represent Mode.
-	enum Mode { ACTIVE, INACTIVE, PROGESSING};
+	enum Mode { ACTIVE, INACTIVE, PROGESSING, SHRINKING};
 
 	/// @summary	the position
 	gameplay::Vector3 position;
@@ -55,6 +56,9 @@ private:
 	/// @summary	The inactive renderable node.
 	gameplay::Node* inactive_renderable_node;
 
+	/// @summary	The progress ring renderable node.
+	gameplay::Node* progress_ring_renderable_node;
+
 	/// Gets the billboard transformation.
 	/// @return	The billboard transformation.
 	gameplay::Quaternion getBillboardTransformation();
@@ -62,8 +66,11 @@ private:
 	/// @summary	The mode.
 	Mode mode;
 
-	/// @summary	Target alpha.
-	float target_alpha;
+	/// @summary	current charge
+	float current_charge;
+
+	/// @summary	Target charge.
+	float target_charge;
 
 	/// @summary	Zero-based index of the.
 	int index;

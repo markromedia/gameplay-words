@@ -449,6 +449,7 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <None Include="res\shaders\textured-unlit.vert" />
     <None Include="res\shaders\textured.frag" />
     <None Include="res\shaders\textured.vert" />
+    <None Include="res\shaders\time_tank.frag" />
     <None Include="res\tile.FBX" />
     <None Include="res\tile.gpb" />
     <None Include="res\words.material" />

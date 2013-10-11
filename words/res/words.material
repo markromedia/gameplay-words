@@ -35,6 +35,44 @@ material base
     }
 }
 
+material time_tank_progress
+{
+    technique
+    {
+        pass 0
+        {
+            // shaders
+            vertexShader = res/shaders/textured-unlit.vert
+            fragmentShader = res/shaders/time_tank.frag
+
+			//uniforms
+			u_worldViewProjectionMatrix = WORLD_VIEW_PROJECTION_MATRIX
+        }
+    }
+	            
+    // samplers
+    sampler u_diffuseTexture
+    {
+        path = res/png/time_tank_progress_ring.png
+        mipmap = true
+        wrapS = CLAMP
+        wrapT = CLAMP
+        minFilter = NEAREST_MIPMAP_LINEAR
+        magFilter = LINEAR
+    }
+
+    // render state
+    renderState
+    {
+        cullFace = true
+        depthTest = false
+		blend = true
+		blendSrc = SRC_ALPHA
+		blendDst = ONE_MINUS_SRC_ALPHA
+    }
+}
+
+
 material time_tank_active : base
 {
     sampler u_diffuseTexture

@@ -61,16 +61,33 @@ void TimeTankView::Reset()
 TimeTank::TimeTank()
 {	this->active_renderable_node = RENDERABLE("time_tank_active");
 	this->inactive_renderable_node = RENDERABLE("time_tank_inactive");
+	this->progress_ring_renderable_node = RENDERABLE("time_tank_progress_ring");
 
-	this->inactive_renderable_node->setScale(0.5f);
-	this->active_renderable_node->setScale(0.5f);
 
 	this->mode = INACTIVE;
+	this->current_charge = 0;
 }
 
 void TimeTank::Update( float delay )
 {
+	TimeTankModel* model = GameStateModel::TimeTanks()[index];
+	this->target_charge = model->CurrentCharge();
 
+	//based on charge target and current charge, figure out mode
+	if (std::abs(this->target_charge - this->current_charge) < 1) {
+		this->current_charge = this->target_charge;
+		if (model->IsCharged())
+			this->mode = ACTIVE;
+		else
+			this->mode = INACTIVE;
+	} else if (this->current_charge < this->target_charge) {
+		this->mode = PROGESSING;
+	}
+
+	if (this->mode == PROGESSING)
+	{
+		current_charge += (target_charge - current_charge) * (delay / (delay + 1024));
+	}
 }
 
 void TimeTank::Render()
@@ -92,11 +109,30 @@ void TimeTank::Render()
 
 	}
 
+	//update scale
+	this->inactive_renderable_node->setScale(0.5f);
+	this->active_renderable_node->setScale(0.5f);
+	this->progress_ring_renderable_node ->setScale(0.5f);
+
+	//update position
 	gameplay::Quaternion q;
 	q = getBillboardTransformation();
 	node_to_draw->setRotation(q);
+	progress_ring_renderable_node->setRotation(q);
+	
+	progress_ring_renderable_node->setTranslation(position.x, position.y, position.z);
 	node_to_draw->setTranslation(position.x, position.y, position.z);
+
+	//draw the main image
 	node_to_draw->getModel()->draw();
+
+	//if progressing, figure out alpha threshold and draw
+	if (mode == PROGESSING) {
+		float alpha_threshold = this->current_charge / this->target_charge;
+		
+		progress_ring_renderable_node->getModel()->getMaterial()->getParameter("u_alphaThreshold")->setValue(alpha_threshold);
+		progress_ring_renderable_node->getModel()->draw();
+	}
 }
 
 gameplay::Quaternion TimeTank::getBillboardTransformation() {

@@ -70,6 +70,7 @@ void Words::Game::Update( float elapsedTime )
 	TimerController::Update(elapsedTime);
 	BoardView::get()->Update(elapsedTime);
 	SelectedTextLabel::get()->Update(elapsedTime);
+	TimeTankView::Update(elapsedTime);
 }
 
 void Words::Game::Render()

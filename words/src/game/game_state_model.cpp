@@ -5,7 +5,7 @@ GameStateModel* GameStateModel::instance;
 static const float START_TIME = (30 * 1000) - 1;
 static const int MAX_TIME_TANKS = 5;
 static const int TIME_TANK_COUNT = 5;
-static const int TIME_TANK_MAX_CHARGE = 100;
+static const int TIME_TANK_MAX_CHARGE = 25;
 
 ///-----------------------------------------------------------------------------------------------
 
