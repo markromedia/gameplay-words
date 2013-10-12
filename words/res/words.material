@@ -44,6 +44,7 @@ material time_tank_progress
             // shaders
             vertexShader = res/shaders/textured-unlit.vert
             fragmentShader = res/shaders/time_tank.frag
+			defines = INACTIVE_COLOR_ENABLED
 
 			//uniforms
 			u_worldViewProjectionMatrix = WORLD_VIEW_PROJECTION_MATRIX
@@ -84,6 +85,20 @@ material time_tank_progress
 
 material time_tank_progress_glow : time_tank_progress
 {
+    technique
+    {
+        pass 0
+        {
+            // shaders
+            vertexShader = res/shaders/textured-unlit.vert
+            fragmentShader = res/shaders/time_tank.frag
+			defines = 
+
+			//uniforms
+			u_worldViewProjectionMatrix = WORLD_VIEW_PROJECTION_MATRIX
+        }
+    }
+
     sampler u_diffuseTexture
     {
         path = res/png/time_tank_progress_ring_glow.png

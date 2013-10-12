@@ -15,7 +15,6 @@ varying vec2 v_texCoord0;                	// Texture coordinate(u, v)
 
 uniform float u_alphaThreshold;
 
-
 void main()
 {
     // Sample the texture for the color
@@ -26,8 +25,12 @@ void main()
 
 	vec4 gradient_color = texture2D(u_timerGradient, v_texCoord0);
 	if (gradient_color.r > u_alphaThreshold) {
-		//gl_FragColor = vec4(0, 0, 0, 1);
+	#if defined(INACTIVE_COLOR_ENABLED)
+		vec3 inactive_color = vec3(.46, .46, .46);
+		gl_FragColor.rgb = inactive_color.rgb;
+	#else
 		discard;
+	#endif
 	}
 	 
     // Global color modulation
