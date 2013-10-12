@@ -397,9 +397,11 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <None Include="res\png\tile_score_7.png" />
     <None Include="res\png\tile_score_8.png" />
     <None Include="res\png\tile_score_9.png" />
+    <None Include="res\png\timer_gradient.png" />
     <None Include="res\png\time_tank_active.png" />
     <None Include="res\png\time_tank_inactive.png" />
     <None Include="res\png\time_tank_progress_ring.png" />
+    <None Include="res\png\time_tank_progress_ring_glow.png" />
     <None Include="res\rocket\Delicious-Bold.otf" />
     <None Include="res\rocket\Delicious-BoldItalic.otf" />
     <None Include="res\rocket\Delicious-Italic.otf" />

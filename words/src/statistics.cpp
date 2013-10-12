@@ -25,20 +25,20 @@ void Statistics::AddWordToRound( std::string word, int points )
 
 void Statistics::RoundComplete( int round_points )
 {
-	if (RestHandler::get()->HasInternetConnection()) {
-		while (!instance->queued_round_data.empty()) {
-			RoundData* round = instance->queued_round_data.front();
-			instance->queued_round_data.pop();
+	//if (RestHandler::get()->HasInternetConnection()) {
+	//	while (!instance->queued_round_data.empty()) {
+	//		RoundData* round = instance->queued_round_data.front();
+	//		instance->queued_round_data.pop();
 
-			RoundLog roundLog;
-			roundLog.score = round_points;
-			roundLog.points = round->points_for_round->str();
-			roundLog.words = round->words_for_round->str();
-			roundLog.version = APP_VERSION;
+	//		RoundLog roundLog;
+	//		roundLog.score = round_points;
+	//		roundLog.points = round->points_for_round->str();
+	//		roundLog.words = round->words_for_round->str();
+	//		roundLog.version = APP_VERSION;
 
-			////RestHandler::get()->SubmitRoundLog(&roundLog);
+	//		////RestHandler::get()->SubmitRoundLog(&roundLog);
 
-			delete round;
-		}
-	} 
+	//		delete round;
+	//	}
+	//} 
 }

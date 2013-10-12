@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <math.h>
+#include <sstream>
 
 #include "gameplay.h"
 
@@ -45,7 +46,7 @@ class TimeTank {
 	friend class TimeTankView;
 private:
 	/// Values that represent Mode.
-	enum Mode { ACTIVE, INACTIVE, PROGESSING, SHRINKING};
+	enum Mode { ACTIVE, INACTIVE, SHRINKING};
 
 	/// @summary	the position
 	gameplay::Vector3 position;
@@ -58,6 +59,9 @@ private:
 
 	/// @summary	The progress ring renderable node.
 	gameplay::Node* progress_ring_renderable_node;
+
+	/// @summary	The progress ring renderable node glow
+	gameplay::Node* progress_ring_renderable_node_glow;
 
 	/// Gets the billboard transformation.
 	/// @return	The billboard transformation.
@@ -72,8 +76,17 @@ private:
 	/// @summary	Target charge.
 	float target_charge;
 
+	/// @summary	The maximum charge.
+	float max_charge;
+
+	/// @summary	The alpha threshold.
+	float alpha_threshold;
+
 	/// @summary	Zero-based index of the.
 	int index;
+
+	/// @summary	true if this object is progressing.
+	bool is_progressing;
 public:
 
 	/// Default constructor.

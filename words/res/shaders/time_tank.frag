@@ -4,21 +4,14 @@ precision highp float;
 
 // Uniforms
 uniform sampler2D u_diffuseTexture;     	// Diffuse texture
-#if defined(TEXTURE_LIGHTMAP)
-uniform sampler2D u_lightmapTexture;     	// Lightmap texture
-#endif
-#if defined(MODULATE_COLOR)
-uniform vec4 u_modulateColor;               // Modulation color
-#endif
+uniform sampler2D u_timerGradient;			// Timer gradient
+
 #if defined(MODULATE_ALPHA)
 uniform float u_modulateAlpha;              // Modulation alpha
 #endif
 
 // Varyings
 varying vec2 v_texCoord0;                	// Texture coordinate(u, v)
-#if defined(TEXCOORD1)
-varying vec2 v_texCoord1;                   // Second tex coord for multi-texturing
-#endif
 
 uniform float u_alphaThreshold;
 
@@ -27,24 +20,18 @@ void main()
 {
     // Sample the texture for the color
     gl_FragColor = texture2D(u_diffuseTexture, v_texCoord0);
-    if (gl_FragColor.a > u_alphaThreshold)
+    if (gl_FragColor.a == 0) {
         discard;
-    #if defined(TEXTURE_LIGHTMAP)
-    #if defined(TEXCOORD1)
-    vec4 lightColor = texture2D(u_lightmapTexture, v_texCoord1);
-    #else
-    vec4 lightColor = texture2D(u_lightmapTexture, v_texCoord0);
-    #endif
-    gl_FragColor.rgb *= lightColor.rgb;
-    #endif
+	}
+
+	vec4 gradient_color = texture2D(u_timerGradient, v_texCoord0);
+	if (gradient_color.r > u_alphaThreshold) {
+		//gl_FragColor = vec4(0, 0, 0, 1);
+		discard;
+	}
+	 
     // Global color modulation
-    #if defined(MODULATE_COLOR)
-    gl_FragColor *= u_modulateColor;
-    #endif
     #if defined(MODULATE_ALPHA)
     gl_FragColor.a *= u_modulateAlpha;
     #endif
-
-	if (gl_FragColor.a > 0)
-		gl_FragColor.a = 1;
 }

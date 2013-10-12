@@ -61,6 +61,16 @@ material time_tank_progress
         magFilter = LINEAR
     }
 
+	sampler u_timerGradient
+    {
+        path = res/png/timer_gradient.png
+        mipmap = true
+        wrapS = CLAMP
+        wrapT = CLAMP
+        minFilter = NEAREST_MIPMAP_LINEAR
+        magFilter = LINEAR
+    }
+
     // render state
     renderState
     {
@@ -69,6 +79,14 @@ material time_tank_progress
 		blend = true
 		blendSrc = SRC_ALPHA
 		blendDst = ONE_MINUS_SRC_ALPHA
+    }
+}
+
+material time_tank_progress_glow : time_tank_progress
+{
+    sampler u_diffuseTexture
+    {
+        path = res/png/time_tank_progress_ring_glow.png
     }
 }
 
