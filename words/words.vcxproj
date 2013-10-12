@@ -467,7 +467,7 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <ClCompile Include="src-win\scene_manager.cpp" />
     <ClCompile Include="src\game\board\board.cpp" />
     <ClCompile Include="src\game\board\dice_manager.cpp" />
-    <ClCompile Include="src\game\game.cpp" />
+    <ClCompile Include="src\game\game_scene.cpp" />
     <ClCompile Include="src\game\game_state_model.cpp" />
     <ClCompile Include="src\game\views\time_tank_view.cpp" />
     <ClCompile Include="src\menu\menu.cpp" />
@@ -496,7 +496,7 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <ClInclude Include="src\ext\board_file_loader.hpp" />
     <ClInclude Include="src\game\board\board_tile.hpp" />
     <ClInclude Include="src\game\board\dice_manager.hpp" />
-    <ClInclude Include="src\game\game.hpp" />
+    <ClInclude Include="src\game\game_scene.hpp" />
     <ClInclude Include="src\game\game_state_model.hpp" />
     <ClInclude Include="src\game\views\time_tank_view.hpp" />
     <ClInclude Include="src\menu\menu.hpp" />

@@ -6,7 +6,7 @@
 #include <vector>
 
 #include "../scene.hpp"
-#include "../game/game.hpp"
+#include "../game/game_scene.hpp"
 #include "../words.h"
 #include "../input_event_handler.hpp"
 #include "gameplay.h"

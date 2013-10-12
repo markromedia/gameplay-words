@@ -1,7 +1,7 @@
 #include "words.h"
 
 #include "renderable_node_repository.hpp"
-#include "game/game.hpp"
+#include "game/game_scene.hpp"
 #include "statistics.hpp"
 #include "ext/rest_handler.hpp"
 #include "ext/scene_manager.hpp"
@@ -41,7 +41,7 @@ void words::initialize()
 	RenderableNodeRepository::Init(scene);
 
 	//init the game scene
-	Words::Game::Init(scene);
+	GameScene::Init(scene);
 
 	//init the scene manager
 	SceneManager::Init();

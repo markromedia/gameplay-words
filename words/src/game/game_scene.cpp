@@ -1,4 +1,4 @@
-#include "game.hpp"
+#include "game_scene.hpp"
 
 
 #include "../statistics.hpp"
@@ -13,9 +13,9 @@
 #include "views/time_tank_view.hpp"
 #include "board/board_solver.hpp"
 
-Words::Game* Words::Game::instance = NULL;
+GameScene* GameScene::instance = NULL;
 
-bool Words::Game::HandleTouchDownEvent(gameplay::Ray& ray, int x, int y) 
+bool GameScene::HandleTouchDownEvent(gameplay::Ray& ray, int x, int y) 
 {
 	if (BoardView::HandleTouchDownEvent(ray, x, y)) {
 		return true;
@@ -26,7 +26,7 @@ bool Words::Game::HandleTouchDownEvent(gameplay::Ray& ray, int x, int y)
 	return false;
 }
 
-bool Words::Game::HandleTouchUpEvent( gameplay::Ray& ray, int x, int y )
+bool GameScene::HandleTouchUpEvent( gameplay::Ray& ray, int x, int y )
 {
 	//pass along the touch event to the controllers who are listening
 	BoardView::HandleTouchUpEvent(x, y);
@@ -34,10 +34,10 @@ bool Words::Game::HandleTouchUpEvent( gameplay::Ray& ray, int x, int y )
 	return false;
 }
 
-void Words::Game::Init(gameplay::Scene* scene)
+void GameScene::Init(gameplay::Scene* scene)
 {
-	Words::Game::instance = new Words::Game();
-	Words::Game::instance->scene = scene;
+	GameScene::instance = new GameScene();
+	GameScene::instance->scene = scene;
 
 	GameStateModel::Reset();
 	DiceManager::Init();
@@ -53,12 +53,12 @@ void Words::Game::Init(gameplay::Scene* scene)
 	TimeTankView::Init();
 }
 
-Words::Game* Words::Game::Get()
+GameScene* GameScene::Get()
 {
-	return Words::Game::instance;
+	return GameScene::instance;
 }
 
-void Words::Game::Update( float elapsedTime )
+void GameScene::Update( float elapsedTime )
 {
 	GameStateModel::Update(elapsedTime);
 	if (GameStateModel::TimeRemaining() <= 0) {
@@ -73,7 +73,7 @@ void Words::Game::Update( float elapsedTime )
 	TimeTankView::Update(elapsedTime);
 }
 
-void Words::Game::Render()
+void GameScene::Render()
 {
 	gameplay::Game* game = gameplay::Game::getInstance();
 
@@ -97,7 +97,7 @@ void Words::Game::Render()
 	TimeTankView::Render();
 }
 
-void Words::Game::NewGame()
+void GameScene::NewGame()
 {
 	//reset game state
 	GameStateModel::Reset();
@@ -116,7 +116,7 @@ void Words::Game::NewGame()
 
 }
 
-void Words::Game::GameOver()
+void GameScene::GameOver()
 {
 	Statistics::RoundComplete(GameStateModel::GamePoints());
 	SceneManager::get()->GotoMenuScene(true);

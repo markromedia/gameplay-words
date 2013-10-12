@@ -92,7 +92,7 @@ void Menu::drawNumber( int number, int x, int y )
 	std::stringstream ss;
 	ss << number;
 	std::string s = ss.str();
-	for (int i = 0; i < s.length(); i++) {
+	for (unsigned int i = 0; i < s.length(); i++) {
 		int p_idx = s.at(i) - 48;
 
 		float p_width = menu_numbers_coords[p_idx][0];

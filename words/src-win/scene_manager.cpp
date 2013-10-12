@@ -1,6 +1,6 @@
 #include "../src/ext/scene_manager.hpp"
 
-#include "../src/game/game.hpp"
+#include "../src/game/game_scene.hpp"
 #include "../src/scene.hpp"
 #include "../src/menu/menu.hpp"
 
@@ -8,7 +8,7 @@ SceneManager* SceneManager::instance = NULL;
 
 SceneManager::SceneManager()
 {
-	this->scenes.push_back(Words::Game::Get());
+	this->scenes.push_back(GameScene::Get());
 	this->scenes.push_back(new Menu());
 }
 
@@ -26,9 +26,9 @@ SceneManager* SceneManager::get()
 bool SceneManager::DelegateTouchEvent(words* app, TouchState type, gameplay::Ray& ray, int x, int y )
 {
 	if (current_scene) {
-		if (type == TouchState::TOUCH_DOWN) {
+		if (type == TOUCH_DOWN) {
 			return current_scene->HandleTouchDownEvent(ray, x, y);	
-		} else if (type == TouchState::TOUCH_UP) {
+		} else if (type == TOUCH_UP) {
 			return current_scene->HandleTouchUpEvent(ray, x, y);	
 		}  
 	} 
@@ -62,7 +62,7 @@ void SceneManager::Render()
 
 void SceneManager::StartNewGame()
 {
-	Words::Game::Get()->NewGame();
+	GameScene::Get()->NewGame();
 	this->GotoGameScene();
 }
 

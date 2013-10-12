@@ -1,6 +1,6 @@
 #include "timer_controller.hpp"
 
-#include "../game.hpp"
+#include "../game_scene.hpp"
 #include "../game_state_model.hpp"
 
 
