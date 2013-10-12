@@ -9,8 +9,8 @@
 #include <sstream>
 
 #include "ios_bridge.h"
-#include "../src/solver_worker.hpp"
-#include "../src/board_solver.hpp"
+#include "../src/ext/solver_worker.hpp"
+#include "../src/game/board/board_solver.hpp"
 
 SolverWorker* SolverWorker::instance = NULL;
 

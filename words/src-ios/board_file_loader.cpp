@@ -7,7 +7,7 @@
 //
 
 #ifdef __APPLE__
-#include "../src/board_file_loader.hpp"
+#include "../src/ext/board_file_loader.hpp"
 #include "ios_bridge.h"
 
 void BoardFileLoader::LoadPrecalculatedBoard(std::queue<PrecalculatedBoard*>* precalculated_boards) {

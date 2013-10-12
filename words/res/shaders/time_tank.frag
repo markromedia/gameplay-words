@@ -20,7 +20,7 @@ void main()
 {
     // Sample the texture for the color
     gl_FragColor = texture2D(u_diffuseTexture, v_texCoord0);
-    if (gl_FragColor.a == 0) {
+    if (gl_FragColor.a == 0.0) {
         discard;
 	}
 

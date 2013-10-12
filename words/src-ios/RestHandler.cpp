@@ -6,7 +6,7 @@
 //
 //
 #ifdef __APPLE__
-#include "../src/rest_handler.hpp"
+#include "../src/ext/rest_handler.hpp"
 
 RestHandler* RestHandler::instance = NULL;
 

@@ -42,7 +42,7 @@ public:
 	Menu();
 
 	/// <inheritdoc />
-	virtual bool Menu::HandleTouchDownEvent( gameplay::Ray& ray, int x, int y );
+	virtual bool HandleTouchDownEvent( gameplay::Ray& ray, int x, int y );
 
 	/// <inheritdoc />
 	virtual bool HandleTouchUpEvent(gameplay::Ray& ray, int x, int y) ;

@@ -25,7 +25,6 @@
 		428F7BDE15CB131A009ED24C /* game.config in Resources */ = {isa = PBXBuildFile; fileRef = 428F7BDD15CB131A009ED24C /* game.config */; };
 		42C932C11491A0DB0098216A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42C932C01491A0DB0098216A /* Cocoa.framework */; };
 		42C932EE1491A4CB0098216A /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C932ED1491A4CB0098216A /* icon.png */; };
-		42C932F11491A5160098216A /* words.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 42C932EF1491A5160098216A /* words.cpp */; };
 		42C932F31491A53E0098216A /* res in Resources */ = {isa = PBXBuildFile; fileRef = 42C932F21491A53E0098216A /* res */; };
 		42C933171491A5EB0098216A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42C933161491A5EB0098216A /* OpenGL.framework */; };
 		42C9331D1491A6750098216A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42C9331C1491A6750098216A /* QuartzCore.framework */; };
@@ -40,73 +39,64 @@
 		900F97CE17F915F300A26423 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900F97CD17F915F300A26423 /* OpenGLES.framework */; };
 		900F97D017F915FB00A26423 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900F97CF17F915FB00A26423 /* QuartzCore.framework */; };
 		900F97D217F9160200A26423 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900F97D117F9160200A26423 /* UIKit.framework */; };
-		9041D25516C6BBB00098C475 /* camera_control.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9041D25316C6BBB00098C475 /* camera_control.cpp */; };
-		905108D716D4A59700E17584 /* input_event_handler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905108CF16D4A59700E17584 /* input_event_handler.cpp */; };
-		905108D816D4A59700E17584 /* letter_controller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905108D116D4A59700E17584 /* letter_controller.cpp */; };
-		905108D916D4A59700E17584 /* renderable_node_repository.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905108D316D4A59700E17584 /* renderable_node_repository.cpp */; };
-		905108DA16D4A59700E17584 /* tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905108D516D4A59700E17584 /* tile.cpp */; };
-		9052E99517F913E7006574AD /* menu_icon_controller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9052E99017F913E7006574AD /* menu_icon_controller.cpp */; };
-		9052E99617F913E7006574AD /* menu_icon_controller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9052E99017F913E7006574AD /* menu_icon_controller.cpp */; };
-		9052E99717F913E7006574AD /* statistics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9052E99317F913E7006574AD /* statistics.cpp */; };
-		9052E99817F913E7006574AD /* statistics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9052E99317F913E7006574AD /* statistics.cpp */; };
 		9064A5E517F91A0100A2721C /* libgameplay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9041D24F16C6BAD50098C475 /* libgameplay.a */; };
 		9064A5E617F91A1200A2721C /* libgameplay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9041D24F16C6BAD50098C475 /* libgameplay.a */; };
 		9064A5EC17F91FF500A2721C /* RestHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064A5EA17F91FF500A2721C /* RestHandler.cpp */; };
 		9064A5ED17F91FF500A2721C /* RestHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064A5EA17F91FF500A2721C /* RestHandler.cpp */; };
-		90A2D13616DB369500E6C6DA /* animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D13216DB369500E6C6DA /* animation.cpp */; };
-		90A2D13716DB369500E6C6DA /* dice_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D13416DB369500E6C6DA /* dice_manager.cpp */; };
-		90A2D13816DB369D00E6C6DA /* animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D13216DB369500E6C6DA /* animation.cpp */; };
-		90A2D13916DB369D00E6C6DA /* animation.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D13316DB369500E6C6DA /* animation.hpp */; };
-		90A2D13A16DB369D00E6C6DA /* dice_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D13416DB369500E6C6DA /* dice_manager.cpp */; };
-		90A2D13B16DB369D00E6C6DA /* dice_manager.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D13516DB369500E6C6DA /* dice_manager.hpp */; };
-		90A2D13C16DB369D00E6C6DA /* input_event_handler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905108CF16D4A59700E17584 /* input_event_handler.cpp */; };
-		90A2D13D16DB369D00E6C6DA /* input_event_handler.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 905108D016D4A59700E17584 /* input_event_handler.hpp */; };
-		90A2D13E16DB369D00E6C6DA /* letter_controller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905108D116D4A59700E17584 /* letter_controller.cpp */; };
-		90A2D13F16DB369D00E6C6DA /* letter_controller.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 905108D216D4A59700E17584 /* letter_controller.hpp */; };
-		90A2D14016DB369D00E6C6DA /* renderable_node_repository.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905108D316D4A59700E17584 /* renderable_node_repository.cpp */; };
-		90A2D14116DB369D00E6C6DA /* renderable_node_repository.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 905108D416D4A59700E17584 /* renderable_node_repository.hpp */; };
-		90A2D14216DB369D00E6C6DA /* tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905108D516D4A59700E17584 /* tile.cpp */; };
-		90A2D14316DB369D00E6C6DA /* tile.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 905108D616D4A59700E17584 /* tile.hpp */; };
-		90A2D14416DB369D00E6C6DA /* camera_control.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9041D25316C6BBB00098C475 /* camera_control.cpp */; };
-		90A2D14516DB369D00E6C6DA /* camera_control.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 9041D25416C6BBB00098C475 /* camera_control.hpp */; };
-		90A2D14616DB369D00E6C6DA /* words.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 42C932EF1491A5160098216A /* words.cpp */; };
-		90A2D14716DB369D00E6C6DA /* words.h in Sources */ = {isa = PBXBuildFile; fileRef = 42C932F01491A5160098216A /* words.h */; };
-		90A2D14A16DC8D6700E6C6DA /* selected_text_label.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D14816DC8D6700E6C6DA /* selected_text_label.cpp */; };
-		90A2D14B16DC8D6E00E6C6DA /* selected_text_label.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D14816DC8D6700E6C6DA /* selected_text_label.cpp */; };
-		90A2D14C16DC8D6E00E6C6DA /* selected_text_label.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D14916DC8D6700E6C6DA /* selected_text_label.hpp */; };
-		90A2D1A916E2887200E6C6DA /* menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D1A316E2887200E6C6DA /* menu.cpp */; };
-		90A2D1AA16E2887200E6C6DA /* score_controller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D1A516E2887200E6C6DA /* score_controller.cpp */; };
-		90A2D1AB16E2887200E6C6DA /* timer_controller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D1A716E2887200E6C6DA /* timer_controller.cpp */; };
-		90A2D1AC16E2889100E6C6DA /* menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D1A316E2887200E6C6DA /* menu.cpp */; };
-		90A2D1AD16E2889100E6C6DA /* menu.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D1A416E2887200E6C6DA /* menu.hpp */; };
-		90A2D1AE16E2889100E6C6DA /* score_controller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D1A516E2887200E6C6DA /* score_controller.cpp */; };
-		90A2D1AF16E2889100E6C6DA /* score_controller.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D1A616E2887200E6C6DA /* score_controller.hpp */; };
-		90A2D1B016E2889100E6C6DA /* timer_controller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D1A716E2887200E6C6DA /* timer_controller.cpp */; };
-		90A2D1B116E2889100E6C6DA /* timer_controller.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 90A2D1A816E2887200E6C6DA /* timer_controller.hpp */; };
-		90B9A70E16ED2031006A4896 /* selected_text_connector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90B9A70C16ED2031006A4896 /* selected_text_connector.cpp */; };
-		90B9A71116ED2148006A4896 /* selected_text_connector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90B9A70C16ED2031006A4896 /* selected_text_connector.cpp */; };
-		90B9A71216ED2148006A4896 /* board.hpp in Sources */ = {isa = PBXBuildFile; fileRef = B8F0B67416E7B4260024EF45 /* board.hpp */; };
-		90B9A71316ED2148006A4896 /* selected_text_connector.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 90B9A70D16ED2031006A4896 /* selected_text_connector.hpp */; };
+		9064C22F1809E54200A2721C /* animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C22D1809E54200A2721C /* animation.cpp */; };
+		9064C2301809E54200A2721C /* animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C22D1809E54200A2721C /* animation.cpp */; };
+		9064C2331809E54B00A2721C /* menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C2311809E54B00A2721C /* menu.cpp */; };
+		9064C2341809E54B00A2721C /* menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C2311809E54B00A2721C /* menu.cpp */; };
+		9064C2411809E57200A2721C /* board_solver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C23A1809E57100A2721C /* board_solver.cpp */; };
+		9064C2421809E57200A2721C /* board_solver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C23A1809E57100A2721C /* board_solver.cpp */; };
+		9064C2431809E57200A2721C /* board.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C23D1809E57100A2721C /* board.cpp */; };
+		9064C2441809E57200A2721C /* board.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C23D1809E57100A2721C /* board.cpp */; };
+		9064C2451809E57200A2721C /* dice_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C23F1809E57200A2721C /* dice_manager.cpp */; };
+		9064C2461809E57200A2721C /* dice_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C23F1809E57200A2721C /* dice_manager.cpp */; };
+		9064C2581809E58600A2721C /* timer_controller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C2481809E58600A2721C /* timer_controller.cpp */; };
+		9064C2591809E58600A2721C /* timer_controller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C2481809E58600A2721C /* timer_controller.cpp */; };
+		9064C25A1809E58600A2721C /* board_view.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C2491809E58600A2721C /* board_view.cpp */; };
+		9064C25B1809E58600A2721C /* board_view.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C2491809E58600A2721C /* board_view.cpp */; };
+		9064C25C1809E58600A2721C /* menu_icon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C24B1809E58600A2721C /* menu_icon.cpp */; };
+		9064C25D1809E58600A2721C /* menu_icon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C24B1809E58600A2721C /* menu_icon.cpp */; };
+		9064C25E1809E58600A2721C /* score_view.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C24D1809E58600A2721C /* score_view.cpp */; };
+		9064C25F1809E58600A2721C /* score_view.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C24D1809E58600A2721C /* score_view.cpp */; };
+		9064C2601809E58600A2721C /* selected_text_connector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C24F1809E58600A2721C /* selected_text_connector.cpp */; };
+		9064C2611809E58600A2721C /* selected_text_connector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C24F1809E58600A2721C /* selected_text_connector.cpp */; };
+		9064C2621809E58600A2721C /* selected_text_label.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C2511809E58600A2721C /* selected_text_label.cpp */; };
+		9064C2631809E58600A2721C /* selected_text_label.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C2511809E58600A2721C /* selected_text_label.cpp */; };
+		9064C2641809E58600A2721C /* tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C2531809E58600A2721C /* tile.cpp */; };
+		9064C2651809E58600A2721C /* tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C2531809E58600A2721C /* tile.cpp */; };
+		9064C2661809E58600A2721C /* time_tank_view.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C2551809E58600A2721C /* time_tank_view.cpp */; };
+		9064C2671809E58600A2721C /* time_tank_view.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C2551809E58600A2721C /* time_tank_view.cpp */; };
+		9064C26C1809E59500A2721C /* game_scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C2681809E59500A2721C /* game_scene.cpp */; };
+		9064C26D1809E59500A2721C /* game_scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C2681809E59500A2721C /* game_scene.cpp */; };
+		9064C26E1809E59500A2721C /* game_state_model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C26A1809E59500A2721C /* game_state_model.cpp */; };
+		9064C26F1809E59500A2721C /* game_state_model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C26A1809E59500A2721C /* game_state_model.cpp */; };
+		9064C2761809E5B700A2721C /* boggle_solver.cc in Sources */ = {isa = PBXBuildFile; fileRef = 9064C2711809E5B700A2721C /* boggle_solver.cc */; };
+		9064C2771809E5B700A2721C /* boggle_solver.cc in Sources */ = {isa = PBXBuildFile; fileRef = 9064C2711809E5B700A2721C /* boggle_solver.cc */; };
+		9064C2781809E5B700A2721C /* boggler.cc in Sources */ = {isa = PBXBuildFile; fileRef = 9064C2731809E5B700A2721C /* boggler.cc */; };
+		9064C2791809E5B700A2721C /* boggler.cc in Sources */ = {isa = PBXBuildFile; fileRef = 9064C2731809E5B700A2721C /* boggler.cc */; };
+		9064C27A1809E5B700A2721C /* trie.cc in Sources */ = {isa = PBXBuildFile; fileRef = 9064C2751809E5B700A2721C /* trie.cc */; };
+		9064C27B1809E5B700A2721C /* trie.cc in Sources */ = {isa = PBXBuildFile; fileRef = 9064C2751809E5B700A2721C /* trie.cc */; };
+		9064C2871809E5CF00A2721C /* words.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C27C1809E5CF00A2721C /* words.cpp */; };
+		9064C2881809E5CF00A2721C /* words.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C27C1809E5CF00A2721C /* words.cpp */; };
+		9064C2891809E5CF00A2721C /* camera_control.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C27D1809E5CF00A2721C /* camera_control.cpp */; };
+		9064C28A1809E5CF00A2721C /* camera_control.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C27D1809E5CF00A2721C /* camera_control.cpp */; };
+		9064C28B1809E5CF00A2721C /* input_event_handler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C27F1809E5CF00A2721C /* input_event_handler.cpp */; };
+		9064C28C1809E5CF00A2721C /* input_event_handler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C27F1809E5CF00A2721C /* input_event_handler.cpp */; };
+		9064C28D1809E5CF00A2721C /* renderable_node_repository.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C2811809E5CF00A2721C /* renderable_node_repository.cpp */; };
+		9064C28E1809E5CF00A2721C /* renderable_node_repository.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C2811809E5CF00A2721C /* renderable_node_repository.cpp */; };
+		9064C28F1809E5CF00A2721C /* statistics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C2831809E5CF00A2721C /* statistics.cpp */; };
+		9064C2901809E5CF00A2721C /* statistics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C2831809E5CF00A2721C /* statistics.cpp */; };
+		9064C2921809E6AD00A2721C /* scene_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C2911809E6AD00A2721C /* scene_manager.cpp */; };
+		9064C2931809E6AD00A2721C /* scene_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9064C2911809E6AD00A2721C /* scene_manager.cpp */; };
 		90BF0A9E16ED8952005ED530 /* iOSHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 90BF0A9D16ED8952005ED530 /* iOSHandler.mm */; };
 		90BF0A9F16ED8952005ED530 /* iOSHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 90BF0A9D16ED8952005ED530 /* iOSHandler.mm */; };
 		90BF0AA416ED94AB005ED530 /* board_file_loader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90BF0AA216ED94AB005ED530 /* board_file_loader.cpp */; };
 		90BF0AA516ED94AB005ED530 /* board_file_loader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90BF0AA216ED94AB005ED530 /* board_file_loader.cpp */; };
 		90BF0AA816F00D3C005ED530 /* solver_worker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90BF0AA616F00D3C005ED530 /* solver_worker.cpp */; };
 		90BF0AA916F00D3C005ED530 /* solver_worker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90BF0AA616F00D3C005ED530 /* solver_worker.cpp */; };
-		B81EE52316E7B25C00429109 /* board_solver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B81EE52116E7B25C00429109 /* board_solver.cpp */; };
-		B81EE52416E7B25C00429109 /* board_solver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B81EE52116E7B25C00429109 /* board_solver.cpp */; };
-		B81EE54516E7B31100429109 /* board_solver.hpp in Sources */ = {isa = PBXBuildFile; fileRef = B81EE52216E7B25C00429109 /* board_solver.hpp */; };
-		B8F0B66816E7B3A70024EF45 /* boggle_solver.cc in Sources */ = {isa = PBXBuildFile; fileRef = B8F0B66216E7B3A70024EF45 /* boggle_solver.cc */; };
-		B8F0B66916E7B3A70024EF45 /* boggle_solver.cc in Sources */ = {isa = PBXBuildFile; fileRef = B8F0B66216E7B3A70024EF45 /* boggle_solver.cc */; };
-		B8F0B66A16E7B3A70024EF45 /* boggler.cc in Sources */ = {isa = PBXBuildFile; fileRef = B8F0B66416E7B3A70024EF45 /* boggler.cc */; };
-		B8F0B66B16E7B3A70024EF45 /* boggler.cc in Sources */ = {isa = PBXBuildFile; fileRef = B8F0B66416E7B3A70024EF45 /* boggler.cc */; };
-		B8F0B66C16E7B3A70024EF45 /* trie.cc in Sources */ = {isa = PBXBuildFile; fileRef = B8F0B66616E7B3A70024EF45 /* trie.cc */; };
-		B8F0B66D16E7B3A70024EF45 /* trie.cc in Sources */ = {isa = PBXBuildFile; fileRef = B8F0B66616E7B3A70024EF45 /* trie.cc */; };
-		B8F0B67016E7B3DF0024EF45 /* boggle_solver.h in Sources */ = {isa = PBXBuildFile; fileRef = B8F0B66316E7B3A70024EF45 /* boggle_solver.h */; };
-		B8F0B67116E7B3DF0024EF45 /* boggler.h in Sources */ = {isa = PBXBuildFile; fileRef = B8F0B66516E7B3A70024EF45 /* boggler.h */; };
-		B8F0B67216E7B3DF0024EF45 /* trie.h in Sources */ = {isa = PBXBuildFile; fileRef = B8F0B66716E7B3A70024EF45 /* trie.h */; };
-		B8F0B67C16E7B4260024EF45 /* board.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8F0B67316E7B4260024EF45 /* board.cpp */; };
-		B8F0B67D16E7B4260024EF45 /* board.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8F0B67316E7B4260024EF45 /* board.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,8 +136,6 @@
 		42C932BC1491A0DB0098216A /* words-macosx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "words-macosx.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42C932C01491A0DB0098216A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		42C932ED1491A4CB0098216A /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		42C932EF1491A5160098216A /* words.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = words.cpp; path = src/words.cpp; sourceTree = SOURCE_ROOT; };
-		42C932F01491A5160098216A /* words.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = words.h; path = src/words.h; sourceTree = SOURCE_ROOT; };
 		42C932F21491A53E0098216A /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		42C933161491A5EB0098216A /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		42C9331C1491A6750098216A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -165,53 +153,65 @@
 		900F97CD17F915F300A26423 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/OpenGLES.framework; sourceTree = DEVELOPER_DIR; };
 		900F97CF17F915FB00A26423 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		900F97D117F9160200A26423 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		9041D25316C6BBB00098C475 /* camera_control.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = camera_control.cpp; sourceTree = "<group>"; };
-		9041D25416C6BBB00098C475 /* camera_control.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = camera_control.hpp; sourceTree = "<group>"; };
-		905108CF16D4A59700E17584 /* input_event_handler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = input_event_handler.cpp; sourceTree = "<group>"; };
-		905108D016D4A59700E17584 /* input_event_handler.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = input_event_handler.hpp; sourceTree = "<group>"; };
-		905108D116D4A59700E17584 /* letter_controller.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = letter_controller.cpp; sourceTree = "<group>"; };
-		905108D216D4A59700E17584 /* letter_controller.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = letter_controller.hpp; sourceTree = "<group>"; };
-		905108D316D4A59700E17584 /* renderable_node_repository.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = renderable_node_repository.cpp; sourceTree = "<group>"; };
-		905108D416D4A59700E17584 /* renderable_node_repository.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = renderable_node_repository.hpp; sourceTree = "<group>"; };
-		905108D516D4A59700E17584 /* tile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tile.cpp; sourceTree = "<group>"; };
-		905108D616D4A59700E17584 /* tile.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = tile.hpp; sourceTree = "<group>"; };
-		9052E99017F913E7006574AD /* menu_icon_controller.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = menu_icon_controller.cpp; sourceTree = "<group>"; };
-		9052E99117F913E7006574AD /* menu_icon_controller.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = menu_icon_controller.hpp; sourceTree = "<group>"; };
-		9052E99217F913E7006574AD /* rest_handler.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rest_handler.hpp; sourceTree = "<group>"; };
-		9052E99317F913E7006574AD /* statistics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = statistics.cpp; sourceTree = "<group>"; };
-		9052E99417F913E7006574AD /* statistics.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = statistics.hpp; sourceTree = "<group>"; };
 		9064A5EA17F91FF500A2721C /* RestHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RestHandler.cpp; sourceTree = "<group>"; };
-		90A2D13216DB369500E6C6DA /* animation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = animation.cpp; sourceTree = "<group>"; };
-		90A2D13316DB369500E6C6DA /* animation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = animation.hpp; sourceTree = "<group>"; };
-		90A2D13416DB369500E6C6DA /* dice_manager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dice_manager.cpp; sourceTree = "<group>"; };
-		90A2D13516DB369500E6C6DA /* dice_manager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = dice_manager.hpp; sourceTree = "<group>"; };
-		90A2D14816DC8D6700E6C6DA /* selected_text_label.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = selected_text_label.cpp; sourceTree = "<group>"; };
-		90A2D14916DC8D6700E6C6DA /* selected_text_label.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = selected_text_label.hpp; sourceTree = "<group>"; };
-		90A2D1A316E2887200E6C6DA /* menu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = menu.cpp; sourceTree = "<group>"; };
-		90A2D1A416E2887200E6C6DA /* menu.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = menu.hpp; sourceTree = "<group>"; };
-		90A2D1A516E2887200E6C6DA /* score_controller.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = score_controller.cpp; sourceTree = "<group>"; };
-		90A2D1A616E2887200E6C6DA /* score_controller.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = score_controller.hpp; sourceTree = "<group>"; };
-		90A2D1A716E2887200E6C6DA /* timer_controller.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = timer_controller.cpp; sourceTree = "<group>"; };
-		90A2D1A816E2887200E6C6DA /* timer_controller.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = timer_controller.hpp; sourceTree = "<group>"; };
-		90B9A70C16ED2031006A4896 /* selected_text_connector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = selected_text_connector.cpp; sourceTree = "<group>"; };
-		90B9A70D16ED2031006A4896 /* selected_text_connector.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = selected_text_connector.hpp; sourceTree = "<group>"; };
+		9064C22D1809E54200A2721C /* animation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = animation.cpp; path = misc/animation.cpp; sourceTree = "<group>"; };
+		9064C22E1809E54200A2721C /* animation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = animation.hpp; path = misc/animation.hpp; sourceTree = "<group>"; };
+		9064C2311809E54B00A2721C /* menu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = menu.cpp; path = menu/menu.cpp; sourceTree = "<group>"; };
+		9064C2321809E54B00A2721C /* menu.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = menu.hpp; path = menu/menu.hpp; sourceTree = "<group>"; };
+		9064C2351809E55700A2721C /* scene_manager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = scene_manager.hpp; path = ext/scene_manager.hpp; sourceTree = "<group>"; };
+		9064C2361809E55700A2721C /* board_file_loader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = board_file_loader.hpp; path = ext/board_file_loader.hpp; sourceTree = "<group>"; };
+		9064C2371809E55700A2721C /* rest_handler.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = rest_handler.hpp; path = ext/rest_handler.hpp; sourceTree = "<group>"; };
+		9064C2381809E55700A2721C /* solver_worker.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = solver_worker.hpp; path = ext/solver_worker.hpp; sourceTree = "<group>"; };
+		9064C23A1809E57100A2721C /* board_solver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = board_solver.cpp; path = game/board/board_solver.cpp; sourceTree = "<group>"; };
+		9064C23B1809E57100A2721C /* board_solver.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = board_solver.hpp; path = game/board/board_solver.hpp; sourceTree = "<group>"; };
+		9064C23C1809E57100A2721C /* board_tile.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = board_tile.hpp; path = game/board/board_tile.hpp; sourceTree = "<group>"; };
+		9064C23D1809E57100A2721C /* board.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = board.cpp; path = game/board/board.cpp; sourceTree = "<group>"; };
+		9064C23E1809E57100A2721C /* board.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = board.hpp; path = game/board/board.hpp; sourceTree = "<group>"; };
+		9064C23F1809E57200A2721C /* dice_manager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = dice_manager.cpp; path = game/board/dice_manager.cpp; sourceTree = "<group>"; };
+		9064C2401809E57200A2721C /* dice_manager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = dice_manager.hpp; path = game/board/dice_manager.hpp; sourceTree = "<group>"; };
+		9064C2481809E58600A2721C /* timer_controller.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = timer_controller.cpp; path = game/views/timer_controller.cpp; sourceTree = "<group>"; };
+		9064C2491809E58600A2721C /* board_view.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = board_view.cpp; path = game/views/board_view.cpp; sourceTree = "<group>"; };
+		9064C24A1809E58600A2721C /* board_view.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = board_view.hpp; path = game/views/board_view.hpp; sourceTree = "<group>"; };
+		9064C24B1809E58600A2721C /* menu_icon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = menu_icon.cpp; path = game/views/menu_icon.cpp; sourceTree = "<group>"; };
+		9064C24C1809E58600A2721C /* menu_icon.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = menu_icon.hpp; path = game/views/menu_icon.hpp; sourceTree = "<group>"; };
+		9064C24D1809E58600A2721C /* score_view.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = score_view.cpp; path = game/views/score_view.cpp; sourceTree = "<group>"; };
+		9064C24E1809E58600A2721C /* score_view.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = score_view.hpp; path = game/views/score_view.hpp; sourceTree = "<group>"; };
+		9064C24F1809E58600A2721C /* selected_text_connector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = selected_text_connector.cpp; path = game/views/selected_text_connector.cpp; sourceTree = "<group>"; };
+		9064C2501809E58600A2721C /* selected_text_connector.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = selected_text_connector.hpp; path = game/views/selected_text_connector.hpp; sourceTree = "<group>"; };
+		9064C2511809E58600A2721C /* selected_text_label.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = selected_text_label.cpp; path = game/views/selected_text_label.cpp; sourceTree = "<group>"; };
+		9064C2521809E58600A2721C /* selected_text_label.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = selected_text_label.hpp; path = game/views/selected_text_label.hpp; sourceTree = "<group>"; };
+		9064C2531809E58600A2721C /* tile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tile.cpp; path = game/views/tile.cpp; sourceTree = "<group>"; };
+		9064C2541809E58600A2721C /* tile.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = tile.hpp; path = game/views/tile.hpp; sourceTree = "<group>"; };
+		9064C2551809E58600A2721C /* time_tank_view.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = time_tank_view.cpp; path = game/views/time_tank_view.cpp; sourceTree = "<group>"; };
+		9064C2561809E58600A2721C /* time_tank_view.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = time_tank_view.hpp; path = game/views/time_tank_view.hpp; sourceTree = "<group>"; };
+		9064C2571809E58600A2721C /* timer_controller.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = timer_controller.hpp; path = game/views/timer_controller.hpp; sourceTree = "<group>"; };
+		9064C2681809E59500A2721C /* game_scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = game_scene.cpp; path = game/game_scene.cpp; sourceTree = "<group>"; };
+		9064C2691809E59500A2721C /* game_scene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = game_scene.hpp; path = game/game_scene.hpp; sourceTree = "<group>"; };
+		9064C26A1809E59500A2721C /* game_state_model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = game_state_model.cpp; path = game/game_state_model.cpp; sourceTree = "<group>"; };
+		9064C26B1809E59500A2721C /* game_state_model.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = game_state_model.hpp; path = game/game_state_model.hpp; sourceTree = "<group>"; };
+		9064C2701809E5B700A2721C /* trie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trie.h; sourceTree = "<group>"; };
+		9064C2711809E5B700A2721C /* boggle_solver.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = boggle_solver.cc; sourceTree = "<group>"; };
+		9064C2721809E5B700A2721C /* boggle_solver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = boggle_solver.h; sourceTree = "<group>"; };
+		9064C2731809E5B700A2721C /* boggler.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = boggler.cc; sourceTree = "<group>"; };
+		9064C2741809E5B700A2721C /* boggler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = boggler.h; sourceTree = "<group>"; };
+		9064C2751809E5B700A2721C /* trie.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = trie.cc; sourceTree = "<group>"; };
+		9064C27C1809E5CF00A2721C /* words.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = words.cpp; sourceTree = "<group>"; };
+		9064C27D1809E5CF00A2721C /* camera_control.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = camera_control.cpp; sourceTree = "<group>"; };
+		9064C27E1809E5CF00A2721C /* camera_control.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = camera_control.hpp; sourceTree = "<group>"; };
+		9064C27F1809E5CF00A2721C /* input_event_handler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = input_event_handler.cpp; sourceTree = "<group>"; };
+		9064C2801809E5CF00A2721C /* input_event_handler.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = input_event_handler.hpp; sourceTree = "<group>"; };
+		9064C2811809E5CF00A2721C /* renderable_node_repository.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = renderable_node_repository.cpp; sourceTree = "<group>"; };
+		9064C2821809E5CF00A2721C /* scene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = scene.hpp; sourceTree = "<group>"; };
+		9064C2831809E5CF00A2721C /* statistics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = statistics.cpp; sourceTree = "<group>"; };
+		9064C2841809E5CF00A2721C /* statistics.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = statistics.hpp; sourceTree = "<group>"; };
+		9064C2851809E5CF00A2721C /* words.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = words.h; sourceTree = "<group>"; };
+		9064C2861809E5CF00A2721C /* renderable_node_repository.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = renderable_node_repository.hpp; sourceTree = "<group>"; };
+		9064C2911809E6AD00A2721C /* scene_manager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = scene_manager.cpp; path = "src-win/scene_manager.cpp"; sourceTree = SOURCE_ROOT; };
 		90BF0A9C16ED8952005ED530 /* iOSHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSHandler.h; sourceTree = "<group>"; };
 		90BF0A9D16ED8952005ED530 /* iOSHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iOSHandler.mm; sourceTree = "<group>"; };
 		90BF0AA016ED8C05005ED530 /* ios_bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ios_bridge.h; sourceTree = "<group>"; };
 		90BF0AA216ED94AB005ED530 /* board_file_loader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = board_file_loader.cpp; sourceTree = "<group>"; };
 		90BF0AA616F00D3C005ED530 /* solver_worker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = solver_worker.cpp; sourceTree = "<group>"; };
-		90BF0AAA16F00D95005ED530 /* solver_worker.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = solver_worker.hpp; sourceTree = "<group>"; };
-		90BF0AAB16F012F0005ED530 /* board_file_loader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = board_file_loader.hpp; sourceTree = "<group>"; };
-		B81EE52116E7B25C00429109 /* board_solver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = board_solver.cpp; sourceTree = "<group>"; };
-		B81EE52216E7B25C00429109 /* board_solver.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = board_solver.hpp; sourceTree = "<group>"; };
-		B8F0B66216E7B3A70024EF45 /* boggle_solver.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = boggle_solver.cc; sourceTree = "<group>"; };
-		B8F0B66316E7B3A70024EF45 /* boggle_solver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = boggle_solver.h; sourceTree = "<group>"; };
-		B8F0B66416E7B3A70024EF45 /* boggler.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = boggler.cc; sourceTree = "<group>"; };
-		B8F0B66516E7B3A70024EF45 /* boggler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = boggler.h; sourceTree = "<group>"; };
-		B8F0B66616E7B3A70024EF45 /* trie.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = trie.cc; sourceTree = "<group>"; };
-		B8F0B66716E7B3A70024EF45 /* trie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trie.h; sourceTree = "<group>"; };
-		B8F0B67316E7B4260024EF45 /* board.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = board.cpp; sourceTree = "<group>"; };
-		B8F0B67416E7B4260024EF45 /* board.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = board.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,43 +305,21 @@
 		42C932C61491A0DB0098216A /* src */ = {
 			isa = PBXGroup;
 			children = (
-				9052E99017F913E7006574AD /* menu_icon_controller.cpp */,
-				9052E99117F913E7006574AD /* menu_icon_controller.hpp */,
-				9052E99217F913E7006574AD /* rest_handler.hpp */,
-				9052E99317F913E7006574AD /* statistics.cpp */,
-				9052E99417F913E7006574AD /* statistics.hpp */,
-				90A2D13216DB369500E6C6DA /* animation.cpp */,
-				B8F0B67316E7B4260024EF45 /* board.cpp */,
-				B81EE52116E7B25C00429109 /* board_solver.cpp */,
-				9041D25316C6BBB00098C475 /* camera_control.cpp */,
-				90A2D13416DB369500E6C6DA /* dice_manager.cpp */,
-				905108CF16D4A59700E17584 /* input_event_handler.cpp */,
-				905108D116D4A59700E17584 /* letter_controller.cpp */,
-				90A2D1A316E2887200E6C6DA /* menu.cpp */,
-				905108D316D4A59700E17584 /* renderable_node_repository.cpp */,
-				90A2D1A516E2887200E6C6DA /* score_controller.cpp */,
-				90B9A70C16ED2031006A4896 /* selected_text_connector.cpp */,
-				90A2D14816DC8D6700E6C6DA /* selected_text_label.cpp */,
-				905108D516D4A59700E17584 /* tile.cpp */,
-				90A2D1A716E2887200E6C6DA /* timer_controller.cpp */,
-				42C932EF1491A5160098216A /* words.cpp */,
-				42C932F01491A5160098216A /* words.h */,
-				90A2D13316DB369500E6C6DA /* animation.hpp */,
-				B8F0B67416E7B4260024EF45 /* board.hpp */,
-				90BF0AAB16F012F0005ED530 /* board_file_loader.hpp */,
-				B81EE52216E7B25C00429109 /* board_solver.hpp */,
-				9041D25416C6BBB00098C475 /* camera_control.hpp */,
-				90A2D13516DB369500E6C6DA /* dice_manager.hpp */,
-				905108D016D4A59700E17584 /* input_event_handler.hpp */,
-				905108D216D4A59700E17584 /* letter_controller.hpp */,
-				90A2D1A416E2887200E6C6DA /* menu.hpp */,
-				905108D416D4A59700E17584 /* renderable_node_repository.hpp */,
-				90A2D1A616E2887200E6C6DA /* score_controller.hpp */,
-				90B9A70D16ED2031006A4896 /* selected_text_connector.hpp */,
-				90A2D14916DC8D6700E6C6DA /* selected_text_label.hpp */,
-				90BF0AAA16F00D95005ED530 /* solver_worker.hpp */,
-				905108D616D4A59700E17584 /* tile.hpp */,
-				90A2D1A816E2887200E6C6DA /* timer_controller.hpp */,
+				9064C27C1809E5CF00A2721C /* words.cpp */,
+				9064C27D1809E5CF00A2721C /* camera_control.cpp */,
+				9064C27E1809E5CF00A2721C /* camera_control.hpp */,
+				9064C27F1809E5CF00A2721C /* input_event_handler.cpp */,
+				9064C2801809E5CF00A2721C /* input_event_handler.hpp */,
+				9064C2811809E5CF00A2721C /* renderable_node_repository.cpp */,
+				9064C2821809E5CF00A2721C /* scene.hpp */,
+				9064C2831809E5CF00A2721C /* statistics.cpp */,
+				9064C2841809E5CF00A2721C /* statistics.hpp */,
+				9064C2851809E5CF00A2721C /* words.h */,
+				9064C2861809E5CF00A2721C /* renderable_node_repository.hpp */,
+				9064A8401809E4B800A2721C /* misc */,
+				9064A83F1809E4A900A2721C /* menu */,
+				9064A83E1809E4A400A2721C /* ext */,
+				9064A83D1809E49E00A2721C /* game */,
 				B8F0B66116E7B3A70024EF45 /* perf-solver */,
 			);
 			path = src;
@@ -394,9 +372,89 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		9064A83D1809E49E00A2721C /* game */ = {
+			isa = PBXGroup;
+			children = (
+				9064C2681809E59500A2721C /* game_scene.cpp */,
+				9064C2691809E59500A2721C /* game_scene.hpp */,
+				9064C26A1809E59500A2721C /* game_state_model.cpp */,
+				9064C26B1809E59500A2721C /* game_state_model.hpp */,
+				9064C2471809E57600A2721C /* views */,
+				9064C2391809E55F00A2721C /* board */,
+			);
+			name = game;
+			sourceTree = "<group>";
+		};
+		9064A83E1809E4A400A2721C /* ext */ = {
+			isa = PBXGroup;
+			children = (
+				9064C2351809E55700A2721C /* scene_manager.hpp */,
+				9064C2361809E55700A2721C /* board_file_loader.hpp */,
+				9064C2371809E55700A2721C /* rest_handler.hpp */,
+				9064C2381809E55700A2721C /* solver_worker.hpp */,
+			);
+			name = ext;
+			sourceTree = "<group>";
+		};
+		9064A83F1809E4A900A2721C /* menu */ = {
+			isa = PBXGroup;
+			children = (
+				9064C2311809E54B00A2721C /* menu.cpp */,
+				9064C2321809E54B00A2721C /* menu.hpp */,
+			);
+			name = menu;
+			sourceTree = "<group>";
+		};
+		9064A8401809E4B800A2721C /* misc */ = {
+			isa = PBXGroup;
+			children = (
+				9064C22D1809E54200A2721C /* animation.cpp */,
+				9064C22E1809E54200A2721C /* animation.hpp */,
+			);
+			name = misc;
+			sourceTree = "<group>";
+		};
+		9064C2391809E55F00A2721C /* board */ = {
+			isa = PBXGroup;
+			children = (
+				9064C23A1809E57100A2721C /* board_solver.cpp */,
+				9064C23B1809E57100A2721C /* board_solver.hpp */,
+				9064C23C1809E57100A2721C /* board_tile.hpp */,
+				9064C23D1809E57100A2721C /* board.cpp */,
+				9064C23E1809E57100A2721C /* board.hpp */,
+				9064C23F1809E57200A2721C /* dice_manager.cpp */,
+				9064C2401809E57200A2721C /* dice_manager.hpp */,
+			);
+			name = board;
+			sourceTree = "<group>";
+		};
+		9064C2471809E57600A2721C /* views */ = {
+			isa = PBXGroup;
+			children = (
+				9064C2481809E58600A2721C /* timer_controller.cpp */,
+				9064C2491809E58600A2721C /* board_view.cpp */,
+				9064C24A1809E58600A2721C /* board_view.hpp */,
+				9064C24B1809E58600A2721C /* menu_icon.cpp */,
+				9064C24C1809E58600A2721C /* menu_icon.hpp */,
+				9064C24D1809E58600A2721C /* score_view.cpp */,
+				9064C24E1809E58600A2721C /* score_view.hpp */,
+				9064C24F1809E58600A2721C /* selected_text_connector.cpp */,
+				9064C2501809E58600A2721C /* selected_text_connector.hpp */,
+				9064C2511809E58600A2721C /* selected_text_label.cpp */,
+				9064C2521809E58600A2721C /* selected_text_label.hpp */,
+				9064C2531809E58600A2721C /* tile.cpp */,
+				9064C2541809E58600A2721C /* tile.hpp */,
+				9064C2551809E58600A2721C /* time_tank_view.cpp */,
+				9064C2561809E58600A2721C /* time_tank_view.hpp */,
+				9064C2571809E58600A2721C /* timer_controller.hpp */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
 		90BF0A9916ED8916005ED530 /* src-ios */ = {
 			isa = PBXGroup;
 			children = (
+				9064C2911809E6AD00A2721C /* scene_manager.cpp */,
 				90BF0A9C16ED8952005ED530 /* iOSHandler.h */,
 				90BF0A9D16ED8952005ED530 /* iOSHandler.mm */,
 				90BF0AA016ED8C05005ED530 /* ios_bridge.h */,
@@ -410,12 +468,12 @@
 		B8F0B66116E7B3A70024EF45 /* perf-solver */ = {
 			isa = PBXGroup;
 			children = (
-				B8F0B66216E7B3A70024EF45 /* boggle_solver.cc */,
-				B8F0B66316E7B3A70024EF45 /* boggle_solver.h */,
-				B8F0B66416E7B3A70024EF45 /* boggler.cc */,
-				B8F0B66516E7B3A70024EF45 /* boggler.h */,
-				B8F0B66616E7B3A70024EF45 /* trie.cc */,
-				B8F0B66716E7B3A70024EF45 /* trie.h */,
+				9064C2701809E5B700A2721C /* trie.h */,
+				9064C2711809E5B700A2721C /* boggle_solver.cc */,
+				9064C2721809E5B700A2721C /* boggle_solver.h */,
+				9064C2731809E5B700A2721C /* boggler.cc */,
+				9064C2741809E5B700A2721C /* boggler.h */,
+				9064C2751809E5B700A2721C /* trie.cc */,
 			);
 			path = "perf-solver";
 			sourceTree = "<group>";
@@ -593,30 +651,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42C932F11491A5160098216A /* words.cpp in Sources */,
-				9041D25516C6BBB00098C475 /* camera_control.cpp in Sources */,
-				905108D716D4A59700E17584 /* input_event_handler.cpp in Sources */,
-				905108D816D4A59700E17584 /* letter_controller.cpp in Sources */,
-				9052E99717F913E7006574AD /* statistics.cpp in Sources */,
-				905108D916D4A59700E17584 /* renderable_node_repository.cpp in Sources */,
-				905108DA16D4A59700E17584 /* tile.cpp in Sources */,
-				90A2D13616DB369500E6C6DA /* animation.cpp in Sources */,
-				90A2D13716DB369500E6C6DA /* dice_manager.cpp in Sources */,
-				90A2D14A16DC8D6700E6C6DA /* selected_text_label.cpp in Sources */,
-				90A2D1A916E2887200E6C6DA /* menu.cpp in Sources */,
-				90A2D1AA16E2887200E6C6DA /* score_controller.cpp in Sources */,
 				9064A5EC17F91FF500A2721C /* RestHandler.cpp in Sources */,
-				90A2D1AB16E2887200E6C6DA /* timer_controller.cpp in Sources */,
-				B81EE52316E7B25C00429109 /* board_solver.cpp in Sources */,
-				9052E99517F913E7006574AD /* menu_icon_controller.cpp in Sources */,
-				B8F0B66816E7B3A70024EF45 /* boggle_solver.cc in Sources */,
-				B8F0B66A16E7B3A70024EF45 /* boggler.cc in Sources */,
-				B8F0B66C16E7B3A70024EF45 /* trie.cc in Sources */,
-				B8F0B67C16E7B4260024EF45 /* board.cpp in Sources */,
-				90B9A70E16ED2031006A4896 /* selected_text_connector.cpp in Sources */,
+				9064C25A1809E58600A2721C /* board_view.cpp in Sources */,
+				9064C2411809E57200A2721C /* board_solver.cpp in Sources */,
+				9064C2331809E54B00A2721C /* menu.cpp in Sources */,
+				9064C2891809E5CF00A2721C /* camera_control.cpp in Sources */,
+				9064C25E1809E58600A2721C /* score_view.cpp in Sources */,
+				9064C2431809E57200A2721C /* board.cpp in Sources */,
+				9064C25C1809E58600A2721C /* menu_icon.cpp in Sources */,
+				9064C28F1809E5CF00A2721C /* statistics.cpp in Sources */,
 				90BF0A9E16ED8952005ED530 /* iOSHandler.mm in Sources */,
+				9064C2451809E57200A2721C /* dice_manager.cpp in Sources */,
+				9064C26C1809E59500A2721C /* game_scene.cpp in Sources */,
+				9064C26E1809E59500A2721C /* game_state_model.cpp in Sources */,
+				9064C27A1809E5B700A2721C /* trie.cc in Sources */,
+				9064C28B1809E5CF00A2721C /* input_event_handler.cpp in Sources */,
+				9064C2621809E58600A2721C /* selected_text_label.cpp in Sources */,
+				9064C2641809E58600A2721C /* tile.cpp in Sources */,
 				90BF0AA416ED94AB005ED530 /* board_file_loader.cpp in Sources */,
+				9064C22F1809E54200A2721C /* animation.cpp in Sources */,
+				9064C2601809E58600A2721C /* selected_text_connector.cpp in Sources */,
+				9064C2661809E58600A2721C /* time_tank_view.cpp in Sources */,
 				90BF0AA816F00D3C005ED530 /* solver_worker.cpp in Sources */,
+				9064C2921809E6AD00A2721C /* scene_manager.cpp in Sources */,
+				9064C2761809E5B700A2721C /* boggle_solver.cc in Sources */,
+				9064C2581809E58600A2721C /* timer_controller.cpp in Sources */,
+				9064C28D1809E5CF00A2721C /* renderable_node_repository.cpp in Sources */,
+				9064C2781809E5B700A2721C /* boggler.cc in Sources */,
+				9064C2871809E5CF00A2721C /* words.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,48 +686,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90B9A71116ED2148006A4896 /* selected_text_connector.cpp in Sources */,
-				90B9A71216ED2148006A4896 /* board.hpp in Sources */,
-				90B9A71316ED2148006A4896 /* selected_text_connector.hpp in Sources */,
-				B8F0B67016E7B3DF0024EF45 /* boggle_solver.h in Sources */,
-				B8F0B67116E7B3DF0024EF45 /* boggler.h in Sources */,
-				B8F0B67216E7B3DF0024EF45 /* trie.h in Sources */,
+				9064C2301809E54200A2721C /* animation.cpp in Sources */,
+				9064C2341809E54B00A2721C /* menu.cpp in Sources */,
+				9064C2441809E57200A2721C /* board.cpp in Sources */,
+				9064C25D1809E58600A2721C /* menu_icon.cpp in Sources */,
+				9064C28A1809E5CF00A2721C /* camera_control.cpp in Sources */,
+				9064C26D1809E59500A2721C /* game_scene.cpp in Sources */,
+				9064C2611809E58600A2721C /* selected_text_connector.cpp in Sources */,
 				9064A5ED17F91FF500A2721C /* RestHandler.cpp in Sources */,
-				B81EE54516E7B31100429109 /* board_solver.hpp in Sources */,
-				90A2D1AC16E2889100E6C6DA /* menu.cpp in Sources */,
-				90A2D1AD16E2889100E6C6DA /* menu.hpp in Sources */,
-				90A2D1AE16E2889100E6C6DA /* score_controller.cpp in Sources */,
-				90A2D1AF16E2889100E6C6DA /* score_controller.hpp in Sources */,
-				90A2D1B016E2889100E6C6DA /* timer_controller.cpp in Sources */,
-				90A2D1B116E2889100E6C6DA /* timer_controller.hpp in Sources */,
-				90A2D14B16DC8D6E00E6C6DA /* selected_text_label.cpp in Sources */,
-				90A2D14C16DC8D6E00E6C6DA /* selected_text_label.hpp in Sources */,
-				9052E99817F913E7006574AD /* statistics.cpp in Sources */,
-				90A2D13816DB369D00E6C6DA /* animation.cpp in Sources */,
-				90A2D13916DB369D00E6C6DA /* animation.hpp in Sources */,
-				90A2D13A16DB369D00E6C6DA /* dice_manager.cpp in Sources */,
-				90A2D13B16DB369D00E6C6DA /* dice_manager.hpp in Sources */,
-				90A2D13C16DB369D00E6C6DA /* input_event_handler.cpp in Sources */,
-				90A2D13D16DB369D00E6C6DA /* input_event_handler.hpp in Sources */,
-				90A2D13E16DB369D00E6C6DA /* letter_controller.cpp in Sources */,
-				90A2D13F16DB369D00E6C6DA /* letter_controller.hpp in Sources */,
-				90A2D14016DB369D00E6C6DA /* renderable_node_repository.cpp in Sources */,
-				90A2D14116DB369D00E6C6DA /* renderable_node_repository.hpp in Sources */,
-				9052E99617F913E7006574AD /* menu_icon_controller.cpp in Sources */,
-				90A2D14216DB369D00E6C6DA /* tile.cpp in Sources */,
-				90A2D14316DB369D00E6C6DA /* tile.hpp in Sources */,
-				90A2D14416DB369D00E6C6DA /* camera_control.cpp in Sources */,
-				90A2D14516DB369D00E6C6DA /* camera_control.hpp in Sources */,
-				90A2D14616DB369D00E6C6DA /* words.cpp in Sources */,
-				90A2D14716DB369D00E6C6DA /* words.h in Sources */,
-				B81EE52416E7B25C00429109 /* board_solver.cpp in Sources */,
-				B8F0B66916E7B3A70024EF45 /* boggle_solver.cc in Sources */,
-				B8F0B66B16E7B3A70024EF45 /* boggler.cc in Sources */,
-				B8F0B66D16E7B3A70024EF45 /* trie.cc in Sources */,
-				B8F0B67D16E7B4260024EF45 /* board.cpp in Sources */,
+				9064C2901809E5CF00A2721C /* statistics.cpp in Sources */,
+				9064C2651809E58600A2721C /* tile.cpp in Sources */,
+				9064C2631809E58600A2721C /* selected_text_label.cpp in Sources */,
+				9064C26F1809E59500A2721C /* game_state_model.cpp in Sources */,
+				9064C2591809E58600A2721C /* timer_controller.cpp in Sources */,
+				9064C27B1809E5B700A2721C /* trie.cc in Sources */,
+				9064C28C1809E5CF00A2721C /* input_event_handler.cpp in Sources */,
+				9064C25B1809E58600A2721C /* board_view.cpp in Sources */,
 				90BF0A9F16ED8952005ED530 /* iOSHandler.mm in Sources */,
+				9064C25F1809E58600A2721C /* score_view.cpp in Sources */,
 				90BF0AA516ED94AB005ED530 /* board_file_loader.cpp in Sources */,
 				90BF0AA916F00D3C005ED530 /* solver_worker.cpp in Sources */,
+				9064C2421809E57200A2721C /* board_solver.cpp in Sources */,
+				9064C2671809E58600A2721C /* time_tank_view.cpp in Sources */,
+				9064C2931809E6AD00A2721C /* scene_manager.cpp in Sources */,
+				9064C2771809E5B700A2721C /* boggle_solver.cc in Sources */,
+				9064C2461809E57200A2721C /* dice_manager.cpp in Sources */,
+				9064C28E1809E5CF00A2721C /* renderable_node_repository.cpp in Sources */,
+				9064C2791809E5B700A2721C /* boggler.cc in Sources */,
+				9064C2881809E5CF00A2721C /* words.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -743,11 +791,92 @@
 				INFOPLIST_FILE = "words-macosx.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"../gameplay-1.6/external-deps/bullet/lib/macosx\"",
-					"\"../gameplay-1.6/external-deps/lua/lib/macosx\"",
-					"\"../gameplay-1.6/external-deps/libpng/lib/macosx\"",
-					"\"../gameplay-1.6/external-deps/oggvorbis/lib/macosx\"",
-					"\"~/Library/Developer/Xcode/DerivedData/gameplay-exiunaubxxjndaapmcqkaoeboiob/Build/Products/Debug\"",
+					"../gameplay-1.6/external-deps/bullet/lib/macosx",
+					"../gameplay-1.6/external-deps/lua/lib/macosx",
+					"../gameplay-1.6/external-deps/libpng/lib/macosx",
+					"../gameplay-1.6/external-deps/oggvorbis/lib/macosx",
+					"~/Library/Developer/Xcode/DerivedData/gameplay-exiunaubxxjndaapmcqkaoeboiob/Build/Products/Debug",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/bullet/lib/android/arm",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/bullet/lib/blackberry/arm",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/bullet/lib/blackberry/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/bullet/lib/ios/armv7",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/bullet/lib/ios/armv7s",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/bullet/lib/ios/i386",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/bullet/lib/linux/x64",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/bullet/lib/linux/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/bullet/lib/macosx",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/bullet/lib/windows/x64",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/bullet/lib/windows/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/collada-dom/lib/linux/x64",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/collada-dom/lib/linux/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/collada-dom/lib/macosx",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/collada-dom/lib/windows/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/detour/lib/android/arm",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/detour/lib/blackberry/arm",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/detour/lib/blackberry/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/detour/lib/windows/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/detourcrowd/lib/android/arm",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/detourcrowd/lib/blackberry/arm",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/detourcrowd/lib/blackberry/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/detourcrowd/lib/windows/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/freetype2/lib/linux/x64",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/freetype2/lib/linux/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/freetype2/lib/macosx",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/freetype2/lib/windows/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/glew/lib/linux/x64",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/glew/lib/linux/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/glew/lib/windows/x64",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/glew/lib/windows/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/libpng/lib/android/arm",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/libpng/lib/ios/armv7",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/libpng/lib/ios/armv7s",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/libpng/lib/ios/i386",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/libpng/lib/linux/x64",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/libpng/lib/linux/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/libpng/lib/macosx",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/libpng/lib/windows/x64",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/libpng/lib/windows/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/lua/lib/android/arm",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/lua/lib/blackberry/arm",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/lua/lib/blackberry/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/lua/lib/ios/armv7",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/lua/lib/ios/armv7s",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/lua/lib/ios/i386",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/lua/lib/linux/x64",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/lua/lib/linux/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/lua/lib/macosx",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/lua/lib/windows/x64",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/lua/lib/windows/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/oggvorbis/lib/android/arm",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/oggvorbis/lib/blackberry/arm",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/oggvorbis/lib/blackberry/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/oggvorbis/lib/ios/armv7",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/oggvorbis/lib/ios/armv7s",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/oggvorbis/lib/ios/i386",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/oggvorbis/lib/linux/x64",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/oggvorbis/lib/linux/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/oggvorbis/lib/macosx",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/oggvorbis/lib/windows/x64",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/oggvorbis/lib/windows/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/openal/lib/android/arm",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/openal/lib/linux/x64",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/openal/lib/linux/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/openal/lib/windows/x64",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/openal/lib/windows/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/pcre/lib/macosx",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/recast/lib/android/arm",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/recast/lib/blackberry/arm",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/recast/lib/blackberry/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/recast/lib/windows/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/tinyxml2/lib/linux",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/tinyxml2/lib/macosx",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/tinyxml2/lib/windows/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/zlib/lib/android/arm",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/zlib/lib/linux/x64",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/zlib/lib/linux/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/zlib/lib/windows/x64",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/zlib/lib/windows/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/win-dependencies/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -774,11 +903,92 @@
 				INFOPLIST_FILE = "words-macosx.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"../gameplay-1.6/external-deps/bullet/lib/macosx\"",
-					"\"../gameplay-1.6/external-deps/lua/lib/macosx\"",
-					"\"../gameplay-1.6/external-deps/libpng/lib/macosx\"",
-					"\"../gameplay-1.6/external-deps/oggvorbis/lib/macosx\"",
-					"\"~/Library/Developer/Xcode/DerivedData/gameplay-exiunaubxxjndaapmcqkaoeboiob/Build/Products/Debug\"",
+					"../gameplay-1.6/external-deps/bullet/lib/macosx",
+					"../gameplay-1.6/external-deps/lua/lib/macosx",
+					"../gameplay-1.6/external-deps/libpng/lib/macosx",
+					"../gameplay-1.6/external-deps/oggvorbis/lib/macosx",
+					"~/Library/Developer/Xcode/DerivedData/gameplay-exiunaubxxjndaapmcqkaoeboiob/Build/Products/Debug",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/bullet/lib/android/arm",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/bullet/lib/blackberry/arm",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/bullet/lib/blackberry/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/bullet/lib/ios/armv7",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/bullet/lib/ios/armv7s",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/bullet/lib/ios/i386",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/bullet/lib/linux/x64",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/bullet/lib/linux/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/bullet/lib/macosx",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/bullet/lib/windows/x64",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/bullet/lib/windows/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/collada-dom/lib/linux/x64",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/collada-dom/lib/linux/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/collada-dom/lib/macosx",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/collada-dom/lib/windows/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/detour/lib/android/arm",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/detour/lib/blackberry/arm",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/detour/lib/blackberry/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/detour/lib/windows/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/detourcrowd/lib/android/arm",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/detourcrowd/lib/blackberry/arm",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/detourcrowd/lib/blackberry/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/detourcrowd/lib/windows/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/freetype2/lib/linux/x64",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/freetype2/lib/linux/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/freetype2/lib/macosx",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/freetype2/lib/windows/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/glew/lib/linux/x64",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/glew/lib/linux/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/glew/lib/windows/x64",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/glew/lib/windows/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/libpng/lib/android/arm",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/libpng/lib/ios/armv7",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/libpng/lib/ios/armv7s",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/libpng/lib/ios/i386",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/libpng/lib/linux/x64",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/libpng/lib/linux/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/libpng/lib/macosx",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/libpng/lib/windows/x64",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/libpng/lib/windows/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/lua/lib/android/arm",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/lua/lib/blackberry/arm",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/lua/lib/blackberry/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/lua/lib/ios/armv7",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/lua/lib/ios/armv7s",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/lua/lib/ios/i386",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/lua/lib/linux/x64",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/lua/lib/linux/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/lua/lib/macosx",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/lua/lib/windows/x64",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/lua/lib/windows/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/oggvorbis/lib/android/arm",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/oggvorbis/lib/blackberry/arm",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/oggvorbis/lib/blackberry/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/oggvorbis/lib/ios/armv7",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/oggvorbis/lib/ios/armv7s",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/oggvorbis/lib/ios/i386",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/oggvorbis/lib/linux/x64",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/oggvorbis/lib/linux/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/oggvorbis/lib/macosx",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/oggvorbis/lib/windows/x64",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/oggvorbis/lib/windows/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/openal/lib/android/arm",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/openal/lib/linux/x64",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/openal/lib/linux/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/openal/lib/windows/x64",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/openal/lib/windows/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/pcre/lib/macosx",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/recast/lib/android/arm",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/recast/lib/blackberry/arm",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/recast/lib/blackberry/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/recast/lib/windows/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/tinyxml2/lib/linux",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/tinyxml2/lib/macosx",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/tinyxml2/lib/windows/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/zlib/lib/android/arm",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/zlib/lib/linux/x64",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/zlib/lib/linux/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/zlib/lib/windows/x64",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/gameplay-1.6/external-deps/zlib/lib/windows/x86",
+					"/Users/MarkUdit/code/flyingmonkey/gameplay-words/win-dependencies/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "";

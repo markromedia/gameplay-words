@@ -9,7 +9,7 @@
 #import "iOSHandler.h"
 #import <dispatch/dispatch.h>
 
-#include "../src/solver_worker.hpp"
+#include "../src/ext/solver_worker.hpp"
 
 typedef SolverWorker SolverWorker;
 
