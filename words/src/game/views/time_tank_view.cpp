@@ -50,8 +50,10 @@ void TimeTankView::Render()
 
 void TimeTankView::Reset()
 {
+    instance->active_time_tanks.clear();
 	for (unsigned int i = 0; i < GameStateModel::TimeTanks().size(); i++) {
 		TimeTank* time_tank = instance->time_tank_repository[i];
+        time_tank->Reset();
 		instance->active_time_tanks.push_back(time_tank);
 	}
 }
@@ -63,10 +65,15 @@ TimeTank::TimeTank()
 	this->inactive_renderable_node = RENDERABLE("time_tank_inactive");
 	this->progress_ring_renderable_node = RENDERABLE("time_tank_progress_ring");
 	this->progress_ring_renderable_node_glow = RENDERABLE("time_tank_progress_ring_glow");
+    
+    this->Reset();
+}
 
-
+void TimeTank::Reset()
+{
 	this->mode = INACTIVE;
 	this->current_charge = 0;
+    this->target_charge = 0;
 	this->max_charge = GameStateModel::MaxTimeTankCharge();
 }
 

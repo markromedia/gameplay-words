@@ -98,6 +98,9 @@ public:
 
 	/// Renders this object.
 	void Render();
+    
+    /// Resets this time tank
+    void Reset();
 };
 
 #endif  // __TIME_TANK_VIEW__hpp
