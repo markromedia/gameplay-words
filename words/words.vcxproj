@@ -465,6 +465,7 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
     <ClCompile Include="src-win\board_file_loader.cpp" />
     <ClCompile Include="src-win\rest_handler.cpp" />
     <ClCompile Include="src-win\scene_manager.cpp" />
+    <ClCompile Include="src\fx\grayscale_fader_effect.cpp" />
     <ClCompile Include="src\game\board\board.cpp" />
     <ClCompile Include="src\game\board\dice_manager.cpp" />
     <ClCompile Include="src\game\game_scene.cpp" />
@@ -492,6 +493,7 @@ xcopy $(ProjectDir)res $(OutDir)res /E /I /Y &amp;
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ext\scene_manager.hpp" />
+    <ClInclude Include="src\fx\grayscale_fader_effect.hpp" />
     <ClInclude Include="src\game\board\board.hpp" />
     <ClInclude Include="src\ext\board_file_loader.hpp" />
     <ClInclude Include="src\game\board\board_tile.hpp" />
